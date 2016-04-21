@@ -93,6 +93,7 @@
 		A77B38F91CC8C22C00012A0E /* HokutosaiApp */ = {
 			isa = PBXGroup;
 			children = (
+				A77F9DDF1CC8FE8C00BEE9A7 /* Controllers */,
 				A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */,
 				A77B38FC1CC8C22C00012A0E /* ViewController.swift */,
 				A77B39011CC8C22C00012A0E /* Assets.xcassets */,
@@ -117,6 +118,45 @@
 				A77B391C1CC8C22C00012A0E /* Info.plist */,
 			);
 			path = HokutosaiAppUITests;
+			sourceTree = "<group>";
+		};
+		A77F9DDF1CC8FE8C00BEE9A7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A77F9DE31CC8FF2900BEE9A7 /* Events */,
+				A77F9DE21CC8FF0400BEE9A7 /* Exhibitions */,
+				A77F9DE11CC8FEFC00BEE9A7 /* Shops */,
+				A77F9DE01CC8FEEB00BEE9A7 /* News */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		A77F9DE01CC8FEEB00BEE9A7 /* News */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
+		A77F9DE11CC8FEFC00BEE9A7 /* Shops */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Shops;
+			sourceTree = "<group>";
+		};
+		A77F9DE21CC8FF0400BEE9A7 /* Exhibitions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Exhibitions;
+			sourceTree = "<group>";
+		};
+		A77F9DE31CC8FF2900BEE9A7 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Events;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
