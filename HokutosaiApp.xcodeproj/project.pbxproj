@@ -11,6 +11,7 @@
 		A77B39021CC8C22C00012A0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A77B39011CC8C22C00012A0E /* Assets.xcassets */; };
 		A77B39101CC8C22C00012A0E /* HokutosaiAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B390F1CC8C22C00012A0E /* HokutosaiAppTests.swift */; };
 		A77B391B1CC8C22C00012A0E /* HokutosaiAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B391A1CC8C22C00012A0E /* HokutosaiAppUITests.swift */; };
+		A77F9DE51CC9008600BEE9A7 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F9DE41CC9008600BEE9A7 /* MainTabViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		A77B39161CC8C22C00012A0E /* HokutosaiAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HokutosaiAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A77B391A1CC8C22C00012A0E /* HokutosaiAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HokutosaiAppUITests.swift; sourceTree = "<group>"; };
 		A77B391C1CC8C22C00012A0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A77F9DE41CC9008600BEE9A7 /* MainTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				A77F9DE21CC8FF0400BEE9A7 /* Exhibitions */,
 				A77F9DE11CC8FEFC00BEE9A7 /* Shops */,
 				A77F9DE01CC8FEEB00BEE9A7 /* News */,
+				A77F9DE41CC9008600BEE9A7 /* MainTabViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A77B38FB1CC8C22C00012A0E /* AppDelegate.swift in Sources */,
+				A77F9DE51CC9008600BEE9A7 /* MainTabViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
