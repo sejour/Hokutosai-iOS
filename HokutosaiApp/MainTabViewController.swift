@@ -20,19 +20,19 @@ class MainTabViewController: UITabBarController {
         var viewControllers = [UIViewController]()
         
         let newsViewController = UINavigationController(rootViewController: NewsViewController())
-        newsViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .Favorites, tag: 0)
+        newsViewController.tabBarItem = UITabBarItem(title: "ニュース", image: UIImage(named: "TabBarIconNews"), tag: 0)
         viewControllers.append(newsViewController)
         
         let eventsViewController = UINavigationController(rootViewController: ShopsViewController())
-        eventsViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .Favorites, tag: 1)
+        eventsViewController.tabBarItem = UITabBarItem(title: "スケジュール", image: UIImage(named: "TabBarIconEvent"), tag: 0)
         viewControllers.append(eventsViewController)
         
         let shopsViewController = UINavigationController(rootViewController: ShopsViewController())
-        shopsViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .Favorites, tag: 2)
+        shopsViewController.tabBarItem = UITabBarItem(title: "模擬店", image: UIImage(named: "TabBarIconShop"), tag: 0)
         viewControllers.append(shopsViewController)
         
         let exhibitionsViewController = UINavigationController(rootViewController: ShopsViewController())
-        exhibitionsViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .Favorites, tag: 3)
+        exhibitionsViewController.tabBarItem = UITabBarItem(title: "展示", image: UIImage(named: "TabBarIconExhibition"), tag: 0)
         viewControllers.append(exhibitionsViewController)
         
         self.setViewControllers(viewControllers, animated: false)
