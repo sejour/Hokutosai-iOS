@@ -1,0 +1,508 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A77B38FB1CC8C22C00012A0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */; };
+		A77B38FD1CC8C22C00012A0E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B38FC1CC8C22C00012A0E /* ViewController.swift */; };
+		A77B39001CC8C22C00012A0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A77B38FE1CC8C22C00012A0E /* Main.storyboard */; };
+		A77B39021CC8C22C00012A0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A77B39011CC8C22C00012A0E /* Assets.xcassets */; };
+		A77B39051CC8C22C00012A0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A77B39031CC8C22C00012A0E /* LaunchScreen.storyboard */; };
+		A77B39101CC8C22C00012A0E /* HokutosaiAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B390F1CC8C22C00012A0E /* HokutosaiAppTests.swift */; };
+		A77B391B1CC8C22C00012A0E /* HokutosaiAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B391A1CC8C22C00012A0E /* HokutosaiAppUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A77B390C1CC8C22C00012A0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A77B38EF1CC8C22C00012A0E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A77B38F61CC8C22C00012A0E;
+			remoteInfo = HokutosaiApp;
+		};
+		A77B39171CC8C22C00012A0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A77B38EF1CC8C22C00012A0E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A77B38F61CC8C22C00012A0E;
+			remoteInfo = HokutosaiApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A77B38F71CC8C22C00012A0E /* HokutosaiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HokutosaiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A77B38FC1CC8C22C00012A0E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A77B38FF1CC8C22C00012A0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A77B39011CC8C22C00012A0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A77B39041CC8C22C00012A0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A77B39061CC8C22C00012A0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A77B390B1CC8C22C00012A0E /* HokutosaiAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HokutosaiAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A77B390F1CC8C22C00012A0E /* HokutosaiAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HokutosaiAppTests.swift; sourceTree = "<group>"; };
+		A77B39111CC8C22C00012A0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A77B39161CC8C22C00012A0E /* HokutosaiAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HokutosaiAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A77B391A1CC8C22C00012A0E /* HokutosaiAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HokutosaiAppUITests.swift; sourceTree = "<group>"; };
+		A77B391C1CC8C22C00012A0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A77B38F41CC8C22C00012A0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A77B39081CC8C22C00012A0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A77B39131CC8C22C00012A0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A77B38EE1CC8C22C00012A0E = {
+			isa = PBXGroup;
+			children = (
+				A77B38F91CC8C22C00012A0E /* HokutosaiApp */,
+				A77B390E1CC8C22C00012A0E /* HokutosaiAppTests */,
+				A77B39191CC8C22C00012A0E /* HokutosaiAppUITests */,
+				A77B38F81CC8C22C00012A0E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A77B38F81CC8C22C00012A0E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A77B38F71CC8C22C00012A0E /* HokutosaiApp.app */,
+				A77B390B1CC8C22C00012A0E /* HokutosaiAppTests.xctest */,
+				A77B39161CC8C22C00012A0E /* HokutosaiAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A77B38F91CC8C22C00012A0E /* HokutosaiApp */ = {
+			isa = PBXGroup;
+			children = (
+				A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */,
+				A77B38FC1CC8C22C00012A0E /* ViewController.swift */,
+				A77B38FE1CC8C22C00012A0E /* Main.storyboard */,
+				A77B39011CC8C22C00012A0E /* Assets.xcassets */,
+				A77B39031CC8C22C00012A0E /* LaunchScreen.storyboard */,
+				A77B39061CC8C22C00012A0E /* Info.plist */,
+			);
+			path = HokutosaiApp;
+			sourceTree = "<group>";
+		};
+		A77B390E1CC8C22C00012A0E /* HokutosaiAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				A77B390F1CC8C22C00012A0E /* HokutosaiAppTests.swift */,
+				A77B39111CC8C22C00012A0E /* Info.plist */,
+			);
+			path = HokutosaiAppTests;
+			sourceTree = "<group>";
+		};
+		A77B39191CC8C22C00012A0E /* HokutosaiAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A77B391A1CC8C22C00012A0E /* HokutosaiAppUITests.swift */,
+				A77B391C1CC8C22C00012A0E /* Info.plist */,
+			);
+			path = HokutosaiAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A77B38F61CC8C22C00012A0E /* HokutosaiApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A77B391F1CC8C22C00012A0E /* Build configuration list for PBXNativeTarget "HokutosaiApp" */;
+			buildPhases = (
+				A77B38F31CC8C22C00012A0E /* Sources */,
+				A77B38F41CC8C22C00012A0E /* Frameworks */,
+				A77B38F51CC8C22C00012A0E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HokutosaiApp;
+			productName = HokutosaiApp;
+			productReference = A77B38F71CC8C22C00012A0E /* HokutosaiApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A77B390A1CC8C22C00012A0E /* HokutosaiAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A77B39221CC8C22C00012A0E /* Build configuration list for PBXNativeTarget "HokutosaiAppTests" */;
+			buildPhases = (
+				A77B39071CC8C22C00012A0E /* Sources */,
+				A77B39081CC8C22C00012A0E /* Frameworks */,
+				A77B39091CC8C22C00012A0E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A77B390D1CC8C22C00012A0E /* PBXTargetDependency */,
+			);
+			name = HokutosaiAppTests;
+			productName = HokutosaiAppTests;
+			productReference = A77B390B1CC8C22C00012A0E /* HokutosaiAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A77B39151CC8C22C00012A0E /* HokutosaiAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A77B39251CC8C22C00012A0E /* Build configuration list for PBXNativeTarget "HokutosaiAppUITests" */;
+			buildPhases = (
+				A77B39121CC8C22C00012A0E /* Sources */,
+				A77B39131CC8C22C00012A0E /* Frameworks */,
+				A77B39141CC8C22C00012A0E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A77B39181CC8C22C00012A0E /* PBXTargetDependency */,
+			);
+			name = HokutosaiAppUITests;
+			productName = HokutosaiAppUITests;
+			productReference = A77B39161CC8C22C00012A0E /* HokutosaiAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A77B38EF1CC8C22C00012A0E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Shuka Takakuma";
+				TargetAttributes = {
+					A77B38F61CC8C22C00012A0E = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = UCX35CL26E;
+					};
+					A77B390A1CC8C22C00012A0E = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = UCX35CL26E;
+						TestTargetID = A77B38F61CC8C22C00012A0E;
+					};
+					A77B39151CC8C22C00012A0E = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = UCX35CL26E;
+						TestTargetID = A77B38F61CC8C22C00012A0E;
+					};
+				};
+			};
+			buildConfigurationList = A77B38F21CC8C22C00012A0E /* Build configuration list for PBXProject "HokutosaiApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A77B38EE1CC8C22C00012A0E;
+			productRefGroup = A77B38F81CC8C22C00012A0E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A77B38F61CC8C22C00012A0E /* HokutosaiApp */,
+				A77B390A1CC8C22C00012A0E /* HokutosaiAppTests */,
+				A77B39151CC8C22C00012A0E /* HokutosaiAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A77B38F51CC8C22C00012A0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A77B39051CC8C22C00012A0E /* LaunchScreen.storyboard in Resources */,
+				A77B39021CC8C22C00012A0E /* Assets.xcassets in Resources */,
+				A77B39001CC8C22C00012A0E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A77B39091CC8C22C00012A0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A77B39141CC8C22C00012A0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A77B38F31CC8C22C00012A0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A77B38FD1CC8C22C00012A0E /* ViewController.swift in Sources */,
+				A77B38FB1CC8C22C00012A0E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A77B39071CC8C22C00012A0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A77B39101CC8C22C00012A0E /* HokutosaiAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A77B39121CC8C22C00012A0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A77B391B1CC8C22C00012A0E /* HokutosaiAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A77B390D1CC8C22C00012A0E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A77B38F61CC8C22C00012A0E /* HokutosaiApp */;
+			targetProxy = A77B390C1CC8C22C00012A0E /* PBXContainerItemProxy */;
+		};
+		A77B39181CC8C22C00012A0E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A77B38F61CC8C22C00012A0E /* HokutosaiApp */;
+			targetProxy = A77B39171CC8C22C00012A0E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A77B38FE1CC8C22C00012A0E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A77B38FF1CC8C22C00012A0E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A77B39031CC8C22C00012A0E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A77B39041CC8C22C00012A0E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A77B391D1CC8C22C00012A0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A77B391E1CC8C22C00012A0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A77B39201CC8C22C00012A0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HokutosaiApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = takakuma.shuka.HokutosaiApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A77B39211CC8C22C00012A0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HokutosaiApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = takakuma.shuka.HokutosaiApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A77B39231CC8C22C00012A0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = HokutosaiAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = takakuma.shuka.HokutosaiAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HokutosaiApp.app/HokutosaiApp";
+			};
+			name = Debug;
+		};
+		A77B39241CC8C22C00012A0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = HokutosaiAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = takakuma.shuka.HokutosaiAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HokutosaiApp.app/HokutosaiApp";
+			};
+			name = Release;
+		};
+		A77B39261CC8C22C00012A0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = HokutosaiAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = takakuma.shuka.HokutosaiAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = HokutosaiApp;
+			};
+			name = Debug;
+		};
+		A77B39271CC8C22C00012A0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = HokutosaiAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = takakuma.shuka.HokutosaiAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = HokutosaiApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A77B38F21CC8C22C00012A0E /* Build configuration list for PBXProject "HokutosaiApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A77B391D1CC8C22C00012A0E /* Debug */,
+				A77B391E1CC8C22C00012A0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A77B391F1CC8C22C00012A0E /* Build configuration list for PBXNativeTarget "HokutosaiApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A77B39201CC8C22C00012A0E /* Debug */,
+				A77B39211CC8C22C00012A0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A77B39221CC8C22C00012A0E /* Build configuration list for PBXNativeTarget "HokutosaiAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A77B39231CC8C22C00012A0E /* Debug */,
+				A77B39241CC8C22C00012A0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A77B39251CC8C22C00012A0E /* Build configuration list for PBXNativeTarget "HokutosaiAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A77B39261CC8C22C00012A0E /* Debug */,
+				A77B39271CC8C22C00012A0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A77B38EF1CC8C22C00012A0E /* Project object */;
+}
