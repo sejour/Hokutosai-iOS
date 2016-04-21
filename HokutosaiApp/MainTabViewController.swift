@@ -20,7 +20,7 @@ class MainTabViewController: UITabBarController {
         var viewControllers = [UIViewController]()
         
         let newsViewController = UINavigationController(rootViewController: NewsViewController())
-        newsViewController.tabBarItem = UITabBarItem(title: "ニュース", image: UIImage(named: "TabBarIconNews"), tag: 0)
+        newsViewController.tabBarItem = UITabBarItem(title: "お知らせ", image: UIImage(named: "TabBarIconNews"), tag: 0)
         viewControllers.append(newsViewController)
         
         let eventsViewController = UINavigationController(rootViewController: ShopsViewController())
