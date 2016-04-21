@@ -10,4 +10,22 @@ import UIKit
 
 class MainTabViewController: UITabBarController {
 
+    convenience init () {
+        self.init(nibName: nil, bundle: NSBundle.mainBundle())
+    }
+    
+    override init (nibName: String?, bundle: NSBundle?) {
+        super.init(nibName: nibName, bundle: bundle)
+        
+        var viewControllers: [UIViewController] = []
+        
+        self.setViewControllers(viewControllers, animated: false)
+        self.selectedIndex = 0
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    
 }
