@@ -9,9 +9,7 @@
 /* Begin PBXBuildFile section */
 		A77B38FB1CC8C22C00012A0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */; };
 		A77B38FD1CC8C22C00012A0E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B38FC1CC8C22C00012A0E /* ViewController.swift */; };
-		A77B39001CC8C22C00012A0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A77B38FE1CC8C22C00012A0E /* Main.storyboard */; };
 		A77B39021CC8C22C00012A0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A77B39011CC8C22C00012A0E /* Assets.xcassets */; };
-		A77B39051CC8C22C00012A0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A77B39031CC8C22C00012A0E /* LaunchScreen.storyboard */; };
 		A77B39101CC8C22C00012A0E /* HokutosaiAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B390F1CC8C22C00012A0E /* HokutosaiAppTests.swift */; };
 		A77B391B1CC8C22C00012A0E /* HokutosaiAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B391A1CC8C22C00012A0E /* HokutosaiAppUITests.swift */; };
 /* End PBXBuildFile section */
@@ -37,9 +35,7 @@
 		A77B38F71CC8C22C00012A0E /* HokutosaiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HokutosaiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A77B38FC1CC8C22C00012A0E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A77B38FF1CC8C22C00012A0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A77B39011CC8C22C00012A0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A77B39041CC8C22C00012A0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A77B39061CC8C22C00012A0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A77B390B1CC8C22C00012A0E /* HokutosaiAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HokutosaiAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A77B390F1CC8C22C00012A0E /* HokutosaiAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HokutosaiAppTests.swift; sourceTree = "<group>"; };
@@ -99,9 +95,7 @@
 			children = (
 				A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */,
 				A77B38FC1CC8C22C00012A0E /* ViewController.swift */,
-				A77B38FE1CC8C22C00012A0E /* Main.storyboard */,
 				A77B39011CC8C22C00012A0E /* Assets.xcassets */,
-				A77B39031CC8C22C00012A0E /* LaunchScreen.storyboard */,
 				A77B39061CC8C22C00012A0E /* Info.plist */,
 			);
 			path = HokutosaiApp;
@@ -232,9 +226,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A77B39051CC8C22C00012A0E /* LaunchScreen.storyboard in Resources */,
 				A77B39021CC8C22C00012A0E /* Assets.xcassets in Resources */,
-				A77B39001CC8C22C00012A0E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,25 +286,6 @@
 			targetProxy = A77B39171CC8C22C00012A0E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		A77B38FE1CC8C22C00012A0E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A77B38FF1CC8C22C00012A0E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		A77B39031CC8C22C00012A0E /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A77B39041CC8C22C00012A0E /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		A77B391D1CC8C22C00012A0E /* Debug */ = {
@@ -487,6 +460,7 @@
 				A77B39211CC8C22C00012A0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A77B39221CC8C22C00012A0E /* Build configuration list for PBXNativeTarget "HokutosaiAppTests" */ = {
 			isa = XCConfigurationList;
@@ -495,6 +469,7 @@
 				A77B39241CC8C22C00012A0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A77B39251CC8C22C00012A0E /* Build configuration list for PBXNativeTarget "HokutosaiAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +478,7 @@
 				A77B39271CC8C22C00012A0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
