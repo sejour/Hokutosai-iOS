@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		A77B38FB1CC8C22C00012A0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */; };
-		A77B38FD1CC8C22C00012A0E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B38FC1CC8C22C00012A0E /* ViewController.swift */; };
-		A77B39001CC8C22C00012A0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A77B38FE1CC8C22C00012A0E /* Main.storyboard */; };
 		A77B39021CC8C22C00012A0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A77B39011CC8C22C00012A0E /* Assets.xcassets */; };
-		A77B39051CC8C22C00012A0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A77B39031CC8C22C00012A0E /* LaunchScreen.storyboard */; };
 		A77B39101CC8C22C00012A0E /* HokutosaiAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B390F1CC8C22C00012A0E /* HokutosaiAppTests.swift */; };
 		A77B391B1CC8C22C00012A0E /* HokutosaiAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B391A1CC8C22C00012A0E /* HokutosaiAppUITests.swift */; };
+		A77F9DE51CC9008600BEE9A7 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F9DE41CC9008600BEE9A7 /* MainTabViewController.swift */; };
+		A77F9DE71CC910A400BEE9A7 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F9DE61CC910A400BEE9A7 /* NewsViewController.swift */; };
+		A77F9DE91CC910F800BEE9A7 /* ShopsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F9DE81CC910F800BEE9A7 /* ShopsViewController.swift */; };
+		A77F9DEB1CC9111000BEE9A7 /* ExhibitionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F9DEA1CC9111000BEE9A7 /* ExhibitionsViewController.swift */; };
+		A77F9DED1CC9112700BEE9A7 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F9DEC1CC9112700BEE9A7 /* EventsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,10 +38,7 @@
 /* Begin PBXFileReference section */
 		A77B38F71CC8C22C00012A0E /* HokutosaiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HokutosaiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A77B38FC1CC8C22C00012A0E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A77B38FF1CC8C22C00012A0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A77B39011CC8C22C00012A0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A77B39041CC8C22C00012A0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A77B39061CC8C22C00012A0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A77B390B1CC8C22C00012A0E /* HokutosaiAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HokutosaiAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A77B390F1CC8C22C00012A0E /* HokutosaiAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HokutosaiAppTests.swift; sourceTree = "<group>"; };
@@ -47,6 +46,11 @@
 		A77B39161CC8C22C00012A0E /* HokutosaiAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HokutosaiAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A77B391A1CC8C22C00012A0E /* HokutosaiAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HokutosaiAppUITests.swift; sourceTree = "<group>"; };
 		A77B391C1CC8C22C00012A0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A77F9DE41CC9008600BEE9A7 /* MainTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
+		A77F9DE61CC910A400BEE9A7 /* NewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		A77F9DE81CC910F800BEE9A7 /* ShopsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopsViewController.swift; sourceTree = "<group>"; };
+		A77F9DEA1CC9111000BEE9A7 /* ExhibitionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExhibitionsViewController.swift; sourceTree = "<group>"; };
+		A77F9DEC1CC9112700BEE9A7 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,11 +101,9 @@
 		A77B38F91CC8C22C00012A0E /* HokutosaiApp */ = {
 			isa = PBXGroup;
 			children = (
+				A77F9DDF1CC8FE8C00BEE9A7 /* Controllers */,
 				A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */,
-				A77B38FC1CC8C22C00012A0E /* ViewController.swift */,
-				A77B38FE1CC8C22C00012A0E /* Main.storyboard */,
 				A77B39011CC8C22C00012A0E /* Assets.xcassets */,
-				A77B39031CC8C22C00012A0E /* LaunchScreen.storyboard */,
 				A77B39061CC8C22C00012A0E /* Info.plist */,
 			);
 			path = HokutosaiApp;
@@ -123,6 +125,50 @@
 				A77B391C1CC8C22C00012A0E /* Info.plist */,
 			);
 			path = HokutosaiAppUITests;
+			sourceTree = "<group>";
+		};
+		A77F9DDF1CC8FE8C00BEE9A7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A77F9DE31CC8FF2900BEE9A7 /* Events */,
+				A77F9DE21CC8FF0400BEE9A7 /* Exhibitions */,
+				A77F9DE11CC8FEFC00BEE9A7 /* Shops */,
+				A77F9DE01CC8FEEB00BEE9A7 /* News */,
+				A77F9DE41CC9008600BEE9A7 /* MainTabViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		A77F9DE01CC8FEEB00BEE9A7 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				A77F9DE61CC910A400BEE9A7 /* NewsViewController.swift */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
+		A77F9DE11CC8FEFC00BEE9A7 /* Shops */ = {
+			isa = PBXGroup;
+			children = (
+				A77F9DE81CC910F800BEE9A7 /* ShopsViewController.swift */,
+			);
+			name = Shops;
+			sourceTree = "<group>";
+		};
+		A77F9DE21CC8FF0400BEE9A7 /* Exhibitions */ = {
+			isa = PBXGroup;
+			children = (
+				A77F9DEA1CC9111000BEE9A7 /* ExhibitionsViewController.swift */,
+			);
+			name = Exhibitions;
+			sourceTree = "<group>";
+		};
+		A77F9DE31CC8FF2900BEE9A7 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				A77F9DEC1CC9112700BEE9A7 /* EventsViewController.swift */,
+			);
+			name = Events;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,9 +278,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A77B39051CC8C22C00012A0E /* LaunchScreen.storyboard in Resources */,
 				A77B39021CC8C22C00012A0E /* Assets.xcassets in Resources */,
-				A77B39001CC8C22C00012A0E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +303,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A77B38FD1CC8C22C00012A0E /* ViewController.swift in Sources */,
+				A77F9DE91CC910F800BEE9A7 /* ShopsViewController.swift in Sources */,
+				A77F9DE71CC910A400BEE9A7 /* NewsViewController.swift in Sources */,
+				A77F9DEB1CC9111000BEE9A7 /* ExhibitionsViewController.swift in Sources */,
 				A77B38FB1CC8C22C00012A0E /* AppDelegate.swift in Sources */,
+				A77F9DE51CC9008600BEE9A7 /* MainTabViewController.swift in Sources */,
+				A77F9DED1CC9112700BEE9A7 /* EventsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,25 +342,6 @@
 			targetProxy = A77B39171CC8C22C00012A0E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		A77B38FE1CC8C22C00012A0E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A77B38FF1CC8C22C00012A0E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		A77B39031CC8C22C00012A0E /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A77B39041CC8C22C00012A0E /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		A77B391D1CC8C22C00012A0E /* Debug */ = {
@@ -487,6 +516,7 @@
 				A77B39211CC8C22C00012A0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A77B39221CC8C22C00012A0E /* Build configuration list for PBXNativeTarget "HokutosaiAppTests" */ = {
 			isa = XCConfigurationList;
@@ -495,6 +525,7 @@
 				A77B39241CC8C22C00012A0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A77B39251CC8C22C00012A0E /* Build configuration list for PBXNativeTarget "HokutosaiAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +534,7 @@
 				A77B39271CC8C22C00012A0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

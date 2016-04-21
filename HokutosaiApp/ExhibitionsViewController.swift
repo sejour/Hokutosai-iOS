@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ExhibitionsViewController.swift
 //  HokutosaiApp
 //
 //  Created by Shuka Takakuma on 2016/04/21.
@@ -8,11 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ExhibitionsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +21,4 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
 }
-
