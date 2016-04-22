@@ -1,542 +1,1218 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		A77B38FB1CC8C22C00012A0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */; };
-		A77B39021CC8C22C00012A0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A77B39011CC8C22C00012A0E /* Assets.xcassets */; };
-		A77B39101CC8C22C00012A0E /* HokutosaiAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B390F1CC8C22C00012A0E /* HokutosaiAppTests.swift */; };
-		A77B391B1CC8C22C00012A0E /* HokutosaiAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B391A1CC8C22C00012A0E /* HokutosaiAppUITests.swift */; };
-		A77F9DE51CC9008600BEE9A7 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F9DE41CC9008600BEE9A7 /* MainTabViewController.swift */; };
-		A77F9DE71CC910A400BEE9A7 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F9DE61CC910A400BEE9A7 /* NewsViewController.swift */; };
-		A77F9DE91CC910F800BEE9A7 /* ShopsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F9DE81CC910F800BEE9A7 /* ShopsViewController.swift */; };
-		A77F9DEB1CC9111000BEE9A7 /* ExhibitionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F9DEA1CC9111000BEE9A7 /* ExhibitionsViewController.swift */; };
-		A77F9DED1CC9112700BEE9A7 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F9DEC1CC9112700BEE9A7 /* EventsViewController.swift */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		A77B390C1CC8C22C00012A0E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A77B38EF1CC8C22C00012A0E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A77B38F61CC8C22C00012A0E;
-			remoteInfo = HokutosaiApp;
-		};
-		A77B39171CC8C22C00012A0E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A77B38EF1CC8C22C00012A0E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A77B38F61CC8C22C00012A0E;
-			remoteInfo = HokutosaiApp;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		A77B38F71CC8C22C00012A0E /* HokutosaiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HokutosaiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A77B39011CC8C22C00012A0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A77B39061CC8C22C00012A0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A77B390B1CC8C22C00012A0E /* HokutosaiAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HokutosaiAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A77B390F1CC8C22C00012A0E /* HokutosaiAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HokutosaiAppTests.swift; sourceTree = "<group>"; };
-		A77B39111CC8C22C00012A0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A77B39161CC8C22C00012A0E /* HokutosaiAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HokutosaiAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A77B391A1CC8C22C00012A0E /* HokutosaiAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HokutosaiAppUITests.swift; sourceTree = "<group>"; };
-		A77B391C1CC8C22C00012A0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A77F9DE41CC9008600BEE9A7 /* MainTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
-		A77F9DE61CC910A400BEE9A7 /* NewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
-		A77F9DE81CC910F800BEE9A7 /* ShopsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopsViewController.swift; sourceTree = "<group>"; };
-		A77F9DEA1CC9111000BEE9A7 /* ExhibitionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExhibitionsViewController.swift; sourceTree = "<group>"; };
-		A77F9DEC1CC9112700BEE9A7 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		A77B38F41CC8C22C00012A0E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A77B39081CC8C22C00012A0E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A77B39131CC8C22C00012A0E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		A77B38EE1CC8C22C00012A0E = {
-			isa = PBXGroup;
-			children = (
-				A77B38F91CC8C22C00012A0E /* HokutosaiApp */,
-				A77B390E1CC8C22C00012A0E /* HokutosaiAppTests */,
-				A77B39191CC8C22C00012A0E /* HokutosaiAppUITests */,
-				A77B38F81CC8C22C00012A0E /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		A77B38F81CC8C22C00012A0E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A77B38F71CC8C22C00012A0E /* HokutosaiApp.app */,
-				A77B390B1CC8C22C00012A0E /* HokutosaiAppTests.xctest */,
-				A77B39161CC8C22C00012A0E /* HokutosaiAppUITests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		A77B38F91CC8C22C00012A0E /* HokutosaiApp */ = {
-			isa = PBXGroup;
-			children = (
-				A77F9DDF1CC8FE8C00BEE9A7 /* Controllers */,
-				A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */,
-				A77B39011CC8C22C00012A0E /* Assets.xcassets */,
-				A77B39061CC8C22C00012A0E /* Info.plist */,
-			);
-			path = HokutosaiApp;
-			sourceTree = "<group>";
-		};
-		A77B390E1CC8C22C00012A0E /* HokutosaiAppTests */ = {
-			isa = PBXGroup;
-			children = (
-				A77B390F1CC8C22C00012A0E /* HokutosaiAppTests.swift */,
-				A77B39111CC8C22C00012A0E /* Info.plist */,
-			);
-			path = HokutosaiAppTests;
-			sourceTree = "<group>";
-		};
-		A77B39191CC8C22C00012A0E /* HokutosaiAppUITests */ = {
-			isa = PBXGroup;
-			children = (
-				A77B391A1CC8C22C00012A0E /* HokutosaiAppUITests.swift */,
-				A77B391C1CC8C22C00012A0E /* Info.plist */,
-			);
-			path = HokutosaiAppUITests;
-			sourceTree = "<group>";
-		};
-		A77F9DDF1CC8FE8C00BEE9A7 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				A77F9DE31CC8FF2900BEE9A7 /* Events */,
-				A77F9DE21CC8FF0400BEE9A7 /* Exhibitions */,
-				A77F9DE11CC8FEFC00BEE9A7 /* Shops */,
-				A77F9DE01CC8FEEB00BEE9A7 /* News */,
-				A77F9DE41CC9008600BEE9A7 /* MainTabViewController.swift */,
-			);
-			name = Controllers;
-			sourceTree = "<group>";
-		};
-		A77F9DE01CC8FEEB00BEE9A7 /* News */ = {
-			isa = PBXGroup;
-			children = (
-				A77F9DE61CC910A400BEE9A7 /* NewsViewController.swift */,
-			);
-			name = News;
-			sourceTree = "<group>";
-		};
-		A77F9DE11CC8FEFC00BEE9A7 /* Shops */ = {
-			isa = PBXGroup;
-			children = (
-				A77F9DE81CC910F800BEE9A7 /* ShopsViewController.swift */,
-			);
-			name = Shops;
-			sourceTree = "<group>";
-		};
-		A77F9DE21CC8FF0400BEE9A7 /* Exhibitions */ = {
-			isa = PBXGroup;
-			children = (
-				A77F9DEA1CC9111000BEE9A7 /* ExhibitionsViewController.swift */,
-			);
-			name = Exhibitions;
-			sourceTree = "<group>";
-		};
-		A77F9DE31CC8FF2900BEE9A7 /* Events */ = {
-			isa = PBXGroup;
-			children = (
-				A77F9DEC1CC9112700BEE9A7 /* EventsViewController.swift */,
-			);
-			name = Events;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		A77B38F61CC8C22C00012A0E /* HokutosaiApp */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A77B391F1CC8C22C00012A0E /* Build configuration list for PBXNativeTarget "HokutosaiApp" */;
-			buildPhases = (
-				A77B38F31CC8C22C00012A0E /* Sources */,
-				A77B38F41CC8C22C00012A0E /* Frameworks */,
-				A77B38F51CC8C22C00012A0E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = HokutosaiApp;
-			productName = HokutosaiApp;
-			productReference = A77B38F71CC8C22C00012A0E /* HokutosaiApp.app */;
-			productType = "com.apple.product-type.application";
-		};
-		A77B390A1CC8C22C00012A0E /* HokutosaiAppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A77B39221CC8C22C00012A0E /* Build configuration list for PBXNativeTarget "HokutosaiAppTests" */;
-			buildPhases = (
-				A77B39071CC8C22C00012A0E /* Sources */,
-				A77B39081CC8C22C00012A0E /* Frameworks */,
-				A77B39091CC8C22C00012A0E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A77B390D1CC8C22C00012A0E /* PBXTargetDependency */,
-			);
-			name = HokutosaiAppTests;
-			productName = HokutosaiAppTests;
-			productReference = A77B390B1CC8C22C00012A0E /* HokutosaiAppTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		A77B39151CC8C22C00012A0E /* HokutosaiAppUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A77B39251CC8C22C00012A0E /* Build configuration list for PBXNativeTarget "HokutosaiAppUITests" */;
-			buildPhases = (
-				A77B39121CC8C22C00012A0E /* Sources */,
-				A77B39131CC8C22C00012A0E /* Frameworks */,
-				A77B39141CC8C22C00012A0E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A77B39181CC8C22C00012A0E /* PBXTargetDependency */,
-			);
-			name = HokutosaiAppUITests;
-			productName = HokutosaiAppUITests;
-			productReference = A77B39161CC8C22C00012A0E /* HokutosaiAppUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		A77B38EF1CC8C22C00012A0E /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
-				ORGANIZATIONNAME = "Shuka Takakuma";
-				TargetAttributes = {
-					A77B38F61CC8C22C00012A0E = {
-						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = UCX35CL26E;
-					};
-					A77B390A1CC8C22C00012A0E = {
-						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = UCX35CL26E;
-						TestTargetID = A77B38F61CC8C22C00012A0E;
-					};
-					A77B39151CC8C22C00012A0E = {
-						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = UCX35CL26E;
-						TestTargetID = A77B38F61CC8C22C00012A0E;
-					};
-				};
-			};
-			buildConfigurationList = A77B38F21CC8C22C00012A0E /* Build configuration list for PBXProject "HokutosaiApp" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-				Base,
-			);
-			mainGroup = A77B38EE1CC8C22C00012A0E;
-			productRefGroup = A77B38F81CC8C22C00012A0E /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				A77B38F61CC8C22C00012A0E /* HokutosaiApp */,
-				A77B390A1CC8C22C00012A0E /* HokutosaiAppTests */,
-				A77B39151CC8C22C00012A0E /* HokutosaiAppUITests */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		A77B38F51CC8C22C00012A0E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A77B39021CC8C22C00012A0E /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A77B39091CC8C22C00012A0E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A77B39141CC8C22C00012A0E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		A77B38F31CC8C22C00012A0E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A77F9DE91CC910F800BEE9A7 /* ShopsViewController.swift in Sources */,
-				A77F9DE71CC910A400BEE9A7 /* NewsViewController.swift in Sources */,
-				A77F9DEB1CC9111000BEE9A7 /* ExhibitionsViewController.swift in Sources */,
-				A77B38FB1CC8C22C00012A0E /* AppDelegate.swift in Sources */,
-				A77F9DE51CC9008600BEE9A7 /* MainTabViewController.swift in Sources */,
-				A77F9DED1CC9112700BEE9A7 /* EventsViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A77B39071CC8C22C00012A0E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A77B39101CC8C22C00012A0E /* HokutosaiAppTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A77B39121CC8C22C00012A0E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A77B391B1CC8C22C00012A0E /* HokutosaiAppUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		A77B390D1CC8C22C00012A0E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A77B38F61CC8C22C00012A0E /* HokutosaiApp */;
-			targetProxy = A77B390C1CC8C22C00012A0E /* PBXContainerItemProxy */;
-		};
-		A77B39181CC8C22C00012A0E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A77B38F61CC8C22C00012A0E /* HokutosaiApp */;
-			targetProxy = A77B39171CC8C22C00012A0E /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin XCBuildConfiguration section */
-		A77B391D1CC8C22C00012A0E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug;
-		};
-		A77B391E1CC8C22C00012A0E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		A77B39201CC8C22C00012A0E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = HokutosaiApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = takakuma.shuka.HokutosaiApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		A77B39211CC8C22C00012A0E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = HokutosaiApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = takakuma.shuka.HokutosaiApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		A77B39231CC8C22C00012A0E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = HokutosaiAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = takakuma.shuka.HokutosaiAppTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HokutosaiApp.app/HokutosaiApp";
-			};
-			name = Debug;
-		};
-		A77B39241CC8C22C00012A0E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = HokutosaiAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = takakuma.shuka.HokutosaiAppTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HokutosaiApp.app/HokutosaiApp";
-			};
-			name = Release;
-		};
-		A77B39261CC8C22C00012A0E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = HokutosaiAppUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = takakuma.shuka.HokutosaiAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = HokutosaiApp;
-			};
-			name = Debug;
-		};
-		A77B39271CC8C22C00012A0E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = HokutosaiAppUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = takakuma.shuka.HokutosaiAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = HokutosaiApp;
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		A77B38F21CC8C22C00012A0E /* Build configuration list for PBXProject "HokutosaiApp" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A77B391D1CC8C22C00012A0E /* Debug */,
-				A77B391E1CC8C22C00012A0E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A77B391F1CC8C22C00012A0E /* Build configuration list for PBXNativeTarget "HokutosaiApp" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A77B39201CC8C22C00012A0E /* Debug */,
-				A77B39211CC8C22C00012A0E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A77B39221CC8C22C00012A0E /* Build configuration list for PBXNativeTarget "HokutosaiAppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A77B39231CC8C22C00012A0E /* Debug */,
-				A77B39241CC8C22C00012A0E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A77B39251CC8C22C00012A0E /* Build configuration list for PBXNativeTarget "HokutosaiAppUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A77B39261CC8C22C00012A0E /* Debug */,
-				A77B39271CC8C22C00012A0E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = A77B38EF1CC8C22C00012A0E /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>0F463E96ECB1CE21579B13D4</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>906BE70B87479B1542A60B06</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>52AA5A9A07ED55E6CE7C6959</key>
+		<dict>
+			<key>fileRef</key>
+			<string>906BE70B87479B1542A60B06</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>906BE70B87479B1542A60B06</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_HokutosaiApp.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>97E68EEBAEB8E63EB23447F5</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-HokutosaiApp.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-HokutosaiApp/Pods-HokutosaiApp.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>9F284A8028737332712C395F</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>A77B38EE1CC8C22C00012A0E</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>A77B38F91CC8C22C00012A0E</string>
+				<string>A77B390E1CC8C22C00012A0E</string>
+				<string>A77B39191CC8C22C00012A0E</string>
+				<string>A77B38F81CC8C22C00012A0E</string>
+				<string>C3415C3CFED4FAA3CCA79F2E</string>
+				<string>0F463E96ECB1CE21579B13D4</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A77B38EF1CC8C22C00012A0E</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastSwiftUpdateCheck</key>
+				<string>0730</string>
+				<key>LastUpgradeCheck</key>
+				<string>0730</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>Shuka Takakuma</string>
+				<key>TargetAttributes</key>
+				<dict>
+					<key>A77B38F61CC8C22C00012A0E</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>7.3</string>
+						<key>DevelopmentTeam</key>
+						<string>UCX35CL26E</string>
+					</dict>
+					<key>A77B390A1CC8C22C00012A0E</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>7.3</string>
+						<key>DevelopmentTeam</key>
+						<string>UCX35CL26E</string>
+						<key>TestTargetID</key>
+						<string>A77B38F61CC8C22C00012A0E</string>
+					</dict>
+					<key>A77B39151CC8C22C00012A0E</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>7.3</string>
+						<key>DevelopmentTeam</key>
+						<string>UCX35CL26E</string>
+						<key>TestTargetID</key>
+						<string>A77B38F61CC8C22C00012A0E</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>A77B38F21CC8C22C00012A0E</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+				<string>Base</string>
+			</array>
+			<key>mainGroup</key>
+			<string>A77B38EE1CC8C22C00012A0E</string>
+			<key>productRefGroup</key>
+			<string>A77B38F81CC8C22C00012A0E</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>A77B38F61CC8C22C00012A0E</string>
+				<string>A77B390A1CC8C22C00012A0E</string>
+				<string>A77B39151CC8C22C00012A0E</string>
+			</array>
+		</dict>
+		<key>A77B38F21CC8C22C00012A0E</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>A77B391D1CC8C22C00012A0E</string>
+				<string>A77B391E1CC8C22C00012A0E</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>A77B38F31CC8C22C00012A0E</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>A77F9DE91CC910F800BEE9A7</string>
+				<string>A77F9DE71CC910A400BEE9A7</string>
+				<string>A77F9DEB1CC9111000BEE9A7</string>
+				<string>A77B38FB1CC8C22C00012A0E</string>
+				<string>A77F9DE51CC9008600BEE9A7</string>
+				<string>A77F9DED1CC9112700BEE9A7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>A77B38F41CC8C22C00012A0E</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>52AA5A9A07ED55E6CE7C6959</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>A77B38F51CC8C22C00012A0E</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>A77B39021CC8C22C00012A0E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>A77B38F61CC8C22C00012A0E</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>A77B391F1CC8C22C00012A0E</string>
+			<key>buildPhases</key>
+			<array>
+				<string>9F284A8028737332712C395F</string>
+				<string>A77B38F31CC8C22C00012A0E</string>
+				<string>A77B38F41CC8C22C00012A0E</string>
+				<string>A77B38F51CC8C22C00012A0E</string>
+				<string>D14FB0CC0569E3381311B413</string>
+				<string>B4F04EDC2F4CCB53B59E62F4</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>HokutosaiApp</string>
+			<key>productName</key>
+			<string>HokutosaiApp</string>
+			<key>productReference</key>
+			<string>A77B38F71CC8C22C00012A0E</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>A77B38F71CC8C22C00012A0E</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>HokutosaiApp.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>A77B38F81CC8C22C00012A0E</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>A77B38F71CC8C22C00012A0E</string>
+				<string>A77B390B1CC8C22C00012A0E</string>
+				<string>A77B39161CC8C22C00012A0E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A77B38F91CC8C22C00012A0E</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>A77F9DDF1CC8FE8C00BEE9A7</string>
+				<string>A77B38FA1CC8C22C00012A0E</string>
+				<string>A77B39011CC8C22C00012A0E</string>
+				<string>A77B39061CC8C22C00012A0E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>HokutosaiApp</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A77B38FA1CC8C22C00012A0E</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>AppDelegate.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A77B38FB1CC8C22C00012A0E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A77B38FA1CC8C22C00012A0E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>A77B39011CC8C22C00012A0E</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Assets.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A77B39021CC8C22C00012A0E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A77B39011CC8C22C00012A0E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>A77B39061CC8C22C00012A0E</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A77B39071CC8C22C00012A0E</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>A77B39101CC8C22C00012A0E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>A77B39081CC8C22C00012A0E</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>A77B39091CC8C22C00012A0E</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>A77B390A1CC8C22C00012A0E</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>A77B39221CC8C22C00012A0E</string>
+			<key>buildPhases</key>
+			<array>
+				<string>A77B39071CC8C22C00012A0E</string>
+				<string>A77B39081CC8C22C00012A0E</string>
+				<string>A77B39091CC8C22C00012A0E</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>A77B390D1CC8C22C00012A0E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>HokutosaiAppTests</string>
+			<key>productName</key>
+			<string>HokutosaiAppTests</string>
+			<key>productReference</key>
+			<string>A77B390B1CC8C22C00012A0E</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.unit-test</string>
+		</dict>
+		<key>A77B390B1CC8C22C00012A0E</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>HokutosaiAppTests.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>A77B390C1CC8C22C00012A0E</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>A77B38EF1CC8C22C00012A0E</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>A77B38F61CC8C22C00012A0E</string>
+			<key>remoteInfo</key>
+			<string>HokutosaiApp</string>
+		</dict>
+		<key>A77B390D1CC8C22C00012A0E</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>A77B38F61CC8C22C00012A0E</string>
+			<key>targetProxy</key>
+			<string>A77B390C1CC8C22C00012A0E</string>
+		</dict>
+		<key>A77B390E1CC8C22C00012A0E</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>A77B390F1CC8C22C00012A0E</string>
+				<string>A77B39111CC8C22C00012A0E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>HokutosaiAppTests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A77B390F1CC8C22C00012A0E</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>HokutosaiAppTests.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A77B39101CC8C22C00012A0E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A77B390F1CC8C22C00012A0E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>A77B39111CC8C22C00012A0E</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A77B39121CC8C22C00012A0E</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>A77B391B1CC8C22C00012A0E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>A77B39131CC8C22C00012A0E</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>A77B39141CC8C22C00012A0E</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>A77B39151CC8C22C00012A0E</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>A77B39251CC8C22C00012A0E</string>
+			<key>buildPhases</key>
+			<array>
+				<string>A77B39121CC8C22C00012A0E</string>
+				<string>A77B39131CC8C22C00012A0E</string>
+				<string>A77B39141CC8C22C00012A0E</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>A77B39181CC8C22C00012A0E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>HokutosaiAppUITests</string>
+			<key>productName</key>
+			<string>HokutosaiAppUITests</string>
+			<key>productReference</key>
+			<string>A77B39161CC8C22C00012A0E</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.ui-testing</string>
+		</dict>
+		<key>A77B39161CC8C22C00012A0E</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>HokutosaiAppUITests.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>A77B39171CC8C22C00012A0E</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>A77B38EF1CC8C22C00012A0E</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>A77B38F61CC8C22C00012A0E</string>
+			<key>remoteInfo</key>
+			<string>HokutosaiApp</string>
+		</dict>
+		<key>A77B39181CC8C22C00012A0E</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>A77B38F61CC8C22C00012A0E</string>
+			<key>targetProxy</key>
+			<string>A77B39171CC8C22C00012A0E</string>
+		</dict>
+		<key>A77B39191CC8C22C00012A0E</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>A77B391A1CC8C22C00012A0E</string>
+				<string>A77B391C1CC8C22C00012A0E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>HokutosaiAppUITests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A77B391A1CC8C22C00012A0E</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>HokutosaiAppUITests.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A77B391B1CC8C22C00012A0E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A77B391A1CC8C22C00012A0E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>A77B391C1CC8C22C00012A0E</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A77B391D1CC8C22C00012A0E</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_ANALYZER_NONNULL</key>
+				<string>YES</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>ENABLE_TESTABILITY</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.3</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Onone</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>A77B391E1CC8C22C00012A0E</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_ANALYZER_NONNULL</key>
+				<string>YES</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf-with-dsym</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.3</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>A77B391F1CC8C22C00012A0E</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>A77B39201CC8C22C00012A0E</string>
+				<string>A77B39211CC8C22C00012A0E</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>A77B39201CC8C22C00012A0E</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>97E68EEBAEB8E63EB23447F5</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>INFOPLIST_FILE</key>
+				<string>HokutosaiApp/Info.plist</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.0</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>takakuma.shuka.HokutosaiApp</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>A77B39211CC8C22C00012A0E</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>C4F766DA8D757B41B41297FB</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>INFOPLIST_FILE</key>
+				<string>HokutosaiApp/Info.plist</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.0</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>takakuma.shuka.HokutosaiApp</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>A77B39221CC8C22C00012A0E</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>A77B39231CC8C22C00012A0E</string>
+				<string>A77B39241CC8C22C00012A0E</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>A77B39231CC8C22C00012A0E</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>INFOPLIST_FILE</key>
+				<string>HokutosaiAppTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>takakuma.shuka.HokutosaiAppTests</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/HokutosaiApp.app/HokutosaiApp</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>A77B39241CC8C22C00012A0E</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>INFOPLIST_FILE</key>
+				<string>HokutosaiAppTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>takakuma.shuka.HokutosaiAppTests</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/HokutosaiApp.app/HokutosaiApp</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>A77B39251CC8C22C00012A0E</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>A77B39261CC8C22C00012A0E</string>
+				<string>A77B39271CC8C22C00012A0E</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>A77B39261CC8C22C00012A0E</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>INFOPLIST_FILE</key>
+				<string>HokutosaiAppUITests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>takakuma.shuka.HokutosaiAppUITests</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>TEST_TARGET_NAME</key>
+				<string>HokutosaiApp</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>A77B39271CC8C22C00012A0E</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>INFOPLIST_FILE</key>
+				<string>HokutosaiAppUITests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>takakuma.shuka.HokutosaiAppUITests</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>TEST_TARGET_NAME</key>
+				<string>HokutosaiApp</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>A77F9DDF1CC8FE8C00BEE9A7</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>A77F9DE31CC8FF2900BEE9A7</string>
+				<string>A77F9DE21CC8FF0400BEE9A7</string>
+				<string>A77F9DE11CC8FEFC00BEE9A7</string>
+				<string>A77F9DE01CC8FEEB00BEE9A7</string>
+				<string>A77F9DE41CC9008600BEE9A7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Controllers</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A77F9DE01CC8FEEB00BEE9A7</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>A77F9DE61CC910A400BEE9A7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>News</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A77F9DE11CC8FEFC00BEE9A7</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>A77F9DE81CC910F800BEE9A7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Shops</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A77F9DE21CC8FF0400BEE9A7</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>A77F9DEA1CC9111000BEE9A7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Exhibitions</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A77F9DE31CC8FF2900BEE9A7</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>A77F9DEC1CC9112700BEE9A7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Events</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A77F9DE41CC9008600BEE9A7</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>MainTabViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A77F9DE51CC9008600BEE9A7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A77F9DE41CC9008600BEE9A7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>A77F9DE61CC910A400BEE9A7</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>NewsViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A77F9DE71CC910A400BEE9A7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A77F9DE61CC910A400BEE9A7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>A77F9DE81CC910F800BEE9A7</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>ShopsViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A77F9DE91CC910F800BEE9A7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A77F9DE81CC910F800BEE9A7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>A77F9DEA1CC9111000BEE9A7</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>ExhibitionsViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A77F9DEB1CC9111000BEE9A7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A77F9DEA1CC9111000BEE9A7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>A77F9DEC1CC9112700BEE9A7</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>EventsViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A77F9DED1CC9112700BEE9A7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A77F9DEC1CC9112700BEE9A7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>B4F04EDC2F4CCB53B59E62F4</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-HokutosaiApp/Pods-HokutosaiApp-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>C3415C3CFED4FAA3CCA79F2E</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>97E68EEBAEB8E63EB23447F5</string>
+				<string>C4F766DA8D757B41B41297FB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>C4F766DA8D757B41B41297FB</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-HokutosaiApp.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-HokutosaiApp/Pods-HokutosaiApp.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D14FB0CC0569E3381311B413</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-HokutosaiApp/Pods-HokutosaiApp-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>A77B38EF1CC8C22C00012A0E</string>
+</dict>
+</plist>
