@@ -92,7 +92,7 @@ class REST {
         call(.DELETE, url: endpoint.url, parameters: parameters, encoding: encoding, headers: headers, recipient: recipient)
     }
     
-    private class func call<ModelType: Mappable, ErrorType: Mappable>(
+    class func call<ModelType: Mappable, ErrorType: Mappable>(
         method: Alamofire.Method,
         url: URLStringConvertible,
         parameters: [String: AnyObject]? = nil,
@@ -117,7 +117,7 @@ class REST {
         }
     }
     
-    private class func call<ModelType: Mappable, ErrorType: Mappable>(
+    class func call<ModelType: Mappable, ErrorType: Mappable>(
         method: Alamofire.Method,
         url: URLStringConvertible,
         parameters: [String: AnyObject]? = nil,
