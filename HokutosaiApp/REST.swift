@@ -12,6 +12,38 @@ import ObjectMapper
 
 class REST {
     
+    class func GET<ModelType: Mappable, ResourceType: ArrayResource<ModelType>, ErrorType: Mappable>(endpoint: Endpoint<ResourceType, ErrorType>, recipient: ((HttpResponse<[ModelType], ErrorType>) -> Void)) {
+        call(.GET, url: endpoint.url, recipient: recipient)
+    }
+    
+    class func GET<ModelType: Mappable, ResourceType: ObjectResource<ModelType>, ErrorType: Mappable>(endpoint: Endpoint<ResourceType, ErrorType>, recipient: ((HttpResponse<ModelType, ErrorType>) -> Void)) {
+        call(.GET, url: endpoint.url, recipient: recipient)
+    }
+    
+    class func POST<ModelType: Mappable, ResourceType: ArrayResource<ModelType>, ErrorType: Mappable>(endpoint: Endpoint<ResourceType, ErrorType>, recipient: ((HttpResponse<[ModelType], ErrorType>) -> Void)) {
+        call(.POST, url: endpoint.url, recipient: recipient)
+    }
+    
+    class func POST<ModelType: Mappable, ResourceType: ObjectResource<ModelType>, ErrorType: Mappable>(endpoint: Endpoint<ResourceType, ErrorType>, recipient: ((HttpResponse<ModelType, ErrorType>) -> Void)) {
+        call(.POST, url: endpoint.url, recipient: recipient)
+    }
+    
+    class func PUT<ModelType: Mappable, ResourceType: ArrayResource<ModelType>, ErrorType: Mappable>(endpoint: Endpoint<ResourceType, ErrorType>, recipient: ((HttpResponse<[ModelType], ErrorType>) -> Void)) {
+        call(.PUT, url: endpoint.url, recipient: recipient)
+    }
+    
+    class func PUT<ModelType: Mappable, ResourceType: ObjectResource<ModelType>, ErrorType: Mappable>(endpoint: Endpoint<ResourceType, ErrorType>, recipient: ((HttpResponse<ModelType, ErrorType>) -> Void)) {
+        call(.PUT, url: endpoint.url, recipient: recipient)
+    }
+    
+    class func DELETE<ModelType: Mappable, ResourceType: ArrayResource<ModelType>, ErrorType: Mappable>(endpoint: Endpoint<ResourceType, ErrorType>, recipient: ((HttpResponse<[ModelType], ErrorType>) -> Void)) {
+        call(.DELETE, url: endpoint.url, recipient: recipient)
+    }
+    
+    class func DELETE<ModelType: Mappable, ResourceType: ObjectResource<ModelType>, ErrorType: Mappable>(endpoint: Endpoint<ResourceType, ErrorType>, recipient: ((HttpResponse<ModelType, ErrorType>) -> Void)) {
+        call(.DELETE, url: endpoint.url, recipient: recipient)
+    }
+    
     private class func call<ModelType: Mappable, ErrorType: Mappable>(method: Alamofire.Method, url: URLStringConvertible, recipient: ((HttpResponse<[ModelType], ErrorType>) -> Void)) {
         Alamofire.request(method, url).responseJSON { response in
             guard response.result.isSuccess else {
