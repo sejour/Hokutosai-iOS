@@ -16,7 +16,7 @@ class Shop: Mappable {
     var tenant: String?
     var sales: String?
     var imageUrl: String?
-    
+    var assessmentAggregate: AssessedScore?
     var liked: Bool?
     var likesCount: Int?
     
@@ -28,7 +28,7 @@ class Shop: Mappable {
         self.tenant <- map["tenant"]
         self.sales <- map["sales"]
         self.imageUrl <- map["imageUrl"]
-        
+        self.assessmentAggregate <- map["assessment_aggregate"]
         self.liked <- map["liked"]
         self.likesCount <- map["likesCount"]
     }
