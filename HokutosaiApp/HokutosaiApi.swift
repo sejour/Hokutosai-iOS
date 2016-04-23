@@ -15,4 +15,6 @@ class HokutosaiApi {
     private static let apiUserId = "client-ios-app"
     private static let apiAccessToken = "hJixYqBgFOMgOvvXy8pbZ84JrNfuV8a2PKaMedhvFKj87AKGPtla19HKRKqsPya3"
     
+    private static var account: HokutosaiAccount?
+    
 }
