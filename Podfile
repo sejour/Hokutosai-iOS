@@ -4,6 +4,7 @@ use_frameworks!
 target 'HokutosaiApp' do
   pod 'Alamofire'
   pod 'ObjectMapper', '~> 1.2'
+  pod 'AlamofireNetworkActivityIndicator', '~> 1.0'
 end
 
 target 'HokutosaiAppTests' do
