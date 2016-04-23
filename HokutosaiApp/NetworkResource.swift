@@ -11,25 +11,27 @@ import Alamofire
 import ObjectMapper
 
 class NetworkResource {
-    private let _url: URLStringConvertible
     
-    var url: URLStringConvertible {
-        return self._url
-    }
+    let url: URLStringConvertible
     
     required init(url: URLStringConvertible) {
-        self._url = url
+        self.url = url
     }
+    
 }
 
 class ObjectResource<ModelType: Mappable>: NetworkResource {
+    
     required init(url: URLStringConvertible) {
         super.init(url: url)
     }
+    
 }
 
 class ArrayResource<ModelType: Mappable>: NetworkResource {
+    
     required init(url: URLStringConvertible) {
         super.init(url: url)
     }
+    
 }
