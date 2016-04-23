@@ -23,7 +23,7 @@ class MainTabViewController: UITabBarController {
         newsViewController.tabBarItem = UITabBarItem(title: "お知らせ", image: UIImage(named: "TabBarIconNews"), tag: 0)
         viewControllers.append(newsViewController)
         
-        let eventsViewController = UINavigationController(rootViewController: ShopsViewController())
+        let eventsViewController = UINavigationController(rootViewController: EventsViewController())
         eventsViewController.tabBarItem = UITabBarItem(title: "スケジュール", image: UIImage(named: "TabBarIconEvent"), tag: 0)
         viewControllers.append(eventsViewController)
         
@@ -31,7 +31,7 @@ class MainTabViewController: UITabBarController {
         shopsViewController.tabBarItem = UITabBarItem(title: "模擬店", image: UIImage(named: "TabBarIconShop"), tag: 0)
         viewControllers.append(shopsViewController)
         
-        let exhibitionsViewController = UINavigationController(rootViewController: ShopsViewController())
+        let exhibitionsViewController = UINavigationController(rootViewController: ExhibitionsViewController())
         exhibitionsViewController.tabBarItem = UITabBarItem(title: "展示", image: UIImage(named: "TabBarIconExhibition"), tag: 0)
         viewControllers.append(exhibitionsViewController)
         
