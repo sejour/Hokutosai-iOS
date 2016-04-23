@@ -108,7 +108,7 @@ class HokutosaiApi {
         HokutosaiApi.call(.DELETE, url: endpoint.url, parameters: parameters, encoding: encoding, headers: headers, recipient: recipient)
     }
     
-    class func call<ModelType: Mappable, ErrorType: Mappable>(
+    private class func call<ModelType: Mappable, ErrorType: Mappable>(
         method: Alamofire.Method,
         url: URLStringConvertible,
         parameters: [String: AnyObject]? = nil,
@@ -123,7 +123,7 @@ class HokutosaiApi {
         REST.call(method, url: url, parameters: parameters, encoding: encoding, headers: requestHeaders, recipient: recipient)
     }
     
-    class func call<ModelType: Mappable, ErrorType: Mappable>(
+    private class func call<ModelType: Mappable, ErrorType: Mappable>(
         method: Alamofire.Method,
         url: URLStringConvertible,
         parameters: [String: AnyObject]? = nil,
