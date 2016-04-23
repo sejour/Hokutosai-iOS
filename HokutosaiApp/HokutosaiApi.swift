@@ -28,6 +28,86 @@ class HokutosaiApi {
         return value
     }
     
+    class func GET<ModelType: Mappable, ResourceType: ArrayResource<ModelType>>(
+        endpoint: HokutosaiApiEndpoint<ResourceType>,
+        parameters: [String: AnyObject]? = nil,
+        encoding: ParameterEncoding = .URL,
+        headers: [String: String]? = nil,
+        recipient: ((HttpResponse<[ModelType], HokutosaiApiError>) -> Void))
+    {
+        HokutosaiApi.call(.GET, url: endpoint.url, parameters: parameters, encoding: encoding, headers: headers, recipient: recipient)
+    }
+    
+    class func GET<ModelType: Mappable, ResourceType: ObjectResource<ModelType>>(
+        endpoint: HokutosaiApiEndpoint<ResourceType>,
+        parameters: [String: AnyObject]? = nil,
+        encoding: ParameterEncoding = .URL,
+        headers: [String: String]? = nil,
+        recipient: ((HttpResponse<ModelType, HokutosaiApiError>) -> Void))
+    {
+        HokutosaiApi.call(.GET, url: endpoint.url, parameters: parameters, encoding: encoding, headers: headers, recipient: recipient)
+    }
+    
+    class func POST<ModelType: Mappable, ResourceType: ArrayResource<ModelType>>(
+        endpoint: HokutosaiApiEndpoint<ResourceType>,
+        parameters: [String: AnyObject]? = nil,
+        encoding: ParameterEncoding = .URL,
+        headers: [String: String]? = nil,
+        recipient: ((HttpResponse<[ModelType], HokutosaiApiError>) -> Void))
+    {
+        HokutosaiApi.call(.POST, url: endpoint.url, parameters: parameters, encoding: encoding, headers: headers, recipient: recipient)
+    }
+    
+    class func POST<ModelType: Mappable, ResourceType: ObjectResource<ModelType>>(
+        endpoint: HokutosaiApiEndpoint<ResourceType>,
+        parameters: [String: AnyObject]? = nil,
+        encoding: ParameterEncoding = .URL,
+        headers: [String: String]? = nil,
+        recipient: ((HttpResponse<ModelType, HokutosaiApiError>) -> Void))
+    {
+        HokutosaiApi.call(.POST, url: endpoint.url, parameters: parameters, encoding: encoding, headers: headers, recipient: recipient)
+    }
+    
+    class func PUT<ModelType: Mappable, ResourceType: ArrayResource<ModelType>>(
+        endpoint: HokutosaiApiEndpoint<ResourceType>,
+        parameters: [String: AnyObject]? = nil,
+        encoding: ParameterEncoding = .URL,
+        headers: [String: String]? = nil,
+        recipient: ((HttpResponse<[ModelType], HokutosaiApiError>) -> Void))
+    {
+        HokutosaiApi.call(.PUT, url: endpoint.url, parameters: parameters, encoding: encoding, headers: headers, recipient: recipient)
+    }
+    
+    class func PUT<ModelType: Mappable, ResourceType: ObjectResource<ModelType>>(
+        endpoint: HokutosaiApiEndpoint<ResourceType>,
+        parameters: [String: AnyObject]? = nil,
+        encoding: ParameterEncoding = .URL,
+        headers: [String: String]? = nil,
+        recipient: ((HttpResponse<ModelType, HokutosaiApiError>) -> Void))
+    {
+        HokutosaiApi.call(.PUT, url: endpoint.url, parameters: parameters, encoding: encoding, headers: headers, recipient: recipient)
+    }
+    
+    class func DELETE<ModelType: Mappable, ResourceType: ArrayResource<ModelType>>(
+        endpoint: HokutosaiApiEndpoint<ResourceType>,
+        parameters: [String: AnyObject]? = nil,
+        encoding: ParameterEncoding = .URL,
+        headers: [String: String]? = nil,
+        recipient: ((HttpResponse<[ModelType], HokutosaiApiError>) -> Void))
+    {
+        HokutosaiApi.call(.DELETE, url: endpoint.url, parameters: parameters, encoding: encoding, headers: headers, recipient: recipient)
+    }
+    
+    class func DELETE<ModelType: Mappable, ResourceType: ObjectResource<ModelType>>(
+        endpoint: HokutosaiApiEndpoint<ResourceType>,
+        parameters: [String: AnyObject]? = nil,
+        encoding: ParameterEncoding = .URL,
+        headers: [String: String]? = nil,
+        recipient: ((HttpResponse<ModelType, HokutosaiApiError>) -> Void))
+    {
+        HokutosaiApi.call(.DELETE, url: endpoint.url, parameters: parameters, encoding: encoding, headers: headers, recipient: recipient)
+    }
+    
     class func call<ModelType: Mappable, ErrorType: Mappable>(
         method: Alamofire.Method,
         url: URLStringConvertible,
