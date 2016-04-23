@@ -11,6 +11,7 @@
 		A77483021CCB7695003AC18F /* NetworkResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483011CCB7695003AC18F /* NetworkResource.swift */; };
 		A77483041CCB79FC003AC18F /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483031CCB79FC003AC18F /* Endpoint.swift */; };
 		A77483061CCB7B9E003AC18F /* REST.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483051CCB7B9E003AC18F /* REST.swift */; };
+		A77483081CCB8D1A003AC18F /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483071CCB8D1A003AC18F /* HttpResponse.swift */; };
 		A77B38FB1CC8C22C00012A0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */; };
 		A77B39021CC8C22C00012A0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A77B39011CC8C22C00012A0E /* Assets.xcassets */; };
 		A77B39101CC8C22C00012A0E /* HokutosaiAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B390F1CC8C22C00012A0E /* HokutosaiAppTests.swift */; };
@@ -45,6 +46,7 @@
 		A77483011CCB7695003AC18F /* NetworkResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResource.swift; sourceTree = "<group>"; };
 		A77483031CCB79FC003AC18F /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		A77483051CCB7B9E003AC18F /* REST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = REST.swift; sourceTree = "<group>"; };
+		A77483071CCB8D1A003AC18F /* HttpResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
 		A77B38F71CC8C22C00012A0E /* HokutosaiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HokutosaiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A77B39011CC8C22C00012A0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				A77483011CCB7695003AC18F /* NetworkResource.swift */,
 				A77483031CCB79FC003AC18F /* Endpoint.swift */,
 				A77483051CCB7B9E003AC18F /* REST.swift */,
+				A77483071CCB8D1A003AC18F /* HttpResponse.swift */,
 			);
 			name = REST;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A77483081CCB8D1A003AC18F /* HttpResponse.swift in Sources */,
 				A77F9DE91CC910F800BEE9A7 /* ShopsViewController.swift in Sources */,
 				A77F9DE71CC910A400BEE9A7 /* NewsViewController.swift in Sources */,
 				A77483041CCB79FC003AC18F /* Endpoint.swift in Sources */,
