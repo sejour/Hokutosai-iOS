@@ -121,7 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				A774830A1CCBAA28003AC18F /* HokutosaiApiEndpoint.swift */,
-				A774830C1CCBAA9F003AC18F /* HokutosaiApiError.swift */,
 				A774830E1CCBB0E0003AC18F /* HokutosaiApi.swift */,
 			);
 			name = HokutosaiApi;
@@ -130,8 +129,17 @@
 		A77483101CCBBAF0003AC18F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A77483111CCBBB8A003AC18F /* HokutosaiApi */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		A77483111CCBBB8A003AC18F /* HokutosaiApi */ = {
+			isa = PBXGroup;
+			children = (
+				A774830C1CCBAA9F003AC18F /* HokutosaiApiError.swift */,
+			);
+			name = HokutosaiApi;
 			sourceTree = "<group>";
 		};
 		A77B38EE1CC8C22C00012A0E = {
