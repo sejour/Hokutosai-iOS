@@ -12,18 +12,14 @@ import ObjectMapper
 
 class Endpoint<ResourceType: NetworkResource, ErrorType: Mappable> {
     
-    private let _resource: ResourceType
-    
-    var resource: ResourceType {
-        return self.resource
-    }
+    let resource: ResourceType
     
     var url: URLStringConvertible {
         return self.resource.url
     }
     
     init (baseUrl: String, path: String) {
-        self._resource = ResourceType(url: "\(baseUrl)\(path)")
+        self.resource = ResourceType(url: "\(baseUrl)\(path)")
     }
     
 }
