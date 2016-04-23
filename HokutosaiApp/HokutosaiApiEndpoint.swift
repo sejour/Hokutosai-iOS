@@ -17,3 +17,13 @@ class HokutosaiApiEndpoint<ResourceType: NetworkResource>: Endpoint<ResourceType
     }
     
 }
+
+extension HokutosaiApi {
+    
+    class Shops {
+        class Shops: HokutosaiApiEndpoint<ArrayResource<Shop>> {
+            init() { super.init(path: "/shops") }
+        }
+    }
+    
+}
