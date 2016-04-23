@@ -120,7 +120,7 @@ class HokutosaiApi {
         if let headers = headers { requestHeaders += headers }
         requestHeaders[authorizationHeaderName] = HokutosaiApi.autorizationHeaderValue
         
-        REST.call(.GET, url: url, parameters: parameters, encoding: encoding, headers: requestHeaders, recipient: recipient)
+        REST.call(method, url: url, parameters: parameters, encoding: encoding, headers: requestHeaders, recipient: recipient)
     }
     
     class func call<ModelType: Mappable, ErrorType: Mappable>(
@@ -135,7 +135,7 @@ class HokutosaiApi {
         if let headers = headers { requestHeaders += headers }
         requestHeaders[authorizationHeaderName] = HokutosaiApi.autorizationHeaderValue
         
-        REST.call(.GET, url: url, parameters: parameters, encoding: encoding, headers: requestHeaders, recipient: recipient)
+        REST.call(method, url: url, parameters: parameters, encoding: encoding, headers: requestHeaders, recipient: recipient)
     }
     
 }
