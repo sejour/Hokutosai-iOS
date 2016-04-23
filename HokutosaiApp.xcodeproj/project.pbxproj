@@ -12,6 +12,8 @@
 		A77483041CCB79FC003AC18F /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483031CCB79FC003AC18F /* Endpoint.swift */; };
 		A77483061CCB7B9E003AC18F /* REST.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483051CCB7B9E003AC18F /* REST.swift */; };
 		A77483081CCB8D1A003AC18F /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483071CCB8D1A003AC18F /* HttpResponse.swift */; };
+		A774830B1CCBAA28003AC18F /* HokutosaiApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A774830A1CCBAA28003AC18F /* HokutosaiApiEndpoint.swift */; };
+		A774830D1CCBAA9F003AC18F /* HokutosaiApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A774830C1CCBAA9F003AC18F /* HokutosaiApiError.swift */; };
 		A77B38FB1CC8C22C00012A0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */; };
 		A77B39021CC8C22C00012A0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A77B39011CC8C22C00012A0E /* Assets.xcassets */; };
 		A77B39101CC8C22C00012A0E /* HokutosaiAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B390F1CC8C22C00012A0E /* HokutosaiAppTests.swift */; };
@@ -47,6 +49,8 @@
 		A77483031CCB79FC003AC18F /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		A77483051CCB7B9E003AC18F /* REST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = REST.swift; sourceTree = "<group>"; };
 		A77483071CCB8D1A003AC18F /* HttpResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
+		A774830A1CCBAA28003AC18F /* HokutosaiApiEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HokutosaiApiEndpoint.swift; sourceTree = "<group>"; };
+		A774830C1CCBAA9F003AC18F /* HokutosaiApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HokutosaiApiError.swift; sourceTree = "<group>"; };
 		A77B38F71CC8C22C00012A0E /* HokutosaiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HokutosaiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A77B39011CC8C22C00012A0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,12 +106,22 @@
 		A77483001CCB748C003AC18F /* REST */ = {
 			isa = PBXGroup;
 			children = (
+				A77483091CCBAA07003AC18F /* HokutosaiApi */,
 				A77483011CCB7695003AC18F /* NetworkResource.swift */,
 				A77483031CCB79FC003AC18F /* Endpoint.swift */,
 				A77483051CCB7B9E003AC18F /* REST.swift */,
 				A77483071CCB8D1A003AC18F /* HttpResponse.swift */,
 			);
 			name = REST;
+			sourceTree = "<group>";
+		};
+		A77483091CCBAA07003AC18F /* HokutosaiApi */ = {
+			isa = PBXGroup;
+			children = (
+				A774830A1CCBAA28003AC18F /* HokutosaiApiEndpoint.swift */,
+				A774830C1CCBAA9F003AC18F /* HokutosaiApiError.swift */,
+			);
+			name = HokutosaiApi;
 			sourceTree = "<group>";
 		};
 		A77B38EE1CC8C22C00012A0E = {
@@ -402,10 +416,12 @@
 				A77F9DE91CC910F800BEE9A7 /* ShopsViewController.swift in Sources */,
 				A77F9DE71CC910A400BEE9A7 /* NewsViewController.swift in Sources */,
 				A77483041CCB79FC003AC18F /* Endpoint.swift in Sources */,
+				A774830B1CCBAA28003AC18F /* HokutosaiApiEndpoint.swift in Sources */,
 				A77F9DEB1CC9111000BEE9A7 /* ExhibitionsViewController.swift in Sources */,
 				A77483061CCB7B9E003AC18F /* REST.swift in Sources */,
 				A77B38FB1CC8C22C00012A0E /* AppDelegate.swift in Sources */,
 				A77F9DE51CC9008600BEE9A7 /* MainTabViewController.swift in Sources */,
+				A774830D1CCBAA9F003AC18F /* HokutosaiApiError.swift in Sources */,
 				A77F9DED1CC9112700BEE9A7 /* EventsViewController.swift in Sources */,
 				A77483021CCB7695003AC18F /* NetworkResource.swift in Sources */,
 			);

@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+class HokutosaiApiEndpoint<ResourceType: NetworkResource>: Endpoint<ResourceType, HokutosaiApiError> {
+    
+    let baseUrl = "https://api.hokutosai.tech/2016"
+    
+    init (path: String) {
+        super.init(baseUrl: baseUrl, path: path)
+    }
+    
+}
