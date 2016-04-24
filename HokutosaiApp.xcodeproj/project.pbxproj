@@ -28,6 +28,7 @@
 		A774832E1CCCD1AA003AC18F /* MyAssessment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A774832D1CCCD1AA003AC18F /* MyAssessment.swift */; };
 		A77483301CCCD2AB003AC18F /* ShopMyAssessment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A774832F1CCCD2AB003AC18F /* ShopMyAssessment.swift */; };
 		A77483331CCCD380003AC18F /* LikeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483321CCCD380003AC18F /* LikeResult.swift */; };
+		A77483351CCCD413003AC18F /* ShopLikeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483341CCCD413003AC18F /* ShopLikeResult.swift */; };
 		A77B38FB1CC8C22C00012A0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */; };
 		A77B39021CC8C22C00012A0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A77B39011CC8C22C00012A0E /* Assets.xcassets */; };
 		A77B39101CC8C22C00012A0E /* HokutosaiAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B390F1CC8C22C00012A0E /* HokutosaiAppTests.swift */; };
@@ -79,6 +80,7 @@
 		A774832D1CCCD1AA003AC18F /* MyAssessment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAssessment.swift; sourceTree = "<group>"; };
 		A774832F1CCCD2AB003AC18F /* ShopMyAssessment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopMyAssessment.swift; sourceTree = "<group>"; };
 		A77483321CCCD380003AC18F /* LikeResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikeResult.swift; sourceTree = "<group>"; };
+		A77483341CCCD413003AC18F /* ShopLikeResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopLikeResult.swift; sourceTree = "<group>"; };
 		A77B38F71CC8C22C00012A0E /* HokutosaiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HokutosaiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A77B39011CC8C22C00012A0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				A774831E1CCCBBA8003AC18F /* DetailedShop.swift */,
 				A77483231CCCBF13003AC18F /* MenuItem.swift */,
 				A774832F1CCCD2AB003AC18F /* ShopMyAssessment.swift */,
+				A77483341CCCD413003AC18F /* ShopLikeResult.swift */,
 			);
 			name = Shops;
 			sourceTree = "<group>";
@@ -536,6 +539,7 @@
 				A774831F1CCCBBA8003AC18F /* DetailedShop.swift in Sources */,
 				A77483061CCB7B9E003AC18F /* REST.swift in Sources */,
 				A77483331CCCD380003AC18F /* LikeResult.swift in Sources */,
+				A77483351CCCD413003AC18F /* ShopLikeResult.swift in Sources */,
 				A77B38FB1CC8C22C00012A0E /* AppDelegate.swift in Sources */,
 				A774832E1CCCD1AA003AC18F /* MyAssessment.swift in Sources */,
 				A77483131CCBBC1E003AC18F /* HokutosaiAccount.swift in Sources */,
