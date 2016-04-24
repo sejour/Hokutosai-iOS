@@ -29,6 +29,7 @@
 		A77483301CCCD2AB003AC18F /* ShopMyAssessment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A774832F1CCCD2AB003AC18F /* ShopMyAssessment.swift */; };
 		A77483331CCCD380003AC18F /* LikeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483321CCCD380003AC18F /* LikeResult.swift */; };
 		A77483351CCCD413003AC18F /* ShopLikeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483341CCCD413003AC18F /* ShopLikeResult.swift */; };
+		A77483371CCD2924003AC18F /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483361CCD2924003AC18F /* AlertController.swift */; };
 		A77B38FB1CC8C22C00012A0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */; };
 		A77B39021CC8C22C00012A0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A77B39011CC8C22C00012A0E /* Assets.xcassets */; };
 		A77B39101CC8C22C00012A0E /* HokutosaiAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B390F1CC8C22C00012A0E /* HokutosaiAppTests.swift */; };
@@ -81,6 +82,7 @@
 		A774832F1CCCD2AB003AC18F /* ShopMyAssessment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopMyAssessment.swift; sourceTree = "<group>"; };
 		A77483321CCCD380003AC18F /* LikeResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikeResult.swift; sourceTree = "<group>"; };
 		A77483341CCCD413003AC18F /* ShopLikeResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopLikeResult.swift; sourceTree = "<group>"; };
+		A77483361CCD2924003AC18F /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		A77B38F71CC8C22C00012A0E /* HokutosaiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HokutosaiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A77B39011CC8C22C00012A0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -231,6 +233,14 @@
 			name = Likes;
 			sourceTree = "<group>";
 		};
+		A77483381CCD2932003AC18F /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				A77483361CCD2924003AC18F /* AlertController.swift */,
+			);
+			name = Alert;
+			sourceTree = "<group>";
+		};
 		A77B38EE1CC8C22C00012A0E = {
 			isa = PBXGroup;
 			children = (
@@ -288,6 +298,7 @@
 		A77F9DDF1CC8FE8C00BEE9A7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A77483381CCD2932003AC18F /* Alert */,
 				A77F9DE31CC8FF2900BEE9A7 /* Events */,
 				A77F9DE21CC8FF0400BEE9A7 /* Exhibitions */,
 				A77F9DE11CC8FEFC00BEE9A7 /* Shops */,
@@ -536,6 +547,7 @@
 				A77483301CCCD2AB003AC18F /* ShopMyAssessment.swift in Sources */,
 				A77483241CCCBF13003AC18F /* MenuItem.swift in Sources */,
 				A77F9DEB1CC9111000BEE9A7 /* ExhibitionsViewController.swift in Sources */,
+				A77483371CCD2924003AC18F /* AlertController.swift in Sources */,
 				A774831F1CCCBBA8003AC18F /* DetailedShop.swift in Sources */,
 				A77483061CCB7B9E003AC18F /* REST.swift in Sources */,
 				A77483331CCCD380003AC18F /* LikeResult.swift in Sources */,
