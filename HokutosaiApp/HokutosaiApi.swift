@@ -21,8 +21,8 @@ class HokutosaiApi {
         class func generate(account: HokutosaiAccount?) -> String {
             var value = "user_id=\(apiUserId),access_token=\(apiAccessToken)"
             
-            if let account = account {
-                value += ",account_id=\(account.accountId),account_pass=\(account.accountPass)"
+            if let account = account, let accountId = account.accountId, let accountPass = account.accountPass {
+                value += ",account_id=\(accountId),account_pass=\(accountPass)"
             }
             
             return value
