@@ -21,6 +21,7 @@
 		A774831B1CCBE285003AC18F /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A774831A1CCBE285003AC18F /* AccountManager.swift */; };
 		A774831F1CCCBBA8003AC18F /* DetailedShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = A774831E1CCCBBA8003AC18F /* DetailedShop.swift */; };
 		A77483221CCCBCB3003AC18F /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483211CCCBCB3003AC18F /* Place.swift */; };
+		A77483241CCCBF13003AC18F /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483231CCCBF13003AC18F /* MenuItem.swift */; };
 		A77B38FB1CC8C22C00012A0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */; };
 		A77B39021CC8C22C00012A0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A77B39011CC8C22C00012A0E /* Assets.xcassets */; };
 		A77B39101CC8C22C00012A0E /* HokutosaiAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B390F1CC8C22C00012A0E /* HokutosaiAppTests.swift */; };
@@ -65,6 +66,7 @@
 		A774831A1CCBE285003AC18F /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		A774831E1CCCBBA8003AC18F /* DetailedShop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedShop.swift; sourceTree = "<group>"; };
 		A77483211CCCBCB3003AC18F /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		A77483231CCCBF13003AC18F /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		A77B38F71CC8C22C00012A0E /* HokutosaiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HokutosaiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A77B39011CC8C22C00012A0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			children = (
 				A77483151CCBCC90003AC18F /* Shop.swift */,
 				A774831E1CCCBBA8003AC18F /* DetailedShop.swift */,
+				A77483231CCCBF13003AC18F /* MenuItem.swift */,
 			);
 			name = Shops;
 			sourceTree = "<group>";
@@ -482,6 +485,7 @@
 				A77483191CCBCE98003AC18F /* AssessedScore.swift in Sources */,
 				A77483041CCB79FC003AC18F /* Endpoint.swift in Sources */,
 				A774830B1CCBAA28003AC18F /* HokutosaiApiEndpoint.swift in Sources */,
+				A77483241CCCBF13003AC18F /* MenuItem.swift in Sources */,
 				A77F9DEB1CC9111000BEE9A7 /* ExhibitionsViewController.swift in Sources */,
 				A774831F1CCCBBA8003AC18F /* DetailedShop.swift in Sources */,
 				A77483061CCB7B9E003AC18F /* REST.swift in Sources */,
