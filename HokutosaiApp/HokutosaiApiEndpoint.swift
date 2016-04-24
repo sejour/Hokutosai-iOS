@@ -12,8 +12,12 @@ class HokutosaiApiEndpoint<ResourceType: NetworkResource>: Endpoint<ResourceType
     
     let baseUrl = "https://api.hokutosai.tech/2016"
     
-    init (path: String) {
-        super.init(baseUrl: baseUrl, path: path)
+    init (basePath: String) {
+        super.init(baseUrl: baseUrl, path: basePath)
+    }
+    
+    init (basePath: String, path: String) {
+        super.init(baseUrl: baseUrl, path: basePath + path)
     }
     
 }
@@ -21,8 +25,18 @@ class HokutosaiApiEndpoint<ResourceType: NetworkResource>: Endpoint<ResourceType
 extension HokutosaiApi {
     
     class Shops {
+        static let basePath = "/shops"
+        
         class Shops: HokutosaiApiEndpoint<ArrayResource<Shop>> {
-            init() { super.init(path: "/shops") }
+            init() { super.init(basePath: basePath) }
+        }
+    }
+    
+    class Accounts {
+        static let basePath = "/accounts"
+        
+        class New: HokutosaiApiEndpoint<ObjectResource<HokutosaiAccount>> {
+            init() { super.init(basePath: basePath, path: "/new") }
         }
     }
     
