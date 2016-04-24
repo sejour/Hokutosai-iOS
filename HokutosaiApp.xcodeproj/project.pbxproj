@@ -27,6 +27,7 @@
 		A774832C1CCCC84B003AC18F /* HokutosaiDateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = A774832B1CCCC84B003AC18F /* HokutosaiDateTransform.swift */; };
 		A774832E1CCCD1AA003AC18F /* MyAssessment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A774832D1CCCD1AA003AC18F /* MyAssessment.swift */; };
 		A77483301CCCD2AB003AC18F /* ShopMyAssessment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A774832F1CCCD2AB003AC18F /* ShopMyAssessment.swift */; };
+		A77483331CCCD380003AC18F /* LikeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483321CCCD380003AC18F /* LikeResult.swift */; };
 		A77B38FB1CC8C22C00012A0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */; };
 		A77B39021CC8C22C00012A0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A77B39011CC8C22C00012A0E /* Assets.xcassets */; };
 		A77B39101CC8C22C00012A0E /* HokutosaiAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B390F1CC8C22C00012A0E /* HokutosaiAppTests.swift */; };
@@ -77,6 +78,7 @@
 		A774832B1CCCC84B003AC18F /* HokutosaiDateTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HokutosaiDateTransform.swift; sourceTree = "<group>"; };
 		A774832D1CCCD1AA003AC18F /* MyAssessment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAssessment.swift; sourceTree = "<group>"; };
 		A774832F1CCCD2AB003AC18F /* ShopMyAssessment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopMyAssessment.swift; sourceTree = "<group>"; };
+		A77483321CCCD380003AC18F /* LikeResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikeResult.swift; sourceTree = "<group>"; };
 		A77B38F71CC8C22C00012A0E /* HokutosaiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HokutosaiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A77B39011CC8C22C00012A0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -154,7 +156,8 @@
 		A77483101CCBBAF0003AC18F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A77483271CCCC288003AC18F /* Account */,
+				A77483311CCCD35B003AC18F /* Likes */,
+				A77483271CCCC288003AC18F /* Accounts */,
 				A77483201CCCBC9A003AC18F /* Places */,
 				A77483171CCBCE66003AC18F /* Assessments */,
 				A77483141CCBCBF8003AC18F /* Shops */,
@@ -200,13 +203,13 @@
 			name = Places;
 			sourceTree = "<group>";
 		};
-		A77483271CCCC288003AC18F /* Account */ = {
+		A77483271CCCC288003AC18F /* Accounts */ = {
 			isa = PBXGroup;
 			children = (
 				A77483281CCCC427003AC18F /* User.swift */,
 				A77483121CCBBC1E003AC18F /* HokutosaiAccount.swift */,
 			);
-			name = Account;
+			name = Accounts;
 			sourceTree = "<group>";
 		};
 		A774832A1CCCC7CF003AC18F /* Utility */ = {
@@ -215,6 +218,14 @@
 				A774832B1CCCC84B003AC18F /* HokutosaiDateTransform.swift */,
 			);
 			name = Utility;
+			sourceTree = "<group>";
+		};
+		A77483311CCCD35B003AC18F /* Likes */ = {
+			isa = PBXGroup;
+			children = (
+				A77483321CCCD380003AC18F /* LikeResult.swift */,
+			);
+			name = Likes;
 			sourceTree = "<group>";
 		};
 		A77B38EE1CC8C22C00012A0E = {
@@ -524,6 +535,7 @@
 				A77F9DEB1CC9111000BEE9A7 /* ExhibitionsViewController.swift in Sources */,
 				A774831F1CCCBBA8003AC18F /* DetailedShop.swift in Sources */,
 				A77483061CCB7B9E003AC18F /* REST.swift in Sources */,
+				A77483331CCCD380003AC18F /* LikeResult.swift in Sources */,
 				A77B38FB1CC8C22C00012A0E /* AppDelegate.swift in Sources */,
 				A774832E1CCCD1AA003AC18F /* MyAssessment.swift in Sources */,
 				A77483131CCBBC1E003AC18F /* HokutosaiAccount.swift in Sources */,
