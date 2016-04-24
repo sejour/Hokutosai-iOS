@@ -23,3 +23,13 @@ extension UIAlertController {
     
 }
 
+final class ErrorAlert {
+    
+    class func failureServerData() -> UIAlertController {
+        return UIAlertController.notificationAlertController("データを取得できません。", message: "しばらくしてからもう一度アクセスし直してください。", closeButtonTitle: "OK")
+    }
+    
+    private init () {}
+    
+}
+
