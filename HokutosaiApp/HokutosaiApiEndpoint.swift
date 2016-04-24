@@ -39,6 +39,14 @@ extension HokutosaiApi {
             init(shopId: UInt) { super.init(basePath: basePath, path: "/\(shopId)/details") }
         }
         
+        class Assessment: HokutosaiApiEndpoint<ObjectResource<ShopMyAssessment>> {
+            init(shopId: UInt) { super.init(basePath: basePath, path: "/\(shopId)/assessment") }
+        }
+        
+        class Likes: HokutosaiApiEndpoint<ObjectResource<ShopLikeResult>> {
+            init(shopId: UInt) { super.init(basePath: basePath, path: "/\(shopId)/likes") }
+        }
+        
     }
     
     class Accounts {
