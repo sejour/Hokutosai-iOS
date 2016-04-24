@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52AA5A9A07ED55E6CE7C6959 /* Pods_HokutosaiApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 906BE70B87479B1542A60B06 /* Pods_HokutosaiApp.framework */; };
+		A77483021CCB7695003AC18F /* NetworkResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483011CCB7695003AC18F /* NetworkResource.swift */; };
+		A77483041CCB79FC003AC18F /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483031CCB79FC003AC18F /* Endpoint.swift */; };
+		A77483061CCB7B9E003AC18F /* REST.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483051CCB7B9E003AC18F /* REST.swift */; };
+		A77483081CCB8D1A003AC18F /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483071CCB8D1A003AC18F /* HttpResponse.swift */; };
+		A774830B1CCBAA28003AC18F /* HokutosaiApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A774830A1CCBAA28003AC18F /* HokutosaiApiEndpoint.swift */; };
+		A774830D1CCBAA9F003AC18F /* HokutosaiApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A774830C1CCBAA9F003AC18F /* HokutosaiApiError.swift */; };
+		A774830F1CCBB0E0003AC18F /* HokutosaiApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A774830E1CCBB0E0003AC18F /* HokutosaiApi.swift */; };
+		A77483131CCBBC1E003AC18F /* HokutosaiAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483121CCBBC1E003AC18F /* HokutosaiAccount.swift */; };
+		A77483161CCBCC90003AC18F /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483151CCBCC90003AC18F /* Shop.swift */; };
+		A77483191CCBCE98003AC18F /* AssessedScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483181CCBCE98003AC18F /* AssessedScore.swift */; };
+		A774831B1CCBE285003AC18F /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A774831A1CCBE285003AC18F /* AccountManager.swift */; };
 		A77B38FB1CC8C22C00012A0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */; };
 		A77B39021CC8C22C00012A0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A77B39011CC8C22C00012A0E /* Assets.xcassets */; };
 		A77B39101CC8C22C00012A0E /* HokutosaiAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B390F1CC8C22C00012A0E /* HokutosaiAppTests.swift */; };
@@ -36,6 +48,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		906BE70B87479B1542A60B06 /* Pods_HokutosaiApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HokutosaiApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		97E68EEBAEB8E63EB23447F5 /* Pods-HokutosaiApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HokutosaiApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HokutosaiApp/Pods-HokutosaiApp.debug.xcconfig"; sourceTree = "<group>"; };
+		A77483011CCB7695003AC18F /* NetworkResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResource.swift; sourceTree = "<group>"; };
+		A77483031CCB79FC003AC18F /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		A77483051CCB7B9E003AC18F /* REST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = REST.swift; sourceTree = "<group>"; };
+		A77483071CCB8D1A003AC18F /* HttpResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
+		A774830A1CCBAA28003AC18F /* HokutosaiApiEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HokutosaiApiEndpoint.swift; sourceTree = "<group>"; };
+		A774830C1CCBAA9F003AC18F /* HokutosaiApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HokutosaiApiError.swift; sourceTree = "<group>"; };
+		A774830E1CCBB0E0003AC18F /* HokutosaiApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HokutosaiApi.swift; sourceTree = "<group>"; };
+		A77483121CCBBC1E003AC18F /* HokutosaiAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HokutosaiAccount.swift; sourceTree = "<group>"; };
+		A77483151CCBCC90003AC18F /* Shop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
+		A77483181CCBCE98003AC18F /* AssessedScore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssessedScore.swift; sourceTree = "<group>"; };
+		A774831A1CCBE285003AC18F /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		A77B38F71CC8C22C00012A0E /* HokutosaiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HokutosaiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A77B39011CC8C22C00012A0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +76,7 @@
 		A77F9DE81CC910F800BEE9A7 /* ShopsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopsViewController.swift; sourceTree = "<group>"; };
 		A77F9DEA1CC9111000BEE9A7 /* ExhibitionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExhibitionsViewController.swift; sourceTree = "<group>"; };
 		A77F9DEC1CC9112700BEE9A7 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
+		C4F766DA8D757B41B41297FB /* Pods-HokutosaiApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HokutosaiApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HokutosaiApp/Pods-HokutosaiApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52AA5A9A07ED55E6CE7C6959 /* Pods_HokutosaiApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +105,71 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F463E96ECB1CE21579B13D4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				906BE70B87479B1542A60B06 /* Pods_HokutosaiApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A77483001CCB748C003AC18F /* REST */ = {
+			isa = PBXGroup;
+			children = (
+				A77483091CCBAA07003AC18F /* HokutosaiApi */,
+				A77483011CCB7695003AC18F /* NetworkResource.swift */,
+				A77483031CCB79FC003AC18F /* Endpoint.swift */,
+				A77483051CCB7B9E003AC18F /* REST.swift */,
+				A77483071CCB8D1A003AC18F /* HttpResponse.swift */,
+			);
+			name = REST;
+			sourceTree = "<group>";
+		};
+		A77483091CCBAA07003AC18F /* HokutosaiApi */ = {
+			isa = PBXGroup;
+			children = (
+				A774830A1CCBAA28003AC18F /* HokutosaiApiEndpoint.swift */,
+				A774830E1CCBB0E0003AC18F /* HokutosaiApi.swift */,
+				A774831A1CCBE285003AC18F /* AccountManager.swift */,
+			);
+			name = HokutosaiApi;
+			sourceTree = "<group>";
+		};
+		A77483101CCBBAF0003AC18F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A77483171CCBCE66003AC18F /* Assessments */,
+				A77483141CCBCBF8003AC18F /* Shops */,
+				A77483111CCBBB8A003AC18F /* HokutosaiApi */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A77483111CCBBB8A003AC18F /* HokutosaiApi */ = {
+			isa = PBXGroup;
+			children = (
+				A774830C1CCBAA9F003AC18F /* HokutosaiApiError.swift */,
+				A77483121CCBBC1E003AC18F /* HokutosaiAccount.swift */,
+			);
+			name = HokutosaiApi;
+			sourceTree = "<group>";
+		};
+		A77483141CCBCBF8003AC18F /* Shops */ = {
+			isa = PBXGroup;
+			children = (
+				A77483151CCBCC90003AC18F /* Shop.swift */,
+			);
+			name = Shops;
+			sourceTree = "<group>";
+		};
+		A77483171CCBCE66003AC18F /* Assessments */ = {
+			isa = PBXGroup;
+			children = (
+				A77483181CCBCE98003AC18F /* AssessedScore.swift */,
+			);
+			name = Assessments;
+			sourceTree = "<group>";
+		};
 		A77B38EE1CC8C22C00012A0E = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +177,8 @@
 				A77B390E1CC8C22C00012A0E /* HokutosaiAppTests */,
 				A77B39191CC8C22C00012A0E /* HokutosaiAppUITests */,
 				A77B38F81CC8C22C00012A0E /* Products */,
+				C3415C3CFED4FAA3CCA79F2E /* Pods */,
+				0F463E96ECB1CE21579B13D4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +195,8 @@
 		A77B38F91CC8C22C00012A0E /* HokutosaiApp */ = {
 			isa = PBXGroup;
 			children = (
+				A77483101CCBBAF0003AC18F /* Model */,
+				A77483001CCB748C003AC18F /* REST */,
 				A77F9DDF1CC8FE8C00BEE9A7 /* Controllers */,
 				A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */,
 				A77B39011CC8C22C00012A0E /* Assets.xcassets */,
@@ -171,6 +267,15 @@
 			name = Events;
 			sourceTree = "<group>";
 		};
+		C3415C3CFED4FAA3CCA79F2E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				97E68EEBAEB8E63EB23447F5 /* Pods-HokutosaiApp.debug.xcconfig */,
+				C4F766DA8D757B41B41297FB /* Pods-HokutosaiApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -178,9 +283,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A77B391F1CC8C22C00012A0E /* Build configuration list for PBXNativeTarget "HokutosaiApp" */;
 			buildPhases = (
+				9F284A8028737332712C395F /* Check Pods Manifest.lock */,
 				A77B38F31CC8C22C00012A0E /* Sources */,
 				A77B38F41CC8C22C00012A0E /* Frameworks */,
 				A77B38F51CC8C22C00012A0E /* Resources */,
+				D14FB0CC0569E3381311B413 /* Embed Pods Frameworks */,
+				B4F04EDC2F4CCB53B59E62F4 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -298,17 +406,76 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9F284A8028737332712C395F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B4F04EDC2F4CCB53B59E62F4 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HokutosaiApp/Pods-HokutosaiApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D14FB0CC0569E3381311B413 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HokutosaiApp/Pods-HokutosaiApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A77B38F31CC8C22C00012A0E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A77483081CCB8D1A003AC18F /* HttpResponse.swift in Sources */,
+				A774830F1CCBB0E0003AC18F /* HokutosaiApi.swift in Sources */,
 				A77F9DE91CC910F800BEE9A7 /* ShopsViewController.swift in Sources */,
+				A77483161CCBCC90003AC18F /* Shop.swift in Sources */,
 				A77F9DE71CC910A400BEE9A7 /* NewsViewController.swift in Sources */,
+				A77483191CCBCE98003AC18F /* AssessedScore.swift in Sources */,
+				A77483041CCB79FC003AC18F /* Endpoint.swift in Sources */,
+				A774830B1CCBAA28003AC18F /* HokutosaiApiEndpoint.swift in Sources */,
 				A77F9DEB1CC9111000BEE9A7 /* ExhibitionsViewController.swift in Sources */,
+				A77483061CCB7B9E003AC18F /* REST.swift in Sources */,
 				A77B38FB1CC8C22C00012A0E /* AppDelegate.swift in Sources */,
+				A77483131CCBBC1E003AC18F /* HokutosaiAccount.swift in Sources */,
 				A77F9DE51CC9008600BEE9A7 /* MainTabViewController.swift in Sources */,
+				A774830D1CCBAA9F003AC18F /* HokutosaiApiError.swift in Sources */,
+				A774831B1CCBE285003AC18F /* AccountManager.swift in Sources */,
 				A77F9DED1CC9112700BEE9A7 /* EventsViewController.swift in Sources */,
+				A77483021CCB7695003AC18F /* NetworkResource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +596,7 @@
 		};
 		A77B39201CC8C22C00012A0E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97E68EEBAEB8E63EB23447F5 /* Pods-HokutosaiApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HokutosaiApp/Info.plist;
@@ -441,6 +609,7 @@
 		};
 		A77B39211CC8C22C00012A0E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4F766DA8D757B41B41297FB /* Pods-HokutosaiApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HokutosaiApp/Info.plist;
