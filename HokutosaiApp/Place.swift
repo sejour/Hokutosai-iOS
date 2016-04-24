@@ -11,7 +11,7 @@ import ObjectMapper
 
 class Place: Mappable {
     
-    var placeId: Int?
+    var placeId: UInt?
     var name: String?
     
     required init?(_ map: Map) {}
