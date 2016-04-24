@@ -20,6 +20,7 @@
 		A77483191CCBCE98003AC18F /* AssessedScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483181CCBCE98003AC18F /* AssessedScore.swift */; };
 		A774831B1CCBE285003AC18F /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A774831A1CCBE285003AC18F /* AccountManager.swift */; };
 		A774831F1CCCBBA8003AC18F /* DetailedShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = A774831E1CCCBBA8003AC18F /* DetailedShop.swift */; };
+		A77483221CCCBCB3003AC18F /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483211CCCBCB3003AC18F /* Place.swift */; };
 		A77B38FB1CC8C22C00012A0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */; };
 		A77B39021CC8C22C00012A0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A77B39011CC8C22C00012A0E /* Assets.xcassets */; };
 		A77B39101CC8C22C00012A0E /* HokutosaiAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B390F1CC8C22C00012A0E /* HokutosaiAppTests.swift */; };
@@ -63,6 +64,7 @@
 		A77483181CCBCE98003AC18F /* AssessedScore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssessedScore.swift; sourceTree = "<group>"; };
 		A774831A1CCBE285003AC18F /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		A774831E1CCCBBA8003AC18F /* DetailedShop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedShop.swift; sourceTree = "<group>"; };
+		A77483211CCCBCB3003AC18F /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		A77B38F71CC8C22C00012A0E /* HokutosaiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HokutosaiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A77B39011CC8C22C00012A0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 		A77483101CCBBAF0003AC18F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A77483201CCCBC9A003AC18F /* Places */,
 				A77483171CCBCE66003AC18F /* Assessments */,
 				A77483141CCBCBF8003AC18F /* Shops */,
 				A77483111CCBBB8A003AC18F /* HokutosaiApi */,
@@ -171,6 +174,14 @@
 				A77483181CCBCE98003AC18F /* AssessedScore.swift */,
 			);
 			name = Assessments;
+			sourceTree = "<group>";
+		};
+		A77483201CCCBC9A003AC18F /* Places */ = {
+			isa = PBXGroup;
+			children = (
+				A77483211CCCBCB3003AC18F /* Place.swift */,
+			);
+			name = Places;
 			sourceTree = "<group>";
 		};
 		A77B38EE1CC8C22C00012A0E = {
@@ -463,6 +474,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A77483081CCB8D1A003AC18F /* HttpResponse.swift in Sources */,
+				A77483221CCCBCB3003AC18F /* Place.swift in Sources */,
 				A774830F1CCBB0E0003AC18F /* HokutosaiApi.swift in Sources */,
 				A77F9DE91CC910F800BEE9A7 /* ShopsViewController.swift in Sources */,
 				A77483161CCBCC90003AC18F /* Shop.swift in Sources */,
