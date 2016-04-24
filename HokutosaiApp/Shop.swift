@@ -11,7 +11,7 @@ import ObjectMapper
 
 class Shop: Mappable {
     
-    var shopId: String?
+    var shopId: UInt?
     var name: String?
     var tenant: String?
     var sales: String?
