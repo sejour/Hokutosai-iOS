@@ -26,6 +26,7 @@
 		A77483291CCCC427003AC18F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483281CCCC427003AC18F /* User.swift */; };
 		A774832C1CCCC84B003AC18F /* HokutosaiDateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = A774832B1CCCC84B003AC18F /* HokutosaiDateTransform.swift */; };
 		A774832E1CCCD1AA003AC18F /* MyAssessment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A774832D1CCCD1AA003AC18F /* MyAssessment.swift */; };
+		A77483301CCCD2AB003AC18F /* ShopMyAssessment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A774832F1CCCD2AB003AC18F /* ShopMyAssessment.swift */; };
 		A77B38FB1CC8C22C00012A0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */; };
 		A77B39021CC8C22C00012A0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A77B39011CC8C22C00012A0E /* Assets.xcassets */; };
 		A77B39101CC8C22C00012A0E /* HokutosaiAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B390F1CC8C22C00012A0E /* HokutosaiAppTests.swift */; };
@@ -75,6 +76,7 @@
 		A77483281CCCC427003AC18F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A774832B1CCCC84B003AC18F /* HokutosaiDateTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HokutosaiDateTransform.swift; sourceTree = "<group>"; };
 		A774832D1CCCD1AA003AC18F /* MyAssessment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAssessment.swift; sourceTree = "<group>"; };
+		A774832F1CCCD2AB003AC18F /* ShopMyAssessment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopMyAssessment.swift; sourceTree = "<group>"; };
 		A77B38F71CC8C22C00012A0E /* HokutosaiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HokutosaiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A77B39011CC8C22C00012A0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				A77483151CCBCC90003AC18F /* Shop.swift */,
 				A774831E1CCCBBA8003AC18F /* DetailedShop.swift */,
 				A77483231CCCBF13003AC18F /* MenuItem.swift */,
+				A774832F1CCCD2AB003AC18F /* ShopMyAssessment.swift */,
 			);
 			name = Shops;
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 				A77483041CCB79FC003AC18F /* Endpoint.swift in Sources */,
 				A774830B1CCBAA28003AC18F /* HokutosaiApiEndpoint.swift in Sources */,
 				A77483291CCCC427003AC18F /* User.swift in Sources */,
+				A77483301CCCD2AB003AC18F /* ShopMyAssessment.swift in Sources */,
 				A77483241CCCBF13003AC18F /* MenuItem.swift in Sources */,
 				A77F9DEB1CC9111000BEE9A7 /* ExhibitionsViewController.swift in Sources */,
 				A774831F1CCCBBA8003AC18F /* DetailedShop.swift in Sources */,
