@@ -12,10 +12,22 @@ import ObjectMapper
 class HokutosaiDateTransform : DateTransform {
     
     static let format = "yyyy-MM-dd HH:mm:ss Z"
+    private static var _dateFormatter: NSDateFormatter?
+    
+    private static var dateFormatter: NSDateFormatter {
+        guard let formatter = _dateFormatter else {
+            let newFormatter = NSDateFormatter()
+            newFormatter.dateFormat = format
+            self._dateFormatter = newFormatter
+            return newFormatter
+        }
+        
+        return formatter
+    }
     
     override func transformFromJSON(value: AnyObject?) -> NSDate? {
         if let dateString = value as? String {
-            return NSDate.dateFromString(dateString, format: HokutosaiDateTransform.format)
+            return HokutosaiDateTransform.dateFormatter.dateFromString(dateString)
         }
         
         return nil
@@ -25,10 +37,19 @@ class HokutosaiDateTransform : DateTransform {
 
 extension NSDate {
     
-    public static func dateFromString(dateString : String , format : String) -> NSDate? {
+    public static func dateFromString(dateString: String , format: String) -> NSDate? {
         let formatter = NSDateFormatter()
         formatter.dateFormat = format
         return formatter.dateFromString(dateString)
+    }
+    
+    public static func stringFromDate(date: NSDate, format: String) -> String {
+        let formatter = NSDateFormatter()
+        
+        formatter.locale = NSLocale(localeIdentifier: NSLocaleLanguageCode)
+        formatter.dateFormat = format
+        
+        return formatter.stringFromDate(date)
     }
     
 }
