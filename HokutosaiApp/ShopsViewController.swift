@@ -10,10 +10,21 @@ import UIKit
 
 class ShopsViewController: UIViewController {
 
+    var shops: [Shop]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.title = "模擬店"
+        
+        HokutosaiApi.GET(HokutosaiApi.Shops.Shops()) { response in
+            guard response.isSuccess else {
+                self.presentViewController(ErrorAlert.failureServerData(), animated: true, completion: nil)
+                return
+            }
+            
+            self.shops = response.model
+        }
     }
 
     override func didReceiveMemoryWarning() {
