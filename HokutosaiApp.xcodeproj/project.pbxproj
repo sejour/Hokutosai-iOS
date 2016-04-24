@@ -161,7 +161,6 @@
 			isa = PBXGroup;
 			children = (
 				A774830C1CCBAA9F003AC18F /* HokutosaiApiError.swift */,
-				A77483121CCBBC1E003AC18F /* HokutosaiAccount.swift */,
 			);
 			name = HokutosaiApi;
 			sourceTree = "<group>";
@@ -197,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				A77483281CCCC427003AC18F /* User.swift */,
+				A77483121CCBBC1E003AC18F /* HokutosaiAccount.swift */,
 			);
 			name = Account;
 			sourceTree = "<group>";
