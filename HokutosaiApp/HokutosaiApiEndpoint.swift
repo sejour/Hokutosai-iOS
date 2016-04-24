@@ -14,13 +14,13 @@ class HokutosaiApiEndpoint<ResourceType: NetworkResource>: Endpoint<ResourceType
     let requiredAccount: Bool
     
     init (basePath: String, requiredAccount: Bool = true) {
-        super.init(baseUrl: baseUrl, path: basePath)
         self.requiredAccount = requiredAccount
+        super.init(baseUrl: baseUrl, path: basePath)
     }
     
     init (basePath: String, path: String, requiredAccount: Bool = true) {
-        super.init(baseUrl: baseUrl, path: basePath + path)
         self.requiredAccount = requiredAccount
+        super.init(baseUrl: baseUrl, path: basePath + path)
     }
     
 }
