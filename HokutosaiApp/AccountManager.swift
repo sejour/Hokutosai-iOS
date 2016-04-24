@@ -19,7 +19,7 @@ final class AccountManager {
     
     static let sharedManager = AccountManager()
     
-    var _account: HokutosaiAccount?
+    private var _account: HokutosaiAccount?
     var account: HokutosaiAccount? {
         return self._account
     }
