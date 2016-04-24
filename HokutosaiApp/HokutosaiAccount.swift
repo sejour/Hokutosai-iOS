@@ -16,6 +16,13 @@ class HokutosaiAccount: Mappable {
     var userName: String?
     var mediaUrl: String?
     
+    init (accountId: String?, accountPass: String?, userName: String?, mediaUrl: String?) {
+        self.accountId = accountId
+        self.accountPass = accountPass
+        self.userName = userName
+        self.mediaUrl = mediaUrl
+    }
+    
     required init?(_ map: Map) { }
     
     func mapping(map: Map) {
@@ -24,6 +31,5 @@ class HokutosaiAccount: Mappable {
         self.userName <- map["user_name"]
         self.mediaUrl <- map["media_url"]
     }
-
     
 }

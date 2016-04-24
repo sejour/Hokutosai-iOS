@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NetworkActivityIndicatorManager.sharedManager.isEnabled = true
         NetworkActivityIndicatorManager.sharedManager.startDelay = 0.2
         
+        AccountManager.sharedManager.fetch()
+        
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.rootViewController = MainTabViewController()
         self.window?.makeKeyAndVisible()
