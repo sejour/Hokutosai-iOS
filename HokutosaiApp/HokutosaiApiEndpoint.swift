@@ -28,19 +28,27 @@ class HokutosaiApiEndpoint<ResourceType: NetworkResource>: Endpoint<ResourceType
 extension HokutosaiApi {
     
     class Shops {
+        
         static let basePath = "/shops"
         
         class Shops: HokutosaiApiEndpoint<ArrayResource<Shop>> {
             init() { super.init(basePath: basePath) }
         }
+        
+        class Details: HokutosaiApiEndpoint<ObjectResource<DetailedShop>> {
+            init(shopId: UInt) { super.init(basePath: basePath, path: "/\(shopId)/details") }
+        }
+        
     }
     
     class Accounts {
+        
         static let basePath = "/accounts"
         
         class New: HokutosaiApiEndpoint<ObjectResource<HokutosaiAccount>> {
             init() { super.init(basePath: basePath, path: "/new", requiredAccount: false) }
         }
+        
     }
     
 }
