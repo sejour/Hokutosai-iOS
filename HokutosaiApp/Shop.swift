@@ -33,7 +33,7 @@ class Shop: Mappable, StandardTableViewCellData {
         self.likesCount <- map["likes_count"]
     }
     
-    var dataId: UInt? { return self.shopId }
+    var dataId: UInt { return self.shopId! }
     var dataImageUrl: String? { return self.imageUrl }
     var dataTitle: String? { return self.name }
     var dataSubTitle: String? { return self.tenant }

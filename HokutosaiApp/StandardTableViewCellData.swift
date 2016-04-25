@@ -10,7 +10,7 @@ import Foundation
 
 protocol StandardTableViewCellData {
     
-    var dataId: UInt? { get }
+    var dataId: UInt { get }
     var dataImageUrl: String? { get }
     var dataTitle: String? { get }
     var dataSubTitle: String? { get }
