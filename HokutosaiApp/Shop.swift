@@ -27,10 +27,10 @@ class Shop: Mappable {
         self.name <- map["name"]
         self.tenant <- map["tenant"]
         self.sales <- map["sales"]
-        self.imageUrl <- map["imageUrl"]
+        self.imageUrl <- map["image_url"]
         self.assessmentAggregate <- map["assessment_aggregate"]
         self.liked <- map["liked"]
-        self.likesCount <- map["likesCount"]
+        self.likesCount <- map["likes_count"]
     }
     
 }
