@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class Shop: Mappable {
+class Shop: Mappable, StandardTableViewCellData {
     
     var shopId: UInt?
     var name: String?
@@ -32,5 +32,11 @@ class Shop: Mappable {
         self.liked <- map["liked"]
         self.likesCount <- map["likes_count"]
     }
+    
+    var dataId: UInt? { return self.shopId }
+    var dataImageUrl: String? { return self.imageUrl }
+    var dataTitle: String? { return self.name }
+    var dataSubTitle: String? { return self.tenant }
+    var dataDescription: String? { return self.sales }
     
 }
