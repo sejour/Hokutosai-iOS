@@ -36,7 +36,7 @@ class Shop: Mappable, StandardTableViewCellData {
     var dataId: UInt { return self.shopId! }
     var dataImageUrl: String? { return self.imageUrl }
     var dataTitle: String? { return self.name }
-    var dataSubTitle: String? { return self.tenant }
+    var dataOrganizer: String? { return self.tenant }
     var dataDescription: String? { return self.sales }
     
 }
