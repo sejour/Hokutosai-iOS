@@ -40,6 +40,7 @@
 		A77F9DEB1CC9111000BEE9A7 /* ExhibitionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F9DEA1CC9111000BEE9A7 /* ExhibitionsViewController.swift */; };
 		A77F9DED1CC9112700BEE9A7 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F9DEC1CC9112700BEE9A7 /* EventsViewController.swift */; };
 		A787A1B01CCDDAA10045F1DD /* StandardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A787A1AF1CCDDAA10045F1DD /* StandardTableViewCell.swift */; };
+		A787A1B31CCDE68A0045F1DD /* StandardTableViewCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A787A1B21CCDE68A0045F1DD /* StandardTableViewCellData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		A77F9DEA1CC9111000BEE9A7 /* ExhibitionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExhibitionsViewController.swift; sourceTree = "<group>"; };
 		A77F9DEC1CC9112700BEE9A7 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		A787A1AF1CCDDAA10045F1DD /* StandardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardTableViewCell.swift; sourceTree = "<group>"; };
+		A787A1B21CCDE68A0045F1DD /* StandardTableViewCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardTableViewCellData.swift; sourceTree = "<group>"; };
 		C4F766DA8D757B41B41297FB /* Pods-HokutosaiApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HokutosaiApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HokutosaiApp/Pods-HokutosaiApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -162,6 +164,7 @@
 		A77483101CCBBAF0003AC18F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A787A1B11CCDE6490045F1DD /* Commons */,
 				A77483311CCCD35B003AC18F /* Likes */,
 				A77483271CCCC288003AC18F /* Accounts */,
 				A77483201CCCBC9A003AC18F /* Places */,
@@ -367,6 +370,14 @@
 			name = Commons;
 			sourceTree = "<group>";
 		};
+		A787A1B11CCDE6490045F1DD /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				A787A1B21CCDE68A0045F1DD /* StandardTableViewCellData.swift */,
+			);
+			name = Commons;
+			sourceTree = "<group>";
+		};
 		C3415C3CFED4FAA3CCA79F2E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -565,6 +576,7 @@
 				A774830F1CCBB0E0003AC18F /* HokutosaiApi.swift in Sources */,
 				A77F9DE91CC910F800BEE9A7 /* ShopsViewController.swift in Sources */,
 				A77483161CCBCC90003AC18F /* Shop.swift in Sources */,
+				A787A1B31CCDE68A0045F1DD /* StandardTableViewCellData.swift in Sources */,
 				A77F9DE71CC910A400BEE9A7 /* NewsViewController.swift in Sources */,
 				A77483261CCCC08A003AC18F /* Assessment.swift in Sources */,
 				A77483191CCBCE98003AC18F /* AssessedScore.swift in Sources */,
