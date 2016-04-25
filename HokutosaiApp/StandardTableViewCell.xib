@@ -75,6 +75,12 @@
                     <constraint firstItem="UsF-EM-DeE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="94Y-mh-FrB"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="descriptionLabel" destination="QWs-FZ-Uxr" id="TSy-rF-Bz7"/>
+                <outlet property="displayedImageView" destination="fbY-YX-gMH" id="Lhx-rk-2Sb"/>
+                <outlet property="organizerLabel" destination="a3S-uE-Wi6" id="01j-NX-O8F"/>
+                <outlet property="titleLabel" destination="KUT-xu-EFK" id="VAx-8L-s6U"/>
+            </connections>
             <point key="canvasLocation" x="376" y="687.5"/>
         </tableViewCell>
     </objects>
