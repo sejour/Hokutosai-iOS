@@ -30,6 +30,8 @@
 		A77483331CCCD380003AC18F /* LikeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483321CCCD380003AC18F /* LikeResult.swift */; };
 		A77483351CCCD413003AC18F /* ShopLikeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483341CCCD413003AC18F /* ShopLikeResult.swift */; };
 		A77483371CCD2924003AC18F /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483361CCD2924003AC18F /* AlertController.swift */; };
+		A77483431CCE6086003AC18F /* StandardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483411CCE6086003AC18F /* StandardTableViewCell.swift */; };
+		A77483441CCE6086003AC18F /* StandardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A77483421CCE6086003AC18F /* StandardTableViewCell.xib */; };
 		A77B38FB1CC8C22C00012A0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */; };
 		A77B39021CC8C22C00012A0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A77B39011CC8C22C00012A0E /* Assets.xcassets */; };
 		A77B39101CC8C22C00012A0E /* HokutosaiAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B390F1CC8C22C00012A0E /* HokutosaiAppTests.swift */; };
@@ -84,6 +86,8 @@
 		A77483321CCCD380003AC18F /* LikeResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikeResult.swift; sourceTree = "<group>"; };
 		A77483341CCCD413003AC18F /* ShopLikeResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopLikeResult.swift; sourceTree = "<group>"; };
 		A77483361CCD2924003AC18F /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		A77483411CCE6086003AC18F /* StandardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardTableViewCell.swift; sourceTree = "<group>"; };
+		A77483421CCE6086003AC18F /* StandardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StandardTableViewCell.xib; sourceTree = "<group>"; };
 		A77B38F71CC8C22C00012A0E /* HokutosaiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HokutosaiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A77B39011CC8C22C00012A0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -244,6 +248,15 @@
 			name = Alert;
 			sourceTree = "<group>";
 		};
+		A77483401CCE6066003AC18F /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A77483411CCE6086003AC18F /* StandardTableViewCell.swift */,
+				A77483421CCE6086003AC18F /* StandardTableViewCell.xib */,
+			);
+			name = TableViewCell;
+			sourceTree = "<group>";
+		};
 		A77B38EE1CC8C22C00012A0E = {
 			isa = PBXGroup;
 			children = (
@@ -363,6 +376,7 @@
 		A787A1AE1CCDD9BA0045F1DD /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				A77483401CCE6066003AC18F /* TableViewCell */,
 			);
 			name = Commons;
 			sourceTree = "<group>";
@@ -494,6 +508,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A77483441CCE6086003AC18F /* StandardTableViewCell.xib in Resources */,
 				A77B39021CC8C22C00012A0E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -587,6 +602,7 @@
 				A774831F1CCCBBA8003AC18F /* DetailedShop.swift in Sources */,
 				A77483061CCB7B9E003AC18F /* REST.swift in Sources */,
 				A77483331CCCD380003AC18F /* LikeResult.swift in Sources */,
+				A77483431CCE6086003AC18F /* StandardTableViewCell.swift in Sources */,
 				A77483351CCCD413003AC18F /* ShopLikeResult.swift in Sources */,
 				A77B38FB1CC8C22C00012A0E /* AppDelegate.swift in Sources */,
 				A774832E1CCCD1AA003AC18F /* MyAssessment.swift in Sources */,
