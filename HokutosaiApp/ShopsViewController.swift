@@ -43,6 +43,7 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let nib = UINib(nibName: "StandardTableViewCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: cellIdentifier)
         
+        self.tableView.rowHeight = StandardTableViewCell.rowHeight
         self.tableView.layoutMargins = UIEdgeInsetsZero
         self.tableView.separatorInset = UIEdgeInsetsZero
         
