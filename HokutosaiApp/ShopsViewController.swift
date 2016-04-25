@@ -40,8 +40,10 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     private func generateTableView() {
         self.tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
+        self.tableView.registerClass(StandardTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.separatorInset = UIEdgeInsetsZero
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
@@ -50,8 +52,11 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("index: \(indexPath.row)")
-        print("name: \(self.shops[indexPath.row].name!)")
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,10 +67,14 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return shops.count
     }
     
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! StandardTableViewCell
         
-        cell.textLabel!.text = "\(self.shops[indexPath.row].name!)"
+        cell.updateData(self.shops[indexPath.row])
         
         return cell
     }
