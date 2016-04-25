@@ -39,7 +39,6 @@
 		A77F9DE91CC910F800BEE9A7 /* ShopsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F9DE81CC910F800BEE9A7 /* ShopsViewController.swift */; };
 		A77F9DEB1CC9111000BEE9A7 /* ExhibitionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F9DEA1CC9111000BEE9A7 /* ExhibitionsViewController.swift */; };
 		A77F9DED1CC9112700BEE9A7 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F9DEC1CC9112700BEE9A7 /* EventsViewController.swift */; };
-		A787A1B01CCDDAA10045F1DD /* StandardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A787A1AF1CCDDAA10045F1DD /* StandardTableViewCell.swift */; };
 		A787A1B31CCDE68A0045F1DD /* StandardTableViewCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A787A1B21CCDE68A0045F1DD /* StandardTableViewCellData.swift */; };
 /* End PBXBuildFile section */
 
@@ -100,7 +99,6 @@
 		A77F9DE81CC910F800BEE9A7 /* ShopsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopsViewController.swift; sourceTree = "<group>"; };
 		A77F9DEA1CC9111000BEE9A7 /* ExhibitionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExhibitionsViewController.swift; sourceTree = "<group>"; };
 		A77F9DEC1CC9112700BEE9A7 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
-		A787A1AF1CCDDAA10045F1DD /* StandardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardTableViewCell.swift; sourceTree = "<group>"; };
 		A787A1B21CCDE68A0045F1DD /* StandardTableViewCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardTableViewCellData.swift; sourceTree = "<group>"; };
 		C4F766DA8D757B41B41297FB /* Pods-HokutosaiApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HokutosaiApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HokutosaiApp/Pods-HokutosaiApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -365,7 +363,6 @@
 		A787A1AE1CCDD9BA0045F1DD /* Commons */ = {
 			isa = PBXGroup;
 			children = (
-				A787A1AF1CCDDAA10045F1DD /* StandardTableViewCell.swift */,
 			);
 			name = Commons;
 			sourceTree = "<group>";
@@ -582,7 +579,6 @@
 				A77483191CCBCE98003AC18F /* AssessedScore.swift in Sources */,
 				A77483041CCB79FC003AC18F /* Endpoint.swift in Sources */,
 				A774830B1CCBAA28003AC18F /* HokutosaiApiEndpoint.swift in Sources */,
-				A787A1B01CCDDAA10045F1DD /* StandardTableViewCell.swift in Sources */,
 				A77483291CCCC427003AC18F /* User.swift in Sources */,
 				A77483301CCCD2AB003AC18F /* ShopMyAssessment.swift in Sources */,
 				A77483241CCCBF13003AC18F /* MenuItem.swift in Sources */,
