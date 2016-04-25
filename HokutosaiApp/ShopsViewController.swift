@@ -40,7 +40,8 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     private func generateTableView() {
         self.tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
-        self.tableView.registerClass(StandardTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        let nib = UINib(nibName: "StandardTableViewCell", bundle: nil)
+        self.tableView.registerNib(nib, forCellReuseIdentifier: cellIdentifier)
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.layoutMargins = UIEdgeInsetsZero
