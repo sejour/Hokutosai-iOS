@@ -10,10 +10,10 @@ import Foundation
 
 protocol StandardTableViewCellData {
     
-    var id: UInt? { get }
-    var imageUrl: String? { get }
-    var title: String? { get }
-    var subTitle: String? { get }
-    var description: String? { get }
+    var dataId: UInt? { get }
+    var dataImageUrl: String? { get }
+    var dataTitle: String? { get }
+    var dataSubTitle: String? { get }
+    var dataDescription: String? { get }
     
 }
