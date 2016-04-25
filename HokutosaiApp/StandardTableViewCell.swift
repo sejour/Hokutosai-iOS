@@ -36,4 +36,6 @@ class StandardTableViewCell: UITableViewCell {
         self.descriptionLabel.text = data.dataDescription
     }
     
+    static let rowHeight: CGFloat = 81.0
+    
 }

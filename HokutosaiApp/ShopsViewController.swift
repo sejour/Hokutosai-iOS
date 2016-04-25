@@ -43,7 +43,6 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let nib = UINib(nibName: "StandardTableViewCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: cellIdentifier)
         
-        self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.layoutMargins = UIEdgeInsetsZero
         self.tableView.separatorInset = UIEdgeInsetsZero
         
@@ -67,6 +66,10 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         return shops.count
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return StandardTableViewCell.rowHeight
     }
     
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
