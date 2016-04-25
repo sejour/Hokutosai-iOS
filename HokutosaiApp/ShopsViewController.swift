@@ -43,6 +43,7 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.tableView.registerClass(StandardTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.layoutMargins = UIEdgeInsetsZero
         self.tableView.separatorInset = UIEdgeInsetsZero
         
         self.tableView.dataSource = self

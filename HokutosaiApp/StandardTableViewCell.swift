@@ -21,6 +21,10 @@ class StandardTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        self.preservesSuperviewLayoutMargins = false
+        self.layoutMargins = UIEdgeInsetsZero
+        self.separatorInset = UIEdgeInsetsZero
+        
         self.contentView.addSubview(self.titleLabel)
         self.contentView.addSubview(self.subTitleLabel)
         self.contentView.addSubview(self.descriptionLabel)
