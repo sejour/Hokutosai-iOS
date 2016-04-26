@@ -54,6 +54,9 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let detailsView = StandardDetailsViewController()
+        detailsView.title = self.shops[indexPath.row].name!
+        self.navigationController?.pushViewController(detailsView, animated: true)
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
