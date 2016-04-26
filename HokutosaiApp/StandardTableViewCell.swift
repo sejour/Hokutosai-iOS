@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class StandardTableViewCell: UITableViewCell {
 
@@ -14,6 +15,8 @@ class StandardTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var organizerLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    
+    static let noImage = UIImage(named: "NoImage")
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,7 +34,14 @@ class StandardTableViewCell: UITableViewCell {
     }
     
     func updateData(data: StandardTableViewCellData) {
-        self.titleLabel.text = data.dataTitle
+        if let imageUrl = data.dataImageUrl, let url = NSURL(string: imageUrl) {
+            self.displayedImageView.af_setImageWithURL(url, placeholderImage: SharedImage.noImage)
+        }
+        else {
+            self.displayedImageView.image = SharedImage.noImage
+        }
+ 
+        self.titleLabel.text = data.dataTitle ?? "<<Unknown>>"
         self.organizerLabel.text = data.dataOrganizer
         self.descriptionLabel.text = data.dataDescription
     }

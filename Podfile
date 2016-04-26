@@ -6,7 +6,7 @@ target 'HokutosaiApp' do
   pod 'ObjectMapper', '~> 1.2'
   pod 'AlamofireNetworkActivityIndicator', '~> 1.0'
   pod 'KeychainAccess'
-  pod 'SnapKit'
+  pod 'AlamofireImage'
 end
 
 target 'HokutosaiAppTests' do
