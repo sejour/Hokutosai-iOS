@@ -43,6 +43,7 @@
 		A77F9DED1CC9112700BEE9A7 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F9DEC1CC9112700BEE9A7 /* EventsViewController.swift */; };
 		A787A1B31CCDE68A0045F1DD /* StandardTableViewCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A787A1B21CCDE68A0045F1DD /* StandardTableViewCellData.swift */; };
 		A787A1B61CCF5B170045F1DD /* SharedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A787A1B51CCF5B170045F1DD /* SharedImage.swift */; };
+		A787A1B91CCF6D380045F1DD /* StandardDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A787A1B81CCF6D380045F1DD /* StandardDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 		A77F9DEC1CC9112700BEE9A7 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		A787A1B21CCDE68A0045F1DD /* StandardTableViewCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardTableViewCellData.swift; sourceTree = "<group>"; };
 		A787A1B51CCF5B170045F1DD /* SharedImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedImage.swift; sourceTree = "<group>"; };
+		A787A1B81CCF6D380045F1DD /* StandardDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardDetailsViewController.swift; sourceTree = "<group>"; };
 		C4F766DA8D757B41B41297FB /* Pods-HokutosaiApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HokutosaiApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HokutosaiApp/Pods-HokutosaiApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -317,6 +319,7 @@
 		A77F9DDF1CC8FE8C00BEE9A7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A787A1B71CCF6CCF0045F1DD /* Commons */,
 				A77483381CCD2932003AC18F /* Alert */,
 				A77F9DE31CC8FF2900BEE9A7 /* Events */,
 				A77F9DE21CC8FF0400BEE9A7 /* Exhibitions */,
@@ -398,6 +401,14 @@
 				A787A1B51CCF5B170045F1DD /* SharedImage.swift */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		A787A1B71CCF6CCF0045F1DD /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				A787A1B81CCF6D380045F1DD /* StandardDetailsViewController.swift */,
+			);
+			name = Commons;
 			sourceTree = "<group>";
 		};
 		C3415C3CFED4FAA3CCA79F2E /* Pods */ = {
@@ -613,6 +624,7 @@
 				A77483371CCD2924003AC18F /* AlertController.swift in Sources */,
 				A774831F1CCCBBA8003AC18F /* DetailedShop.swift in Sources */,
 				A77483061CCB7B9E003AC18F /* REST.swift in Sources */,
+				A787A1B91CCF6D380045F1DD /* StandardDetailsViewController.swift in Sources */,
 				A77483331CCCD380003AC18F /* LikeResult.swift in Sources */,
 				A77483431CCE6086003AC18F /* StandardTableViewCell.swift in Sources */,
 				A77483351CCCD413003AC18F /* ShopLikeResult.swift in Sources */,
