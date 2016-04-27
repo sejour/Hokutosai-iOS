@@ -107,6 +107,8 @@
             <connections>
                 <outlet property="descriptionLabel" destination="QWs-FZ-Uxr" id="TSy-rF-Bz7"/>
                 <outlet property="displayedImageView" destination="fbY-YX-gMH" id="Lhx-rk-2Sb"/>
+                <outlet property="likeButton" destination="2Ta-4q-O6m" id="BGl-Hm-5v8"/>
+                <outlet property="likesCountLabel" destination="a41-HI-iqU" id="FST-zX-mQn"/>
                 <outlet property="organizerLabel" destination="a3S-uE-Wi6" id="01j-NX-O8F"/>
                 <outlet property="titleLabel" destination="KUT-xu-EFK" id="VAx-8L-s6U"/>
             </connections>

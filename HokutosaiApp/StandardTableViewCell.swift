@@ -15,6 +15,8 @@ class StandardTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var organizerLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var likesCountLabel: UILabel!
     
     static let noImage = UIImage(named: "NoImage")
     
@@ -44,6 +46,20 @@ class StandardTableViewCell: UITableViewCell {
         self.titleLabel.text = data.dataTitle ?? "<<Unknown>>"
         self.organizerLabel.text = data.dataOrganizer
         self.descriptionLabel.text = data.dataDescription
+        
+        if let likesCount = data.dataLikesCount {
+            self.likesCountLabel.text = String(likesCount)
+        }
+        else {
+            self.likesCountLabel.text = "0"
+        }
+        
+        if let liked = data.dataLiked where liked {
+            self.likeButton.imageView?.image = SharedImage.redHertIcon
+        }
+        else {
+            self.likeButton.imageView?.image = SharedImage.grayHertIcon
+        }
     }
     
     static let rowHeight: CGFloat = 81.0
