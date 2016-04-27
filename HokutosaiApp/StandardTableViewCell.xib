@@ -58,6 +58,9 @@
                                     <constraint firstAttribute="height" constant="17" id="Jsr-ea-xl7"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="GrayHertIcon"/>
+                                <connections>
+                                    <action selector="like:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="wE8-Ev-9X7"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a41-HI-iqU">
                                 <rect key="frame" x="271" y="51" width="39" height="21"/>

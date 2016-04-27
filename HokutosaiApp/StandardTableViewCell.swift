@@ -18,7 +18,7 @@ class StandardTableViewCell: UITableViewCell {
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var likesCountLabel: UILabel!
     
-    static let noImage = UIImage(named: "NoImage")
+    var data: StandardTableViewCellData?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,6 +36,8 @@ class StandardTableViewCell: UITableViewCell {
     }
     
     func updateData(data: StandardTableViewCellData) {
+        self.data = data
+        
         if let imageUrl = data.dataImageUrl, let url = NSURL(string: imageUrl) {
             self.displayedImageView.af_setImageWithURL(url, placeholderImage: SharedImage.noImage)
         }
@@ -60,6 +62,10 @@ class StandardTableViewCell: UITableViewCell {
         else {
             self.likeButton.imageView?.image = SharedImage.grayHertIcon
         }
+    }
+    
+    @IBAction func like(sender: AnyObject) {
+        
     }
     
     static let rowHeight: CGFloat = 81.0
