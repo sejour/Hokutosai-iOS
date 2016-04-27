@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -42,13 +42,30 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWs-FZ-Uxr">
-                                <rect key="frame" x="103" y="51" width="209" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWs-FZ-Uxr">
+                                <rect key="frame" x="103" y="51" width="132" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="4g3-db-aaR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.4876198743386243" green="0.4876198743386243" blue="0.4876198743386243" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ta-4q-O6m">
+                                <rect key="frame" x="248" y="53" width="20" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="975-mj-HNn"/>
+                                    <constraint firstAttribute="height" constant="17" id="Jsr-ea-xl7"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="GrayHertIcon"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a41-HI-iqU">
+                                <rect key="frame" x="273" y="51" width="39" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="UD6-VV-eCD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.49276620370370372" green="0.49276620370370372" blue="0.49276620370370372" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -58,15 +75,25 @@
                             <constraint firstAttribute="bottom" secondItem="QWs-FZ-Uxr" secondAttribute="bottom" constant="8" id="2fL-xc-K4S"/>
                             <constraint firstItem="fbY-YX-gMH" firstAttribute="top" secondItem="UsF-EM-DeE" secondAttribute="top" id="2ij-61-v7k"/>
                             <constraint firstItem="a3S-uE-Wi6" firstAttribute="centerY" secondItem="UsF-EM-DeE" secondAttribute="centerY" constant="2" id="4gN-Cg-iHB"/>
+                            <constraint firstItem="a41-HI-iqU" firstAttribute="leading" secondItem="2Ta-4q-O6m" secondAttribute="trailing" constant="5" id="6KO-KH-ZbO"/>
                             <constraint firstAttribute="trailing" secondItem="a3S-uE-Wi6" secondAttribute="trailing" constant="8" id="F47-cY-jMi"/>
+                            <constraint firstItem="2Ta-4q-O6m" firstAttribute="leading" secondItem="QWs-FZ-Uxr" secondAttribute="trailing" constant="13" id="Hh7-L2-FWj"/>
                             <constraint firstAttribute="height" constant="80" id="OGx-y3-KYS"/>
                             <constraint firstItem="a3S-uE-Wi6" firstAttribute="leading" secondItem="fbY-YX-gMH" secondAttribute="trailing" constant="23" id="Rtm-vh-rHD"/>
+                            <constraint firstAttribute="bottom" secondItem="a41-HI-iqU" secondAttribute="bottom" constant="8" id="UtB-Yp-VG1"/>
                             <constraint firstAttribute="trailing" secondItem="KUT-xu-EFK" secondAttribute="trailing" constant="8" id="WVs-1L-uVc"/>
                             <constraint firstItem="KUT-xu-EFK" firstAttribute="leading" secondItem="fbY-YX-gMH" secondAttribute="trailing" constant="15" id="gjV-dI-TYa"/>
                             <constraint firstItem="KUT-xu-EFK" firstAttribute="top" secondItem="UsF-EM-DeE" secondAttribute="top" constant="8" id="hjN-dm-W2N"/>
                             <constraint firstItem="fbY-YX-gMH" firstAttribute="leading" secondItem="UsF-EM-DeE" secondAttribute="leading" id="lUI-Fo-ZiZ"/>
+                            <constraint firstAttribute="trailing" secondItem="a41-HI-iqU" secondAttribute="trailing" constant="8" id="lh2-b3-ikL"/>
                             <constraint firstAttribute="trailing" secondItem="QWs-FZ-Uxr" secondAttribute="trailing" constant="8" id="lyU-Ql-UbY"/>
+                            <constraint firstAttribute="bottom" secondItem="2Ta-4q-O6m" secondAttribute="bottom" constant="10" id="uVK-HZ-5BU"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="lyU-Ql-UbY"/>
+                            </mask>
+                        </variation>
                     </view>
                 </subviews>
                 <constraints>
@@ -84,4 +111,7 @@
             <point key="canvasLocation" x="376" y="687.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="GrayHertIcon" width="50" height="41"/>
+    </resources>
 </document>
