@@ -15,7 +15,7 @@ protocol StandardTableViewCellData {
     var dataTitle: String? { get }
     var dataOrganizer: String? { get }
     var dataDescription: String? { get }
-    var dataLikesCount: Int? { get }
-    var dataLiked: Bool? { get }
+    var dataLikesCount: Int? { get set }
+    var dataLiked: Bool? { get set }
     
 }
