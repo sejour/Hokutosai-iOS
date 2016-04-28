@@ -19,6 +19,7 @@ class StandardTableViewCell: UITableViewCell {
     @IBOutlet weak var likesCountLabel: UILabel!
     
     var data: StandardTableViewCellData?
+    weak var delegate: StandardTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -65,7 +66,9 @@ class StandardTableViewCell: UITableViewCell {
     }
     
     @IBAction func like(sender: AnyObject) {
-        
+        if let data = self.data {
+            self.delegate?.like(data)
+        }
     }
     
     static let rowHeight: CGFloat = 81.0
