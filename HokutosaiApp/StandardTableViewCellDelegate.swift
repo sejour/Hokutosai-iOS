@@ -8,8 +8,8 @@
 
 import Foundation
 
-protocol StandardTableViewCellDelegate {
+protocol StandardTableViewCellDelegate: class {
     
-    func like(data: StandardTableViewCellData)
+    func like(data: StandardTableViewCellData) -> Void
     
 }
