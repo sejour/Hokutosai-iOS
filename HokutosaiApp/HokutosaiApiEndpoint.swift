@@ -28,19 +28,57 @@ class HokutosaiApiEndpoint<ResourceType: NetworkResource>: Endpoint<ResourceType
 extension HokutosaiApi {
     
     class Shops {
+        
         static let basePath = "/shops"
         
         class Shops: HokutosaiApiEndpoint<ArrayResource<Shop>> {
             init() { super.init(basePath: basePath) }
         }
+        
+        class Details: HokutosaiApiEndpoint<ObjectResource<DetailedShop>> {
+            init(shopId: UInt) { super.init(basePath: basePath, path: "/\(shopId)/details") }
+        }
+        
+        class Assessment: HokutosaiApiEndpoint<ObjectResource<ShopMyAssessment>> {
+            init(shopId: UInt) { super.init(basePath: basePath, path: "/\(shopId)/assessment") }
+        }
+        
+        class Likes: HokutosaiApiEndpoint<ObjectResource<ShopLikeResult>> {
+            init(shopId: UInt) { super.init(basePath: basePath, path: "/\(shopId)/likes") }
+        }
+        
+    }
+    
+    class Exhibitions {
+        
+        static let basePath = "/exhibitions"
+        
+        class Exhibitions: HokutosaiApiEndpoint<ArrayResource<Exhibition>> {
+            init() { super.init(basePath: basePath) }
+        }
+        
+        class Details: HokutosaiApiEndpoint<ObjectResource<DetailedExhibition>> {
+            init(exhibitionId: UInt) { super.init(basePath: basePath, path: "/\(exhibitionId)/details") }
+        }
+        
+        class Assessment: HokutosaiApiEndpoint<ObjectResource<ExhibitionMyAssessment>> {
+            init(exhibitionId: UInt) { super.init(basePath: basePath, path: "/\(exhibitionId)/assessment") }
+        }
+        
+        class Likes: HokutosaiApiEndpoint<ObjectResource<ExhibitionLikeResult>> {
+            init(exhibitionId: UInt) { super.init(basePath: basePath, path: "/\(exhibitionId)/likes") }
+        }
+        
     }
     
     class Accounts {
+        
         static let basePath = "/accounts"
         
         class New: HokutosaiApiEndpoint<ObjectResource<HokutosaiAccount>> {
             init() { super.init(basePath: basePath, path: "/new", requiredAccount: false) }
         }
+        
     }
     
 }
