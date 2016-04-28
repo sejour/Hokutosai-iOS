@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, StandardTableViewCellDelegate {
 
     private var shops: [Shop]!
     
@@ -24,7 +24,7 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         HokutosaiApi.GET(HokutosaiApi.Shops.Shops()) { response in
             guard response.isSuccess else {
-                self.presentViewController(ErrorAlert.failureServerData(), animated: true, completion: nil)
+                self.presentViewController(ErrorAlert.Server.failureGet(), animated: true, completion: nil)
                 return
             }
             
@@ -83,9 +83,40 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! StandardTableViewCell
         
-        cell.updateData(self.shops[indexPath.row])
+        cell.changeData(indexPath.row, data: self.shops[indexPath.row])
+        cell.delegate = self
         
         return cell
+    }
+    
+    func like(index: Int, cell: StandardTableViewCell) {
+        let shopId = self.shops[index].shopId!
+        HokutosaiApi.POST(HokutosaiApi.Shops.Likes(shopId: shopId)) { response in
+            guard let result = response.model else {
+                self.presentViewController(ErrorAlert.Server.failureSendRequest(), animated: true, completion: nil)
+                cell.updateLikes(shopId)
+                return
+            }
+
+            self.shops[index].liked = result.liked
+            self.shops[index].likesCount = result.likesCount
+            cell.updateLikes(shopId)
+        }
+    }
+    
+    func dislike(index: Int, cell: StandardTableViewCell) {
+        let shopId = self.shops[index].shopId!
+        HokutosaiApi.DELETE(HokutosaiApi.Shops.Likes(shopId: shopId)) { response in
+            guard let result = response.model else {
+                self.presentViewController(ErrorAlert.Server.failureSendRequest(), animated: true, completion: nil)
+                cell.updateLikes(shopId)
+                return
+            }
+
+            self.shops[index].liked = result.liked
+            self.shops[index].likesCount = result.likesCount
+            cell.updateLikes(shopId)
+        }
     }
 
 }
