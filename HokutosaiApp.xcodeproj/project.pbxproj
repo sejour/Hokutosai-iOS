@@ -50,6 +50,7 @@
 		A7A60FB41CD210C900AA9543 /* Exhibition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A60FB31CD210C900AA9543 /* Exhibition.swift */; };
 		A7A60FB61CD2140700AA9543 /* DetailedExhibition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A60FB51CD2140700AA9543 /* DetailedExhibition.swift */; };
 		A7A60FB81CD2179700AA9543 /* ExhibitionMyAssessment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A60FB71CD2179700AA9543 /* ExhibitionMyAssessment.swift */; };
+		A7A60FBA1CD2183100AA9543 /* ExhibitionLikeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A60FB91CD2183100AA9543 /* ExhibitionLikeResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,7 @@
 		A7A60FB31CD210C900AA9543 /* Exhibition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exhibition.swift; sourceTree = "<group>"; };
 		A7A60FB51CD2140700AA9543 /* DetailedExhibition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedExhibition.swift; sourceTree = "<group>"; };
 		A7A60FB71CD2179700AA9543 /* ExhibitionMyAssessment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExhibitionMyAssessment.swift; sourceTree = "<group>"; };
+		A7A60FB91CD2183100AA9543 /* ExhibitionLikeResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExhibitionLikeResult.swift; sourceTree = "<group>"; };
 		C4F766DA8D757B41B41297FB /* Pods-HokutosaiApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HokutosaiApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HokutosaiApp/Pods-HokutosaiApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -441,6 +443,7 @@
 				A7A60FB31CD210C900AA9543 /* Exhibition.swift */,
 				A7A60FB51CD2140700AA9543 /* DetailedExhibition.swift */,
 				A7A60FB71CD2179700AA9543 /* ExhibitionMyAssessment.swift */,
+				A7A60FB91CD2183100AA9543 /* ExhibitionLikeResult.swift */,
 			);
 			name = Exhibitions;
 			sourceTree = "<group>";
@@ -642,6 +645,7 @@
 				A774832C1CCCC84B003AC18F /* HokutosaiDateTransform.swift in Sources */,
 				A77483221CCCBCB3003AC18F /* Place.swift in Sources */,
 				A774830F1CCBB0E0003AC18F /* HokutosaiApi.swift in Sources */,
+				A7A60FBA1CD2183100AA9543 /* ExhibitionLikeResult.swift in Sources */,
 				A77F9DE91CC910F800BEE9A7 /* ShopsViewController.swift in Sources */,
 				A77483161CCBCC90003AC18F /* Shop.swift in Sources */,
 				A787A1B31CCDE68A0045F1DD /* StandardTableViewCellData.swift in Sources */,
