@@ -38,15 +38,7 @@ class Shop: Mappable, StandardTableViewCellData {
     var dataTitle: String? { return self.name }
     var dataOrganizer: String? { return self.tenant }
     var dataDescription: String? { return self.sales }
-    
-    var dataLikesCount: Int? {
-        get { return self.likesCount }
-        set { self.likesCount = newValue }
-    }
-    
-    var dataLiked: Bool? {
-        get { return self.liked }
-        set { self.dataLiked = newValue }
-    }
+    var dataLikesCount: UInt? { return self.likesCount }
+    var dataLiked: Bool? { return self.liked }
     
 }
