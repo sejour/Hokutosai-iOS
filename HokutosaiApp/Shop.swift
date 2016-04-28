@@ -18,7 +18,7 @@ class Shop: Mappable, StandardTableViewCellData {
     var imageUrl: String?
     var assessmentAggregate: AssessedScore?
     var liked: Bool?
-    var likesCount: Int?
+    var likesCount: UInt?
     
     required init?(_ map: Map) { }
     
