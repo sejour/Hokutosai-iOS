@@ -61,9 +61,11 @@ class StandardTableViewCell: UITableViewCell {
         
         if let liked = data.dataLiked where liked {
             self.likeButton.imageView?.image = SharedImage.redHertIcon
+            self.likesCountLabel.textColor = SharedColor.likesCountRed
         }
         else {
             self.likeButton.imageView?.image = SharedImage.grayHertIcon
+            self.likesCountLabel.textColor = SharedColor.likesCountGray
         }
     }
     
@@ -79,19 +81,23 @@ class StandardTableViewCell: UITableViewCell {
         
         if let liked = data.dataLiked where liked {
             self.likeButton.imageView?.image = SharedImage.redHertIcon
+            self.likesCountLabel.textColor = SharedColor.likesCountRed
         }
         else {
             self.likeButton.imageView?.image = SharedImage.grayHertIcon
+            self.likesCountLabel.textColor = SharedColor.likesCountGray
         }
     }
     
     @IBAction func like(sender: AnyObject) {
         if let liked = self.data.dataLiked where liked {
             self.likeButton.imageView?.image = SharedImage.grayHertIcon
+            self.likesCountLabel.textColor = SharedColor.likesCountGray
             self.delegate?.dislike(self.index, cell: self)
         }
         else {
             self.likeButton.imageView?.image = SharedImage.redHertIcon
+            self.likesCountLabel.textColor = SharedColor.likesCountRed
             self.delegate?.like(self.index, cell: self)
         }
     }
