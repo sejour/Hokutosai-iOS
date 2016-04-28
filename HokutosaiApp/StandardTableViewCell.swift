@@ -37,7 +37,7 @@ class StandardTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func updateData(index: Int, data: StandardTableViewCellData) {
+    func changeData(index: Int, data: StandardTableViewCellData) {
         self.index = index
         
         if let imageUrl = data.dataImageUrl, let url = NSURL(string: imageUrl) {
