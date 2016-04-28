@@ -49,6 +49,28 @@ extension HokutosaiApi {
         
     }
     
+    class Exhibitions {
+        
+        static let basePath = "/exhibitions"
+        
+        class Exhibitions: HokutosaiApiEndpoint<ArrayResource<Exhibition>> {
+            init() { super.init(basePath: basePath) }
+        }
+        
+        class Details: HokutosaiApiEndpoint<ObjectResource<DetailedExhibition>> {
+            init(exhibitionId: UInt) { super.init(basePath: basePath, path: "/\(exhibitionId)/details") }
+        }
+        
+        class Assessment: HokutosaiApiEndpoint<ObjectResource<ExhibitionMyAssessment>> {
+            init(exhibitionId: UInt) { super.init(basePath: basePath, path: "/\(exhibitionId)/assessment") }
+        }
+        
+        class Likes: HokutosaiApiEndpoint<ObjectResource<ExhibitionLikeResult>> {
+            init(exhibitionId: UInt) { super.init(basePath: basePath, path: "/\(exhibitionId)/likes") }
+        }
+        
+    }
+    
     class Accounts {
         
         static let basePath = "/accounts"
