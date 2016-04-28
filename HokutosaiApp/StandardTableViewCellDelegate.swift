@@ -10,6 +10,7 @@ import Foundation
 
 protocol StandardTableViewCellDelegate: class {
     
-    func like(data: StandardTableViewCellData) -> Void
+    func like(index: Int, cell: StandardTableViewCell) -> Void
+    func dislike(index: Int, cell: StandardTableViewCell) -> Void
     
 }
