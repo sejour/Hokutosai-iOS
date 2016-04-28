@@ -34,6 +34,7 @@
 		A77483441CCE6086003AC18F /* StandardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A77483421CCE6086003AC18F /* StandardTableViewCell.xib */; };
 		A77483461CD1DD8F003AC18F /* StandardTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483451CD1DD8F003AC18F /* StandardTableViewCellDelegate.swift */; };
 		A77483481CD20152003AC18F /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483471CD20152003AC18F /* Color.swift */; };
+		A774834B1CD20769003AC18F /* SharedColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A774834A1CD20769003AC18F /* SharedColor.swift */; };
 		A77B38FB1CC8C22C00012A0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */; };
 		A77B39021CC8C22C00012A0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A77B39011CC8C22C00012A0E /* Assets.xcassets */; };
 		A77B39101CC8C22C00012A0E /* HokutosaiAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B390F1CC8C22C00012A0E /* HokutosaiAppTests.swift */; };
@@ -94,6 +95,7 @@
 		A77483421CCE6086003AC18F /* StandardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StandardTableViewCell.xib; sourceTree = "<group>"; };
 		A77483451CD1DD8F003AC18F /* StandardTableViewCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		A77483471CD20152003AC18F /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		A774834A1CD20769003AC18F /* SharedColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedColor.swift; sourceTree = "<group>"; };
 		A77B38F71CC8C22C00012A0E /* HokutosaiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HokutosaiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A77B38FA1CC8C22C00012A0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A77B39011CC8C22C00012A0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -267,6 +269,14 @@
 			name = TableViewCell;
 			sourceTree = "<group>";
 		};
+		A77483491CD2073D003AC18F /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				A774834A1CD20769003AC18F /* SharedColor.swift */,
+			);
+			name = Color;
+			sourceTree = "<group>";
+		};
 		A77B38EE1CC8C22C00012A0E = {
 			isa = PBXGroup;
 			children = (
@@ -371,6 +381,7 @@
 		A787A1AC1CCDD9690045F1DD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A77483491CD2073D003AC18F /* Color */,
 				A787A1B41CCF5ABD0045F1DD /* Images */,
 				A787A1AE1CCDD9BA0045F1DD /* Commons */,
 				A787A1AD1CCDD9750045F1DD /* Shops */,
@@ -635,6 +646,7 @@
 				A787A1B91CCF6D380045F1DD /* StandardDetailsViewController.swift in Sources */,
 				A77483331CCCD380003AC18F /* LikeResult.swift in Sources */,
 				A77483431CCE6086003AC18F /* StandardTableViewCell.swift in Sources */,
+				A774834B1CD20769003AC18F /* SharedColor.swift in Sources */,
 				A77483351CCCD413003AC18F /* ShopLikeResult.swift in Sources */,
 				A77B38FB1CC8C22C00012A0E /* AppDelegate.swift in Sources */,
 				A774832E1CCCD1AA003AC18F /* MyAssessment.swift in Sources */,
