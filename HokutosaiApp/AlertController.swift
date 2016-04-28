@@ -25,8 +25,28 @@ extension UIAlertController {
 
 final class ErrorAlert {
     
-    class func failureServerData() -> UIAlertController {
-        return UIAlertController.notificationAlertController("データを取得できません。", message: "しばらくしてからもう一度アクセスし直してください。", closeButtonTitle: "OK")
+    final class Server {
+        
+        static let defaultMessage = "しばらくしてからもう一度アクセスし直してください。"
+        
+        class func failure(message: String = defaultMessage) -> UIAlertController {
+            return UIAlertController.notificationAlertController("サーバにアクセスできません。", message: message, closeButtonTitle: "OK")
+        }
+
+        class func failureGet(message: String = defaultMessage) -> UIAlertController {
+            return UIAlertController.notificationAlertController("データを取得できません。", message: message, closeButtonTitle: "OK")
+        }
+        
+        class func failureSendRequest(message: String = defaultMessage) -> UIAlertController {
+            return UIAlertController.notificationAlertController("リクエストを送信できません。", message: message, closeButtonTitle: "OK")
+        }
+        
+        class func accessDenyed(message: String = defaultMessage) -> UIAlertController {
+            return UIAlertController.notificationAlertController("アクセスが拒否されました。", message: message, closeButtonTitle: "OK")
+        }
+        
+        private init () {}
+
     }
     
     private init () {}
