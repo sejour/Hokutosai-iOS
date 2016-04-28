@@ -18,7 +18,8 @@ class StandardTableViewCell: UITableViewCell {
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var likesCountLabel: UILabel!
     
-    var data: StandardTableViewCellData?
+    var index: Int!
+    var data: StandardTableViewCellData!
     weak var delegate: StandardTableViewCellDelegate?
     
     override func awakeFromNib() {
@@ -36,8 +37,8 @@ class StandardTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func updateData(data: StandardTableViewCellData) {
-        self.data = data
+    func updateData(index: Int, data: StandardTableViewCellData) {
+        self.index = index
         
         if let imageUrl = data.dataImageUrl, let url = NSURL(string: imageUrl) {
             self.displayedImageView.af_setImageWithURL(url, placeholderImage: SharedImage.noImage)
@@ -66,8 +67,13 @@ class StandardTableViewCell: UITableViewCell {
     }
     
     @IBAction func like(sender: AnyObject) {
-        if let data = self.data {
-            self.delegate?.like(data)
+        if let liked = self.data.dataLiked where liked {
+            self.likeButton.imageView?.image = SharedImage.grayHertIcon
+            self.delegate?.dislike(self.index, cell: self)
+        }
+        else {
+            self.likeButton.imageView?.image = SharedImage.redHertIcon
+            self.delegate?.like(self.index, cell: self)
         }
     }
     
