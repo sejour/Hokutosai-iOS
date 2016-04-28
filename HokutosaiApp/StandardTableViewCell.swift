@@ -39,6 +39,7 @@ class StandardTableViewCell: UITableViewCell {
     
     func changeData(index: Int, data: StandardTableViewCellData) {
         self.index = index
+        self.data = data
         
         if let imageUrl = data.dataImageUrl, let url = NSURL(string: imageUrl) {
             self.displayedImageView.af_setImageWithURL(url, placeholderImage: SharedImage.noImage)
