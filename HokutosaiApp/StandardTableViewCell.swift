@@ -66,6 +66,24 @@ class StandardTableViewCell: UITableViewCell {
         }
     }
     
+    func updateLikes(dataId: UInt) {
+        guard dataId == data.dataId else { return }
+        
+        if let likesCount = data.dataLikesCount {
+            self.likesCountLabel.text = String(likesCount)
+        }
+        else {
+            self.likesCountLabel.text = "0"
+        }
+        
+        if let liked = data.dataLiked where liked {
+            self.likeButton.imageView?.image = SharedImage.redHertIcon
+        }
+        else {
+            self.likeButton.imageView?.image = SharedImage.grayHertIcon
+        }
+    }
+    
     @IBAction func like(sender: AnyObject) {
         if let liked = self.data.dataLiked where liked {
             self.likeButton.imageView?.image = SharedImage.grayHertIcon
