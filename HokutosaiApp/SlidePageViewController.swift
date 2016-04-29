@@ -10,7 +10,7 @@ import UIKit
 
 class SlidePageViewController: UIPageViewController, UIPageViewControllerDataSource {
     
-    var pages = [UIViewController]()
+    private var pages: [UIViewController]!
     
     var pageCount: Int {
         return self.pages.count
@@ -24,15 +24,29 @@ class SlidePageViewController: UIPageViewController, UIPageViewControllerDataSou
         return index
     }
 
+    init (navigationOrientation: UIPageViewControllerNavigationOrientation = .Horizontal) {
+        super.init(transitionStyle: .Scroll, navigationOrientation: navigationOrientation, options: nil)
+        self.dataSource = self
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setPages(pages: [UIViewController]) {
+        self.pages = pages
+        self.setViewControllers([self.pages[0]], direction: .Forward, animated: false, completion: nil)
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
