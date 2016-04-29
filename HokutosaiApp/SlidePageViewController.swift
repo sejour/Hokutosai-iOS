@@ -85,5 +85,10 @@ class SlidePageViewController: UIPageViewController, UIPageViewControllerDataSou
         return self._pages[index + 1]
     }
 
+    func registParentViewController(parentViewController: UIViewController) {
+        parentViewController.addChildViewController(self)
+        parentViewController.view.addSubview(self.view)
+        self.didMoveToParentViewController(parentViewController)
+    }
 
 }
