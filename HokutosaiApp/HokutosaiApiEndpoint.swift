@@ -27,6 +27,16 @@ class HokutosaiApiEndpoint<ResourceType: NetworkResource>: Endpoint<ResourceType
 
 extension HokutosaiApi {
     
+    class News {
+        
+        static let basePath = "/news"
+        
+        class Topics: HokutosaiApiEndpoint<ArrayResource<TopicNews>> {
+            init() { super.init(basePath: basePath, path: "/topics", requiredAccount: false) }
+        }
+        
+    }
+    
     class Shops {
         
         static let basePath = "/shops"
