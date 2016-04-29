@@ -51,6 +51,7 @@
 		A7A60FB61CD2140700AA9543 /* DetailedExhibition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A60FB51CD2140700AA9543 /* DetailedExhibition.swift */; };
 		A7A60FB81CD2179700AA9543 /* ExhibitionMyAssessment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A60FB71CD2179700AA9543 /* ExhibitionMyAssessment.swift */; };
 		A7A60FBA1CD2183100AA9543 /* ExhibitionLikeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A60FB91CD2183100AA9543 /* ExhibitionLikeResult.swift */; };
+		A7A60FC31CD36C3600AA9543 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A60FC21CD36C3600AA9543 /* PageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +123,7 @@
 		A7A60FB51CD2140700AA9543 /* DetailedExhibition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedExhibition.swift; sourceTree = "<group>"; };
 		A7A60FB71CD2179700AA9543 /* ExhibitionMyAssessment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExhibitionMyAssessment.swift; sourceTree = "<group>"; };
 		A7A60FB91CD2183100AA9543 /* ExhibitionLikeResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExhibitionLikeResult.swift; sourceTree = "<group>"; };
+		A7A60FC21CD36C3600AA9543 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		C4F766DA8D757B41B41297FB /* Pods-HokutosaiApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HokutosaiApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HokutosaiApp/Pods-HokutosaiApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -433,6 +435,7 @@
 			isa = PBXGroup;
 			children = (
 				A787A1B81CCF6D380045F1DD /* StandardDetailsViewController.swift */,
+				A7A60FC21CD36C3600AA9543 /* PageViewController.swift */,
 			);
 			name = Commons;
 			sourceTree = "<group>";
@@ -672,6 +675,7 @@
 				A77483431CCE6086003AC18F /* StandardTableViewCell.swift in Sources */,
 				A774834B1CD20769003AC18F /* SharedColor.swift in Sources */,
 				A77483351CCCD413003AC18F /* ShopLikeResult.swift in Sources */,
+				A7A60FC31CD36C3600AA9543 /* PageViewController.swift in Sources */,
 				A77B38FB1CC8C22C00012A0E /* AppDelegate.swift in Sources */,
 				A774832E1CCCD1AA003AC18F /* MyAssessment.swift in Sources */,
 				A77483131CCBBC1E003AC18F /* HokutosaiAccount.swift in Sources */,
