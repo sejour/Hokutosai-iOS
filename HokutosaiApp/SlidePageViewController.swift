@@ -10,14 +10,14 @@ import UIKit
 
 class SlidePageViewController: UIPageViewController, UIPageViewControllerDataSource {
     
-    private var pages: [UIViewController]!
+    private var _pages: [UIViewController]!
     
     var pageCount: Int {
-        return self.pages.count
+        return self._pages.count
     }
     
     var currentPageNumber: Int? {
-        guard let vc = self.viewControllers, let index = self.pages.indexOf(vc[0]) else {
+        guard let vc = self.viewControllers, let index = self._pages.indexOf(vc[0]) else {
             return nil
         }
         
@@ -59,9 +59,12 @@ class SlidePageViewController: UIPageViewController, UIPageViewControllerDataSou
         // Dispose of any resources that can be recreated.
     }
     
-    func setPages(pages: [UIViewController]) {
-        self.pages = pages
-        self.setViewControllers([self.pages[0]], direction: .Forward, animated: false, completion: nil)
+    var pages: [UIViewController] {
+        get { return self._pages }
+        set {
+            self._pages = newValue
+            self.setViewControllers([self._pages[0]], direction: .Forward, animated: false, completion: nil)
+        }
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
@@ -70,7 +73,7 @@ class SlidePageViewController: UIPageViewController, UIPageViewControllerDataSou
             return nil
         }
         
-        return self.pages[index - 1]
+        return self._pages[index - 1]
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
@@ -79,7 +82,7 @@ class SlidePageViewController: UIPageViewController, UIPageViewControllerDataSou
             return nil
         }
         
-        return self.pages[index + 1]
+        return self._pages[index + 1]
     }
 
 
