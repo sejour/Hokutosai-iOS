@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TopicViewController" customModule="HokutosaiApp" customModuleProvider="target">
+            <connections>
+                <outlet property="imageView" destination="XcC-qv-TCA" id="4ut-0X-KpS"/>
+                <outlet property="titleLable" destination="dRt-ui-zzy" id="HTb-bY-G0p"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XcC-qv-TCA">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRt-ui-zzy">
+                    <rect key="frame" x="269" y="282" width="63" height="36"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                    <nil key="highlightedColor"/>
+                    <color key="shadowColor" red="0.81781167328042326" green="0.81781167328042326" blue="0.81781167328042326" alpha="1" colorSpace="calibratedRGB"/>
+                    <size key="shadowOffset" width="2" height="2"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="dRt-ui-zzy" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0G2-mB-31T"/>
+                <constraint firstItem="dRt-ui-zzy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="JIY-7h-kVS"/>
+                <constraint firstItem="XcC-qv-TCA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="LH4-6P-eJx"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="dRt-ui-zzy" secondAttribute="bottom" constant="15" id="Nwo-zh-AlT"/>
+                <constraint firstItem="dRt-ui-zzy" firstAttribute="top" relation="greaterThanOrEqual" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="Qli-ly-mbR"/>
+                <constraint firstItem="dRt-ui-zzy" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Rfk-Aj-jkE"/>
+                <constraint firstAttribute="bottom" secondItem="XcC-qv-TCA" secondAttribute="bottom" id="kVG-i0-iST"/>
+                <constraint firstItem="XcC-qv-TCA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="lyi-mc-R9E"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dRt-ui-zzy" secondAttribute="trailing" constant="15" id="tgl-24-aM5"/>
+                <constraint firstAttribute="trailing" secondItem="XcC-qv-TCA" secondAttribute="trailing" id="wZq-MH-oK0"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
