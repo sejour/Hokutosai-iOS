@@ -34,6 +34,10 @@ class TopicViewController: TappableViewController {
         self.titleLable.text = data.dataTitle
         
         if let imageUrl = data.dataImageUrl, let url = NSURL(string: imageUrl) {
+            guard url != "hokutosai:2016/top" else {
+                return
+            }
+            
             self.imageView.af_setImageWithURL(url) { response in
                 if response.result.isSuccess {
                     if priorityToImage  { self.titleLable.hidden = true }
