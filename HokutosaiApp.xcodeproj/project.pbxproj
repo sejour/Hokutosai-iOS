@@ -53,6 +53,7 @@
 		A7A60FBA1CD2183100AA9543 /* ExhibitionLikeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A60FB91CD2183100AA9543 /* ExhibitionLikeResult.swift */; };
 		A7A60FC31CD36C3600AA9543 /* SlidePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A60FC21CD36C3600AA9543 /* SlidePageViewController.swift */; };
 		A7A60FC51CD3763800AA9543 /* FlowingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A60FC41CD3763800AA9543 /* FlowingPageViewController.swift */; };
+		A7A60FC71CD39E5D00AA9543 /* TappableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A60FC61CD39E5D00AA9543 /* TappableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +127,7 @@
 		A7A60FB91CD2183100AA9543 /* ExhibitionLikeResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExhibitionLikeResult.swift; sourceTree = "<group>"; };
 		A7A60FC21CD36C3600AA9543 /* SlidePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidePageViewController.swift; sourceTree = "<group>"; };
 		A7A60FC41CD3763800AA9543 /* FlowingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowingPageViewController.swift; sourceTree = "<group>"; };
+		A7A60FC61CD39E5D00AA9543 /* TappableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TappableViewController.swift; sourceTree = "<group>"; };
 		C4F766DA8D757B41B41297FB /* Pods-HokutosaiApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HokutosaiApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HokutosaiApp/Pods-HokutosaiApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -439,6 +441,7 @@
 				A787A1B81CCF6D380045F1DD /* StandardDetailsViewController.swift */,
 				A7A60FC21CD36C3600AA9543 /* SlidePageViewController.swift */,
 				A7A60FC41CD3763800AA9543 /* FlowingPageViewController.swift */,
+				A7A60FC61CD39E5D00AA9543 /* TappableViewController.swift */,
 			);
 			name = Commons;
 			sourceTree = "<group>";
@@ -673,6 +676,7 @@
 				A77483461CD1DD8F003AC18F /* StandardTableViewCellDelegate.swift in Sources */,
 				A774831F1CCCBBA8003AC18F /* DetailedShop.swift in Sources */,
 				A77483061CCB7B9E003AC18F /* REST.swift in Sources */,
+				A7A60FC71CD39E5D00AA9543 /* TappableViewController.swift in Sources */,
 				A77483481CD20152003AC18F /* Color.swift in Sources */,
 				A787A1B91CCF6D380045F1DD /* StandardDetailsViewController.swift in Sources */,
 				A77483331CCCD380003AC18F /* LikeResult.swift in Sources */,
