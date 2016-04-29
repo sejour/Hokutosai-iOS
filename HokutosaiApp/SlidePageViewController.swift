@@ -1,5 +1,5 @@
 //
-//  PageViewController.swift
+//  SlidePageViewController.swift
 //  HokutosaiApp
 //
 //  Created by Shuka Takakuma on 2016/04/29.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
+class SlidePageViewController: UIPageViewController, UIPageViewControllerDataSource {
     
     var pages = [UIViewController]()
     
