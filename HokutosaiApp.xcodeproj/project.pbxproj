@@ -14,6 +14,9 @@
 		A745047F1CD3C6DB001165E2 /* TopicContentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A745047E1CD3C6DB001165E2 /* TopicContentData.swift */; };
 		A74504811CD3D6EC001165E2 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74504801CD3D6EC001165E2 /* UIViewControllerExtension.swift */; };
 		A74504831CD3DCAA001165E2 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74504821CD3DCAA001165E2 /* Article.swift */; };
+		A74504861CD3DDA7001165E2 /* EventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74504851CD3DDA7001165E2 /* EventItem.swift */; };
+		A74504881CD3DE32001165E2 /* ShopItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74504871CD3DE32001165E2 /* ShopItem.swift */; };
+		A745048A1CD3DEA1001165E2 /* ExhibitionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74504891CD3DEA1001165E2 /* ExhibitionItem.swift */; };
 		A77483021CCB7695003AC18F /* NetworkResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483011CCB7695003AC18F /* NetworkResource.swift */; };
 		A77483041CCB79FC003AC18F /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483031CCB79FC003AC18F /* Endpoint.swift */; };
 		A77483061CCB7B9E003AC18F /* REST.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483051CCB7B9E003AC18F /* REST.swift */; };
@@ -88,6 +91,9 @@
 		A745047E1CD3C6DB001165E2 /* TopicContentData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicContentData.swift; sourceTree = "<group>"; };
 		A74504801CD3D6EC001165E2 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		A74504821CD3DCAA001165E2 /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		A74504851CD3DDA7001165E2 /* EventItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventItem.swift; sourceTree = "<group>"; };
+		A74504871CD3DE32001165E2 /* ShopItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopItem.swift; sourceTree = "<group>"; };
+		A74504891CD3DEA1001165E2 /* ExhibitionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExhibitionItem.swift; sourceTree = "<group>"; };
 		A77483011CCB7695003AC18F /* NetworkResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResource.swift; sourceTree = "<group>"; };
 		A77483031CCB79FC003AC18F /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		A77483051CCB7B9E003AC18F /* REST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = REST.swift; sourceTree = "<group>"; };
@@ -198,6 +204,14 @@
 			name = News;
 			sourceTree = "<group>";
 		};
+		A74504841CD3DD79001165E2 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				A74504851CD3DDA7001165E2 /* EventItem.swift */,
+			);
+			name = Events;
+			sourceTree = "<group>";
+		};
 		A77483001CCB748C003AC18F /* REST */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +237,7 @@
 		A77483101CCBBAF0003AC18F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A74504841CD3DD79001165E2 /* Events */,
 				A745047B1CD3C4CA001165E2 /* News */,
 				A7A60FB21CD2109F00AA9543 /* Exhibitions */,
 				A787A1B11CCDE6490045F1DD /* Commons */,
@@ -252,6 +267,7 @@
 				A77483231CCCBF13003AC18F /* MenuItem.swift */,
 				A774832F1CCCD2AB003AC18F /* ShopMyAssessment.swift */,
 				A77483341CCCD413003AC18F /* ShopLikeResult.swift */,
+				A74504871CD3DE32001165E2 /* ShopItem.swift */,
 			);
 			name = Shops;
 			sourceTree = "<group>";
@@ -487,6 +503,7 @@
 				A7A60FB51CD2140700AA9543 /* DetailedExhibition.swift */,
 				A7A60FB71CD2179700AA9543 /* ExhibitionMyAssessment.swift */,
 				A7A60FB91CD2183100AA9543 /* ExhibitionLikeResult.swift */,
+				A74504891CD3DEA1001165E2 /* ExhibitionItem.swift */,
 			);
 			name = Exhibitions;
 			sourceTree = "<group>";
@@ -692,10 +709,12 @@
 				A7A60FBA1CD2183100AA9543 /* ExhibitionLikeResult.swift in Sources */,
 				A77F9DE91CC910F800BEE9A7 /* ShopsViewController.swift in Sources */,
 				A77483161CCBCC90003AC18F /* Shop.swift in Sources */,
+				A745048A1CD3DEA1001165E2 /* ExhibitionItem.swift in Sources */,
 				A787A1B31CCDE68A0045F1DD /* StandardTableViewCellData.swift in Sources */,
 				A77F9DE71CC910A400BEE9A7 /* NewsViewController.swift in Sources */,
 				A77483261CCCC08A003AC18F /* Assessment.swift in Sources */,
 				A7A60FC51CD3763800AA9543 /* FlowingPageViewController.swift in Sources */,
+				A74504861CD3DDA7001165E2 /* EventItem.swift in Sources */,
 				A77483191CCBCE98003AC18F /* AssessedScore.swift in Sources */,
 				A77483041CCB79FC003AC18F /* Endpoint.swift in Sources */,
 				A787A1B61CCF5B170045F1DD /* SharedImage.swift in Sources */,
@@ -714,6 +733,7 @@
 				A77483061CCB7B9E003AC18F /* REST.swift in Sources */,
 				A7A60FC71CD39E5D00AA9543 /* TappableViewController.swift in Sources */,
 				A77483481CD20152003AC18F /* Color.swift in Sources */,
+				A74504881CD3DE32001165E2 /* ShopItem.swift in Sources */,
 				A787A1B91CCF6D380045F1DD /* StandardDetailsViewController.swift in Sources */,
 				A74504781CD3B166001165E2 /* TopicViewController.swift in Sources */,
 				A74504811CD3D6EC001165E2 /* UIViewControllerExtension.swift in Sources */,
