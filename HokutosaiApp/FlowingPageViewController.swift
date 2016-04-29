@@ -21,6 +21,14 @@ class FlowingPageViewController: SlidePageViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override init(navigationOrientation: UIPageViewControllerNavigationOrientation = .Horizontal) {
+        super.init(navigationOrientation: navigationOrientation)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         
         guard let index = self.currentPageNumber else {
