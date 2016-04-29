@@ -8,7 +8,21 @@
 
 import UIKit
 
-class PageViewController: UIPageViewController {
+class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
+    
+    var pages = [UIViewController]()
+    
+    var pageCount: Int {
+        return self.pages.count
+    }
+    
+    var currentPageNumber: Int? {
+        guard let vc = self.viewControllers, let index = self.pages.indexOf(vc[0]) else {
+            return nil
+        }
+        
+        return index
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,15 +35,23 @@ class PageViewController: UIPageViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+        
+        guard let index = self.currentPageNumber where index > 0 else {
+            return nil
+        }
+        
+        return self.pages[index - 1]
     }
-    */
+    
+    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+        
+        guard let index = self.currentPageNumber where index < self.pageCount - 1 else {
+            return nil
+        }
+        
+        return self.pages[index + 1]
+    }
+
 
 }
