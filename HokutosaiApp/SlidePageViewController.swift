@@ -23,6 +23,21 @@ class SlidePageViewController: UIPageViewController, UIPageViewControllerDataSou
         
         return index
     }
+    
+    var viewFrame: CGRect {
+        get { return self.view.frame }
+        set { self.view.frame = newValue }
+    }
+    
+    var viewOrigin: CGPoint {
+        get { return self.view.frame.origin }
+        set { self.view.frame.origin = newValue }
+    }
+    
+    var viewSize: CGSize {
+        get { return self.view.frame.size }
+        set { self.view.frame.size = newValue }
+    }
 
     init (navigationOrientation: UIPageViewControllerNavigationOrientation = .Horizontal) {
         super.init(transitionStyle: .Scroll, navigationOrientation: navigationOrientation, options: nil)
