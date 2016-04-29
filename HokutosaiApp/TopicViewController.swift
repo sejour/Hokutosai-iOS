@@ -31,9 +31,9 @@ class TopicViewController: TappableViewController {
         self.topic = data
 
         self.titleLable.hidden = false
-        self.titleLable.text = data.title
+        self.titleLable.text = data.dataTitle
         
-        if let imageUrl = data.imageUrl, let url = NSURL(string: imageUrl) {
+        if let imageUrl = data.dataImageUrl, let url = NSURL(string: imageUrl) {
             self.imageView.af_setImageWithURL(url) { response in
                 if response.result.isSuccess {
                     if priorityToImage  { self.titleLable.hidden = true }

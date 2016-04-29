@@ -10,7 +10,7 @@ import Foundation
 
 protocol TopicContentData {
     
-    var title: String? { get }
-    var imageUrl: String? { get }
+    var dataTitle: String? { get }
+    var dataImageUrl: String? { get }
     
 }
