@@ -169,6 +169,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A745047A1CD3C438001165E2 /* PageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A7A60FC61CD39E5D00AA9543 /* TappableViewController.swift */,
+				A74504771CD3B166001165E2 /* TopicViewController.xib */,
+				A74504761CD3B166001165E2 /* TopicViewController.swift */,
+				A7A60FC41CD3763800AA9543 /* FlowingPageViewController.swift */,
+				A7A60FC21CD36C3600AA9543 /* SlidePageViewController.swift */,
+			);
+			name = PageViewController;
+			sourceTree = "<group>";
+		};
 		A77483001CCB748C003AC18F /* REST */ = {
 			isa = PBXGroup;
 			children = (
@@ -442,12 +454,8 @@
 		A787A1B71CCF6CCF0045F1DD /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				A745047A1CD3C438001165E2 /* PageViewController */,
 				A787A1B81CCF6D380045F1DD /* StandardDetailsViewController.swift */,
-				A7A60FC21CD36C3600AA9543 /* SlidePageViewController.swift */,
-				A7A60FC41CD3763800AA9543 /* FlowingPageViewController.swift */,
-				A7A60FC61CD39E5D00AA9543 /* TappableViewController.swift */,
-				A74504761CD3B166001165E2 /* TopicViewController.swift */,
-				A74504771CD3B166001165E2 /* TopicViewController.xib */,
 			);
 			name = Commons;
 			sourceTree = "<group>";
