@@ -51,6 +51,9 @@
 		A7A60FB61CD2140700AA9543 /* DetailedExhibition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A60FB51CD2140700AA9543 /* DetailedExhibition.swift */; };
 		A7A60FB81CD2179700AA9543 /* ExhibitionMyAssessment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A60FB71CD2179700AA9543 /* ExhibitionMyAssessment.swift */; };
 		A7A60FBA1CD2183100AA9543 /* ExhibitionLikeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A60FB91CD2183100AA9543 /* ExhibitionLikeResult.swift */; };
+		A7A60FC31CD36C3600AA9543 /* SlidePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A60FC21CD36C3600AA9543 /* SlidePageViewController.swift */; };
+		A7A60FC51CD3763800AA9543 /* FlowingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A60FC41CD3763800AA9543 /* FlowingPageViewController.swift */; };
+		A7A60FC71CD39E5D00AA9543 /* TappableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A60FC61CD39E5D00AA9543 /* TappableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +125,9 @@
 		A7A60FB51CD2140700AA9543 /* DetailedExhibition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedExhibition.swift; sourceTree = "<group>"; };
 		A7A60FB71CD2179700AA9543 /* ExhibitionMyAssessment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExhibitionMyAssessment.swift; sourceTree = "<group>"; };
 		A7A60FB91CD2183100AA9543 /* ExhibitionLikeResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExhibitionLikeResult.swift; sourceTree = "<group>"; };
+		A7A60FC21CD36C3600AA9543 /* SlidePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidePageViewController.swift; sourceTree = "<group>"; };
+		A7A60FC41CD3763800AA9543 /* FlowingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowingPageViewController.swift; sourceTree = "<group>"; };
+		A7A60FC61CD39E5D00AA9543 /* TappableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TappableViewController.swift; sourceTree = "<group>"; };
 		C4F766DA8D757B41B41297FB /* Pods-HokutosaiApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HokutosaiApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HokutosaiApp/Pods-HokutosaiApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -433,6 +439,9 @@
 			isa = PBXGroup;
 			children = (
 				A787A1B81CCF6D380045F1DD /* StandardDetailsViewController.swift */,
+				A7A60FC21CD36C3600AA9543 /* SlidePageViewController.swift */,
+				A7A60FC41CD3763800AA9543 /* FlowingPageViewController.swift */,
+				A7A60FC61CD39E5D00AA9543 /* TappableViewController.swift */,
 			);
 			name = Commons;
 			sourceTree = "<group>";
@@ -651,6 +660,7 @@
 				A787A1B31CCDE68A0045F1DD /* StandardTableViewCellData.swift in Sources */,
 				A77F9DE71CC910A400BEE9A7 /* NewsViewController.swift in Sources */,
 				A77483261CCCC08A003AC18F /* Assessment.swift in Sources */,
+				A7A60FC51CD3763800AA9543 /* FlowingPageViewController.swift in Sources */,
 				A77483191CCBCE98003AC18F /* AssessedScore.swift in Sources */,
 				A77483041CCB79FC003AC18F /* Endpoint.swift in Sources */,
 				A787A1B61CCF5B170045F1DD /* SharedImage.swift in Sources */,
@@ -666,12 +676,14 @@
 				A77483461CD1DD8F003AC18F /* StandardTableViewCellDelegate.swift in Sources */,
 				A774831F1CCCBBA8003AC18F /* DetailedShop.swift in Sources */,
 				A77483061CCB7B9E003AC18F /* REST.swift in Sources */,
+				A7A60FC71CD39E5D00AA9543 /* TappableViewController.swift in Sources */,
 				A77483481CD20152003AC18F /* Color.swift in Sources */,
 				A787A1B91CCF6D380045F1DD /* StandardDetailsViewController.swift in Sources */,
 				A77483331CCCD380003AC18F /* LikeResult.swift in Sources */,
 				A77483431CCE6086003AC18F /* StandardTableViewCell.swift in Sources */,
 				A774834B1CD20769003AC18F /* SharedColor.swift in Sources */,
 				A77483351CCCD413003AC18F /* ShopLikeResult.swift in Sources */,
+				A7A60FC31CD36C3600AA9543 /* SlidePageViewController.swift in Sources */,
 				A77B38FB1CC8C22C00012A0E /* AppDelegate.swift in Sources */,
 				A774832E1CCCD1AA003AC18F /* MyAssessment.swift in Sources */,
 				A77483131CCBBC1E003AC18F /* HokutosaiAccount.swift in Sources */,
