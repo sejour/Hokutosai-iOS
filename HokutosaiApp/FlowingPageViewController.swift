@@ -10,6 +10,11 @@ import UIKit
 
 class FlowingPageViewController: SlidePageViewController {
 
+    private var timer: NSTimer?
+    private var interval: NSTimeInterval
+    
+    var isFlowing: Bool { return self.timer != nil }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,12 +26,43 @@ class FlowingPageViewController: SlidePageViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override init(navigationOrientation: UIPageViewControllerNavigationOrientation = .Horizontal) {
+    init(interval: NSTimeInterval = 5.0, navigationOrientation: UIPageViewControllerNavigationOrientation = .Horizontal) {
+        self.interval = interval
         super.init(navigationOrientation: navigationOrientation)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func startFlowing() {
+        guard !self.isFlowing else { return }
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(self.interval, target: self, selector: #selector(FlowingPageViewController.flow), userInfo: nil, repeats: true)
+    }
+    
+    func stopFlowing() {
+        self.timer?.invalidate()
+        self.timer = nil
+    }
+    
+    func flow() {
+        guard let index = self.currentPageNumber else {
+            return
+        }
+        
+        let nextIndex = index >= self.pageCount - 1 ? 0 : index + 1
+        
+        self.setViewControllers([self.pages[nextIndex]], direction: .Forward, animated: true, completion: nil)
+    }
+    
+    override var pages: [UIViewController] {
+        get { return super.pages }
+        set {
+            let flowing = self.isFlowing
+            self.stopFlowing()
+            super.pages = newValue
+            if flowing { self.startFlowing() }
+        }
     }
     
     override func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
