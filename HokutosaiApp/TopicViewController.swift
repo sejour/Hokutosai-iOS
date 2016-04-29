@@ -10,6 +10,8 @@ import UIKit
 
 class TopicViewController: TappableViewController {
 
+    private var topic: TopicContentData?
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLable: UILabel!
     
@@ -24,6 +26,21 @@ class TopicViewController: TappableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func setTopicContentData(index: Int, data: TopicContentData, priorityToImage: Bool = false) {
+        self.tag = index
+        self.topic = data
+
+        self.titleLable.hidden = false
+        self.titleLable.text = data.title
+        
+        if let imageUrl = data.imageUrl, let url = NSURL(string: imageUrl) {
+            self.imageView.af_setImageWithURL(url) { response in
+                if response.result.isSuccess {
+                    if priorityToImage  { self.titleLable.hidden = true }
+                }
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation
