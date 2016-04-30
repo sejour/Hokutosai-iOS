@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import OAStackView
 import SnapKit
 
 class NewsTableViewCell: UITableViewCell, LikeableTableViewCell {
@@ -82,7 +81,7 @@ class NewsTableViewCell: UITableViewCell, LikeableTableViewCell {
         }
         
         if let datetime = article.datetime {
-            self.datetimeLabel.text = NSDate.stringFromDate(datetime, format: "yyyy-MM-dd HH:mm")
+            self.datetimeLabel.text = datetime.stringElapsedTime()
         }
         else {
             self.datetimeLabel.text = nil
