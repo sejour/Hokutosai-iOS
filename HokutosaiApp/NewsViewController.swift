@@ -74,14 +74,8 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
     }
     
     private func generateTimeline() {
-        self.timeline = UITableView()
+        self.timeline = UITableView(frame: self.timeLineFrame)
         self.view.addSubview(self.timeline)
-        self.timeline.snp_makeConstraints { make in
-            make.top.equalTo(self.topicsBordController.view.snp_bottom)
-            make.left.equalTo(self.view)
-            make.width.equalTo(self.view)
-            make.bottom.equalTo(self.view)
-        }
         
         self.timeline.registerClass(NewsTableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
         
@@ -89,7 +83,7 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         self.timeline.layoutMargins = UIEdgeInsetsZero
         self.timeline.separatorInset = UIEdgeInsetsZero
         
-        self.timeline.contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: self.tabBarHeight, right: 0.0)
+        self.timeline.setContentAndScrollInsets(UIEdgeInsets(top: 0.0, left: 0.0, bottom: self.tabBarHeight, right: 0.0))
         
         self.timeline.dataSource = self
         self.timeline.delegate = self
@@ -181,6 +175,58 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
             self.articles[index].likesCount = result.likesCount
             cell.updateLikes(newsId)
         }
+    }
+    
+    // Open/Close Topics bord -----------------------------------------------------------------------
+    
+    private let durationForOpenClose: NSTimeInterval = 0.3
+    private let advancedDistanceThresholdForClosing: CGFloat = 50.0
+    private let speedThresholdForOpening: CGFloat = -30.0
+    private let offsetThresholdForOpening: CGFloat = 500.0
+    
+    private var scrollStartOffsetY: CGFloat = 0.0
+    private var scrollPreviousOffsetY: CGFloat = 0.0
+    private var topicsBordOpened: Bool = true
+    
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        self.scrollStartOffsetY = scrollView.contentOffset.y
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let advancedDistance = offsetY - self.scrollStartOffsetY
+        
+        if self.topicsBordOpened && advancedDistance >= self.advancedDistanceThresholdForClosing {
+            self.topicsBordOpened = false
+            self.timeline.setContentAndScrollInsets(UIEdgeInsets(top: self.appearOriginY, left: 0.0, bottom: self.tabBarHeight, right: 0.0))
+            UIView.animateWithDuration(self.durationForOpenClose) {
+                self.topicsBordController.viewOrigin.y = -self.topicsBordController.viewSize.height
+                self.timeline.frame = self.timeLineFrame
+            }
+        }
+        else if !self.topicsBordOpened {
+            let speed = offsetY - self.scrollPreviousOffsetY
+            if speed <= self.speedThresholdForOpening || (offsetY < self.offsetThresholdForOpening && advancedDistance < 0) {
+                self.topicsBordOpened = true
+                UIView.animateWithDuration(self.durationForOpenClose, animations: {
+                    self.topicsBordController.viewOrigin.y = self.appearOriginY
+                    }, completion: { _ in
+                        self.timeline.setContentAndScrollInsets(UIEdgeInsets(top: 0.0, left: 0.0, bottom: self.tabBarHeight, right: 0.0))
+                        UIView.animateWithDuration(self.durationForOpenClose) {
+                            self.timeline.frame = self.timeLineFrame
+                    }
+                })
+            }
+        }
+        
+        self.scrollPreviousOffsetY = offsetY
+    }
+    
+    // ----------------------------------------------------------------------------------------------
+    
+    private var timeLineFrame: CGRect {
+        let originY = self.topicsBordController.view.bottom
+        return CGRect(x: 0.0, y: originY, width: self.view.width, height: self.view.bottom - originY)
     }
 
 }
