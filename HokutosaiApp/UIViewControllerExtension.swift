@@ -20,4 +20,8 @@ extension UIViewController {
         return originY
     }
     
+    static var pixelWidth: CGFloat {
+        return 1.0 / UIScreen.mainScreen().scale
+    }
+    
 }
