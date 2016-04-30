@@ -10,6 +10,11 @@ import UIKit
 
 class MainTabViewController: UITabBarController {
 
+    private var newsViewController: NewsViewController!
+    private var eventsViewController: EventsViewController!
+    private var shopsViewController: ShopsViewController!
+    private var exhibitionsViewController: ExhibitionsViewController!
+    
     convenience init () {
         self.init(nibName: nil, bundle: NSBundle.mainBundle())
     }
@@ -19,21 +24,25 @@ class MainTabViewController: UITabBarController {
         
         var viewControllers = [UIViewController]()
         
-        let newsViewController = UINavigationController(rootViewController: NewsViewController())
-        newsViewController.tabBarItem = UITabBarItem(title: "お知らせ", image: UIImage(named: "TabBarIconNews"), tag: 0)
-        viewControllers.append(newsViewController)
+        self.newsViewController = NewsViewController()
+        let newsController = UINavigationController(rootViewController: self.newsViewController)
+        newsController.tabBarItem = UITabBarItem(title: "お知らせ", image: UIImage(named: "TabBarIconNews"), tag: 0)
+        viewControllers.append(newsController)
         
-        let eventsViewController = UINavigationController(rootViewController: EventsViewController())
-        eventsViewController.tabBarItem = UITabBarItem(title: "スケジュール", image: UIImage(named: "TabBarIconEvent"), tag: 0)
-        viewControllers.append(eventsViewController)
+        self.eventsViewController = EventsViewController()
+        let eventsController = UINavigationController(rootViewController: self.eventsViewController)
+        eventsController.tabBarItem = UITabBarItem(title: "スケジュール", image: UIImage(named: "TabBarIconEvent"), tag: 1)
+        viewControllers.append(eventsController)
         
-        let shopsViewController = UINavigationController(rootViewController: ShopsViewController())
-        shopsViewController.tabBarItem = UITabBarItem(title: "模擬店", image: UIImage(named: "TabBarIconShop"), tag: 0)
-        viewControllers.append(shopsViewController)
+        self.shopsViewController = ShopsViewController()
+        let shopsController = UINavigationController(rootViewController: self.shopsViewController)
+        shopsController.tabBarItem = UITabBarItem(title: "模擬店", image: UIImage(named: "TabBarIconShop"), tag: 2)
+        viewControllers.append(shopsController)
         
-        let exhibitionsViewController = UINavigationController(rootViewController: ExhibitionsViewController())
-        exhibitionsViewController.tabBarItem = UITabBarItem(title: "展示", image: UIImage(named: "TabBarIconExhibition"), tag: 0)
-        viewControllers.append(exhibitionsViewController)
+        self.exhibitionsViewController = ExhibitionsViewController()
+        let exhibitionsController = UINavigationController(rootViewController: self.exhibitionsViewController)
+        exhibitionsController.tabBarItem = UITabBarItem(title: "展示", image: UIImage(named: "TabBarIconExhibition"), tag: 3)
+        viewControllers.append(exhibitionsController)
         
         self.setViewControllers(viewControllers, animated: false)
         self.selectedIndex = 0
@@ -43,5 +52,8 @@ class MainTabViewController: UITabBarController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    func updateContents() {
+        self.newsViewController.updateContents()
+    }
     
 }
