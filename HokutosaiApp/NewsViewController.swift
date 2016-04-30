@@ -19,6 +19,9 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
     private let cellIdentifier = "Timeline"
     private let whRatio: CGFloat = 2.0 / 5.0
     
+    private var updatingTopics: Bool = false
+    private var updatingTimeline: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,8 +31,12 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         self.generateTopics()
         self.generateTimeline()
         
-        self.getTopics()
-        self.getTimeline()
+        self.updateContents()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     private func generateTopics() {
@@ -42,34 +49,6 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         let bottomLine = UIView(frame: CGRect(x: 0, y: self.topicsBordController.viewSize.height - 0.5, width: self.topicsBordController.viewSize.width, height: UIViewController.pixelWidth))
         bottomLine.backgroundColor = UIColor.grayscale(0, alpha: 80)
         self.topicsBordController.view.addSubview(bottomLine)
-    }
-    
-    private func getTopics() {
-        HokutosaiApi.GET(HokutosaiApi.News.Topics()) { response in
-            guard response.isSuccess else {
-                self.presentViewController(ErrorAlert.Server.failureGet(), animated: true, completion: nil)
-                return
-            }
-            
-            self.topics = response.model
-            
-            var pages = [TopicViewController]()
-            for i in 0 ..< self.topics.count {
-                let topicViewController = TopicViewController()
-                topicViewController.view.frame = CGRect(x: 0.0, y: 0.0, width: self.topicsBordController.viewSize.width, height: self.topicsBordController.viewSize.height)
-                topicViewController.setTopicContentData(i, data: self.topics[i])
-                topicViewController.delegate = self
-                pages.append(topicViewController)
-            }
-            
-            self.topicsBordController.pages = pages
-            self.topicsBordController.startFlowing()
-        }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     private func generateTimeline() {
@@ -92,16 +71,57 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         self.timeline.addSubview(refreshControl)
     }
     
-    private func getTimeline() {
+    private func updateTopics(completion: (() -> Void)? = nil) {
+        guard !self.updatingTopics else { return }
+        self.updatingTopics = true
+        
+        HokutosaiApi.GET(HokutosaiApi.News.Topics()) { response in
+            guard response.isSuccess else {
+                self.updatingTopics = false
+                self.presentViewController(ErrorAlert.Server.failureGet(), animated: true, completion: nil)
+                return
+            }
+            
+            self.topics = response.model
+            
+            var pages = [TopicViewController]()
+            for i in 0 ..< self.topics.count {
+                let topicViewController = TopicViewController()
+                topicViewController.view.frame = CGRect(x: 0.0, y: 0.0, width: self.topicsBordController.viewSize.width, height: self.topicsBordController.viewSize.height)
+                topicViewController.setTopicContentData(i, data: self.topics[i])
+                topicViewController.delegate = self
+                pages.append(topicViewController)
+            }
+            
+            self.topicsBordController.stopFlowing()
+            self.topicsBordController.pages = pages
+            self.updatingTopics = false
+            completion?()
+            self.topicsBordController.startFlowing()
+        }
+    }
+    
+    private func updateTimeline(completion: (() -> Void)? = nil) {
+        guard !self.updatingTimeline else { return }
+        self.updatingTimeline = true
+        
         HokutosaiApi.GET(HokutosaiApi.News.Timeline()) { response in
             guard response.isSuccess else {
+                self.updatingTimeline = false
                 self.presentViewController(ErrorAlert.Server.failureGet(), animated: true, completion: nil)
                 return
             }
             
             self.articles = response.model
             self.timeline.reloadData()
+            self.updatingTimeline = false
+            completion?()
         }
+    }
+    
+    func updateContents() {
+        self.updateTopics()
+        self.updateTimeline()
     }
     
     func tappedView(sender: TappableViewController, gesture: UITapGestureRecognizer, tag: Int) {
@@ -110,7 +130,15 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
     
     func onRefresh(refreshControl: UIRefreshControl) {
         refreshControl.beginRefreshing()
-        refreshControl.endRefreshing()
+        
+        let completion: () -> Void = {
+            if !self.updatingTopics && !self.updatingTimeline {
+                refreshControl.endRefreshing()
+            }
+        }
+        
+        self.updateTopics(completion)
+        self.updateTimeline(completion)
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
