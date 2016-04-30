@@ -39,6 +39,10 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         self.topicsBordController.viewOrigin = CGPoint(x: 0.0, y: self.appearOriginY)
         self.topicsBordController.viewSize = CGSize(width: self.view.frame.size.width, height: self.whRatio * self.view.frame.size.width)
         self.topicsBordController.view.backgroundColor = UIColor.whiteColor()
+        
+        let bottomLine = UIView(frame: CGRect(x: 0, y: self.topicsBordController.viewSize.height - 0.5, width: self.topicsBordController.viewSize.width, height: UIViewController.pixelWidth))
+        bottomLine.backgroundColor = UIColor.grayscale(0, alpha: 80)
+        self.topicsBordController.view.addSubview(bottomLine)
     }
     
     private func getTopics() {
