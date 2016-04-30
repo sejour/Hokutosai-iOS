@@ -10,7 +10,7 @@ import UIKit
 import OAStackView
 import SnapKit
 
-class NewsTableViewCell: UITableViewCell {
+class NewsTableViewCell: UITableViewCell, LikeableTableViewCell {
     
     var firstImageView: UIImageView!
     var newsContentView: UIView!
@@ -23,6 +23,8 @@ class NewsTableViewCell: UITableViewCell {
     
     var index: Int!
     var data: Article!
+    
+    weak var delegate: LikeableTableViewCellDelegate?
     
     private static let contentHeight: CGFloat = 80.0
     static let rowHeight: CGFloat = 81.0
@@ -129,4 +131,38 @@ class NewsTableViewCell: UITableViewCell {
         self.firstImageView.snp_removeConstraints()
         self.newsContentView.snp_removeConstraints()
     }
+    
+    func updateLikes(dataId: UInt) {
+        guard dataId == self.data.newsId else { return }
+        
+        if let likesCount = self.data.likesCount {
+            self.likesCountLabel.text = String(likesCount)
+        }
+        else {
+            self.likesCountLabel.text = "0"
+        }
+        
+        if let liked = self.data.liked where liked {
+            self.likeButton.imageView?.image = SharedImage.redHertIcon
+            self.likesCountLabel.textColor = SharedColor.likesCountRed
+        }
+        else {
+            self.likeButton.imageView?.image = SharedImage.grayHertIcon
+            self.likesCountLabel.textColor = SharedColor.likesCountGray
+        }
+    }
+    
+    @IBAction func like(sender: AnyObject) {
+        if let liked = self.data.liked where liked {
+            self.likeButton.imageView?.image = SharedImage.grayHertIcon
+            self.likesCountLabel.textColor = SharedColor.likesCountGray
+            self.delegate?.dislike(self.index, cell: self)
+        }
+        else {
+            self.likeButton.imageView?.image = SharedImage.redHertIcon
+            self.likesCountLabel.textColor = SharedColor.likesCountRed
+            self.delegate?.like(self.index, cell: self)
+        }
+    }
+    
 }

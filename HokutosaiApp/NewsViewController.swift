@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class NewsViewController: UIViewController, TappableViewControllerDelegate, UITableViewDelegate, UITableViewDataSource {
+class NewsViewController: UIViewController, TappableViewControllerDelegate, UITableViewDelegate, UITableViewDataSource, LikeableTableViewCellDelegate {
     
     private var topics: [TopicNews]!
     private var articles: [Article]!
@@ -146,9 +146,39 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! NewsTableViewCell
         
         cell.changeData(indexPath.row, article: self.articles[indexPath.row])
-        //cell.delegate = self
+        cell.delegate = self
         
         return cell
+    }
+    
+    func like(index: Int, cell: LikeableTableViewCell) {
+        let newsId = self.articles[index].newsId!
+        HokutosaiApi.POST(HokutosaiApi.News.Likes(newsId: newsId)) { response in
+            guard let result = response.model else {
+                self.presentViewController(ErrorAlert.Server.failureSendRequest(), animated: true, completion: nil)
+                cell.updateLikes(newsId)
+                return
+            }
+            
+            self.articles[index].liked = result.liked
+            self.articles[index].likesCount = result.likesCount
+            cell.updateLikes(newsId)
+        }
+    }
+    
+    func dislike(index: Int, cell: LikeableTableViewCell) {
+        let newsId = self.articles[index].newsId!
+        HokutosaiApi.DELETE(HokutosaiApi.News.Likes(newsId: newsId)) { response in
+            guard let result = response.model else {
+                self.presentViewController(ErrorAlert.Server.failureSendRequest(), animated: true, completion: nil)
+                cell.updateLikes(newsId)
+                return
+            }
+            
+            self.articles[index].liked = result.liked
+            self.articles[index].likesCount = result.likesCount
+            cell.updateLikes(newsId)
+        }
     }
 
 }
