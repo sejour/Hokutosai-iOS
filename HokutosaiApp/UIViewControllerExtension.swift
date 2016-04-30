@@ -28,4 +28,9 @@ extension UIViewController {
         return 1.0 / UIScreen.mainScreen().scale
     }
     
+    func hideNavigationBackButtonText() {
+        let backButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = backButtonItem
+    }
+    
 }

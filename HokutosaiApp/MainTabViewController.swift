@@ -30,21 +30,25 @@ class MainTabViewController: UITabBarController {
         var viewControllers = [UIViewController]()
         
         self.newsViewController = NewsViewController()
+        self.newsViewController.hideNavigationBackButtonText()
         let newsController = UINavigationController(rootViewController: self.newsViewController)
         newsController.tabBarItem = UITabBarItem(title: "お知らせ", image: UIImage(named: "TabBarIconNews"), tag: 0)
         viewControllers.append(newsController)
         
         self.eventsViewController = EventsViewController()
+        self.eventsViewController.hideNavigationBackButtonText()
         let eventsController = UINavigationController(rootViewController: self.eventsViewController)
         eventsController.tabBarItem = UITabBarItem(title: "スケジュール", image: UIImage(named: "TabBarIconEvent"), tag: 1)
         viewControllers.append(eventsController)
         
         self.shopsViewController = ShopsViewController()
+        self.shopsViewController.hideNavigationBackButtonText()
         let shopsController = UINavigationController(rootViewController: self.shopsViewController)
         shopsController.tabBarItem = UITabBarItem(title: "模擬店", image: UIImage(named: "TabBarIconShop"), tag: 2)
         viewControllers.append(shopsController)
         
         self.exhibitionsViewController = ExhibitionsViewController()
+        self.exhibitionsViewController.hideNavigationBackButtonText()
         let exhibitionsController = UINavigationController(rootViewController: self.exhibitionsViewController)
         exhibitionsController.tabBarItem = UITabBarItem(title: "展示", image: UIImage(named: "TabBarIconExhibition"), tag: 3)
         viewControllers.append(exhibitionsController)
