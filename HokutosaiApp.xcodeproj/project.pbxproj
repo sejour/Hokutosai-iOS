@@ -225,6 +225,13 @@
 			name = Medias;
 			sourceTree = "<group>";
 		};
+		A74504901CD47DDB001165E2 /* News */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
 		A77483001CCB748C003AC18F /* REST */ = {
 			isa = PBXGroup;
 			children = (
@@ -341,9 +348,8 @@
 		A77483401CCE6066003AC18F /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				A77483411CCE6086003AC18F /* StandardTableViewCell.swift */,
-				A77483421CCE6086003AC18F /* StandardTableViewCell.xib */,
-				A77483451CD1DD8F003AC18F /* StandardTableViewCellDelegate.swift */,
+				A787A1AE1CCDD9BA0045F1DD /* Commons */,
+				A74504901CD47DDB001165E2 /* News */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -460,9 +466,9 @@
 		A787A1AC1CCDD9690045F1DD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A77483401CCE6066003AC18F /* TableViewCell */,
 				A77483491CD2073D003AC18F /* Color */,
 				A787A1B41CCF5ABD0045F1DD /* Images */,
-				A787A1AE1CCDD9BA0045F1DD /* Commons */,
 				A787A1AD1CCDD9750045F1DD /* Shops */,
 			);
 			name = View;
@@ -478,7 +484,9 @@
 		A787A1AE1CCDD9BA0045F1DD /* Commons */ = {
 			isa = PBXGroup;
 			children = (
-				A77483401CCE6066003AC18F /* TableViewCell */,
+				A77483451CD1DD8F003AC18F /* StandardTableViewCellDelegate.swift */,
+				A77483421CCE6086003AC18F /* StandardTableViewCell.xib */,
+				A77483411CCE6086003AC18F /* StandardTableViewCell.swift */,
 			);
 			name = Commons;
 			sourceTree = "<group>";
