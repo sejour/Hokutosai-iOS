@@ -20,7 +20,7 @@ class StandardTableViewCell: UITableViewCell, LikeableTableViewCell {
     
     var index: Int!
     var data: StandardTableViewCellData!
-    weak var delegate: StandardTableViewCellDelegate?
+    weak var delegate: LikeableTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()

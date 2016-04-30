@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, StandardTableViewCellDelegate {
+class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, LikeableTableViewCellDelegate {
 
     private var shops: [Shop]!
     
@@ -89,7 +89,7 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
-    func like(index: Int, cell: StandardTableViewCell) {
+    func like(index: Int, cell: LikeableTableViewCell) {
         let shopId = self.shops[index].shopId!
         HokutosaiApi.POST(HokutosaiApi.Shops.Likes(shopId: shopId)) { response in
             guard let result = response.model else {
@@ -104,7 +104,7 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-    func dislike(index: Int, cell: StandardTableViewCell) {
+    func dislike(index: Int, cell: LikeableTableViewCell) {
         let shopId = self.shops[index].shopId!
         HokutosaiApi.DELETE(HokutosaiApi.Shops.Likes(shopId: shopId)) { response in
             guard let result = response.model else {

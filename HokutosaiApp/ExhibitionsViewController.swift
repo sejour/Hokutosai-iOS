@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, StandardTableViewCellDelegate {
+class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, LikeableTableViewCellDelegate {
 
     private var exhibitions: [Exhibition]!
     
@@ -90,7 +90,7 @@ class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableV
         return cell
     }
     
-    func like(index: Int, cell: StandardTableViewCell) {
+    func like(index: Int, cell: LikeableTableViewCell) {
         let exhibitionId = self.exhibitions[index].exhibitionId!
         HokutosaiApi.POST(HokutosaiApi.Exhibitions.Likes(exhibitionId: exhibitionId)) { response in
             guard let result = response.model else {
@@ -105,7 +105,7 @@ class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
-    func dislike(index: Int, cell: StandardTableViewCell) {
+    func dislike(index: Int, cell: LikeableTableViewCell) {
         let exhibitionId = self.exhibitions[index].exhibitionId!
         HokutosaiApi.DELETE(HokutosaiApi.Exhibitions.Likes(exhibitionId: exhibitionId)) { response in
             guard let result = response.model else {
