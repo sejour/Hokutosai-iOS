@@ -19,6 +19,8 @@ class TopicViewController: TappableViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.imageView.contentMode = .ScaleAspectFill
+        self.imageView.clipsToBounds = true
     }
 
     override func didReceiveMemoryWarning() {
