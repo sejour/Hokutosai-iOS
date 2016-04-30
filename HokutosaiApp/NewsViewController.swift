@@ -89,6 +89,8 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         self.timeline.layoutMargins = UIEdgeInsetsZero
         self.timeline.separatorInset = UIEdgeInsetsZero
         
+        self.timeline.contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: self.tabBarHeight, right: 0.0)
+        
         self.timeline.dataSource = self
         self.timeline.delegate = self
         
