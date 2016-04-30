@@ -9,7 +9,7 @@
 import UIKit
 import AlamofireImage
 
-class StandardTableViewCell: UITableViewCell {
+class StandardTableViewCell: UITableViewCell, LikeableTableViewCell {
 
     @IBOutlet weak var displayedImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
