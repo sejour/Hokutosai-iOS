@@ -22,6 +22,11 @@ class MainTabViewController: UITabBarController {
     override init (nibName: String?, bundle: NSBundle?) {
         super.init(nibName: nibName, bundle: bundle)
         
+        UINavigationBar.appearance().barTintColor = SharedColor.themeColor
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        UITabBar.appearance().tintColor = SharedColor.themeColor
+        
         var viewControllers = [UIViewController]()
         
         self.newsViewController = NewsViewController()
