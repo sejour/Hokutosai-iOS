@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SnapKit
 
 class NewsViewController: UIViewController, TappableViewControllerDelegate, UITableViewDelegate, UITableViewDataSource, LikeableTableViewCellDelegate {
     
