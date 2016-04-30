@@ -16,8 +16,8 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
     
     private var topicsBordController: FlowingPageViewController!
     private var timeline: UITableView!
-    private let cellIdentifier = "Timeline"
     
+    private let cellIdentifier = "Timeline"
     private let whRatio: CGFloat = 2.0 / 5.0
     
     override func viewDidLoad() {
@@ -91,6 +91,10 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         
         self.timeline.dataSource = self
         self.timeline.delegate = self
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(NewsViewController.onRefresh(_:)), forControlEvents: .ValueChanged)
+        self.timeline.addSubview(refreshControl)
     }
     
     private func getTimeline() {
@@ -107,6 +111,11 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
     
     func tappedView(sender: TappableViewController, gesture: UITapGestureRecognizer, tag: Int) {
         print(tag)
+    }
+    
+    func onRefresh(refreshControl: UIRefreshControl) {
+        refreshControl.beginRefreshing()
+        refreshControl.endRefreshing()
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
