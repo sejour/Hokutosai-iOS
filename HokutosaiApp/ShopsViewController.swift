@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, LikeableTableViewCellDelegate {
+class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, LikeableTableViewCellDelegate, TabBarIntaractiveController {
 
     private var shops: [Shop]!
     
@@ -123,4 +123,8 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
 
+    func tabBarIconTapped() {
+        self.tableView?.setContentOffset(CGPoint(x: 0.0, y: -self.appearOriginY), animated: true)
+    }
+    
 }

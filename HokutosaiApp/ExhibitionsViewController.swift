@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, LikeableTableViewCellDelegate {
+class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, LikeableTableViewCellDelegate, TabBarIntaractiveController {
 
     private var exhibitions: [Exhibition]!
     
@@ -122,6 +122,10 @@ class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableV
             self.exhibitions[index].likesCount = result.likesCount
             cell.updateLikes(exhibitionId)
         }
+    }
+    
+    func tabBarIconTapped() {
+        self.tableView?.setContentOffset(CGPoint(x: 0.0, y: -self.appearOriginY), animated: true)
     }
     
 }

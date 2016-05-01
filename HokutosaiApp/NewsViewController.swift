@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewsViewController: UIViewController, TappableViewControllerDelegate, UITableViewDelegate, UITableViewDataSource, LikeableTableViewCellDelegate {
+class NewsViewController: UIViewController, TappableViewControllerDelegate, UITableViewDelegate, UITableViewDataSource, LikeableTableViewCellDelegate, TabBarIntaractiveController {
     
     private var topics: [TopicNews]!
     private var articles: [Article]!
@@ -183,6 +183,10 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
                 refreshControl.endRefreshing()
             }
         }
+    }
+    
+    func tabBarIconTapped() {
+        self.timeline?.setContentOffset(CGPointZero, animated: true)
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
