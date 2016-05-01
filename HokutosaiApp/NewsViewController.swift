@@ -21,6 +21,7 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
     
     private var updatingTopics: Bool = false
     private var updatingTimeline: Bool = false
+    var updatingContents: Bool { return self.updatingTopics || self.updatingTimeline }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +35,9 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         let loadingView = SimpleLoadingView(frame: self.view.frame)
         self.view.addSubview(loadingView)
         self.updateContents() {
-            loadingView.removeFromSuperview()
+            if !self.updatingContents {
+                loadingView.removeFromSuperview()
+            }
         }
     }
     
@@ -138,7 +141,7 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         refreshControl.beginRefreshing()
         
         self.updateContents() {
-            if !self.updatingTopics && !self.updatingTimeline {
+            if !self.updatingContents {
                 refreshControl.endRefreshing()
             }
         }
