@@ -210,6 +210,15 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         }
     }
     
+    // scrolling ------------------------------------------------------------------------------------
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        self.openCloseTopicsBord(offsetY)
+    }
+    
+    // ----------------------------------------------------------------------------------------------
+    
     // Open/Close Topics bord -----------------------------------------------------------------------
     
     private let durationForOpenClose: NSTimeInterval = 0.3
@@ -225,8 +234,7 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         self.scrollStartOffsetY = scrollView.contentOffset.y
     }
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y
+    private func openCloseTopicsBord(offsetY: CGFloat) {
         let advancedDistance = offsetY - self.scrollStartOffsetY
         
         if self.topicsBordOpened && advancedDistance >= self.advancedDistanceThresholdForClosing {
@@ -247,7 +255,7 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
                         self.timeline.setContentAndScrollInsets(UIEdgeInsets(top: 0.0, left: 0.0, bottom: self.tabBarHeight, right: 0.0))
                         UIView.animateWithDuration(self.durationForOpenClose) {
                             self.timeline.frame = self.timeLineFrame
-                    }
+                        }
                 })
             }
         }
