@@ -19,11 +19,13 @@ class LoadingCellManager {
     private let loadingView: SimpleLoadingView
     private let readyReloadView: UILabel
     
-    init(size: CGSize, backgroundColor: UIColor, textColor: UIColor, textForReadyReload: String) {
+    static let cellRowHeight: CGFloat = 50
+    
+    init(cellWidth: CGFloat, backgroundColor: UIColor, textColor: UIColor, textForReadyReload: String) {
         self.cell = UITableViewCell()
         self.cell.separatorInset = UIEdgeInsetsMake(0, CGFloat(UInt16.max), 0, 0)
         
-        let frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        let frame = CGRect(x: 0, y: 0, width: cellWidth, height: LoadingCellManager.cellRowHeight)
         
         self.loadingView = SimpleLoadingView(frame: frame, backgroundColor: backgroundColor)
         
