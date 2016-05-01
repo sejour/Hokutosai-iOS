@@ -9,7 +9,7 @@
 import UIKit
 import AlamofireImage
 
-class StandardTableViewCell: UITableViewCell {
+class StandardTableViewCell: UITableViewCell, LikeableTableViewCell {
 
     @IBOutlet weak var displayedImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -20,7 +20,7 @@ class StandardTableViewCell: UITableViewCell {
     
     var index: Int!
     var data: StandardTableViewCellData!
-    weak var delegate: StandardTableViewCellDelegate?
+    weak var delegate: LikeableTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()

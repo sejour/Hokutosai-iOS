@@ -52,4 +52,25 @@ extension NSDate {
         return formatter.stringFromDate(date)
     }
     
+    public func stringElapsedTime() -> String {
+        let progress = NSDate().timeIntervalSinceDate(self)
+        
+        guard progress >= 0.0 else {
+            return "0秒"
+        }
+        
+        switch Int(progress) {
+        case 0 ..< 60:
+            return "\(Int(progress))秒"
+        case 60 ..< 3600:
+            return "\(Int(progress / 60.0))分"
+        case 3600 ..< 86400:
+            return "\(Int(progress / 3600.0))時間"
+        case 86400 ..< 604800:
+            return "\(Int(progress / 86400.0))日"
+        default:
+            return NSDate.stringFromDate(self, format: "yyyy/MM/dd HH:mm")
+        }
+    }
+    
 }

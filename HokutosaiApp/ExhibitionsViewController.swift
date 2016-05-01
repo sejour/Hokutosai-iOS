@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, StandardTableViewCellDelegate {
+class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, LikeableTableViewCellDelegate, TabBarIntaractiveController {
 
     private var exhibitions: [Exhibition]!
     
@@ -22,15 +22,19 @@ class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableV
         
         self.generateTableView()
         
+        let loadingView = SimpleLoadingView(frame: self.view.frame)
+        self.view.addSubview(loadingView)
         HokutosaiApi.GET(HokutosaiApi.Exhibitions.Exhibitions()) { response in
             guard response.isSuccess else {
                 print(response.statusCode)
                 self.presentViewController(ErrorAlert.Server.failureGet(), animated: true, completion: nil)
+                loadingView.removeFromSuperview()
                 return
             }
             
             self.exhibitions = response.model
             self.tableView.reloadData()
+            loadingView.removeFromSuperview()
         }
     }
 
@@ -90,7 +94,7 @@ class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableV
         return cell
     }
     
-    func like(index: Int, cell: StandardTableViewCell) {
+    func like(index: Int, cell: LikeableTableViewCell) {
         let exhibitionId = self.exhibitions[index].exhibitionId!
         HokutosaiApi.POST(HokutosaiApi.Exhibitions.Likes(exhibitionId: exhibitionId)) { response in
             guard let result = response.model else {
@@ -105,7 +109,7 @@ class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
-    func dislike(index: Int, cell: StandardTableViewCell) {
+    func dislike(index: Int, cell: LikeableTableViewCell) {
         let exhibitionId = self.exhibitions[index].exhibitionId!
         HokutosaiApi.DELETE(HokutosaiApi.Exhibitions.Likes(exhibitionId: exhibitionId)) { response in
             guard let result = response.model else {
@@ -118,6 +122,10 @@ class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableV
             self.exhibitions[index].likesCount = result.likesCount
             cell.updateLikes(exhibitionId)
         }
+    }
+    
+    func tabBarIconTapped() {
+        self.tableView?.setContentOffset(CGPoint(x: 0.0, y: -self.appearOriginY), animated: true)
     }
     
 }

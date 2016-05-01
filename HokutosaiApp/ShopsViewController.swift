@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, StandardTableViewCellDelegate {
+class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, LikeableTableViewCellDelegate, TabBarIntaractiveController {
 
     private var shops: [Shop]!
     
@@ -22,14 +22,18 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         self.generateTableView()
         
+        let loadingView = SimpleLoadingView(frame: self.view.frame)
+        self.view.addSubview(loadingView)
         HokutosaiApi.GET(HokutosaiApi.Shops.Shops()) { response in
             guard response.isSuccess else {
                 self.presentViewController(ErrorAlert.Server.failureGet(), animated: true, completion: nil)
+                loadingView.removeFromSuperview()
                 return
             }
             
             self.shops = response.model
             self.tableView.reloadData()
+            loadingView.removeFromSuperview()
         }
     }
 
@@ -89,7 +93,7 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
-    func like(index: Int, cell: StandardTableViewCell) {
+    func like(index: Int, cell: LikeableTableViewCell) {
         let shopId = self.shops[index].shopId!
         HokutosaiApi.POST(HokutosaiApi.Shops.Likes(shopId: shopId)) { response in
             guard let result = response.model else {
@@ -104,7 +108,7 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-    func dislike(index: Int, cell: StandardTableViewCell) {
+    func dislike(index: Int, cell: LikeableTableViewCell) {
         let shopId = self.shops[index].shopId!
         HokutosaiApi.DELETE(HokutosaiApi.Shops.Likes(shopId: shopId)) { response in
             guard let result = response.model else {
@@ -119,4 +123,8 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
 
+    func tabBarIconTapped() {
+        self.tableView?.setContentOffset(CGPoint(x: 0.0, y: -self.appearOriginY), animated: true)
+    }
+    
 }

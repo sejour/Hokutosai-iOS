@@ -8,8 +8,26 @@
 
 import UIKit
 
+protocol TabBarIntaractiveController {
+    
+    func tabBarIconTapped()
+    
+}
+
 class MainTabViewController: UITabBarController {
 
+    private var navigationControllers: [UINavigationController]!
+    
+    private var newsViewController: NewsViewController!
+    private var eventsViewController: EventsViewController!
+    private var shopsViewController: ShopsViewController!
+    private var exhibitionsViewController: ExhibitionsViewController!
+    
+    private let newsTag: Int = 0
+    private let eventsTag: Int = 1
+    private let shopsTag: Int = 2
+    private let exhibitionsTag: Int = 3
+    
     convenience init () {
         self.init(nibName: nil, bundle: NSBundle.mainBundle())
     }
@@ -17,25 +35,34 @@ class MainTabViewController: UITabBarController {
     override init (nibName: String?, bundle: NSBundle?) {
         super.init(nibName: nibName, bundle: bundle)
         
-        var viewControllers = [UIViewController]()
+        UINavigationBar.appearance().barTintColor = SharedColor.themeColor
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        UITabBar.appearance().tintColor = SharedColor.themeColor
         
-        let newsViewController = UINavigationController(rootViewController: NewsViewController())
-        newsViewController.tabBarItem = UITabBarItem(title: "お知らせ", image: UIImage(named: "TabBarIconNews"), tag: 0)
-        viewControllers.append(newsViewController)
+        self.newsViewController = NewsViewController()
+        self.newsViewController.hideNavigationBackButtonText()
+        let newsController = UINavigationController(rootViewController: self.newsViewController)
+        newsController.tabBarItem = UITabBarItem(title: "お知らせ", image: UIImage(named: "TabBarIconNews"), tag: self.newsTag)
         
-        let eventsViewController = UINavigationController(rootViewController: EventsViewController())
-        eventsViewController.tabBarItem = UITabBarItem(title: "スケジュール", image: UIImage(named: "TabBarIconEvent"), tag: 0)
-        viewControllers.append(eventsViewController)
+        self.eventsViewController = EventsViewController()
+        self.eventsViewController.hideNavigationBackButtonText()
+        let eventsController = UINavigationController(rootViewController: self.eventsViewController)
+        eventsController.tabBarItem = UITabBarItem(title: "スケジュール", image: UIImage(named: "TabBarIconEvent"), tag: self.eventsTag)
         
-        let shopsViewController = UINavigationController(rootViewController: ShopsViewController())
-        shopsViewController.tabBarItem = UITabBarItem(title: "模擬店", image: UIImage(named: "TabBarIconShop"), tag: 0)
-        viewControllers.append(shopsViewController)
+        self.shopsViewController = ShopsViewController()
+        self.shopsViewController.hideNavigationBackButtonText()
+        let shopsController = UINavigationController(rootViewController: self.shopsViewController)
+        shopsController.tabBarItem = UITabBarItem(title: "模擬店", image: UIImage(named: "TabBarIconShop"), tag: self.shopsTag)
         
-        let exhibitionsViewController = UINavigationController(rootViewController: ExhibitionsViewController())
-        exhibitionsViewController.tabBarItem = UITabBarItem(title: "展示", image: UIImage(named: "TabBarIconExhibition"), tag: 0)
-        viewControllers.append(exhibitionsViewController)
+        self.exhibitionsViewController = ExhibitionsViewController()
+        self.exhibitionsViewController.hideNavigationBackButtonText()
+        let exhibitionsController = UINavigationController(rootViewController: self.exhibitionsViewController)
+        exhibitionsController.tabBarItem = UITabBarItem(title: "展示", image: UIImage(named: "TabBarIconExhibition"), tag: self.exhibitionsTag)
         
-        self.setViewControllers(viewControllers, animated: false)
+        self.navigationControllers = [newsController, eventsController, shopsController, exhibitionsController]
+        
+        self.setViewControllers(self.navigationControllers, animated: false)
         self.selectedIndex = 0
     }
     
@@ -43,5 +70,19 @@ class MainTabViewController: UITabBarController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    func updateContents() {
+        self.newsViewController.updateContents()
+    }
+    
+    override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+        // confirm retapping
+        guard self.selectedIndex == item.tag else {
+            return
+        }
+        
+        if let controller = self.navigationControllers[self.selectedIndex].visibleViewController as? TabBarIntaractiveController {
+            controller.tabBarIconTapped()
+        }
+    }
     
 }
