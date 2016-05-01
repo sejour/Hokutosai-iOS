@@ -50,6 +50,15 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
+        if self.articles != nil {
+            while (UInt(self.articles.count) > self.onceGetArticleCount) {
+                self.articles.removeLast()
+            }
+            self.articlesHitBottom = false
+            self.timeline?.reloadData()
+            self.timeline?.setContentOffset(CGPointZero, animated: false)
+        }
     }
     
     private func generateTopics() {
