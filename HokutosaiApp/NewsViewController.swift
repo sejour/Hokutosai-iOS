@@ -31,7 +31,7 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         self.generateTopics()
         self.generateTimeline()
         
-        let loadingView = SimpleLoadingView(frame: CGRect(x: 0.0, y: 0.0, width: self.view.width, height: self.view.height))
+        let loadingView = SimpleLoadingView(frame: self.view.frame)
         self.view.addSubview(loadingView)
         self.updateContents() {
             loadingView.removeFromSuperview()
@@ -81,8 +81,9 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         
         HokutosaiApi.GET(HokutosaiApi.News.Topics()) { response in
             guard response.isSuccess else {
-                self.updatingTopics = false
                 self.presentViewController(ErrorAlert.Server.failureGet(), animated: true, completion: nil)
+                self.updatingTopics = false
+                completion?()
                 return
             }
             
@@ -111,8 +112,9 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         
         HokutosaiApi.GET(HokutosaiApi.News.Timeline()) { response in
             guard response.isSuccess else {
-                self.updatingTimeline = false
                 self.presentViewController(ErrorAlert.Server.failureGet(), animated: true, completion: nil)
+                self.updatingTimeline = false
+                completion?()
                 return
             }
             
