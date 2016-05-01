@@ -17,7 +17,7 @@ class SlidePageViewController: UIPageViewController, UIPageViewControllerDataSou
     }
     
     var currentPageNumber: Int? {
-        guard let vc = self.viewControllers, let index = self._pages.indexOf(vc[0]) else {
+        guard let vc = self.viewControllers, let firstView = vc.first, let index = self._pages.indexOf(firstView) else {
             return nil
         }
         
@@ -63,7 +63,8 @@ class SlidePageViewController: UIPageViewController, UIPageViewControllerDataSou
         get { return self._pages }
         set {
             self._pages = newValue
-            self.setViewControllers([self._pages[0]], direction: .Forward, animated: false, completion: nil)
+            guard let firstView = self._pages.first else { return }
+            self.setViewControllers([firstView], direction: .Forward, animated: false, completion: nil)
         }
     }
     
