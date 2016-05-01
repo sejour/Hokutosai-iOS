@@ -70,7 +70,7 @@ class SlidePageViewController: UIPageViewController, UIPageViewControllerDataSou
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         
-        guard let index = self.currentPageNumber where index > 0 else {
+        guard let index = self.currentPageNumber where index > 0 && self.pageCount > 1 else {
             return nil
         }
         
@@ -79,7 +79,7 @@ class SlidePageViewController: UIPageViewController, UIPageViewControllerDataSou
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         
-        guard let index = self.currentPageNumber where index < self.pageCount - 1 else {
+        guard let index = self.currentPageNumber where (index < self.pageCount - 1) && self.pageCount > 1 else {
             return nil
         }
         
