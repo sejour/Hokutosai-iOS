@@ -23,6 +23,10 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
     private var updatingTimeline: Bool = false
     var updatingContents: Bool { return self.updatingTopics || self.updatingTimeline }
     
+    private let onceGetArticleCount: UInt = 25
+    private var articlesHitBottom: Bool = false
+    private var loadingCellManager: LoadingCellManager!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,6 +35,8 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         
         self.generateTopics()
         self.generateTimeline()
+        
+        self.loadingCellManager = LoadingCellManager(cellWidth: self.timeline.width, backgroundColor: UIColor.whiteColor(), textColor: UIColor.blueColor(), textForReadyReload: "もう一度読み込む")
         
         let loadingView = SimpleLoadingView(frame: self.view.frame)
         self.view.addSubview(loadingView)
@@ -110,18 +116,41 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
     }
     
     private func updateTimeline(completion: (() -> Void)? = nil) {
+        self.updateTimeline(nil, completion: completion)
+    }
+    
+    private func updateTimeline(lastId: UInt?, completion: (() -> Void)? = nil) {
         guard !self.updatingTimeline else { return }
         self.updatingTimeline = true
         
-        HokutosaiApi.GET(HokutosaiApi.News.Timeline()) { response in
-            guard response.isSuccess else {
-                self.presentViewController(ErrorAlert.Server.failureGet(), animated: true, completion: nil)
+        var params: [String: UInt] = ["count": self.onceGetArticleCount]
+        if let lastId = lastId {
+            params["last_id"] = lastId - 1
+        }
+        
+        HokutosaiApi.GET(HokutosaiApi.News.Timeline(), parameters: params) { response in
+            guard response.isSuccess, let data = response.model else {
+                if lastId != nil {
+                    self.loadingCellManager.status = .ReadyReload
+                }
+                else {
+                    self.presentViewController(ErrorAlert.Server.failureGet(), animated: true, completion: nil)
+                }
                 self.updatingTimeline = false
                 completion?()
                 return
             }
             
-            self.articles = response.model
+            self.loadingCellManager.status = .Loading
+            self.articlesHitBottom = UInt(data.count) < self.onceGetArticleCount
+            
+            if let articles = self.articles where lastId != nil {
+                self.articles = articles + data
+            }
+            else {
+                self.articles = data
+            }
+            
             self.timeline.reloadData()
             self.updatingTimeline = false
             completion?()
@@ -148,7 +177,14 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.timeline.deselectRowAtIndexPath(indexPath, animated: true)
+        guard indexPath.row < self.articles.count else {
+            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            self.loadingCellManager.status = .Loading
+            self.updateTimeline(self.articles.last?.newsId)
+            return
+        }
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -160,10 +196,15 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
             return 0
         }
         
-        return articles.count
+        // 底に着いていればLoadingCellを表示しない
+        return articles.count + (self.articlesHitBottom ? 0 : 1)
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        guard indexPath.row < self.articles.count else {
+            return LoadingCellManager.cellRowHeight
+        }
+        
         return NewsTableViewCell.rowHeight
     }
     
@@ -172,6 +213,11 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        guard indexPath.row < self.articles.count else {
+            self.updateTimeline(self.articles.last?.newsId)
+            return self.loadingCellManager.cell
+        }
+        
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! NewsTableViewCell
         
         cell.changeData(indexPath.row, article: self.articles[indexPath.row])
