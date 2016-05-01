@@ -215,7 +215,7 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
     private let durationForOpenClose: NSTimeInterval = 0.3
     private let advancedDistanceThresholdForClosing: CGFloat = 50.0
     private let speedThresholdForOpening: CGFloat = -30.0
-    private let offsetThresholdForOpening: CGFloat = 500.0
+    private let offsetThresholdForOpening: CGFloat = 100.0
     
     private var scrollStartOffsetY: CGFloat = 0.0
     private var scrollPreviousOffsetY: CGFloat = 0.0
