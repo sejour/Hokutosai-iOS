@@ -5,7 +5,6 @@ PODS:
   - AlamofireNetworkActivityIndicator (1.0.1):
     - Alamofire (~> 3.3)
   - KeychainAccess (2.3.5)
-  - OAStackView (1.0.1)
   - ObjectMapper (1.2.0)
   - SnapKit (0.15.0)
 
@@ -14,7 +13,6 @@ DEPENDENCIES:
   - AlamofireImage
   - AlamofireNetworkActivityIndicator (~> 1.0)
   - KeychainAccess
-  - OAStackView
   - ObjectMapper (~> 1.2)
   - SnapKit (~> 0.15.0)
 
@@ -23,7 +21,6 @@ SPEC CHECKSUMS:
   AlamofireImage: 87408b652e0f5ae5fe364035f15aea8b9b24c77e
   AlamofireNetworkActivityIndicator: 49a6e39afb947136f7b1872bae2d684957c26697
   KeychainAccess: e283c1981a6c5655e1984cd411c6faf16fa165ae
-  OAStackView: 95e7cb79cbea25c2342f496a44bdbe8bd4c8d510
   ObjectMapper: b1e9c7c8a9f6400b72690c80072c131504caa66f
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
 

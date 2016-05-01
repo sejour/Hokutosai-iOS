@@ -8,7 +8,6 @@ target 'HokutosaiApp' do
   pod 'KeychainAccess'
   pod 'AlamofireImage'
   pod 'SnapKit', '~> 0.15.0'
-  pod 'OAStackView'
 end
 
 target 'HokutosaiAppTests' do
