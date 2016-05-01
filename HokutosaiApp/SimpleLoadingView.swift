@@ -12,11 +12,12 @@ class SimpleLoadingView: UIView {
 
     var indicator: UIActivityIndicatorView!
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, backgroundColor: UIColor = UIColor.grayscale(230)) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.grayscale(230)
-        
+        self.backgroundColor = backgroundColor
+
         self.indicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+        
         self.addSubview(self.indicator)
         self.indicator.snp_makeConstraints { make in
             make.center.equalTo(self.snp_center)
