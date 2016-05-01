@@ -166,9 +166,17 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         }
     }
     
-    func updateContents(completion: (() -> Void)? = nil) {
+    private func updateContents(completion: () -> Void) {
         self.updateTopics(completion)
         self.updateTimeline(completion)
+    }
+    
+    func updateContents() {
+        guard self.topicsBordOpened else { return }
+        self.updateTopics()
+        self.updateTimeline() {
+            self.timeline.setContentOffset(CGPointZero, animated: false)
+        }
     }
     
     func tappedView(sender: TappableViewController, gesture: UITapGestureRecognizer, tag: Int) {
