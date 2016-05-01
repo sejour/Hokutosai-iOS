@@ -31,7 +31,11 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         self.generateTopics()
         self.generateTimeline()
         
-        self.updateContents()
+        let loadingView = SimpleLoadingView(frame: CGRect(x: 0.0, y: 0.0, width: self.view.width, height: self.view.height))
+        self.view.addSubview(loadingView)
+        self.updateContents() {
+            loadingView.removeFromSuperview()
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -119,9 +123,9 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         }
     }
     
-    func updateContents() {
-        self.updateTopics()
-        self.updateTimeline()
+    func updateContents(completion: (() -> Void)? = nil) {
+        self.updateTopics(completion)
+        self.updateTimeline(completion)
     }
     
     func tappedView(sender: TappableViewController, gesture: UITapGestureRecognizer, tag: Int) {
@@ -131,14 +135,11 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
     func onRefresh(refreshControl: UIRefreshControl) {
         refreshControl.beginRefreshing()
         
-        let completion: () -> Void = {
+        self.updateContents() {
             if !self.updatingTopics && !self.updatingTimeline {
                 refreshControl.endRefreshing()
             }
         }
-        
-        self.updateTopics(completion)
-        self.updateTimeline(completion)
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
