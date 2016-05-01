@@ -99,7 +99,6 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         
         HokutosaiApi.GET(HokutosaiApi.News.Topics()) { response in
             guard response.isSuccess else {
-                self.presentViewController(ErrorAlert.Server.failureGet(), animated: true, completion: nil)
                 self.updatingTopics = false
                 completion?()
                 return
@@ -141,9 +140,6 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
             guard response.isSuccess, let data = response.model else {
                 if lastId != nil {
                     self.loadingCellManager.status = .ReadyReload
-                }
-                else {
-                    self.presentViewController(ErrorAlert.Server.failureGet(), animated: true, completion: nil)
                 }
                 self.updatingTimeline = false
                 completion?()

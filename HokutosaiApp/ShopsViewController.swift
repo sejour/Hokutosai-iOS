@@ -26,7 +26,6 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.view.addSubview(loadingView)
         HokutosaiApi.GET(HokutosaiApi.Shops.Shops()) { response in
             guard response.isSuccess else {
-                self.presentViewController(ErrorAlert.Server.failureGet(), animated: true, completion: nil)
                 loadingView.removeFromSuperview()
                 return
             }

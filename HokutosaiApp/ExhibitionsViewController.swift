@@ -26,8 +26,6 @@ class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableV
         self.view.addSubview(loadingView)
         HokutosaiApi.GET(HokutosaiApi.Exhibitions.Exhibitions()) { response in
             guard response.isSuccess else {
-                print(response.statusCode)
-                self.presentViewController(ErrorAlert.Server.failureGet(), animated: true, completion: nil)
                 loadingView.removeFromSuperview()
                 return
             }
