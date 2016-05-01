@@ -51,7 +51,8 @@ class SlidePageViewController: UIPageViewController, UIPageViewControllerDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        self._pages = self.dummyPages()
+        self.setViewControllers([self._pages.first!], direction: .Forward, animated: false, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,9 +63,8 @@ class SlidePageViewController: UIPageViewController, UIPageViewControllerDataSou
     var pages: [UIViewController] {
         get { return self._pages }
         set {
-            self._pages = newValue
-            guard let firstView = self._pages.first else { return }
-            self.setViewControllers([firstView], direction: .Forward, animated: false, completion: nil)
+            self._pages = newValue.count > 0 ? newValue : self.dummyPages()
+            self.setViewControllers([self._pages.first!], direction: .Forward, animated: false, completion: nil)
         }
     }
     
@@ -90,6 +90,13 @@ class SlidePageViewController: UIPageViewController, UIPageViewControllerDataSou
         parentViewController.addChildViewController(self)
         parentViewController.view.addSubview(self.view)
         self.didMoveToParentViewController(parentViewController)
+    }
+    
+    private func dummyPages() -> [UIViewController] {
+        let vc = UIViewController()
+        vc.view.frame = CGRect(x: 0.0, y: 0.0, width: self.view.width, height: self.view.height)
+        vc.view.backgroundColor = UIColor.whiteColor()
+        return [vc]
     }
 
 }
