@@ -14,7 +14,7 @@ class HokutosaiDateTransform : DateTransform {
     static let format = "yyyy-MM-dd HH:mm:ss Z"
     private static var _dateFormatter: NSDateFormatter?
     
-    private static var dateFormatter: NSDateFormatter {
+    static var dateFormatter: NSDateFormatter {
         guard let formatter = _dateFormatter else {
             let newFormatter = NSDateFormatter()
             newFormatter.dateFormat = format
@@ -23,6 +23,10 @@ class HokutosaiDateTransform : DateTransform {
         }
         
         return formatter
+    }
+    
+    static func transformFromString(dateString: String) -> NSDate? {
+        return dateFormatter.dateFromString(dateString)
     }
     
     override func transformFromJSON(value: AnyObject?) -> NSDate? {
