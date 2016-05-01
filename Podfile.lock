@@ -6,6 +6,7 @@ PODS:
     - Alamofire (~> 3.3)
   - KeychainAccess (2.3.5)
   - ObjectMapper (1.2.0)
+  - PagingMenuController (0.9.1)
   - SnapKit (0.15.0)
 
 DEPENDENCIES:
@@ -14,6 +15,7 @@ DEPENDENCIES:
   - AlamofireNetworkActivityIndicator (~> 1.0)
   - KeychainAccess
   - ObjectMapper (~> 1.2)
+  - PagingMenuController
   - SnapKit (~> 0.15.0)
 
 SPEC CHECKSUMS:
@@ -22,6 +24,7 @@ SPEC CHECKSUMS:
   AlamofireNetworkActivityIndicator: 49a6e39afb947136f7b1872bae2d684957c26697
   KeychainAccess: e283c1981a6c5655e1984cd411c6faf16fa165ae
   ObjectMapper: b1e9c7c8a9f6400b72690c80072c131504caa66f
+  PagingMenuController: 95bab00761e1ba4f4f9fa6bf22ac71b065a675aa
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
 
 COCOAPODS: 0.39.0
