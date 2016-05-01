@@ -33,6 +33,7 @@ class TopicViewController: TappableViewController {
         self.topic = data
 
         self.titleLable.hidden = false
+        self.titleLable.textColor = UIColor.blackColor()
         self.titleLable.text = data.dataTitle
         
         if let imageUrl = data.dataImageUrl, let url = NSURL(string: imageUrl) {
@@ -42,7 +43,12 @@ class TopicViewController: TappableViewController {
             
             self.imageView.af_setImageWithURL(url) { response in
                 if response.result.isSuccess {
-                    if priorityToImage  { self.titleLable.hidden = true }
+                    if priorityToImage {
+                        self.titleLable.hidden = true
+                    }
+                    else {
+                        self.titleLable.textColor = UIColor.whiteColor()
+                    }
                 }
             }
         }
