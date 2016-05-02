@@ -11,6 +11,7 @@ import UIKit
 final class SharedColor {
 
     static let themeColor = UIColor(red: 1.0, green: 0.5, blue: 0.0, alpha: 1.0)
+    static let lightThemeColor = UIColor.trueColor(250, green: 200, blue: 150)
     
     static let likesCountGray = UIColor.grayscale(127)
     static let likesCountRed = UIColor.trueColor(220, green: 20, blue: 60)
