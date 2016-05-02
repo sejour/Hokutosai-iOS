@@ -33,7 +33,7 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate {
             self.scrollEnabled = true
             self.backgroundColor = UIColor.trueColor(250, green: 200, blue: 150)
             self.selectedBackgroundColor = UIColor.whiteColor()
-            self.textColor = UIColor.blackColor()
+            self.textColor = UIColor.grayscale(80)
             self.selectedTextColor = SharedColor.themeColor
             self.font = UIFont.systemFontOfSize(18)
             self.selectedFont = UIFont.boldSystemFontOfSize(18)
