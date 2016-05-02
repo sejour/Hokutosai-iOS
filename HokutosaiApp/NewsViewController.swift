@@ -11,7 +11,7 @@ import UIKit
 class NewsViewController: UIViewController, TappableViewControllerDelegate, UITableViewDelegate, UITableViewDataSource, LikeableTableViewCellDelegate, TabBarIntaractiveController {
     
     private var topics: [TopicNews]!
-    private var articles: [Article]!
+    private var articles: [Article]?
     
     private var topicsBordController: FlowingPageViewController!
     private var timeline: UITableView!
@@ -52,8 +52,8 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         // Dispose of any resources that can be recreated.
         
         if self.articles != nil {
-            while (UInt(self.articles.count) > self.onceGetArticleCount) {
-                self.articles.removeLast()
+            while (UInt(self.articles!.count) > self.onceGetArticleCount) {
+                self.articles!.removeLast()
             }
             self.articlesHitBottom = false
             self.timeline?.reloadData()
@@ -194,10 +194,11 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        guard indexPath.row < self.articles.count else {
+        guard let articles = self.articles else { return }
+        guard indexPath.row < articles.count else {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
             self.loadingCellManager.status = .Loading
-            self.updateTimeline(self.articles.last?.newsId)
+            self.updateTimeline(articles.last?.newsId)
             return
         }
         
@@ -218,7 +219,8 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        guard indexPath.row < self.articles.count else {
+        guard let articles = self.articles else { return NewsTableViewCell.rowHeight }
+        guard indexPath.row < articles.count else {
             return LoadingCellManager.cellRowHeight
         }
         
@@ -230,21 +232,23 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        guard indexPath.row < self.articles.count else {
-            self.updateTimeline(self.articles.last?.newsId)
+        guard indexPath.row < self.articles!.count else {
+            self.updateTimeline(self.articles!.last?.newsId)
             return self.loadingCellManager.cell
         }
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! NewsTableViewCell
         
-        cell.changeData(indexPath.row, article: self.articles[indexPath.row])
+        cell.changeData(indexPath.row, article: self.articles![indexPath.row])
         cell.delegate = self
         
         return cell
     }
     
     func like(index: Int, cell: LikeableTableViewCell) {
-        let newsId = self.articles[index].newsId!
+        guard self.articles != nil else { return }
+        
+        let newsId = self.articles![index].newsId!
         HokutosaiApi.POST(HokutosaiApi.News.Likes(newsId: newsId)) { response in
             guard let result = response.model else {
                 self.presentViewController(ErrorAlert.Server.failureSendRequest(), animated: true, completion: nil)
@@ -252,14 +256,16 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
                 return
             }
             
-            self.articles[index].liked = result.liked
-            self.articles[index].likesCount = result.likesCount
+            self.articles![index].liked = result.liked
+            self.articles![index].likesCount = result.likesCount
             cell.updateLikes(newsId)
         }
     }
     
     func dislike(index: Int, cell: LikeableTableViewCell) {
-        let newsId = self.articles[index].newsId!
+        guard self.articles != nil else { return }
+        
+        let newsId = self.articles![index].newsId!
         HokutosaiApi.DELETE(HokutosaiApi.News.Likes(newsId: newsId)) { response in
             guard let result = response.model else {
                 self.presentViewController(ErrorAlert.Server.failureSendRequest(), animated: true, completion: nil)
@@ -267,8 +273,8 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
                 return
             }
             
-            self.articles[index].liked = result.liked
-            self.articles[index].likesCount = result.likesCount
+            self.articles![index].liked = result.liked
+            self.articles![index].likesCount = result.likesCount
             cell.updateLikes(newsId)
         }
     }
@@ -299,9 +305,10 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
     }
     
     private func openCloseTopicsBord(offsetY: CGFloat) {
+        guard let articles = self.articles else { return }
         let advancedDistance = offsetY - self.scrollStartOffsetY
         
-        if self.topicsBordOpened && advancedDistance >= self.advancedDistanceThresholdForClosing && self.articles.count >= self.contentLimitForClosing {
+        if self.topicsBordOpened && advancedDistance >= self.advancedDistanceThresholdForClosing && articles.count >= self.contentLimitForClosing {
             self.topicsBordOpened = false
             self.timeline.setContentAndScrollInsets(UIEdgeInsets(top: self.appearOriginY, left: 0.0, bottom: self.tabBarHeight, right: 0.0))
             UIView.animateWithDuration(self.durationForOpenClose) {
