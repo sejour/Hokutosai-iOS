@@ -11,7 +11,7 @@ import PagingMenuController
 
 class EventsViewController: UIViewController, TappableViewControllerDelegate {
     
-    private var topics: [TopicEvent]!
+    private var topics: [TopicEvent]?
     private var topicsBordController: FlowingPageViewController!
     private let topicsBordWidthHeightRatio: CGFloat = 2.0 / 5.0
     
@@ -102,19 +102,19 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate {
         self.updatingTopics = true
         
         HokutosaiApi.GET(HokutosaiApi.Events.Topics()) { response in
-            guard response.isSuccess else {
+            guard response.isSuccess, let data = response.model else {
                 self.updatingTopics = false
                 completion?()
                 return
             }
             
-            self.topics = response.model
+            self.topics = data
             
             var pages = [TopicViewController]()
-            for i in 0 ..< self.topics.count {
+            for i in 0 ..< data.count {
                 let topicViewController = TopicViewController()
                 topicViewController.view.frame = CGRect(x: 0.0, y: 0.0, width: self.topicsBordController.viewSize.width, height: self.topicsBordController.viewSize.height)
-                topicViewController.setTopicContentData(i, data: self.topics[i])
+                topicViewController.setTopicContentData(i, data: data[i])
                 topicViewController.delegate = self
                 pages.append(topicViewController)
             }
