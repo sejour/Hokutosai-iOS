@@ -103,6 +103,16 @@
                     <constraint firstItem="sXq-pm-Bv0" firstAttribute="leading" secondItem="brh-qT-rlM" secondAttribute="trailing" constant="10" id="uZi-Cn-wCj"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="datetimeLabel" destination="sXq-pm-Bv0" id="9k6-eg-UDE"/>
+                <outlet property="featuredIcon" destination="BeQ-uf-gZs" id="WtG-12-CUd"/>
+                <outlet property="illustrationView" destination="brh-qT-rlM" id="Fff-9P-mpd"/>
+                <outlet property="likeButton" destination="Xye-QD-qPc" id="OcE-es-FvP"/>
+                <outlet property="likesCountLabel" destination="cz3-g8-eB1" id="pVv-5e-NKl"/>
+                <outlet property="stateColorLine" destination="jQg-vR-eqW" id="aty-Po-atR"/>
+                <outlet property="stateLabel" destination="LXW-Mw-jXI" id="K7m-vs-T39"/>
+                <outlet property="titleLabel" destination="4R6-s1-2Re" id="rnu-St-HS3"/>
+            </connections>
             <point key="canvasLocation" x="418" y="708.5"/>
         </tableViewCell>
     </objects>
