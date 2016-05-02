@@ -13,9 +13,9 @@ class Event: Mappable {
     
     var eventId: UInt?
     var title: String?
-    var date: String?
-    var startTime: String?
-    var endTime: String?
+    var dateString: String?
+    var startTimeString: String?
+    var endTimeString: String?
     var place: Place?
     var performer: String?
     var detail: String?
@@ -29,9 +29,9 @@ class Event: Mappable {
     func mapping(map: Map) {
         self.eventId <- map["event_id"]
         self.title <- map["title"]
-        self.date <- map["date"]
-        self.startTime <- map["start_time"]
-        self.endTime <- map["end_time"]
+        self.dateString <- map["date"]
+        self.startTimeString <- map["start_time"]
+        self.endTimeString <- map["end_time"]
         self.place <- map["place"]
         self.performer <- map["performer"]
         self.detail <- map["detail"]
@@ -41,12 +41,50 @@ class Event: Mappable {
         self.featured <- map["featured"]
     }
     
+}
+
+extension Event {
+    
     var startDateTime: NSDate? {
-        return HokutosaiDateTransform.transformFromString("\(self.date) \(self.startTime) +0900")
+        return HokutosaiDateTransform.transformFromString("\(self.dateString) \(self.startTimeString) +0900")
     }
     
     var endDateTime: NSDate? {
-        return HokutosaiDateTransform.transformFromString("\(self.date) \(self.endTime) +0900")
+        return HokutosaiDateTransform.transformFromString("\(self.dateString) \(self.endTimeString) +0900")
+    }
+    
+    private static var _startDateTimeFormatter: NSDateFormatter?
+    private static var startDateTimeFormatter: NSDateFormatter {
+        guard let formatter = _startDateTimeFormatter else {
+            let newFormatter = NSDateFormatter()
+            newFormatter.dateFormat = "MM/dd HH:mm"
+            self._startDateTimeFormatter = newFormatter
+            return newFormatter
+        }
+        
+        return formatter
+    }
+    
+    private static var _endTimeFormatter: NSDateFormatter?
+    private static var endTimeFormatter: NSDateFormatter {
+        guard let formatter = _endTimeFormatter else {
+            let newFormatter = NSDateFormatter()
+            newFormatter.dateFormat = "HH:mm"
+            self._endTimeFormatter = newFormatter
+            return newFormatter
+        }
+        
+        return formatter
+    }
+    
+    var holdDateTimeString: String? {
+        if let startDateTime = self.startDateTime, let endDateTime = self.endDateTime {
+            let startDateTimeString = Event.startDateTimeFormatter.stringFromDate(startDateTime)
+            let endTimeString = Event.endTimeFormatter.stringFromDate(endDateTime)
+            return "\(startDateTimeString) - \(endTimeString)"
+        }
+        
+        return nil
     }
     
 }
