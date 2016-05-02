@@ -286,6 +286,7 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
     
     private let durationForOpenClose: NSTimeInterval = 0.3
     private let advancedDistanceThresholdForClosing: CGFloat = 50.0
+    private let contentLimitForClosing = 10
     private let speedThresholdForOpening: CGFloat = -30.0
     private let offsetThresholdForOpening: CGFloat = 100.0
     
@@ -300,7 +301,7 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
     private func openCloseTopicsBord(offsetY: CGFloat) {
         let advancedDistance = offsetY - self.scrollStartOffsetY
         
-        if self.topicsBordOpened && advancedDistance >= self.advancedDistanceThresholdForClosing {
+        if self.topicsBordOpened && advancedDistance >= self.advancedDistanceThresholdForClosing && self.articles.count >= self.contentLimitForClosing {
             self.topicsBordOpened = false
             self.timeline.setContentAndScrollInsets(UIEdgeInsets(top: self.appearOriginY, left: 0.0, bottom: self.tabBarHeight, right: 0.0))
             UIView.animateWithDuration(self.durationForOpenClose) {
