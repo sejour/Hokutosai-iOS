@@ -14,7 +14,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="brh-qT-rlM">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoImageWide" translatesAutoresizingMaskIntoConstraints="NO" id="brh-qT-rlM">
                         <rect key="frame" x="8" y="8" width="140" height="56"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="140" id="Txa-Fx-ago"/>
@@ -118,6 +118,7 @@
     </objects>
     <resources>
         <image name="GrayHertIcon" width="50" height="41"/>
+        <image name="NoImageWide" width="493" height="197"/>
         <image name="StarIcon" width="70" height="70"/>
     </resources>
 </document>
