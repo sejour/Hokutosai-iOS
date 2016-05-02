@@ -10,7 +10,7 @@ import UIKit
 
 class NewsViewController: UIViewController, TappableViewControllerDelegate, UITableViewDelegate, UITableViewDataSource, LikeableTableViewCellDelegate, TabBarIntaractiveController {
     
-    private var topics: [TopicNews]!
+    private var topics: [TopicNews]?
     private var articles: [Article]?
     
     private var topicsBordController: FlowingPageViewController!
@@ -98,19 +98,19 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         self.updatingTopics = true
         
         HokutosaiApi.GET(HokutosaiApi.News.Topics()) { response in
-            guard response.isSuccess else {
+            guard response.isSuccess, let data = response.model else {
                 self.updatingTopics = false
                 completion?()
                 return
             }
             
-            self.topics = response.model
+            self.topics = data
             
             var pages = [TopicViewController]()
-            for i in 0 ..< self.topics.count {
+            for i in 0 ..< data.count {
                 let topicViewController = TopicViewController()
                 topicViewController.view.frame = CGRect(x: 0.0, y: 0.0, width: self.topicsBordController.viewSize.width, height: self.topicsBordController.viewSize.height)
-                topicViewController.setTopicContentData(i, data: self.topics[i])
+                topicViewController.setTopicContentData(i, data: data[i])
                 topicViewController.delegate = self
                 pages.append(topicViewController)
             }
