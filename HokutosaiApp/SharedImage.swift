@@ -14,6 +14,7 @@ final class SharedImage {
     static let noImageWide = UIImage(named: "NoImageWide")
     static let grayHertIcon = UIImage(named: "GrayHertIcon")
     static let redHertIcon = UIImage(named: "RedHertIcon")
+    static let starIcon = UIImage(named: "StarIcon")
     
     private init () {}
     
