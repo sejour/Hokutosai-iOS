@@ -14,9 +14,13 @@ class HokutosaiDate {
     static let firstDateString = "2016-05-21"
     static let secondDateString = "2016-05-22"
     
+    static let dateStrings: [String] = [eveDateString, firstDateString, secondDateString]
+    
     static let eveDate: NSDate = HokutosaiDateTransform.transformFromString("\(eveDateString) 00:00:00 +0900")!
     static let firstDate: NSDate = HokutosaiDateTransform.transformFromString("\(firstDateString) 00:00:00 +0900")!
     static let secondDate: NSDate = HokutosaiDateTransform.transformFromString("\(secondDateString) 00:00:00 +0900")!
+    
+    static let dates: [NSDate] = [eveDate, firstDate, secondDate]
     
     // 北斗祭2016前夜祭を0日とした相対日を取得する
     static var days: Int {
