@@ -29,7 +29,7 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate {
     private class EventsPagingMenuOptions: PagingMenuOptions {
         override init() {
             super.init()
-            self.defaultPage = 0
+            self.defaultPage = EventsPagingMenuOptions.todayDefaultPage
             self.scrollEnabled = true
             self.backgroundColor = UIColor.trueColor(250, green: 200, blue: 150)
             self.selectedBackgroundColor = UIColor.whiteColor()
@@ -43,6 +43,12 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate {
             self.animationDuration = 0.3
             self.menuItemMode = .Underline(height: 3, color: SharedColor.themeColor, horizontalPadding: 0, verticalPadding: 0)
             self.menuDisplayMode = .SegmentedControl
+        }
+        
+        private static var todayDefaultPage: Int {
+            let today = HokutosaiDate.days
+            guard today >= 0 && today <= 2 else { return 0 }
+            return today + 1
         }
     }
     
@@ -116,7 +122,7 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate {
             for i in 0 ..< data.count {
                 let topicViewController = TopicViewController()
                 topicViewController.view.frame = CGRect(x: 0.0, y: 0.0, width: self.topicsBordController.viewSize.width, height: self.topicsBordController.viewSize.height)
-                topicViewController.setTopicContentData(i, data: data[i])
+                topicViewController.setTopicContentData(i, data: data[i], priorityToImage: true)
                 topicViewController.delegate = self
                 pages.append(topicViewController)
             }
