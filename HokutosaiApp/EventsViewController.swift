@@ -7,12 +7,42 @@
 //
 
 import UIKit
+import PagingMenuController
 
 class EventsViewController: UIViewController, TappableViewControllerDelegate {
     
     private var topics: [TopicEvent]!
     private var topicsBordController: FlowingPageViewController!
     private let topicsBordWidthHeightRatio: CGFloat = 2.0 / 5.0
+    
+    let indexForAll: Int = 0
+    let indexForEve: Int = 1
+    let indexForFirstDay: Int = 2
+    let indexForSecondDay: Int = 3
+    let countForTimetable: Int = 4
+    let pageTitiles: [String] = ["全て", "前夜祭", "1日目", "2日目"]
+    private var eventsTimetableControllers = [EventsTableViewController]()
+    private var pagingMenuController: PagingMenuController!
+    
+    private class EventsPagingMenuOptions: PagingMenuOptions {
+        override init() {
+            super.init()
+            self.defaultPage = 0
+            self.scrollEnabled = true
+            self.backgroundColor = UIColor.trueColor(250, green: 200, blue: 150)
+            self.selectedBackgroundColor = UIColor.whiteColor()
+            self.textColor = UIColor.blackColor()
+            self.selectedTextColor = SharedColor.themeColor
+            self.font = UIFont.systemFontOfSize(18)
+            self.selectedFont = UIFont.boldSystemFontOfSize(18)
+            self.menuPosition = .Top
+            self.menuHeight = 40
+            self.menuItemMargin = 5
+            self.animationDuration = 0.3
+            self.menuItemMode = .Underline(height: 3, color: SharedColor.themeColor, horizontalPadding: 0, verticalPadding: 0)
+            self.menuDisplayMode = .SegmentedControl
+        }
+    }
     
     private var updatingTopics: Bool = false
     private var updatingEvents: Bool = false
@@ -25,6 +55,7 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate {
         self.view.backgroundColor = UIColor.whiteColor()
         
         self.generateTopics()
+        self.generateTableViews()
         
         let loadingView = SimpleLoadingView(frame: self.view.frame)
         self.view.addSubview(loadingView)
@@ -50,6 +81,20 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate {
         let bottomLine = UIView(frame: CGRect(x: 0, y: self.topicsBordController.viewSize.height - 0.5, width: self.topicsBordController.viewSize.width, height: UIViewController.pixelWidth))
         bottomLine.backgroundColor = UIColor.grayscale(0, alpha: 80)
         self.topicsBordController.view.addSubview(bottomLine)
+    }
+    
+    private func generateTableViews() {
+        for i in 0 ..< self.countForTimetable {
+            let timetableController = EventsTableViewController()
+            timetableController.title = self.pageTitiles[i]
+            self.eventsTimetableControllers.append(timetableController)
+        }
+        
+        self.pagingMenuController = PagingMenuController(viewControllers: self.eventsTimetableControllers, options: EventsPagingMenuOptions())
+        self.pagingMenuController.view.top = self.topicsBordController.view.bottom
+        self.addChildViewController(pagingMenuController)
+        self.view.addSubview(pagingMenuController.view)
+        pagingMenuController.didMoveToParentViewController(self)
     }
     
     private func updateTopics(completion: (() -> Void)? = nil) {
