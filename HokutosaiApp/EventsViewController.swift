@@ -12,6 +12,8 @@ import PagingMenuController
 class EventsViewController: UIViewController, TappableViewControllerDelegate {
     
     private var topics: [TopicEvent]?
+    private var events: [Event]?
+    
     private var topicsBordController: FlowingPageViewController!
     private let topicsBordWidthHeightRatio: CGFloat = 2.0 / 5.0
     
@@ -94,7 +96,7 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate {
         self.pagingMenuController.view.top = self.topicsBordController.view.bottom
         self.addChildViewController(pagingMenuController)
         self.view.addSubview(pagingMenuController.view)
-        pagingMenuController.didMoveToParentViewController(self)
+        self.pagingMenuController.didMoveToParentViewController(self)
     }
     
     private func updateTopics(completion: (() -> Void)? = nil) {
@@ -126,9 +128,28 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate {
             self.topicsBordController.startFlowing()
         }
     }
+    
+    private func updateEvents(completion: (() -> Void)? = nil) {
+        guard !self.updatingEvents else { return }
+        self.updatingEvents = true
+        
+        HokutosaiApi.GET(HokutosaiApi.Events.Schedule()) { response in
+            guard response.isSuccess, let data = response.model else {
+                self.updatingEvents = false
+                completion?()
+                return
+            }
+            
+            self.events = data
+            
+            self.updatingEvents = false
+            completion?()
+        }
+    }
 
     private func updateContents(completion: () -> Void) {
         self.updateTopics(completion)
+        self.updateEvents(completion)
     }
     
     func tappedView(sender: TappableViewController, gesture: UITapGestureRecognizer, tag: Int) {
