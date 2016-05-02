@@ -19,6 +19,9 @@ class EventsTableViewCell: UITableViewCell {
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var likesCountLabel: UILabel!
     
+    var index: Int!
+    var data: Event!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -32,6 +35,48 @@ class EventsTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func changeData(index: Int, data: Event) {
+        self.index = index
+        self.data = data
+        
+        if let featured = data.featured where featured {
+            self.featuredIcon.hidden = false
+        }
+        else {
+            self.featuredIcon.hidden = true
+        }
+        
+        if let imageUrl = data.imageUrl, let url = NSURL(string: imageUrl) {
+            self.illustrationView.af_setImageWithURL(url, placeholderImage: SharedImage.noImageWide)
+        }
+        else {
+            self.illustrationView.image = SharedImage.noImageWide
+        }
+
+        self.titleLabel.text = data.title ?? "<<Unknown>>"
+        self.datetimeLabel.text = data.holdDateTimeString
+        
+        let status = data.status
+        self.stateLabel.text = status.text
+        self.stateColorLine.backgroundColor = status.color
+        
+        if let likesCount = data.likesCount {
+            self.likesCountLabel.text = String(likesCount)
+        }
+        else {
+            self.likesCountLabel.text = "0"
+        }
+        
+        if let liked = data.liked where liked {
+            self.likeButton.imageView?.image = SharedImage.redHertIcon
+            self.likesCountLabel.textColor = SharedColor.likesCountRed
+        }
+        else {
+            self.likeButton.imageView?.image = SharedImage.grayHertIcon
+            self.likesCountLabel.textColor = SharedColor.likesCountGray
+        }
     }
     
 }
