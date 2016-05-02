@@ -20,8 +20,8 @@ class HokutosaiDate {
     
     // 北斗祭2016前夜祭を0日とした相対日を取得する
     static var days: Int {
-        let delta = eveDate.timeIntervalSinceNow
-        return Int(delta / 86400.0)
+        let delta = NSDate().timeIntervalSinceDate(eveDate)
+        return Int(floor(delta / 86400.0))
     }
     
 }
