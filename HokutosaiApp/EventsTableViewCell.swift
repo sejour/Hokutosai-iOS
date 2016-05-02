@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventsTableViewCell: UITableViewCell {
+class EventsTableViewCell: UITableViewCell, LikeableTableViewCell {
 
     @IBOutlet weak var featuredIcon: UIImageView!
     @IBOutlet weak var illustrationView: UIImageView!
@@ -21,6 +21,7 @@ class EventsTableViewCell: UITableViewCell {
     
     var index: Int!
     var data: Event!
+    weak var delegate: LikeableTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -76,6 +77,39 @@ class EventsTableViewCell: UITableViewCell {
         else {
             self.likeButton.imageView?.image = SharedImage.grayHertIcon
             self.likesCountLabel.textColor = SharedColor.likesCountGray
+        }
+    }
+    
+    func updateLikes(dataId: UInt) {
+        guard dataId == data.eventId else { return }
+        
+        if let likesCount = data.likesCount {
+            self.likesCountLabel.text = String(likesCount)
+        }
+        else {
+            self.likesCountLabel.text = "0"
+        }
+        
+        if let liked = data.liked where liked {
+            self.likeButton.imageView?.image = SharedImage.redHertIcon
+            self.likesCountLabel.textColor = SharedColor.likesCountRed
+        }
+        else {
+            self.likeButton.imageView?.image = SharedImage.grayHertIcon
+            self.likesCountLabel.textColor = SharedColor.likesCountGray
+        }
+    }
+    
+    @IBAction func like(sender: AnyObject) {
+        if let liked = self.data.liked where liked {
+            self.likeButton.imageView?.image = SharedImage.grayHertIcon
+            self.likesCountLabel.textColor = SharedColor.likesCountGray
+            self.delegate?.dislike(self.index, cell: self)
+        }
+        else {
+            self.likeButton.imageView?.image = SharedImage.redHertIcon
+            self.likesCountLabel.textColor = SharedColor.likesCountRed
+            self.delegate?.like(self.index, cell: self)
         }
     }
     
