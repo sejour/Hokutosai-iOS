@@ -43,6 +43,8 @@ class Event: Mappable {
     
 }
 
+typealias EventStatus = (text: String, color: UIColor)
+
 extension Event {
     
     var startDateTime: NSDate? {
@@ -85,6 +87,33 @@ extension Event {
         }
         
         return nil
+    }
+    
+    var status: EventStatus {
+        guard let startDelta = self.startDateTime?.timeIntervalSinceNow else {
+                return ("", UIColor.whiteColor())
+        }
+        
+        if startDelta <= 0.0 {
+            if let endDelta = self.endDateTime?.timeIntervalSinceNow where endDelta >= 0.0 {
+                return ("開催中!!", SharedColor.EventState.red)
+            }
+            return ("終了しました", SharedColor.EventState.gray)
+        }
+        else if startDelta <= (30 * 60) {
+            return ("もうすぐ! (\(Int(startDelta / 60.0))分)", SharedColor.EventState.orange)
+        }
+        else if startDelta <= 3600 {
+            return ("あと\(Int(startDelta / 60.0))分", SharedColor.EventState.yellow)
+        }
+        else if startDelta <= (24 * 3600) {
+            return ("あと\(Int(startDelta / 3600.0))時間", SharedColor.EventState.green)
+        }
+        else if startDelta <= (48 * 3600) {
+            return ("明日", SharedColor.EventState.green)
+        }
+        
+        return ("あと\(Int(startDelta / 86400.0))日", SharedColor.EventState.blue)
     }
     
 }
