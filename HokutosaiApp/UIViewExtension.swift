@@ -11,43 +11,53 @@ import UIKit
 extension UIView {
     
     var origin: CGPoint {
-        return self.frame.origin
+        get { return self.frame.origin }
+        set { self.frame.origin = newValue }
     }
     
     var originX: CGFloat {
-        return self.frame.origin.x
+        get { return self.frame.origin.x }
+        set { self.frame.origin.x = newValue }
     }
     
     var originY: CGFloat {
-        return self.frame.origin.y
+        get { return self.frame.origin.y }
+        set { self.frame.origin.y = newValue }
     }
     
     var size: CGSize {
-        return self.frame.size
+        get { return self.frame.size }
+        set { self.frame.size = newValue }
     }
     
     var width: CGFloat {
-        return self.frame.size.width
+        get { return self.frame.size.width }
+        set { self.frame.size.width = newValue }
     }
     
     var height: CGFloat {
-        return self.frame.size.height
+        get { return self.frame.size.height }
+        set { self.frame.size.height = newValue }
     }
     
     var left: CGFloat {
-        return self.frame.origin.x
+        get { return self.frame.origin.x }
+        set { self.frame.origin.x = newValue }
     }
     
     var top: CGFloat {
-        return self.frame.origin.y
+        get { return self.frame.origin.y }
+        set { self.frame.origin.y = newValue }
     }
     
     var right: CGFloat {
-        return self.frame.origin.x + self.frame.size.width
+        get { return self.frame.origin.x + self.frame.size.width }
+        set { self.frame.origin.x = newValue - self.frame.size.width }
     }
     
     var bottom: CGFloat {
-        return self.frame.origin.y + self.frame.size.height
+        get { return self.frame.origin.y + self.frame.size.height }
+        set { self.frame.origin.y = newValue - self.frame.size.height }
     }
     
 }
