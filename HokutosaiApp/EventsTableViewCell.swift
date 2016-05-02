@@ -23,6 +23,8 @@ class EventsTableViewCell: UITableViewCell, LikeableTableViewCell {
     var data: Event!
     weak var delegate: LikeableTableViewCellDelegate?
     
+    static let rowHeight: CGFloat = 73.0
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
