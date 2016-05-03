@@ -12,7 +12,6 @@ import PagingMenuController
 class EventsViewController: UIViewController, TappableViewControllerDelegate {
     
     private var topics: [TopicEvent]?
-    private var schedules: [Schedule]?
     
     private var topicsBordController: FlowingPageViewController!
     private let topicsBordWidthHeightRatio: CGFloat = 2.0 / 5.0
@@ -119,11 +118,18 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate {
                 return
             }
             
-            self.schedules = data
-            
             if self.pagingTimetablesController == nil {
                 self.generateTimetables(data)
             }
+            
+            var allTimetable = [Event]()
+            for i in 0 ..< data.count {
+                if let timetable = data[i].timetable {
+                    self.timetableViewControllers?[i + 1].timetable = timetable
+                    allTimetable += timetable
+                }
+            }
+            self.timetableViewControllers?.first?.timetable = allTimetable
             
             self.updatingEvents = false
             completion?()
