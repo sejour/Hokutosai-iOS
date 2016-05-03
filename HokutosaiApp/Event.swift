@@ -59,7 +59,7 @@ extension Event {
     private static var startDateTimeFormatter: NSDateFormatter {
         guard let formatter = _startDateTimeFormatter else {
             let newFormatter = NSDateFormatter()
-            newFormatter.dateFormat = "yyyy/MM/dd  HH:mm"
+            newFormatter.dateFormat = "M月d日  H:mm"
             self._startDateTimeFormatter = newFormatter
             return newFormatter
         }
@@ -71,7 +71,7 @@ extension Event {
     private static var endTimeFormatter: NSDateFormatter {
         guard let formatter = _endTimeFormatter else {
             let newFormatter = NSDateFormatter()
-            newFormatter.dateFormat = "HH:mm"
+            newFormatter.dateFormat = "H:mm"
             self._endTimeFormatter = newFormatter
             return newFormatter
         }
