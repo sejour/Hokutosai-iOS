@@ -1,5 +1,5 @@
 //
-//  EventsTableViewController.swift
+//  EventsTimetableViewController.swift
 //  HokutosaiApp
 //
 //  Created by Shuka Takakuma on 2016/05/02.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventsTableViewController: UITableViewController {
+class EventsTimetableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
