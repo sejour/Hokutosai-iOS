@@ -10,7 +10,7 @@ import UIKit
 
 class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, LikeableTableViewCellDelegate, TabBarIntaractiveController {
 
-    private var shops: [Shop]!
+    private var shops: [Shop]?
     
     private var tableView: UITableView!
     private let cellIdentifier = "Shops"
@@ -25,13 +25,12 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let loadingView = SimpleLoadingView(frame: self.view.frame)
         self.view.addSubview(loadingView)
         HokutosaiApi.GET(HokutosaiApi.Shops.Shops()) { response in
-            guard response.isSuccess else {
-                self.presentViewController(ErrorAlert.Server.failureGet(), animated: true, completion: nil)
+            guard response.isSuccess, let data = response.model else {
                 loadingView.removeFromSuperview()
                 return
             }
             
-            self.shops = response.model
+            self.shops = data
             self.tableView.reloadData()
             loadingView.removeFromSuperview()
         }
@@ -58,8 +57,10 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        guard let shops = self.shops else { return }
+        
         let detailsView = StandardDetailsViewController()
-        detailsView.title = self.shops[indexPath.row].name!
+        detailsView.title = shops[indexPath.row].name!
         self.navigationController?.pushViewController(detailsView, animated: true)
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
@@ -87,14 +88,16 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! StandardTableViewCell
         
-        cell.changeData(indexPath.row, data: self.shops[indexPath.row])
+        cell.changeData(indexPath.row, data: self.shops![indexPath.row])
         cell.delegate = self
         
         return cell
     }
     
     func like(index: Int, cell: LikeableTableViewCell) {
-        let shopId = self.shops[index].shopId!
+        guard self.shops != nil else { return }
+        
+        let shopId = self.shops![index].shopId!
         HokutosaiApi.POST(HokutosaiApi.Shops.Likes(shopId: shopId)) { response in
             guard let result = response.model else {
                 self.presentViewController(ErrorAlert.Server.failureSendRequest(), animated: true, completion: nil)
@@ -102,14 +105,16 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 return
             }
 
-            self.shops[index].liked = result.liked
-            self.shops[index].likesCount = result.likesCount
+            self.shops![index].liked = result.liked
+            self.shops![index].likesCount = result.likesCount
             cell.updateLikes(shopId)
         }
     }
     
     func dislike(index: Int, cell: LikeableTableViewCell) {
-        let shopId = self.shops[index].shopId!
+        guard self.shops != nil else { return }
+        
+        let shopId = self.shops![index].shopId!
         HokutosaiApi.DELETE(HokutosaiApi.Shops.Likes(shopId: shopId)) { response in
             guard let result = response.model else {
                 self.presentViewController(ErrorAlert.Server.failureSendRequest(), animated: true, completion: nil)
@@ -117,8 +122,8 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 return
             }
 
-            self.shops[index].liked = result.liked
-            self.shops[index].likesCount = result.likesCount
+            self.shops![index].liked = result.liked
+            self.shops![index].likesCount = result.likesCount
             cell.updateLikes(shopId)
         }
     }

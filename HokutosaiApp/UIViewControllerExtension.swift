@@ -20,10 +20,6 @@ extension UIViewController {
         return originY
     }
     
-    var tabBarHeight: CGFloat {
-        return self.tabBarController?.tabBar.frame.size.height ?? 0.0
-    }
-    
     static var pixelWidth: CGFloat {
         return 1.0 / UIScreen.mainScreen().scale
     }

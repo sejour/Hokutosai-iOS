@@ -28,11 +28,9 @@ class MainTabViewController: UITabBarController {
     private let shopsTag: Int = 2
     private let exhibitionsTag: Int = 3
     
-    convenience init () {
-        self.init(nibName: nil, bundle: NSBundle.mainBundle())
-    }
+    static let mainController = MainTabViewController(nibName: nil, bundle: NSBundle.mainBundle())
     
-    override init (nibName: String?, bundle: NSBundle?) {
+    private override init (nibName: String?, bundle: NSBundle?) {
         super.init(nibName: nibName, bundle: bundle)
         
         UINavigationBar.appearance().barTintColor = SharedColor.themeColor
@@ -66,12 +64,17 @@ class MainTabViewController: UITabBarController {
         self.selectedIndex = 0
     }
     
+    private init() {
+        fatalError("init() has not been implemented")
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     func updateContents() {
         self.newsViewController.updateContents()
+        self.eventsViewController.updateContents()
     }
     
     override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {

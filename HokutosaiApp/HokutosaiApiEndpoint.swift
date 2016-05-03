@@ -49,6 +49,32 @@ extension HokutosaiApi {
         
     }
     
+    class Events {
+        
+        static let basePath = "/events"
+        
+        class Events: HokutosaiApiEndpoint<ArrayResource<Event>> {
+            init() { super.init(basePath: basePath) }
+        }
+        
+        class Schedules: HokutosaiApiEndpoint<ArrayResource<Schedule>> {
+            init() { super.init(basePath: basePath, path: "/schedules") }
+        }
+        
+        class Topics: HokutosaiApiEndpoint<ArrayResource<TopicEvent>> {
+            init() { super.init(basePath: basePath, path: "/topics", requiredAccount: false) }
+        }
+        
+        class Details: HokutosaiApiEndpoint<ObjectResource<Event>> {
+            init(eventId: UInt) { super.init(basePath: basePath, path: "/\(eventId)/details") }
+        }
+        
+        class Likes: HokutosaiApiEndpoint<ObjectResource<EventLikeResult>> {
+            init(eventId: UInt) { super.init(basePath: basePath, path: "/\(eventId)/likes") }
+        }
+        
+    }
+    
     class Shops {
         
         static let basePath = "/shops"

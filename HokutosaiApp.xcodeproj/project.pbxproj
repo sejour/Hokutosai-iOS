@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		52AA5A9A07ED55E6CE7C6959 /* Pods_HokutosaiApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 906BE70B87479B1542A60B06 /* Pods_HokutosaiApp.framework */; };
+		A71818AE1CD8A53D00E077B2 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71818AD1CD8A53D00E077B2 /* Schedule.swift */; };
 		A74504781CD3B166001165E2 /* TopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74504761CD3B166001165E2 /* TopicViewController.swift */; };
 		A74504791CD3B166001165E2 /* TopicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A74504771CD3B166001165E2 /* TopicViewController.xib */; };
 		A745047D1CD3C5A1001165E2 /* TopicNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A745047C1CD3C5A1001165E2 /* TopicNews.swift */; };
@@ -26,6 +27,12 @@
 		A74504A51CD52D6F001165E2 /* UIScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74504A41CD52D6F001165E2 /* UIScrollViewExtension.swift */; };
 		A74504A81CD5DC86001165E2 /* SimpleLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74504A71CD5DC86001165E2 /* SimpleLoadingView.swift */; };
 		A74504AC1CD61BDD001165E2 /* LoadingCellManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74504AB1CD61BDD001165E2 /* LoadingCellManager.swift */; };
+		A74504AE1CD6675F001165E2 /* TopicEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74504AD1CD6675F001165E2 /* TopicEvent.swift */; };
+		A74504B01CD6681B001165E2 /* EventLikeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74504AF1CD6681B001165E2 /* EventLikeResult.swift */; };
+		A74504B21CD668B5001165E2 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74504B11CD668B5001165E2 /* Event.swift */; };
+		A74504B81CD740AD001165E2 /* EventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74504B61CD740AD001165E2 /* EventsTableViewCell.swift */; };
+		A74504B91CD740AD001165E2 /* EventsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A74504B71CD740AD001165E2 /* EventsTableViewCell.xib */; };
+		A74504BB1CD79B0E001165E2 /* EventsTimetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74504BA1CD79B0E001165E2 /* EventsTimetableViewController.swift */; };
 		A77483021CCB7695003AC18F /* NetworkResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483011CCB7695003AC18F /* NetworkResource.swift */; };
 		A77483041CCB79FC003AC18F /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483031CCB79FC003AC18F /* Endpoint.swift */; };
 		A77483061CCB7B9E003AC18F /* REST.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77483051CCB7B9E003AC18F /* REST.swift */; };
@@ -94,6 +101,7 @@
 /* Begin PBXFileReference section */
 		906BE70B87479B1542A60B06 /* Pods_HokutosaiApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HokutosaiApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E68EEBAEB8E63EB23447F5 /* Pods-HokutosaiApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HokutosaiApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HokutosaiApp/Pods-HokutosaiApp.debug.xcconfig"; sourceTree = "<group>"; };
+		A71818AD1CD8A53D00E077B2 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		A74504761CD3B166001165E2 /* TopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicViewController.swift; sourceTree = "<group>"; };
 		A74504771CD3B166001165E2 /* TopicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopicViewController.xib; sourceTree = "<group>"; };
 		A745047C1CD3C5A1001165E2 /* TopicNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicNews.swift; sourceTree = "<group>"; };
@@ -112,6 +120,12 @@
 		A74504A41CD52D6F001165E2 /* UIScrollViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtension.swift; sourceTree = "<group>"; };
 		A74504A71CD5DC86001165E2 /* SimpleLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleLoadingView.swift; sourceTree = "<group>"; };
 		A74504AB1CD61BDD001165E2 /* LoadingCellManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingCellManager.swift; sourceTree = "<group>"; };
+		A74504AD1CD6675F001165E2 /* TopicEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicEvent.swift; sourceTree = "<group>"; };
+		A74504AF1CD6681B001165E2 /* EventLikeResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventLikeResult.swift; sourceTree = "<group>"; };
+		A74504B11CD668B5001165E2 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		A74504B61CD740AD001165E2 /* EventsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewCell.swift; sourceTree = "<group>"; };
+		A74504B71CD740AD001165E2 /* EventsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventsTableViewCell.xib; sourceTree = "<group>"; };
+		A74504BA1CD79B0E001165E2 /* EventsTimetableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTimetableViewController.swift; sourceTree = "<group>"; };
 		A77483011CCB7695003AC18F /* NetworkResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResource.swift; sourceTree = "<group>"; };
 		A77483031CCB79FC003AC18F /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		A77483051CCB7B9E003AC18F /* REST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = REST.swift; sourceTree = "<group>"; };
@@ -227,6 +241,10 @@
 			isa = PBXGroup;
 			children = (
 				A74504851CD3DDA7001165E2 /* EventItem.swift */,
+				A74504AD1CD6675F001165E2 /* TopicEvent.swift */,
+				A74504AF1CD6681B001165E2 /* EventLikeResult.swift */,
+				A74504B11CD668B5001165E2 /* Event.swift */,
+				A71818AD1CD8A53D00E077B2 /* Schedule.swift */,
 			);
 			name = Events;
 			sourceTree = "<group>";
@@ -256,6 +274,15 @@
 				A74504A71CD5DC86001165E2 /* SimpleLoadingView.swift */,
 			);
 			name = Commons;
+			sourceTree = "<group>";
+		};
+		A74504B51CD74077001165E2 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				A74504B61CD740AD001165E2 /* EventsTableViewCell.swift */,
+				A74504B71CD740AD001165E2 /* EventsTableViewCell.xib */,
+			);
+			name = Events;
 			sourceTree = "<group>";
 		};
 		A77483001CCB748C003AC18F /* REST */ = {
@@ -374,6 +401,7 @@
 		A77483401CCE6066003AC18F /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				A74504B51CD74077001165E2 /* Events */,
 				A787A1AE1CCDD9BA0045F1DD /* Commons */,
 				A74504901CD47DDB001165E2 /* News */,
 			);
@@ -485,6 +513,7 @@
 			isa = PBXGroup;
 			children = (
 				A77F9DEC1CC9112700BEE9A7 /* EventsViewController.swift */,
+				A74504BA1CD79B0E001165E2 /* EventsTimetableViewController.swift */,
 			);
 			name = Events;
 			sourceTree = "<group>";
@@ -678,6 +707,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A74504B91CD740AD001165E2 /* EventsTableViewCell.xib in Resources */,
 				A745049D1CD4B312001165E2 /* NewsTableViewCellContent.xib in Resources */,
 				A77483441CCE6086003AC18F /* StandardTableViewCell.xib in Resources */,
 				A77B39021CC8C22C00012A0E /* Assets.xcassets in Resources */,
@@ -756,6 +786,7 @@
 			files = (
 				A77483081CCB8D1A003AC18F /* HttpResponse.swift in Sources */,
 				A774832C1CCCC84B003AC18F /* HokutosaiDateTransform.swift in Sources */,
+				A74504B81CD740AD001165E2 /* EventsTableViewCell.swift in Sources */,
 				A77483221CCCBCB3003AC18F /* Place.swift in Sources */,
 				A774830F1CCBB0E0003AC18F /* HokutosaiApi.swift in Sources */,
 				A7A60FBA1CD2183100AA9543 /* ExhibitionLikeResult.swift in Sources */,
@@ -782,6 +813,7 @@
 				A77483301CCCD2AB003AC18F /* ShopMyAssessment.swift in Sources */,
 				A77483241CCCBF13003AC18F /* MenuItem.swift in Sources */,
 				A77F9DEB1CC9111000BEE9A7 /* ExhibitionsViewController.swift in Sources */,
+				A74504BB1CD79B0E001165E2 /* EventsTimetableViewController.swift in Sources */,
 				A74504A51CD52D6F001165E2 /* UIScrollViewExtension.swift in Sources */,
 				A77483371CCD2924003AC18F /* AlertController.swift in Sources */,
 				A77483461CD1DD8F003AC18F /* LikeableTableViewCellDelegate.swift in Sources */,
@@ -797,6 +829,7 @@
 				A745049F1CD507FC001165E2 /* LikeableTableViewCell.swift in Sources */,
 				A74504781CD3B166001165E2 /* TopicViewController.swift in Sources */,
 				A74504811CD3D6EC001165E2 /* UIViewControllerExtension.swift in Sources */,
+				A74504AE1CD6675F001165E2 /* TopicEvent.swift in Sources */,
 				A77483331CCCD380003AC18F /* LikeResult.swift in Sources */,
 				A77483431CCE6086003AC18F /* StandardTableViewCell.swift in Sources */,
 				A774834B1CD20769003AC18F /* SharedColor.swift in Sources */,
@@ -805,12 +838,15 @@
 				A77B38FB1CC8C22C00012A0E /* AppDelegate.swift in Sources */,
 				A774832E1CCCD1AA003AC18F /* MyAssessment.swift in Sources */,
 				A77483131CCBBC1E003AC18F /* HokutosaiAccount.swift in Sources */,
+				A74504B21CD668B5001165E2 /* Event.swift in Sources */,
 				A745047D1CD3C5A1001165E2 /* TopicNews.swift in Sources */,
 				A745047F1CD3C6DB001165E2 /* TopicContentData.swift in Sources */,
 				A77F9DE51CC9008600BEE9A7 /* MainTabViewController.swift in Sources */,
 				A774830D1CCBAA9F003AC18F /* HokutosaiApiError.swift in Sources */,
 				A774831B1CCBE285003AC18F /* AccountManager.swift in Sources */,
 				A77F9DED1CC9112700BEE9A7 /* EventsViewController.swift in Sources */,
+				A74504B01CD6681B001165E2 /* EventLikeResult.swift in Sources */,
+				A71818AE1CD8A53D00E077B2 /* Schedule.swift in Sources */,
 				A77483021CCB7695003AC18F /* NetworkResource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

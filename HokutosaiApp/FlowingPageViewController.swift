@@ -46,7 +46,7 @@ class FlowingPageViewController: SlidePageViewController {
     }
     
     func flow() {
-        guard let index = self.currentPageNumber else {
+        guard let index = self.currentPageNumber where self.pageCount > 1 else {
             return
         }
         
@@ -67,7 +67,7 @@ class FlowingPageViewController: SlidePageViewController {
     
     override func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         
-        guard let index = self.currentPageNumber else {
+        guard let index = self.currentPageNumber where self.pageCount > 1 else {
             return nil
         }
         
@@ -78,7 +78,7 @@ class FlowingPageViewController: SlidePageViewController {
     
     override func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         
-        guard let index = self.currentPageNumber else {
+        guard let index = self.currentPageNumber where self.pageCount > 1 else {
             return nil
         }
         
