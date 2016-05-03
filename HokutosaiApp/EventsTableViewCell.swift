@@ -63,7 +63,8 @@ class EventsTableViewCell: UITableViewCell, LikeableTableViewCell {
         
         let status = data.status
         self.stateLabel.text = status.text
-        self.stateColorLine.backgroundColor = status.color
+        self.stateLabel.textColor = status.textColor
+        self.stateColorLine.backgroundColor = status.lineColor
         
         if let likesCount = data.likesCount {
             self.likesCountLabel.text = String(likesCount)
