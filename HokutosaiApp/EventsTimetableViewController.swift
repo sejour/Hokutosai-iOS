@@ -118,5 +118,9 @@ class EventsTimetableViewController: UITableViewController, LikeableTableViewCel
             cell.updateLikes(eventId)
         }
     }
+    
+    func scrollToTop(animated: Bool = true) {
+        self.tableView.setContentOffset(CGPointZero, animated: animated)
+    }
 
 }

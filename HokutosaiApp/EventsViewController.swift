@@ -9,7 +9,7 @@
 import UIKit
 import PagingMenuController
 
-class EventsViewController: UIViewController, TappableViewControllerDelegate {
+class EventsViewController: UIViewController, TappableViewControllerDelegate, TabBarIntaractiveController {
     
     private var topics: [TopicEvent]?
     
@@ -18,6 +18,7 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate {
     
     private var timetableViewControllers: [EventsTimetableViewController]?
     private var pagingTimetablesController: PagingMenuController?
+    private var pageIndexes: [String: Int] = [:]
     
     private class PagingTimetableOptions: PagingMenuOptions {
         
@@ -143,14 +144,14 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate {
     private func generateTimetables(schedules: [Schedule]) {
         self.timetableViewControllers = [EventsTimetableViewController(title: "全て", eventsViewController: self)]
         
-        let today = NSDate.stringFromDate(NSDate(), format: "yyyy-MM-dd")
-        var defaultPage: Int = 0
         for i in 0 ..< schedules.count {
-            if schedules[i].dateString == today { defaultPage = i + 1 }
+            if let dateString = schedules[i].dateString {
+                self.pageIndexes[dateString] = i + 1
+            }
             self.timetableViewControllers!.append(EventsTimetableViewController(title: schedules[i].day, eventsViewController: self))
         }
         
-        self.pagingTimetablesController = PagingMenuController(viewControllers: self.timetableViewControllers!, options: PagingTimetableOptions(defaultPage: defaultPage))
+        self.pagingTimetablesController = PagingMenuController(viewControllers: self.timetableViewControllers!, options: PagingTimetableOptions(defaultPage: self.todayPage))
         
         self.pagingTimetablesController!.view.top = self.topicsBordController.view.bottom
         self.pagingTimetablesController!.view.height = self.view.height - self.topicsBordController.view.bottom
@@ -158,6 +159,16 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate {
         self.addChildViewController(self.pagingTimetablesController!)
         self.view.addSubview(self.pagingTimetablesController!.view)
         self.pagingTimetablesController!.didMoveToParentViewController(self)
+    }
+    
+    private var todayPage: Int {
+        let today = NSDate.stringFromDate(NSDate(), format: "yyyy-MM-dd")
+        
+        if let index = self.pageIndexes[today] {
+            return index
+        }
+        
+        return 0
     }
 
     private func updateContents(completion: () -> Void) {
@@ -172,6 +183,16 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate {
             if !self.updatingContents {
                 refreshControl.endRefreshing()
             }
+        }
+    }
+    
+    func tabBarIconTapped() {
+        let page = self.todayPage
+        if self.pagingTimetablesController?.currentPage == page {
+            self.timetableViewControllers?[page].scrollToTop()
+        }
+        else {
+            self.pagingTimetablesController?.moveToMenuPage(page, animated: true)
         }
     }
     
