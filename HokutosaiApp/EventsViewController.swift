@@ -20,6 +20,9 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate {
     private var pagingTimetablesController: PagingMenuController?
     
     private class PagingTimetableOptions: PagingMenuOptions {
+        
+        static let menuHeightConstant: CGFloat = 40
+        
         init(defaultPage: Int) {
             super.init()
             self.defaultPage = defaultPage
@@ -31,12 +34,13 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate {
             self.font = UIFont.systemFontOfSize(18)
             self.selectedFont = UIFont.boldSystemFontOfSize(18)
             self.menuPosition = .Top
-            self.menuHeight = 40
+            self.menuHeight = PagingTimetableOptions.menuHeightConstant
             self.menuItemMargin = 5
             self.animationDuration = 0.3
             self.menuItemMode = .Underline(height: 3, color: SharedColor.themeColor, horizontalPadding: 0, verticalPadding: 0)
             self.menuDisplayMode = .SegmentedControl
         }
+        
     }
     
     private var updatingTopics: Bool = false
@@ -147,7 +151,10 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate {
         }
         
         self.pagingTimetablesController = PagingMenuController(viewControllers: self.timetableViewControllers!, options: PagingTimetableOptions(defaultPage: defaultPage))
+        
         self.pagingTimetablesController!.view.top = self.topicsBordController.view.bottom
+        self.pagingTimetablesController!.view.height = self.view.height - self.topicsBordController.view.bottom
+        
         self.addChildViewController(self.pagingTimetablesController!)
         self.view.addSubview(self.pagingTimetablesController!.view)
         self.pagingTimetablesController!.didMoveToParentViewController(self)

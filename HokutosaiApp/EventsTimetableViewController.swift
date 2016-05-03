@@ -10,6 +10,14 @@ import UIKit
 
 class EventsTimetableViewController: UITableViewController {
 
+    let cellIdentifier = "Events"
+    
+    var timetable: [Event]? {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    
     convenience init (title: String?) {
         self.init(nibName: nil, bundle: NSBundle.mainBundle())
         self.title = title
@@ -18,11 +26,14 @@ class EventsTimetableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        let nib = UINib(nibName: "EventsTableViewCell", bundle: nil)
+        self.tableView.registerNib(nib, forCellReuseIdentifier: self.cellIdentifier)
+        
+        self.tableView.rowHeight = StandardTableViewCell.rowHeight
+        self.tableView.layoutMargins = UIEdgeInsetsZero
+        self.tableView.separatorInset = UIEdgeInsetsZero
+        
+        self.tableView.setContentAndScrollInsets(UIEdgeInsets(top: 0.0, left: 0.0, bottom: MainTabViewController.mainController.tabBar.height, right: 0.0))
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,24 +44,24 @@ class EventsTimetableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        guard let timetable = self.timetable else {
+            return 0
+        }
+        
+        return timetable.count
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(self.cellIdentifier, forIndexPath: indexPath) as! EventsTableViewCell
 
-        // Configure the cell...
+        cell.changeData(indexPath.row, data: self.timetable![indexPath.row])
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
