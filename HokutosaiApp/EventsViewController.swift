@@ -141,13 +141,13 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate {
     }
     
     private func generateTimetables(schedules: [Schedule]) {
-        self.timetableViewControllers = [EventsTimetableViewController(title: "全て")]
+        self.timetableViewControllers = [EventsTimetableViewController(title: "全て", eventsViewController: self)]
         
         let today = NSDate.stringFromDate(NSDate(), format: "yyyy-MM-dd")
         var defaultPage: Int = 0
         for i in 0 ..< schedules.count {
             if schedules[i].dateString == today { defaultPage = i + 1 }
-            self.timetableViewControllers!.append(EventsTimetableViewController(title: schedules[i].day))
+            self.timetableViewControllers!.append(EventsTimetableViewController(title: schedules[i].day, eventsViewController: self))
         }
         
         self.pagingTimetablesController = PagingMenuController(viewControllers: self.timetableViewControllers!, options: PagingTimetableOptions(defaultPage: defaultPage))
@@ -163,6 +163,16 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate {
     private func updateContents(completion: () -> Void) {
         self.updateTopics(completion)
         self.updateTimetables(completion)
+    }
+    
+    func onRefresh(refreshControl: UIRefreshControl) {
+        refreshControl.beginRefreshing()
+        
+        self.updateContents() {
+            if !self.updatingContents {
+                refreshControl.endRefreshing()
+            }
+        }
     }
     
     func tappedView(sender: TappableViewController, gesture: UITapGestureRecognizer, tag: Int) {

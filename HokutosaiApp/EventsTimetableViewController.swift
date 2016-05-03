@@ -18,9 +18,12 @@ class EventsTimetableViewController: UITableViewController, LikeableTableViewCel
         }
     }
     
-    convenience init (title: String?) {
+    weak var eventsViewController: EventsViewController?
+    
+    convenience init (title: String?, eventsViewController: EventsViewController) {
         self.init(nibName: nil, bundle: NSBundle.mainBundle())
         self.title = title
+        self.eventsViewController = eventsViewController
     }
     
     override func viewDidLoad() {
@@ -34,11 +37,19 @@ class EventsTimetableViewController: UITableViewController, LikeableTableViewCel
         self.tableView.separatorInset = UIEdgeInsetsZero
         
         self.tableView.setContentAndScrollInsets(UIEdgeInsets(top: 0.0, left: 0.0, bottom: MainTabViewController.mainController.tabBar.height, right: 0.0))
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(EventsTimetableViewController.onRefresh(_:)), forControlEvents: .ValueChanged)
+        self.tableView.addSubview(refreshControl)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func onRefresh(refreshControl: UIRefreshControl) {
+        self.eventsViewController?.onRefresh(refreshControl)
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
