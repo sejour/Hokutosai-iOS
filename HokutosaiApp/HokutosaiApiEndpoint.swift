@@ -53,8 +53,12 @@ extension HokutosaiApi {
         
         static let basePath = "/events"
         
-        class Schedule: HokutosaiApiEndpoint<ArrayResource<Event>> {
-            init() { super.init(basePath: basePath, path: "/schedule") }
+        class Events: HokutosaiApiEndpoint<ArrayResource<Event>> {
+            init() { super.init(basePath: basePath) }
+        }
+        
+        class Schedules: HokutosaiApiEndpoint<ArrayResource<Schedule>> {
+            init() { super.init(basePath: basePath, path: "/schedules") }
         }
         
         class Topics: HokutosaiApiEndpoint<ArrayResource<TopicEvent>> {
