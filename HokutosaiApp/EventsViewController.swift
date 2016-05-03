@@ -171,9 +171,13 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate, Ta
         return 0
     }
 
-    private func updateContents(completion: () -> Void) {
+    private func updateContents(completion: (() -> Void)?) {
         self.updateTopics(completion)
         self.updateTimetables(completion)
+    }
+    
+    func updateContents() {
+       self.updateContents(nil)
     }
     
     func onRefresh(refreshControl: UIRefreshControl) {

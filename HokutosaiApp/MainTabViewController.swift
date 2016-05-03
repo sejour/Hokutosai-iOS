@@ -74,6 +74,7 @@ class MainTabViewController: UITabBarController {
 
     func updateContents() {
         self.newsViewController.updateContents()
+        self.eventsViewController.updateContents()
     }
     
     override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
