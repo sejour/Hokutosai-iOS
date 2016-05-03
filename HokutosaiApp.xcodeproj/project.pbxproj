@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		52AA5A9A07ED55E6CE7C6959 /* Pods_HokutosaiApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 906BE70B87479B1542A60B06 /* Pods_HokutosaiApp.framework */; };
+		A71818AE1CD8A53D00E077B2 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71818AD1CD8A53D00E077B2 /* Schedule.swift */; };
 		A74504781CD3B166001165E2 /* TopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74504761CD3B166001165E2 /* TopicViewController.swift */; };
 		A74504791CD3B166001165E2 /* TopicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A74504771CD3B166001165E2 /* TopicViewController.xib */; };
 		A745047D1CD3C5A1001165E2 /* TopicNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A745047C1CD3C5A1001165E2 /* TopicNews.swift */; };
@@ -101,6 +102,7 @@
 /* Begin PBXFileReference section */
 		906BE70B87479B1542A60B06 /* Pods_HokutosaiApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HokutosaiApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E68EEBAEB8E63EB23447F5 /* Pods-HokutosaiApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HokutosaiApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HokutosaiApp/Pods-HokutosaiApp.debug.xcconfig"; sourceTree = "<group>"; };
+		A71818AD1CD8A53D00E077B2 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		A74504761CD3B166001165E2 /* TopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicViewController.swift; sourceTree = "<group>"; };
 		A74504771CD3B166001165E2 /* TopicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopicViewController.xib; sourceTree = "<group>"; };
 		A745047C1CD3C5A1001165E2 /* TopicNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicNews.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				A74504AD1CD6675F001165E2 /* TopicEvent.swift */,
 				A74504AF1CD6681B001165E2 /* EventLikeResult.swift */,
 				A74504B11CD668B5001165E2 /* Event.swift */,
+				A71818AD1CD8A53D00E077B2 /* Schedule.swift */,
 			);
 			name = Events;
 			sourceTree = "<group>";
@@ -847,6 +850,7 @@
 				A774831B1CCBE285003AC18F /* AccountManager.swift in Sources */,
 				A77F9DED1CC9112700BEE9A7 /* EventsViewController.swift in Sources */,
 				A74504B01CD6681B001165E2 /* EventLikeResult.swift in Sources */,
+				A71818AE1CD8A53D00E077B2 /* Schedule.swift in Sources */,
 				A77483021CCB7695003AC18F /* NetworkResource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
