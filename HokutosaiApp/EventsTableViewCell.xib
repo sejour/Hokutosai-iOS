@@ -41,10 +41,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="BeQ-uf-gZs">
-                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                        <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="40" id="XDX-8w-Y5Z"/>
-                            <constraint firstAttribute="width" constant="40" id="hMg-UI-Bh2"/>
+                            <constraint firstAttribute="height" constant="45" id="XDX-8w-Y5Z"/>
+                            <constraint firstAttribute="width" constant="45" id="hMg-UI-Bh2"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cz3-g8-eB1">
