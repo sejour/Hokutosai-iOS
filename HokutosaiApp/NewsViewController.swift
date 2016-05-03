@@ -83,7 +83,7 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         self.timeline.layoutMargins = UIEdgeInsetsZero
         self.timeline.separatorInset = UIEdgeInsetsZero
         
-        self.timeline.setContentAndScrollInsets(UIEdgeInsets(top: 0.0, left: 0.0, bottom: self.tabBarHeight, right: 0.0))
+        self.timeline.setContentAndScrollInsets(UIEdgeInsets(top: 0.0, left: 0.0, bottom: MainTabViewController.mainController.tabBar.height, right: 0.0))
         
         self.timeline.dataSource = self
         self.timeline.delegate = self
@@ -310,7 +310,7 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         
         if self.topicsBordOpened && advancedDistance >= self.advancedDistanceThresholdForClosing && articles.count >= self.contentLimitForClosing {
             self.topicsBordOpened = false
-            self.timeline.setContentAndScrollInsets(UIEdgeInsets(top: self.appearOriginY, left: 0.0, bottom: self.tabBarHeight, right: 0.0))
+            self.timeline.setContentAndScrollInsets(UIEdgeInsets(top: self.appearOriginY, left: 0.0, bottom: MainTabViewController.mainController.tabBar.height, right: 0.0))
             UIView.animateWithDuration(self.durationForOpenClose) {
                 self.topicsBordController.viewOrigin.y = -self.topicsBordController.viewSize.height
                 self.timeline.frame = self.timeLineFrame
@@ -323,7 +323,7 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
                 UIView.animateWithDuration(self.durationForOpenClose, animations: {
                     self.topicsBordController.viewOrigin.y = self.appearOriginY
                     }, completion: { _ in
-                        self.timeline.setContentAndScrollInsets(UIEdgeInsets(top: 0.0, left: 0.0, bottom: self.tabBarHeight, right: 0.0))
+                        self.timeline.setContentAndScrollInsets(UIEdgeInsets(top: 0.0, left: 0.0, bottom: MainTabViewController.mainController.tabBar.height, right: 0.0))
                         UIView.animateWithDuration(self.durationForOpenClose) {
                             self.timeline.frame = self.timeLineFrame
                         }
