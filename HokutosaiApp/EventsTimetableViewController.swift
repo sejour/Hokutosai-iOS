@@ -10,6 +10,11 @@ import UIKit
 
 class EventsTimetableViewController: UITableViewController {
 
+    convenience init (title: String?) {
+        self.init(nibName: nil, bundle: NSBundle.mainBundle())
+        self.title = title
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
