@@ -48,18 +48,20 @@ typealias EventStatus = (text: String, color: UIColor)
 extension Event {
     
     var startDateTime: NSDate? {
-        return HokutosaiDateTransform.transformFromString("\(self.dateString) \(self.startTimeString) +0900")
+        guard let dateString = self.dateString, let startTimeString = self.startTimeString else { return nil }
+        return HokutosaiDateTransform.transformFromString("\(dateString) \(startTimeString) +0900")
     }
     
     var endDateTime: NSDate? {
-        return HokutosaiDateTransform.transformFromString("\(self.dateString) \(self.endTimeString) +0900")
+        guard let dateString = self.dateString, let endTimeString = self.endTimeString else { return nil }
+        return HokutosaiDateTransform.transformFromString("\(dateString) \(endTimeString) +0900")
     }
     
     private static var _startDateTimeFormatter: NSDateFormatter?
     private static var startDateTimeFormatter: NSDateFormatter {
         guard let formatter = _startDateTimeFormatter else {
             let newFormatter = NSDateFormatter()
-            newFormatter.dateFormat = "MM/dd HH:mm"
+            newFormatter.dateFormat = "yyyy/MM/dd  HH:mm"
             self._startDateTimeFormatter = newFormatter
             return newFormatter
         }
