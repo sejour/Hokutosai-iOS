@@ -103,19 +103,16 @@ extension Event {
             return ("終了しました", UIColor.grayColor(), SharedColor.EventState.gray)
         }
         else if startDelta <= (30 * 60) {
-            return ("もうすぐ! (\(Int(startDelta / 60.0))分)", UIColor.orangeColor(), SharedColor.EventState.orange)
+            return ("もうすぐ! (\(Int(ceil(startDelta / 60.0)))分)", UIColor.orangeColor(), SharedColor.EventState.orange)
         }
         else if startDelta <= 3600 {
-            return ("あと\(Int(startDelta / 60.0))分", UIColor.grayColor(), SharedColor.EventState.yellow)
+            return ("あと\(Int(ceil(startDelta / 60.0)))分", UIColor.grayColor(), SharedColor.EventState.yellow)
         }
         else if startDelta <= (24 * 3600) {
-            return ("あと\(Int(startDelta / 3600.0))時間", UIColor.grayColor(), SharedColor.EventState.green)
-        }
-        else if startDelta <= (48 * 3600) {
-            return ("明日", UIColor.grayColor(), SharedColor.EventState.green)
+            return ("あと\(Int(round(startDelta / 3600.0)))時間", UIColor.grayColor(), SharedColor.EventState.green)
         }
         
-        return ("あと\(Int(startDelta / 86400.0))日", UIColor.grayColor(), SharedColor.EventState.blue)
+        return ("あと\(Int(round(startDelta / 86400.0)))日", UIColor.grayColor(), SharedColor.EventState.blue)
     }
     
 }
