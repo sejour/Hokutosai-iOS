@@ -36,7 +36,7 @@
                             <constraint firstAttribute="height" constant="21" id="Egf-fo-aJg"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jQg-vR-eqW">
@@ -79,6 +79,9 @@
                             <constraint firstAttribute="height" constant="17" id="dHC-y9-4Tc"/>
                         </constraints>
                         <state key="normal" title="Button" image="GrayHertIcon"/>
+                        <connections>
+                            <action selector="like:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="bwP-Lh-9Ch"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
