@@ -18,12 +18,12 @@ final class SharedColor {
     
     class EventState {
         
-        static let blue = UIColor.trueColor(150, green: 212, blue: 250)
-        static let green = UIColor.trueColor(200, green: 250, blue: 150)
-        static let yellow = UIColor.trueColor(250, green: 250, blue: 150)
-        static let orange = UIColor.trueColor(250, green: 200, blue: 150)
-        static let red = UIColor.trueColor(250, green: 150, blue: 150)
-        static let gray = UIColor.grayscale(200)
+        static let blue = UIColor.trueColor(125, green: 208, blue: 250)
+        static let green = UIColor.trueColor(167, green: 250, blue: 125)
+        static let yellow = UIColor.trueColor(250, green: 250, blue: 125)
+        static let orange = UIColor.trueColor(250, green: 167, blue: 125)
+        static let red = UIColor.trueColor(250, green: 125, blue: 125)
+        static let gray = UIColor.grayscale(128)
         
     }
     
