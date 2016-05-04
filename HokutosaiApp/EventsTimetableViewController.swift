@@ -20,10 +20,14 @@ class EventsTimetableViewController: UITableViewController, LikeableTableViewCel
     
     weak var eventsViewController: EventsViewController?
     
-    convenience init (title: String?, eventsViewController: EventsViewController) {
-        self.init(nibName: nil, bundle: NSBundle.mainBundle())
+    init (title: String?, eventsViewController: EventsViewController) {
+        super.init(nibName: nil, bundle: NSBundle.mainBundle())
         self.title = title
         self.eventsViewController = eventsViewController
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
@@ -53,6 +57,11 @@ class EventsTimetableViewController: UITableViewController, LikeableTableViewCel
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        guard let events = self.timetable else { return }
+        
+        let detailView = EventsDetailViewController(event: events[indexPath.row])
+        self.navigationController?.pushViewController(detailView, animated: true)
+        
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 
