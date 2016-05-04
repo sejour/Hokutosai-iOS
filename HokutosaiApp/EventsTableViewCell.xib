@@ -40,7 +40,7 @@
                         <color key="textColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="BeQ-uf-gZs">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FeatureIcon" translatesAutoresizingMaskIntoConstraints="NO" id="BeQ-uf-gZs">
                         <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="45" id="XDX-8w-Y5Z"/>
@@ -121,8 +121,8 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="FeatureIcon" width="70" height="70"/>
         <image name="GrayHertIcon" width="50" height="41"/>
         <image name="NoImageWide" width="493" height="197"/>
-        <image name="StarIcon" width="70" height="70"/>
     </resources>
 </document>
