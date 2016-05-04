@@ -30,7 +30,7 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "特集"
+        self.title = "お知らせ"
         self.view.backgroundColor = UIColor.whiteColor()
         
         self.generateTopics()

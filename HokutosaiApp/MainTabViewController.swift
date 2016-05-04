@@ -46,7 +46,7 @@ class MainTabViewController: UITabBarController {
         self.eventsViewController = EventsViewController()
         self.eventsViewController.hideNavigationBackButtonText()
         let eventsController = UINavigationController(rootViewController: self.eventsViewController)
-        eventsController.tabBarItem = UITabBarItem(title: "スケジュール", image: UIImage(named: "TabBarIconEvent"), tag: self.eventsTag)
+        eventsController.tabBarItem = UITabBarItem(title: "企画", image: UIImage(named: "TabBarIconEvent"), tag: self.eventsTag)
         
         self.shopsViewController = ShopsViewController()
         self.shopsViewController.hideNavigationBackButtonText()
