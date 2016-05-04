@@ -12,6 +12,8 @@ class EventsDetailViewController: ContentsViewController {
 
     var event: Event!
     
+    private let topicsBordWidthHeightRatio: CGFloat = 2.0 / 5.0
+    
     init (event: Event) {
         super.init(title: event.title)
         self.event = event
@@ -24,6 +26,16 @@ class EventsDetailViewController: ContentsViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // ImageView
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.width, height: self.topicsBordWidthHeightRatio * self.view.width))
+        if let imageUrl = event.imageUrl, let url = NSURL(string: imageUrl) {
+            imageView.af_setImageWithURL(url, placeholderImage: SharedImage.noImageWide)
+        }
+        else {
+            imageView.image = SharedImage.noImageWide
+        }
+        self.addContentView(imageView)
     }
 
     override func didReceiveMemoryWarning() {
