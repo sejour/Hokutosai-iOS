@@ -20,10 +20,9 @@ class InformationLabel: UIView {
     
         let iconView = UIImageView(image: icon)
         iconView.contentMode = .ScaleAspectFit
-        addSubview(iconView)
+        self.addSubview(iconView)
         iconView.snp_makeConstraints { make in
-            make.width.equalTo(iconSize)
-            make.height.equalTo(iconSize)
+            make.width.height.equalTo(iconSize)
             make.top.equalTo(self)
             make.left.equalTo(self).offset(20.0)
         }
@@ -34,7 +33,7 @@ class InformationLabel: UIView {
         label.textAlignment = .Left
         label.numberOfLines = 0
         label.text = text
-        addSubview(label)
+        self.addSubview(label)
         label.snp_makeConstraints { make in
             make.top.equalTo(self)
             make.left.equalTo(iconView.snp_right).offset(8.0)
@@ -46,7 +45,7 @@ class InformationLabel: UIView {
         self.layoutIfNeeded()
         
         self.snp_makeConstraints { make in
-            make.width.equalTo(frame.width)
+            make.width.equalTo(self.width)
             make.height.equalTo(label)
         }
     }
