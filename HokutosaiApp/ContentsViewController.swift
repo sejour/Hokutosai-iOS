@@ -50,6 +50,7 @@ class ContentsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
+        self.tableView.separatorStyle = .None
     }
     
     override func didReceiveMemoryWarning() {
@@ -60,6 +61,10 @@ class ContentsViewController: UITableViewController {
         view.setNeedsLayout()
         view.layoutIfNeeded()
         self.contentViews.append(view)
+    }
+    
+    func insertSpace(height: CGFloat) {
+        self.contentViews.append(UIView(frame: CGRect(x: 0.0, y: 0.0, width: self.view.width, height: height)))
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
