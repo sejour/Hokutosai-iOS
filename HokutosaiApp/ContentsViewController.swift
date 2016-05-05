@@ -57,6 +57,8 @@ class ContentsViewController: UITableViewController {
     }
     
     func addContentView(view: UIView) {
+        view.setNeedsLayout()
+        view.layoutIfNeeded()
         self.contentViews.append(view)
     }
     
