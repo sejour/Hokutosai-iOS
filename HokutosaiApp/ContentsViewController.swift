@@ -38,6 +38,9 @@ class ContentsViewController: UITableViewController {
     var contentViews: [UIView] = []
     let cellIdentifier = "Contents"
     
+    var separatorColor = UIColor.lightGrayColor()
+    var separatorThickness: CGFloat = 0.5
+    
     init (title: String? = nil) {
         super.init(nibName: nil, bundle: NSBundle.mainBundle())
         self.title = title
@@ -65,6 +68,21 @@ class ContentsViewController: UITableViewController {
     
     func insertSpace(height: CGFloat) {
         self.contentViews.append(UIView(frame: CGRect(x: 0.0, y: 0.0, width: self.view.width, height: height)))
+    }
+    
+    func insertSeparator() {
+        self.insertSeparator(0.0, rightInset: 0.0)
+    }
+    
+    func insertSeparator(inset: CGFloat) {
+        self.insertSeparator(inset, rightInset: inset)
+    }
+    
+    func insertSeparator(leftInset: CGFloat, rightInset: CGFloat) {
+        let width = self.view.width - leftInset - rightInset
+        let separator = UIView(frame: CGRect(x: leftInset, y: 0.0, width: width, height: self.separatorThickness))
+        separator.backgroundColor = self.separatorColor
+        self.contentViews.append(separator)
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
