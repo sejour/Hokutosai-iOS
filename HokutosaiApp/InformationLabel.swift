@@ -11,11 +11,11 @@ import SnapKit
 
 class InformationLabel: UIView {
     
-    convenience init(width: CGFloat, icon: UIImage?, text: String?, iconSize: CGFloat = 25.0) {
+    convenience init(width: CGFloat, icon: UIImage?, text: String?, iconSize: CGFloat = 22.0) {
         self.init(frame: CGRect(x: 0.0, y: 0.0, width: width, height: 0.0), icon: icon, text: text)
     }
     
-    init(frame: CGRect, icon: UIImage?, text: String?, iconSize: CGFloat = 25.0) {
+    init(frame: CGRect, icon: UIImage?, text: String?, iconSize: CGFloat = 22.0) {
         super.init(frame: frame)
     
         let iconView = UIImageView(image: icon)
@@ -29,7 +29,7 @@ class InformationLabel: UIView {
         
         let label = UILabel()
         label.textColor = UIColor.blackColor()
-        label.font = UIFont.systemFontOfSize(18)
+        label.font = UIFont.systemFontOfSize(16)
         label.textAlignment = .Left
         label.numberOfLines = 0
         label.text = text
