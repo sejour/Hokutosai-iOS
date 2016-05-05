@@ -13,8 +13,10 @@ class InformationLabel: UIView {
     @IBOutlet weak var iconView: UIImageView!
     @IBOutlet weak var label: UILabel!
     
-    convenience init(frame: CGRect, icon: UIImage, text: String) {
+    convenience init(frame: CGRect, icon: UIImage?, text: String?) {
         self.init(frame: frame)
+        self.iconView.image = icon
+        self.label.text = text
     }
     
     override init(frame: CGRect) {
