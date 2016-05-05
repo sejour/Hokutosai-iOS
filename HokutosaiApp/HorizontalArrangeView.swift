@@ -22,6 +22,7 @@ class HorizontalArrangeView: UIView {
         for i in 0 ..< items.count {
             items[i].size = CGSize(width: self.height, height: self.height)
             items[i].center = CGPoint(x: space * CGFloat(i + 1), y: centerY)
+            items[i].contentMode = .ScaleAspectFit
             self.addSubview(items[i])
         }
     }
