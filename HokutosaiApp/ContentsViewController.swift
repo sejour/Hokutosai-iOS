@@ -38,8 +38,8 @@ class ContentsViewController: UITableViewController {
     var contentViews: [UIView] = []
     let cellIdentifier = "Contents"
     
-    var separatorColor = UIColor.lightGrayColor()
-    var separatorThickness: CGFloat = 0.5
+    var defaultSeparatorColor = UIColor.lightGrayColor()
+    var defaultSeparatorWidth: CGFloat = 0.5
     
     init (title: String? = nil) {
         super.init(nibName: nil, bundle: NSBundle.mainBundle())
@@ -70,18 +70,18 @@ class ContentsViewController: UITableViewController {
         self.contentViews.append(UIView(frame: CGRect(x: 0.0, y: 0.0, width: self.view.width, height: height)))
     }
     
-    func insertSeparator() {
-        self.insertSeparator(0.0, rightInset: 0.0)
+    func insertSeparator(color: UIColor? = nil, width: CGFloat? = nil) {
+        self.insertSeparator(0.0, rightInset: 0.0, color: color, width: width)
     }
     
-    func insertSeparator(inset: CGFloat) {
-        self.insertSeparator(inset, rightInset: inset)
+    func insertSeparator(inset: CGFloat, color: UIColor? = nil, width: CGFloat? = nil) {
+        self.insertSeparator(inset, rightInset: inset, color: color, width: width)
     }
     
-    func insertSeparator(leftInset: CGFloat, rightInset: CGFloat) {
-        let width = self.view.width - leftInset - rightInset
-        let separator = UIView(frame: CGRect(x: leftInset, y: 0.0, width: width, height: self.separatorThickness))
-        separator.backgroundColor = self.separatorColor
+    func insertSeparator(leftInset: CGFloat, rightInset: CGFloat, color: UIColor? = nil, width: CGFloat? = nil) {
+        let length = self.view.width - leftInset - rightInset
+        let separator = UIView(frame: CGRect(x: leftInset, y: 0.0, width: length, height: width ?? self.defaultSeparatorWidth))
+        separator.backgroundColor = color ?? self.defaultSeparatorColor
         self.contentViews.append(separator)
     }
     
