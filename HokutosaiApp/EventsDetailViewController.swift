@@ -49,7 +49,26 @@ class EventsDetailViewController: ContentsViewController {
         self.addContentView(titleView)
         
         //
-        self.insertSpace(10.0)
+        self.insertSpace(1.0)
+        //
+        
+        // Status Line
+        let status = self.event.status
+        self.insertSeparator(20.0, color: status.lineColor, width: 5.0)
+        
+        //
+        self.insertSpace(2.0)
+        //
+        
+        // StatusLabel
+        let statusLabelProperty = TextLabel.Property()
+        statusLabelProperty.color = status.textColor
+        statusLabelProperty.font = UIFont.systemFontOfSize(14.0)
+        let statusLabel = TextLabel(width: self.view.width, text: status.text, property: statusLabelProperty)
+        self.addContentView(statusLabel)
+        
+        //
+        self.insertSpace(5.0)
         //
         
         // Performer
