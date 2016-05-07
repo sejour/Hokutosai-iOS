@@ -172,6 +172,7 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate, Ta
     }
 
     private func updateContents(completion: (() -> Void)?) {
+        guard self.topicsBordController != nil else { return }
         self.updateTopics(completion)
         self.updateTimetables(completion)
     }

@@ -163,6 +163,7 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
     }
     
     private func updateContents(completion: () -> Void) {
+        guard self.topicsBordController != nil && self.timeline != nil else { return }
         self.updateTopics(completion)
         self.updateTimeline(completion)
     }

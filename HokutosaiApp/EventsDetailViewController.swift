@@ -114,7 +114,7 @@ class EventsDetailViewController: ContentsViewController {
         // !!! InteractiveIconの実装
         
         // Interaction icon
-        let likeIcon = UIImageView(image: SharedImage.largeGrayHertIcon)
+        let likeIcon = InteractiveIcon(image: SharedImage.largeGrayHertIcon, target: self, action: #selector(EventsDetailViewController.like(_:)))
         let shareIcon = UIImageView(image: SharedImage.shareIcon)
         let remindIcon = UIImageView(image: SharedImage.remindOffIcon)
         let iconBar = HorizontalArrangeView(width: self.view.width, height: 25.0, items: [likeIcon, shareIcon, remindIcon])
@@ -130,11 +130,17 @@ class EventsDetailViewController: ContentsViewController {
         let detailView = TextLabel(width: self.view.width, text: self.event.detail)
         self.addContentView(detailView)
         
+        self.insertSpace(20.0)
+        
         // !!! 通知ボタン
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func like(sender: UITapGestureRecognizer) {
+        print("like")
     }
 
 }
