@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Social
 
 class EventsDetailViewController: ContentsViewController {
 
@@ -194,7 +195,9 @@ class EventsDetailViewController: ContentsViewController {
     }
     
     func share() {
-        print("share")
+        let shareText = "#北斗祭 #\(self.event.title ?? "未登録") "
+        let activityViewController = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
+        self.presentViewController(activityViewController, animated: true, completion: nil)
     }
     
     func remind() {
