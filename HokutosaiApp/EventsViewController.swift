@@ -108,8 +108,30 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate, Ta
             self.topicsBordController.pages = pages
             self.updatingTopics = false
             completion?()
-            self.topicsBordController.startFlowing()
+            self.topicsBordStartFlowing()
         }
+    }
+    
+    func topicsBordStartFlowing() {
+        // EventsViewControllerが見えていれば自動フロー開始
+        // [ps] 詳細ビューのときに自動フローが開始されると、EventsViewControllerに戻ったときにTopicsBordが下にずれることへの対処
+        if self.navigationController?.visibleViewController is EventsViewController {
+            self.topicsBordController?.startFlowing()
+        }
+    }
+    
+    func topicsBordStopFlowing() {
+        self.topicsBordController?.stopFlowing()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.topicsBordStartFlowing()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.topicsBordStopFlowing()
     }
     
     private func updateTimetables(completion: (() -> Void)? = nil) {
