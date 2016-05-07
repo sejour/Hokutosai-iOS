@@ -59,7 +59,7 @@ class EventsTimetableViewController: UITableViewController, LikeableTableViewCel
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         guard let events = self.timetable else { return }
         
-        let detailView = EventsDetailViewController(event: events[indexPath.row])
+        let detailView = EventsDetailViewController(event: events[indexPath.row], timetableViewController: self)
         self.navigationController?.pushViewController(detailView, animated: true)
         
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)

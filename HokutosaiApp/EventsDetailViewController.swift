@@ -10,16 +10,23 @@ import UIKit
 
 class EventsDetailViewController: ContentsViewController {
 
-    var event: Event!
+    private var event: Event!
+    
+    private var likesCountLabel: InformationLabel!
+    private var likeIcon: InteractiveIcon!
+    private var remindIcon: InteractiveIcon!
+    
+    private weak var timetableViewController: EventsTimetableViewController?
     
     private let topicsBordWidthHeightRatio: CGFloat = 2.0 / 5.0
     
     // !!! IDだけ指定されてAPIコールでEventを取得してからViewを生成するモードを追加
     
-    init (event: Event) {
+    init (event: Event, timetableViewController: EventsTimetableViewController) {
         super.init(title: event.title)
         self.event = event
         self.title = event.title
+        self.timetableViewController = timetableViewController
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -89,8 +96,6 @@ class EventsDetailViewController: ContentsViewController {
         self.insertSpace(5.0)
         //
         
-        // !!! 状態表示
-        
         // Datetime
         let datetime = self.event.holdDateTimeString ?? "未登録"
         let datetimeLabel = InformationLabel(width: self.view.width, icon: SharedImage.clockIcon, text: datetime)
@@ -102,8 +107,8 @@ class EventsDetailViewController: ContentsViewController {
         
         // Likes
         let likesCount = "いいね \(self.event.likesCount ?? 0)件"
-        let likesCountLabel = InformationLabel(width: self.view.width, icon: SharedImage.blackHertIcon, text: likesCount)
-        self.addContentView(likesCountLabel)
+        self.likesCountLabel = InformationLabel(width: self.view.width, icon: SharedImage.blackHertIcon, text: likesCount)
+        self.addContentView(self.likesCountLabel)
         
         // ---
         self.insertSpace(10.0)
@@ -111,13 +116,19 @@ class EventsDetailViewController: ContentsViewController {
         self.insertSpace(10.0)
         // ---
         
-        // !!! InteractiveIconの実装
+        // Like
+        var likeImage = SharedImage.largeGrayHertIcon
+        if let liked = self.event.liked where liked { likeImage = SharedImage.largeRedHertIcon }
+        self.likeIcon = InteractiveIcon(image: likeImage, target: self, action: #selector(EventsDetailViewController.like))
         
-        // Interaction icon
-        let likeIcon = InteractiveIcon(image: SharedImage.largeGrayHertIcon, target: self, action: #selector(EventsDetailViewController.like(_:)))
-        let shareIcon = UIImageView(image: SharedImage.shareIcon)
-        let remindIcon = UIImageView(image: SharedImage.remindOffIcon)
-        let iconBar = HorizontalArrangeView(width: self.view.width, height: 25.0, items: [likeIcon, shareIcon, remindIcon])
+        // Share
+        let shareIcon = InteractiveIcon(image: SharedImage.shareIcon, target: self, action: #selector(EventsDetailViewController.share))
+        
+        // Remind
+        self.remindIcon = InteractiveIcon(image: SharedImage.remindOffIcon, target: self, action: #selector(EventsDetailViewController.remind))
+        
+        // Interaction Icon
+        let iconBar = HorizontalArrangeView(width: self.view.width, height: 25.0, items: [self.likeIcon, shareIcon, self.remindIcon])
         self.addContentView(iconBar)
         
         // ---
@@ -131,16 +142,62 @@ class EventsDetailViewController: ContentsViewController {
         self.addContentView(detailView)
         
         self.insertSpace(20.0)
-        
-        // !!! 通知ボタン
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    func like(sender: UITapGestureRecognizer) {
-        print("like")
+    func like() {
+        guard let eventId = self.event.eventId else { return }
+        
+        if let liked = self.event.liked where liked {
+            self.likeIcon.image = SharedImage.largeGrayHertIcon
+            HokutosaiApi.DELETE(HokutosaiApi.Events.Likes(eventId: eventId)) { response in
+                guard let result = response.model else {
+                    self.presentViewController(ErrorAlert.Server.failureSendRequest(), animated: true, completion: nil)
+                    self.updateLikes(nil)
+                    return
+                }
+                
+                self.updateLikes(result)
+            }
+        }
+        else {
+            self.likeIcon.image = SharedImage.largeRedHertIcon
+            HokutosaiApi.POST(HokutosaiApi.Events.Likes(eventId: eventId)) { response in
+                guard let result = response.model else {
+                    self.presentViewController(ErrorAlert.Server.failureSendRequest(), animated: true, completion: nil)
+                    self.updateLikes(nil)
+                    return
+                }
+                
+                self.updateLikes(result)
+            }
+        }
     }
-
+    
+    func updateLikes(like: LikeResult?) {
+        if let like = like {
+            self.event.liked = like.liked
+            self.event.likesCount = like.likesCount
+            self.likesCountLabel.text = "いいね \(self.event.likesCount ?? 0)件"
+            self.timetableViewController?.reloadData()
+        }
+        
+        if let liked = self.event.liked where liked {
+            self.likeIcon.image = SharedImage.largeRedHertIcon
+        }
+        else {
+            self.likeIcon.image = SharedImage.grayHertIcon
+        }
+    }
+    
+    func share() {
+        print("share")
+    }
+    
+    func remind() {
+        print("remind")
+    }
 }
