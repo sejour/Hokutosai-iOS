@@ -9,7 +9,7 @@
 import UIKit
 import Social
 
-class EventsDetailViewController: ContentsViewController {
+class EventsDetailViewController: ContentsViewController, MutableContentsController {
 
     private var event: Event!
     
@@ -205,5 +205,12 @@ class EventsDetailViewController: ContentsViewController {
         
     }
     */
+    
+    func updateContents() {
+        print("update events detail")
+    }
+    
+    var requiredToUpdateWhenDidChengeTab: Bool { return true }
+    var requiredToUpdateWhenWillEnterForeground: Bool { return true }
     
 }

@@ -9,7 +9,7 @@
 import UIKit
 import PagingMenuController
 
-class EventsViewController: UIViewController, TappableViewControllerDelegate, TabBarIntaractiveController, PagingMenuControllerDelegate {
+class EventsViewController: UIViewController, TappableViewControllerDelegate, TabBarIntaractiveController, PagingMenuControllerDelegate, MutableContentsController {
     
     private var topics: [TopicEvent]?
     
@@ -174,14 +174,17 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate, Ta
     }
 
     private func updateContents(completion: (() -> Void)?) {
-        guard self.topicsBordController != nil else { return }
         self.updateTopics(completion)
         self.updateTimetables(completion)
     }
     
     func updateContents() {
-       self.updateContents(nil)
+        guard self.topicsBordController != nil else { return }
+        self.updateContents(nil)
     }
+    
+    var requiredToUpdateWhenWillEnterForeground: Bool { return true }
+    var requiredToUpdateWhenDidChengeTab: Bool { return true }
     
     func onRefresh(refreshControl: UIRefreshControl) {
         refreshControl.beginRefreshing()
