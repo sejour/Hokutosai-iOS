@@ -15,7 +15,7 @@ class EventsDetailViewController: ContentsViewController {
     
     private var likesCountLabel: InformationLabel!
     private var likeIcon: InteractiveIcon!
-    private var remindIcon: InteractiveIcon!
+    //private var remindIcon: InteractiveIcon!
     
     private weak var timetableViewController: EventsTimetableViewController?
     
@@ -126,10 +126,10 @@ class EventsDetailViewController: ContentsViewController {
         let shareIcon = InteractiveIcon(image: SharedImage.shareIcon, target: self, action: #selector(EventsDetailViewController.share))
         
         // Remind
-        self.remindIcon = InteractiveIcon(image: SharedImage.remindOffIcon, target: self, action: #selector(EventsDetailViewController.remind))
+        //self.remindIcon = InteractiveIcon(image: SharedImage.remindOffIcon, target: self, action: #selector(EventsDetailViewController.remind))
         
         // Interaction Icon
-        let iconBar = HorizontalArrangeView(width: self.view.width, height: 25.0, items: [self.likeIcon, shareIcon, self.remindIcon])
+        let iconBar = HorizontalArrangeView(width: self.view.width, height: 25.0, items: [self.likeIcon, shareIcon/*, self.remindIcon*/])
         self.addContentView(iconBar)
         
         // ---
@@ -200,7 +200,10 @@ class EventsDetailViewController: ContentsViewController {
         self.presentViewController(activityViewController, animated: true, completion: nil)
     }
     
+    /*
     func remind() {
-        print("remind")
+        
     }
+    */
+    
 }
