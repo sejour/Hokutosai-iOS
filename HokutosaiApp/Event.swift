@@ -24,6 +24,11 @@ class Event: Mappable {
     var liked: Bool?
     var featured: Bool?
     
+    init(eventId: UInt?, title: String?) {
+        self.eventId = eventId
+        self.title = title
+    }
+    
     required init?(_ map: Map) { }
     
     func mapping(map: Map) {
