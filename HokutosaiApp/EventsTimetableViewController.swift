@@ -94,6 +94,10 @@ class EventsTimetableViewController: UITableViewController, LikeableTableViewCel
         return cell
     }
     
+    func reloadData() {
+        self.tableView.reloadData()
+    }
+    
     func like(index: Int, cell: LikeableTableViewCell) {
         guard self.timetable != nil else { return }
         

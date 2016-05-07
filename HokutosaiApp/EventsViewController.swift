@@ -9,7 +9,7 @@
 import UIKit
 import PagingMenuController
 
-class EventsViewController: UIViewController, TappableViewControllerDelegate, TabBarIntaractiveController {
+class EventsViewController: UIViewController, TappableViewControllerDelegate, TabBarIntaractiveController, PagingMenuControllerDelegate {
     
     private var topics: [TopicEvent]?
     
@@ -156,6 +156,8 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate, Ta
         self.pagingTimetablesController!.view.top = self.topicsBordController.view.bottom
         self.pagingTimetablesController!.view.height = self.view.height - self.topicsBordController.view.bottom
         
+        self.pagingTimetablesController!.delegate = self
+        
         self.addChildViewController(self.pagingTimetablesController!)
         self.view.addSubview(self.pagingTimetablesController!.view)
         self.pagingTimetablesController!.didMoveToParentViewController(self)
@@ -198,6 +200,12 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate, Ta
         }
         else {
             self.pagingTimetablesController?.moveToMenuPage(page, animated: true)
+        }
+    }
+    
+    func willMoveToPageMenuController(menuController: UIViewController, previousMenuController: UIViewController) {
+        if let timetableController = menuController as? EventsTimetableViewController {
+            timetableController.reloadData()
         }
     }
     
