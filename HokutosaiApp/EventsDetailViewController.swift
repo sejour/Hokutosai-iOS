@@ -129,7 +129,7 @@ class EventsDetailViewController: ContentsViewController {
         //self.remindIcon = InteractiveIcon(image: SharedImage.remindOffIcon, target: self, action: #selector(EventsDetailViewController.remind))
         
         // Interaction Icon
-        let iconBar = HorizontalArrangeView(width: self.view.width, height: 25.0, items: [self.likeIcon, shareIcon/*, self.remindIcon*/])
+        let iconBar = HorizontalArrangeView(width: self.view.width, height: 22.0, items: [self.likeIcon, shareIcon/*, self.remindIcon*/])
         self.addContentView(iconBar)
         
         // ---
