@@ -21,12 +21,15 @@ class EventsDetailViewController: ContentsViewController, MutableContentsControl
     
     private let topicsBordWidthHeightRatio: CGFloat = 2.0 / 5.0
     
-    // !!! IDだけ指定されてAPIコールでEventを取得してからViewを生成するモードを追加
+    init (eventId: UInt?, title: String?, timetableViewController: EventsTimetableViewController) {
+        super.init(title: title)
+        self.event = Event(eventId: eventId, title: title)
+        self.timetableViewController = timetableViewController
+    }
     
     init (event: Event, timetableViewController: EventsTimetableViewController) {
         super.init(title: event.title)
         self.event = event
-        self.title = event.title
         self.timetableViewController = timetableViewController
     }
     

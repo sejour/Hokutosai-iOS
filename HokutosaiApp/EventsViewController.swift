@@ -235,7 +235,12 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate, Ta
     }
     
     func tappedView(sender: TappableViewController, gesture: UITapGestureRecognizer, tag: Int) {
-        print(tag)
+        guard let topics = self.topics, let timetableViewControllers = self.timetableViewControllers, let pagingTimetablesController = self.pagingTimetablesController else { return }
+        
+        let event = topics[tag]
+        let currentTimetableView = timetableViewControllers[pagingTimetablesController.currentPage]
+        let detailView = EventsDetailViewController(eventId: event.eventId, title: event.title, timetableViewController: currentTimetableView)
+        self.navigationController?.pushViewController(detailView, animated: true)
     }
     
 }
