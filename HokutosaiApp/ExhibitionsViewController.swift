@@ -91,11 +91,10 @@ class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableV
     var requiredToUpdateWhenWillEnterForeground: Bool { return true }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        guard let exhibitions = self.exhibitions else { return }
+        //guard let exhibitions = self.exhibitions else { return }
         
-        let detailsView = StandardDetailsViewController()
-        detailsView.title = exhibitions[indexPath.row].title!
-        self.navigationController?.pushViewController(detailsView, animated: true)
+        //let detailsView = StandardDetailsViewController()
+        //self.navigationController?.pushViewController(detailsView, animated: true)
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     

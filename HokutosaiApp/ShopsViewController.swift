@@ -90,11 +90,10 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var requiredToUpdateWhenWillEnterForeground: Bool { return true }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        guard let shops = self.shops else { return }
+        //guard let shops = self.shops else { return }
         
-        let detailsView = StandardDetailsViewController()
-        detailsView.title = shops[indexPath.row].name!
-        self.navigationController?.pushViewController(detailsView, animated: true)
+        //let detailsView = StandardDetailsViewController()
+        //self.navigationController?.pushViewController(detailsView, animated: true)
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
