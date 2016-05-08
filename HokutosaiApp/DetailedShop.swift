@@ -11,9 +11,6 @@ import ObjectMapper
 
 class DetailedShop: Shop {
     
-    var introduction: String?
-    var place: Place?
-    var menus: [MenuItem]?
     var assessments: [Assessment]?
     var myAssessment: Assessment?
     
@@ -24,9 +21,6 @@ class DetailedShop: Shop {
     override func mapping(map: Map) {
         super.mapping(map)
         
-        self.introduction <- map["introduction"]
-        self.place <- map["place"]
-        self.menus <- map["menu"]
         self.assessments <- map["assessments"]
         self.myAssessment <- map["my_assessment"]
     }

@@ -19,10 +19,16 @@ class Shop: Mappable, StandardTableViewCellData {
     var assessmentAggregate: AssessedScore?
     var liked: Bool?
     var likesCount: UInt?
+    var introduction: String?
+    var place: Place?
+    var menus: [MenuItem]?
     
     required init?(_ map: Map) { }
     
     func mapping(map: Map) {
+        self.introduction <- map["introduction"]
+        self.place <- map["place"]
+        self.menus <- map["menu"]
         self.shopId <- map["shop_id"]
         self.name <- map["name"]
         self.tenant <- map["tenant"]
