@@ -269,7 +269,4 @@ class EventsDetailViewController: ContentsViewController {
     }
     */
     
-    var requiredToUpdateWhenDidChengeTab: Bool { return true }
-    var requiredToUpdateWhenWillEnterForeground: Bool { return true }
-    
 }
