@@ -134,7 +134,7 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate, Ta
         self.topicsBordStopFlowing()
     }
     
-    private func updateTimetables(completion: (() -> Void)? = nil) {
+    func updateTimetables(completion: (() -> Void)? = nil) {
         guard !self.updatingEvents else { return }
         self.updatingEvents = true
         
@@ -237,11 +237,8 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate, Ta
     func tappedView(sender: TappableViewController, gesture: UITapGestureRecognizer, tag: Int) {
         guard let topics = self.topics, let timetableViewControllers = self.timetableViewControllers, let pagingTimetablesController = self.pagingTimetablesController else { return }
         
-        let event = topics[tag]
-        guard let eventId = event.eventId else { return }
-        
         let currentTimetableView = timetableViewControllers[pagingTimetablesController.currentPage]
-        let detailView = EventsDetailViewController(eventId: eventId, title: event.title, timetableViewController: currentTimetableView)
+        let detailView = EventsDetailViewController(event: topics[tag], timetableViewController: currentTimetableView)
         self.navigationController?.pushViewController(detailView, animated: true)
     }
     

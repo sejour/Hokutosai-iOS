@@ -44,6 +44,7 @@ class EventsDetailViewController: ContentsViewController {
         
         if let event = self.event {
             self.generateContents(event)
+            self.updateLike()
         }
         else {
             self.fetchContents()
@@ -215,20 +216,42 @@ class EventsDetailViewController: ContentsViewController {
     }
     
     func updateLikes(like: LikeResult?) {
-        guard let event = self.event else { return }
-        
         if let like = like {
-            event.liked = like.liked
-            event.likesCount = like.likesCount
-            self.likesCountLabel.text = "いいね \(event.likesCount ?? 0)件"
+            self.event?.liked = like.liked
+            self.event?.likesCount = like.likesCount
+            self.likesCountLabel.text = "いいね \(self.event?.likesCount ?? 0)件"
             self.timetableViewController?.reloadData()
+            // もしself.eventがTopicEventであればTimetableのEventは更新されない -> Timetableを更新
+            self.timetableViewController?.eventsViewController?.updateTimetables()
         }
         
-        if let liked = event.liked where liked {
+        if let liked = self.event?.liked where liked {
             self.likeIcon.image = SharedImage.largeRedHertIcon
         }
         else {
             self.likeIcon.image = SharedImage.grayHertIcon
+        }
+    }
+    
+    func updateLike() {
+        HokutosaiApi.GET(HokutosaiApi.Events.Details(eventId: self.eventId)) { response in
+            guard response.isSuccess, let data = response.model else {
+                return
+            }
+            
+            // もしself.eventがTopicEventであればTimetableのEventは更新されない。
+            // 本来ならばTimetableを更新するべきだがTimetable詳細ビューを開くごとにTimetableを更新するのでは更新が頻繁になるため、ここはでは更新しない。 -> 整合性を犠牲にしている
+            self.event?.liked = data.liked
+            self.event?.likesCount = data.likesCount
+            self.likesCountLabel.text = "いいね \(self.event?.likesCount ?? 0)件"
+            self.timetableViewController?.reloadData()
+            
+            if let liked = self.event?.liked where liked {
+                self.likeIcon.image = SharedImage.largeRedHertIcon
+            }
+            else {
+                self.likeIcon.image = SharedImage.grayHertIcon
+            }
         }
     }
     
