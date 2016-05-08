@@ -1,5 +1,5 @@
 //
-//  StandardTableViewCellData.swift
+//  StandardContentsData.swift
 //  HokutosaiApp
 //
 //  Created by Shuka Takakuma on 2016/04/25.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol StandardTableViewCellData {
+protocol StandardContentsData {
     
     var dataId: UInt { get }
     var dataImageUrl: String? { get }

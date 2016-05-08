@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class Exhibition: Mappable, StandardTableViewCellData {
+class Exhibition: Mappable, StandardContentsData {
     
     var exhibitionId: UInt?
     var title: String?

@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class Shop: Mappable, StandardTableViewCellData {
+class Shop: Mappable, StandardContentsData {
     
     var shopId: UInt?
     var name: String?

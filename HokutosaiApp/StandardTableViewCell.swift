@@ -19,7 +19,7 @@ class StandardTableViewCell: UITableViewCell, LikeableTableViewCell {
     @IBOutlet weak var likesCountLabel: UILabel!
     
     var index: Int!
-    var data: StandardTableViewCellData!
+    var data: StandardContentsData!
     weak var delegate: LikeableTableViewCellDelegate?
     
     override func awakeFromNib() {
@@ -37,7 +37,7 @@ class StandardTableViewCell: UITableViewCell, LikeableTableViewCell {
         // Configure the view for the selected state
     }
     
-    func changeData(index: Int, data: StandardTableViewCellData) {
+    func changeData(index: Int, data: StandardContentsData) {
         self.index = index
         self.data = data
         
