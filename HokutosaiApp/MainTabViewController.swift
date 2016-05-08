@@ -80,14 +80,11 @@ class MainTabViewController: UITabBarController {
 
     // Foregroundになるとき
     func updateContents() {
-        // 今開いているタブの見えているViewControllerを更新
-        if let controller = self.navigationControllers[self.selectedIndex].visibleViewController as? MutableContentsController where controller.requiredToUpdateWhenWillEnterForeground {
-            controller.updateContents()
-        }
-        
-        // 今開いているタブのFirstViewControllerを更新
-        if let controller = self.firstViewControllers[self.selectedIndex] as? MutableContentsController where controller.requiredToUpdateWhenWillEnterForeground {
-            controller.updateContents()
+        // 今開いているタブのViewControllerStackを全て更新(更新がrequiredなものだけ)
+        for controller in self.navigationControllers[self.selectedIndex].childViewControllers {
+            if let mutableContentsController = controller as? MutableContentsController where mutableContentsController.requiredToUpdateWhenWillEnterForeground {
+                mutableContentsController.updateContents()
+            }
         }
     }
     
