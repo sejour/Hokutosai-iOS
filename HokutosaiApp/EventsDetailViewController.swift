@@ -11,7 +11,8 @@ import Social
 
 class EventsDetailViewController: ContentsViewController {
 
-    private var event: Event!
+    private var eventId: UInt!
+    private var event: Event?
     
     private var likesCountLabel: InformationLabel!
     private var likeIcon: InteractiveIcon!
@@ -21,12 +22,16 @@ class EventsDetailViewController: ContentsViewController {
     
     private let topicsBordWidthHeightRatio: CGFloat = 2.0 / 5.0
     
-    // !!! IDだけ指定されてAPIコールでEventを取得してからViewを生成するモードを追加
+    init (eventId: UInt, title: String?, timetableViewController: EventsTimetableViewController) {
+        super.init(title: title)
+        self.eventId = eventId
+        self.timetableViewController = timetableViewController
+    }
     
     init (event: Event, timetableViewController: EventsTimetableViewController) {
         super.init(title: event.title)
         self.event = event
-        self.title = event.title
+        self.eventId = event.eventId
         self.timetableViewController = timetableViewController
     }
     
@@ -37,6 +42,40 @@ class EventsDetailViewController: ContentsViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let event = self.event {
+            self.generateContents(event)
+            self.updateLike()
+        }
+        else {
+            self.fetchContents()
+        }
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    func fetchContents() {
+        let loadingView = SimpleLoadingView(frame: self.view.frame, backgroundColor: UIColor.whiteColor())
+        self.view.addSubview(loadingView)
+
+        HokutosaiApi.GET(HokutosaiApi.Events.Details(eventId: self.eventId)) { response in
+            guard response.isSuccess, let data = response.model else {
+                self.presentViewController(ErrorAlert.Server.failureGet { action in
+                        loadingView.removeFromSuperview()
+                        self.navigationController?.popViewControllerAnimated(true)
+                    }, animated: true, completion: nil)
+                return
+            }
+
+            self.event = data
+            self.generateContents(data)
+            self.updateContentViews()
+            loadingView.removeFromSuperview()
+        }
+    }
+    
+    func generateContents(event: Event) {
         // ImageView
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.width, height: self.topicsBordWidthHeightRatio * self.view.width))
         if let imageUrl = event.imageUrl, let url = NSURL(string: imageUrl) {
@@ -61,7 +100,7 @@ class EventsDetailViewController: ContentsViewController {
         //
         
         // Status Line
-        let status = self.event.status
+        let status = event.status
         self.insertSeparator(20.0, color: status.lineColor, width: 5.0)
         
         //
@@ -80,7 +119,7 @@ class EventsDetailViewController: ContentsViewController {
         //
         
         // Performer
-        let performer = self.event.performer ?? "未登録"
+        let performer = event.performer ?? "未登録"
         let performerLabel = InformationLabel(width: self.view.width, icon: SharedImage.organizerIcon, text: performer)
         self.addContentView(performerLabel)
         
@@ -89,7 +128,7 @@ class EventsDetailViewController: ContentsViewController {
         //
         
         // Place
-        let place = self.event.place?.name ?? "未登録"
+        let place = event.place?.name ?? "未登録"
         let placeLabel = InformationLabel(width: self.view.width, icon: SharedImage.placeIcon, text: place)
         self.addContentView(placeLabel)
         
@@ -98,7 +137,7 @@ class EventsDetailViewController: ContentsViewController {
         //
         
         // Datetime
-        let datetime = self.event.holdDateTimeString ?? "未登録"
+        let datetime = event.holdDateTimeString ?? "未登録"
         let datetimeLabel = InformationLabel(width: self.view.width, icon: SharedImage.clockIcon, text: datetime)
         self.addContentView(datetimeLabel)
         
@@ -107,7 +146,7 @@ class EventsDetailViewController: ContentsViewController {
         //
         
         // Likes
-        let likesCount = "いいね \(self.event.likesCount ?? 0)件"
+        let likesCount = "いいね \(event.likesCount ?? 0)件"
         self.likesCountLabel = InformationLabel(width: self.view.width, icon: SharedImage.blackHertIcon, text: likesCount)
         self.addContentView(self.likesCountLabel)
         
@@ -119,7 +158,7 @@ class EventsDetailViewController: ContentsViewController {
         
         // Like
         var likeImage = SharedImage.largeGrayHertIcon
-        if let liked = self.event.liked where liked { likeImage = SharedImage.largeRedHertIcon }
+        if let liked = event.liked where liked { likeImage = SharedImage.largeRedHertIcon }
         self.likeIcon = InteractiveIcon(image: likeImage, target: self, action: #selector(EventsDetailViewController.like))
         
         // Share
@@ -139,20 +178,18 @@ class EventsDetailViewController: ContentsViewController {
         // ---
         
         // Detail
-        let detailView = TextLabel(width: self.view.width, text: self.event.detail)
+        let detailView = TextLabel(width: self.view.width, text: event.detail)
         self.addContentView(detailView)
         
         self.insertSpace(20.0)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        
+        self.updateContentViews()
     }
     
     func like() {
-        guard let eventId = self.event.eventId else { return }
+        guard let event = self.event, let eventId = event.eventId else { return }
         
-        if let liked = self.event.liked where liked {
+        if let liked = event.liked where liked {
             self.likeIcon.image = SharedImage.largeGrayHertIcon
             HokutosaiApi.DELETE(HokutosaiApi.Events.Likes(eventId: eventId)) { response in
                 guard let result = response.model else {
@@ -180,13 +217,15 @@ class EventsDetailViewController: ContentsViewController {
     
     func updateLikes(like: LikeResult?) {
         if let like = like {
-            self.event.liked = like.liked
-            self.event.likesCount = like.likesCount
-            self.likesCountLabel.text = "いいね \(self.event.likesCount ?? 0)件"
+            self.event?.liked = like.liked
+            self.event?.likesCount = like.likesCount
+            self.likesCountLabel.text = "いいね \(self.event?.likesCount ?? 0)件"
             self.timetableViewController?.reloadData()
+            // もしself.eventがTopicEventであればTimetableのEventは更新されない -> Timetableを更新
+            self.timetableViewController?.eventsViewController?.updateTimetables()
         }
         
-        if let liked = self.event.liked where liked {
+        if let liked = self.event?.liked where liked {
             self.likeIcon.image = SharedImage.largeRedHertIcon
         }
         else {
@@ -194,8 +233,32 @@ class EventsDetailViewController: ContentsViewController {
         }
     }
     
+    func updateLike() {
+        HokutosaiApi.GET(HokutosaiApi.Events.Details(eventId: self.eventId)) { response in
+            guard response.isSuccess, let data = response.model else {
+                return
+            }
+            
+            // もしself.eventがTopicEventであればTimetableのEventは更新されない。
+            // 本来ならばTimetableを更新するべきだがTimetable詳細ビューを開くごとにTimetableを更新するのでは更新が頻繁になるため、ここはでは更新しない。 -> 整合性を犠牲にしている
+            self.event?.liked = data.liked
+            self.event?.likesCount = data.likesCount
+            self.likesCountLabel.text = "いいね \(self.event?.likesCount ?? 0)件"
+            self.timetableViewController?.reloadData()
+            
+            if let liked = self.event?.liked where liked {
+                self.likeIcon.image = SharedImage.largeRedHertIcon
+            }
+            else {
+                self.likeIcon.image = SharedImage.grayHertIcon
+            }
+        }
+    }
+    
     func share() {
-        let shareText = "#北斗祭 #\(self.event.title ?? "未登録") "
+        guard let event = self.event else { return }
+        
+        let shareText = "#北斗祭 #\(event.title ?? "未登録") "
         let activityViewController = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
         self.presentViewController(activityViewController, animated: true, completion: nil)
     }

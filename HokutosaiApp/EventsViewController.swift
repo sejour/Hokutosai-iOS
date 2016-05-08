@@ -9,7 +9,7 @@
 import UIKit
 import PagingMenuController
 
-class EventsViewController: UIViewController, TappableViewControllerDelegate, TabBarIntaractiveController, PagingMenuControllerDelegate {
+class EventsViewController: UIViewController, TappableViewControllerDelegate, TabBarIntaractiveController, PagingMenuControllerDelegate, MutableContentsController {
     
     private var topics: [TopicEvent]?
     
@@ -108,11 +108,33 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate, Ta
             self.topicsBordController.pages = pages
             self.updatingTopics = false
             completion?()
-            self.topicsBordController.startFlowing()
+            self.topicsBordStartFlowing()
         }
     }
     
-    private func updateTimetables(completion: (() -> Void)? = nil) {
+    func topicsBordStartFlowing() {
+        // EventsViewControllerが見えていれば自動フロー開始
+        // [ps] 詳細ビューのときに自動フローが開始されると、EventsViewControllerに戻ったときにTopicsBordが下にずれることへの対処
+        if self.navigationController?.visibleViewController is EventsViewController {
+            self.topicsBordController?.startFlowing()
+        }
+    }
+    
+    func topicsBordStopFlowing() {
+        self.topicsBordController?.stopFlowing()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.topicsBordStartFlowing()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.topicsBordStopFlowing()
+    }
+    
+    func updateTimetables(completion: (() -> Void)? = nil) {
         guard !self.updatingEvents else { return }
         self.updatingEvents = true
         
@@ -174,14 +196,17 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate, Ta
     }
 
     private func updateContents(completion: (() -> Void)?) {
-        guard self.topicsBordController != nil else { return }
         self.updateTopics(completion)
         self.updateTimetables(completion)
     }
     
     func updateContents() {
-       self.updateContents(nil)
+        guard self.topicsBordController != nil else { return }
+        self.updateContents(nil)
     }
+    
+    var requiredToUpdateWhenWillEnterForeground: Bool { return true }
+    var requiredToUpdateWhenDidChengeTab: Bool { return true }
     
     func onRefresh(refreshControl: UIRefreshControl) {
         refreshControl.beginRefreshing()
@@ -210,7 +235,11 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate, Ta
     }
     
     func tappedView(sender: TappableViewController, gesture: UITapGestureRecognizer, tag: Int) {
-        print(tag)
+        guard let topics = self.topics, let timetableViewControllers = self.timetableViewControllers, let pagingTimetablesController = self.pagingTimetablesController else { return }
+        
+        let currentTimetableView = timetableViewControllers[pagingTimetablesController.currentPage]
+        let detailView = EventsDetailViewController(event: topics[tag], timetableViewController: currentTimetableView)
+        self.navigationController?.pushViewController(detailView, animated: true)
     }
     
 }

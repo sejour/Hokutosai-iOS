@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SlidePageViewController: UIPageViewController, UIPageViewControllerDataSource {
+class SlidePageViewController: UIPageViewController, UIPageViewControllerDataSource, UIScrollViewDelegate {
     
     private var _pages: [UIViewController]!
     
@@ -50,6 +50,12 @@ class SlidePageViewController: UIPageViewController, UIPageViewControllerDataSou
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        for subview in self.view.subviews {
+            if let scrollView = subview as? UIScrollView {
+                scrollView.delegate = self
+            }
+        }
         
         self._pages = self.dummyPages()
         self.setViewControllers([self._pages.first!], direction: .Forward, animated: false, completion: nil)
@@ -97,6 +103,11 @@ class SlidePageViewController: UIPageViewController, UIPageViewControllerDataSou
         vc.view.frame = CGRect(x: 0.0, y: 0.0, width: self.view.width, height: self.view.height)
         vc.view.backgroundColor = UIColor.whiteColor()
         return [vc]
+    }
+    
+    // コンテンツが垂直方向にずれることが時々あるので対処
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        scrollView.contentOffset.y = 0.0
     }
 
 }

@@ -70,19 +70,24 @@ class ContentsViewController: UITableViewController {
         self.contentViews.append(UIView(frame: CGRect(x: 0.0, y: 0.0, width: self.view.width, height: height)))
     }
     
-    func insertSeparator(color: UIColor? = nil, width: CGFloat? = nil) {
-        self.insertSeparator(0.0, rightInset: 0.0, color: color, width: width)
+    func insertSeparator(color: UIColor? = nil, width: CGFloat? = nil) -> SeparatorView {
+        return self.insertSeparator(0.0, rightInset: 0.0, color: color, width: width)
     }
     
-    func insertSeparator(inset: CGFloat, color: UIColor? = nil, width: CGFloat? = nil) {
-        self.insertSeparator(inset, rightInset: inset, color: color, width: width)
+    func insertSeparator(inset: CGFloat, color: UIColor? = nil, width: CGFloat? = nil) -> SeparatorView {
+        return self.insertSeparator(inset, rightInset: inset, color: color, width: width)
     }
     
-    func insertSeparator(leftInset: CGFloat, rightInset: CGFloat, color: UIColor? = nil, width: CGFloat? = nil) {
+    func insertSeparator(leftInset: CGFloat, rightInset: CGFloat, color: UIColor? = nil, width: CGFloat? = nil) -> SeparatorView {
         let length = self.view.width - leftInset - rightInset
-        let separator = UIView(frame: CGRect(x: leftInset, y: 0.0, width: length, height: width ?? self.defaultSeparatorWidth))
-        separator.backgroundColor = color ?? self.defaultSeparatorColor
+        let separator = SeparatorView(origin: leftInset, length: length, color: color ?? self.defaultSeparatorColor, width: width ?? self.defaultSeparatorWidth)
         self.contentViews.append(separator)
+        
+        return separator
+    }
+    
+    func updateContentViews() {
+        self.tableView.reloadData()
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

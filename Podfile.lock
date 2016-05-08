@@ -8,7 +8,7 @@ PODS:
   - ObjectMapper (1.2.0)
   - PagingMenuController (0.9.1)
   - SnapKit (0.15.0)
-  - TZStackView (1.1.2)
+  - SVProgressHUD (2.0.3)
 
 DEPENDENCIES:
   - Alamofire
@@ -18,7 +18,7 @@ DEPENDENCIES:
   - ObjectMapper (~> 1.2)
   - PagingMenuController
   - SnapKit (~> 0.15.0)
-  - TZStackView (= 1.1.2)
+  - SVProgressHUD
 
 SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
@@ -28,6 +28,6 @@ SPEC CHECKSUMS:
   ObjectMapper: b1e9c7c8a9f6400b72690c80072c131504caa66f
   PagingMenuController: 95bab00761e1ba4f4f9fa6bf22ac71b065a675aa
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
-  TZStackView: 19aeaa414fb653f4be9b80a73f4f0c66e33bf033
+  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
 
 COCOAPODS: 0.39.0

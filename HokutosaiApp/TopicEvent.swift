@@ -9,18 +9,14 @@
 import Foundation
 import ObjectMapper
 
-class TopicEvent: Mappable, TopicContentData {
+class TopicEvent: Event, TopicContentData {
     
-    var title: String?
-    var imageUrl: String?
-    var eventId: UInt?
+    required init?(_ map: Map) {
+        super.init(map)
+    }
     
-    required init?(_ map: Map) { }
-    
-    func mapping(map: Map) {
-        self.title <- map["title"]
-        self.imageUrl <- map["image_url"]
-        self.eventId <- map["event_id"]
+    override func mapping(map: Map) {
+        super.mapping(map)
     }
     
     var dataTitle: String? { return self.title }

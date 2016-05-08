@@ -8,12 +8,14 @@
 
 import UIKit
 
-class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, LikeableTableViewCellDelegate, TabBarIntaractiveController {
+class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, LikeableTableViewCellDelegate, TabBarIntaractiveController, MutableContentsController {
 
     private var shops: [Shop]?
     
     private var tableView: UITableView!
     private let cellIdentifier = "Shops"
+    
+    private var updatingContents: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,14 +26,7 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let loadingView = SimpleLoadingView(frame: self.view.frame)
         self.view.addSubview(loadingView)
-        HokutosaiApi.GET(HokutosaiApi.Shops.Shops()) { response in
-            guard response.isSuccess, let data = response.model else {
-                loadingView.removeFromSuperview()
-                return
-            }
-            
-            self.shops = data
-            self.tableView.reloadData()
+        self.updateContents {
             loadingView.removeFromSuperview()
         }
     }
@@ -53,8 +48,46 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(ShopsViewController.onRefresh(_:)), forControlEvents: .ValueChanged)
+        self.tableView.addSubview(refreshControl)
+        
         self.view.addSubview(self.tableView)
     }
+    
+    func onRefresh(refreshControl: UIRefreshControl) {
+        refreshControl.beginRefreshing()
+        
+        self.updateContents() {
+            refreshControl.endRefreshing()
+        }
+    }
+    
+    private func updateContents(completion: (() -> Void)?) {
+        guard !self.updatingContents else { return }
+        self.updatingContents = true
+        
+        HokutosaiApi.GET(HokutosaiApi.Shops.Shops()) { response in
+            guard response.isSuccess, let data = response.model else {
+                self.updatingContents = false
+                completion?()
+                return
+            }
+            
+            self.shops = data
+            self.tableView.reloadData()
+            self.updatingContents = false
+            completion?()
+        }
+    }
+    
+    func updateContents() {
+        guard self.tableView != nil else { return }
+        self.updateContents(nil)
+    }
+    
+    var requiredToUpdateWhenDidChengeTab: Bool { return true }
+    var requiredToUpdateWhenWillEnterForeground: Bool { return true }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         guard let shops = self.shops else { return }

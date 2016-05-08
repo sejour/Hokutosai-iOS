@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewsViewController: UIViewController, TappableViewControllerDelegate, UITableViewDelegate, UITableViewDataSource, LikeableTableViewCellDelegate, TabBarIntaractiveController {
+class NewsViewController: UIViewController, TappableViewControllerDelegate, UITableViewDelegate, UITableViewDataSource, LikeableTableViewCellDelegate, TabBarIntaractiveController, MutableContentsController {
     
     private var topics: [TopicNews]?
     private var articles: [Article]?
@@ -163,18 +163,20 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
     }
     
     private func updateContents(completion: () -> Void) {
-        guard self.topicsBordController != nil && self.timeline != nil else { return }
         self.updateTopics(completion)
         self.updateTimeline(completion)
     }
     
     func updateContents() {
-        guard self.topicsBordOpened else { return }
+        guard self.topicsBordOpened && self.topicsBordController != nil && self.timeline != nil else { return }
         self.updateTopics()
         self.updateTimeline() {
             self.timeline.setContentOffset(CGPointZero, animated: false)
         }
     }
+    
+    var requiredToUpdateWhenDidChengeTab: Bool { return true }
+    var requiredToUpdateWhenWillEnterForeground: Bool { return true }
     
     func tappedView(sender: TappableViewController, gesture: UITapGestureRecognizer, tag: Int) {
         print(tag)
