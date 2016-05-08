@@ -238,8 +238,10 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate, Ta
         guard let topics = self.topics, let timetableViewControllers = self.timetableViewControllers, let pagingTimetablesController = self.pagingTimetablesController else { return }
         
         let event = topics[tag]
+        guard let eventId = event.eventId else { return }
+        
         let currentTimetableView = timetableViewControllers[pagingTimetablesController.currentPage]
-        let detailView = EventsDetailViewController(eventId: event.eventId, title: event.title, timetableViewController: currentTimetableView)
+        let detailView = EventsDetailViewController(eventId: eventId, title: event.title, timetableViewController: currentTimetableView)
         self.navigationController?.pushViewController(detailView, animated: true)
     }
     
