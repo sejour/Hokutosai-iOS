@@ -151,7 +151,11 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
     }
     
     func share() {
+        guard let model = self.model else { return }
         
+        let shareText = "#北斗祭 #\(model.dataTitle ?? "未登録") "
+        let activityViewController = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
+        self.presentViewController(activityViewController, animated: true, completion: nil)
     }
 
 }
