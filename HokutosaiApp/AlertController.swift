@@ -29,20 +29,20 @@ final class ErrorAlert {
         
         static let defaultMessage = "しばらくしてからもう一度アクセスし直してください。"
         
-        class func failure(message: String = defaultMessage) -> UIAlertController {
-            return UIAlertController.notificationAlertController("サーバにアクセスできません。", message: message, closeButtonTitle: "OK")
+        class func failure(message: String = defaultMessage, handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertController {
+            return UIAlertController.notificationAlertController("サーバにアクセスできません。", message: message, closeButtonTitle: "OK", handler: handler)
         }
 
-        class func failureGet(message: String = defaultMessage) -> UIAlertController {
-            return UIAlertController.notificationAlertController("データを取得できません。", message: message, closeButtonTitle: "OK")
+        class func failureGet(message: String = defaultMessage, handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertController {
+            return UIAlertController.notificationAlertController("データを取得できません。", message: message, closeButtonTitle: "OK", handler: handler)
         }
         
-        class func failureSendRequest(message: String = defaultMessage) -> UIAlertController {
-            return UIAlertController.notificationAlertController("リクエストを送信できません。", message: message, closeButtonTitle: "OK")
+        class func failureSendRequest(message: String = defaultMessage, handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertController {
+            return UIAlertController.notificationAlertController("リクエストを送信できません。", message: message, closeButtonTitle: "OK", handler: handler)
         }
         
-        class func accessDenyed(message: String = defaultMessage) -> UIAlertController {
-            return UIAlertController.notificationAlertController("アクセスが拒否されました。", message: message, closeButtonTitle: "OK")
+        class func accessDenyed(message: String = defaultMessage, handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertController {
+            return UIAlertController.notificationAlertController("アクセスが拒否されました。", message: message, closeButtonTitle: "OK", handler: handler)
         }
         
         private init () {}
