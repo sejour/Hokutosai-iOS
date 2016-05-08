@@ -8,12 +8,14 @@
 
 import UIKit
 
-class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, LikeableTableViewCellDelegate, TabBarIntaractiveController {
+class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, LikeableTableViewCellDelegate, TabBarIntaractiveController, MutableContentsController {
 
     private var exhibitions: [Exhibition]?
     
     private var tableView: UITableView!
     private let cellIdentifier = "Exhibitions"
+    
+    private var updatingContents: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,14 +26,7 @@ class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableV
         
         let loadingView = SimpleLoadingView(frame: self.view.frame)
         self.view.addSubview(loadingView)
-        HokutosaiApi.GET(HokutosaiApi.Exhibitions.Exhibitions()) { response in
-            guard response.isSuccess, let data = response.model else {
-                loadingView.removeFromSuperview()
-                return
-            }
-            
-            self.exhibitions = data
-            self.tableView.reloadData()
+        self.updateContents {
             loadingView.removeFromSuperview()
         }
     }
@@ -53,8 +48,47 @@ class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableV
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(ExhibitionsViewController.onRefresh(_:)), forControlEvents: .ValueChanged)
+        self.tableView.addSubview(refreshControl)
+
+        
         self.view.addSubview(self.tableView)
     }
+    
+    func onRefresh(refreshControl: UIRefreshControl) {
+        refreshControl.beginRefreshing()
+        
+        self.updateContents() {
+            refreshControl.endRefreshing()
+        }
+    }
+    
+    private func updateContents(completion: (() -> Void)?) {
+        guard !self.updatingContents else { return }
+        self.updatingContents = true
+        
+        HokutosaiApi.GET(HokutosaiApi.Exhibitions.Exhibitions()) { response in
+            guard response.isSuccess, let data = response.model else {
+                self.updatingContents = false
+                completion?()
+                return
+            }
+            
+            self.exhibitions = data
+            self.tableView.reloadData()
+            self.updatingContents = false
+            completion?()
+        }
+    }
+    
+    func updateContents() {
+        guard self.tableView != nil else { return }
+        self.updateContents(nil)
+    }
+    
+    var requiredToUpdateWhenDidChengeTab: Bool { return true }
+    var requiredToUpdateWhenWillEnterForeground: Bool { return true }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         guard let exhibitions = self.exhibitions else { return }
