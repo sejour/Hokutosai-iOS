@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import ObjectMapper
 
-protocol StandardContentsData {
+protocol StandardContentsData: Mappable {
     
     var dataId: UInt { get }
     var dataImageUrl: String? { get }

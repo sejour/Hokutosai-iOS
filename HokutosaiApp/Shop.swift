@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class Shop: Mappable, StandardContentsData {
+class Shop: StandardContentsData {
     
     var shopId: UInt?
     var name: String?
