@@ -8,15 +8,14 @@
 
 import UIKit
 
-protocol ReloadableViewController: class {
+protocol StandardTableViewController: MutableContentsController {
     
-    func reload()
+    func reloadData()
 
 }
 
-class StandardDetailsViewController<ModelType: StandardContentsData, TableViewController: ReloadableViewController, MutableContentsController>: ContentsViewController {
+class StandardDetailsViewController<ModelType: StandardContentsData, TableViewController: StandardTableViewController>: ContentsViewController {
 
-    private var modelId: UInt!
     private var model: ModelType?
     
     private var likesCountLabel: InformationLabel!
@@ -24,15 +23,20 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
     
     private weak var tableViewController: TableViewController?
     
-    init(modelId: UInt, title: String?) {
+    private var endpointDetails: HokutosaiApiEndpoint<ObjectResource<ModelType>>!
+    private var endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>!
+    
+    init(endpointDetails: HokutosaiApiEndpoint<ObjectResource<ModelType>>, endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>, modelId: UInt, title: String?) {
         super.init(title: title)
-        self.modelId = modelId
+        self.endpointDetails = endpointDetails
+        self.endpointLikes = endpointLikes
     }
     
-    init(model: ModelType, tableViewController: TableViewController) {
+    init(endpointDetails: HokutosaiApiEndpoint<ObjectResource<ModelType>>, endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>, model: ModelType, tableViewController: TableViewController) {
         super.init(title: model.dataTitle)
+        self.endpointDetails = endpointDetails
+        self.endpointLikes = endpointLikes
         self.model = model
-        self.modelId = model.dataId
         self.tableViewController = tableViewController
     }
     
@@ -54,7 +58,23 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
     }
     
     func fetchContents() {
+        let loadingView = SimpleLoadingView(frame: self.view.frame, backgroundColor: UIColor.whiteColor())
+        self.view.addSubview(loadingView)
         
+        HokutosaiApi.GET(self.endpointDetails) { response in
+            guard response.isSuccess, let data = response.model else {
+                self.presentViewController(ErrorAlert.Server.failureGet { action in
+                    loadingView.removeFromSuperview()
+                    self.navigationController?.popViewControllerAnimated(true)
+                    }, animated: true, completion: nil)
+                return
+            }
+            
+            self.model = data
+            self.generateContents(data)
+            self.updateContentViews()
+            loadingView.removeFromSuperview()
+        }
     }
     
     func generateContents(mode: ModelType) {
