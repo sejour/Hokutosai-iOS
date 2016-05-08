@@ -86,6 +86,10 @@ class ContentsViewController: UITableViewController {
         return separator
     }
     
+    func updateContentViews() {
+        self.tableView.reloadData()
+    }
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
