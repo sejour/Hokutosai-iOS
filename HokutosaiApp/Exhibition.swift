@@ -19,6 +19,8 @@ class Exhibition: Mappable, StandardTableViewCellData {
     var assessmentAggregate: AssessedScore?
     var liked: Bool?
     var likesCount: UInt?
+    var introduction: String?
+    var place: Place?
     
     required init?(_ map: Map) { }
     
@@ -31,6 +33,8 @@ class Exhibition: Mappable, StandardTableViewCellData {
         self.assessmentAggregate <- map["assessment_aggregate"]
         self.liked <- map["liked"]
         self.likesCount <- map["likes_count"]
+        self.introduction <- map["introduction"]
+        self.place <- map["place"]
     }
     
     var dataId: UInt { return self.exhibitionId! }
