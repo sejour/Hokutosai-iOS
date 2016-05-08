@@ -15,7 +15,9 @@ protocol StandardContentsData {
     var dataTitle: String? { get }
     var dataOrganizer: String? { get }
     var dataDescription: String? { get }
-    var dataLikesCount: UInt? { get }
-    var dataLiked: Bool? { get }
+    var dataLikesCount: UInt? { get set }
+    var dataLiked: Bool? { get set }
+    var dataIntroduction: String? { get }
+    var dataPlace: Place? { get }
     
 }

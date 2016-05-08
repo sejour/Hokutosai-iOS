@@ -42,7 +42,15 @@ class Exhibition: Mappable, StandardContentsData {
     var dataTitle: String? { return self.title }
     var dataOrganizer: String? { return self.exhibitor }
     var dataDescription: String? { return self.displays }
-    var dataLikesCount: UInt? { return self.likesCount }
-    var dataLiked: Bool? { return self.liked }
+    var dataLikesCount: UInt? {
+        get { return self.likesCount }
+        set { self.likesCount = newValue }
+    }
+    var dataLiked: Bool? {
+        get { return self.liked }
+        set { self.liked = newValue }
+    }
+    var dataIntroduction: String? { return self.introduction }
+    var dataPlace: Place? { return self.place }
     
 }
