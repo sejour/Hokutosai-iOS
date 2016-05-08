@@ -8,12 +8,44 @@
 
 import UIKit
 
-class StandardDetailsViewController: UIViewController {
+protocol ReloadableViewController: class {
+    
+    func reload()
 
+}
+
+class StandardDetailsViewController<ModelType: StandardContentsData, TableViewController: ReloadableViewController, MutableContentsController>: ContentsViewController {
+
+    private var modelId: UInt!
+    private var model: ModelType?
+    
+    private var likesCountLabel: InformationLabel!
+    private var likeIcon: InteractiveIcon!
+    
+    private weak var tableViewController: TableViewController?
+    
+    init(modelId: UInt, title: String?) {
+        super.init(title: title)
+        self.modelId = modelId
+    }
+    
+    init(model: ModelType, tableViewController: TableViewController) {
+        super.init(title: model.dataTitle)
+        self.model = model
+        self.modelId = model.dataId
+        self.tableViewController = tableViewController
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = UIColor.whiteColor()
+        if let model = self.model {
+            self.generateContents(model)
+            self.updateLike()
+        }
+        else {
+            self.fetchContents()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +53,28 @@ class StandardDetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func fetchContents() {
+        
     }
-    */
+    
+    func generateContents(mode: ModelType) {
+        
+    }
+    
+    func like() {
+        
+    }
+    
+    func updateLikes(like: LikeResult?) {
+        
+    }
+    
+    func updateLike() {
+        
+    }
+    
+    func share() {
+        
+    }
 
 }
