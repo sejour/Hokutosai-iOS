@@ -22,10 +22,9 @@ class EventsDetailViewController: ContentsViewController {
     
     private let topicsBordWidthHeightRatio: CGFloat = 2.0 / 5.0
     
-    init (eventId: UInt, title: String?, timetableViewController: EventsTimetableViewController) {
+    init (eventId: UInt, title: String?) {
         super.init(title: title)
         self.eventId = eventId
-        self.timetableViewController = timetableViewController
     }
     
     init (event: Event, timetableViewController: EventsTimetableViewController) {
