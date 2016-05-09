@@ -81,9 +81,9 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
         }
     }
     
-    func generateContents(mode: ModelType) {
+    func generateContents(model: ModelType) {
         // TitleView
-        let title = mode.dataTitle ?? "未登録"
+        let title = model.dataTitle ?? "未登録"
         let titleView = TitleView(width: self.view.width, title: title, featured: false)
         self.addContentView(titleView)
         
@@ -92,7 +92,41 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
         //
         
         // InformationView
+        let informationView = StandardInformationView(width: self.view.width, data: model)
+        self.addContentView(informationView)
         
+        //
+        self.insertSpace(15.0)
+        //
+        
+        // Likes
+        let likesCount = "いいね \(model.dataLikesCount ?? 0)件"
+        self.likesCountLabel = InformationLabel(width: self.view.width, icon: SharedImage.blackHertIcon, text: likesCount)
+        self.addContentView(self.likesCountLabel)
+        
+        // ---
+        self.insertSpace(10.0)
+        self.insertSeparator(20.0)
+        self.insertSpace(10.0)
+        // ---
+        
+        // Like
+        var likeImage = SharedImage.largeGrayHertIcon
+        if let liked = model.dataLiked where liked { likeImage = SharedImage.largeRedHertIcon }
+        self.likeIcon = InteractiveIcon(image: likeImage, target: self, action: #selector(EventsDetailViewController.like))
+        
+        // Share
+        let shareIcon = InteractiveIcon(image: SharedImage.shareIcon, target: self, action: #selector(EventsDetailViewController.share))
+        
+        // Interaction Icon
+        let iconBar = HorizontalArrangeView(width: self.view.width, height: 22.0, items: [self.likeIcon, shareIcon])
+        self.addContentView(iconBar)
+        
+        // ---
+        self.insertSpace(10.0)
+        self.insertSeparator(20.0)
+        self.insertSpace(10.0)
+        // ---
     }
     
     func layoutIntroductionView(model: ModelType) {
