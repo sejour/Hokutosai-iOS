@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, LikeableTableViewCellDelegate, TabBarIntaractiveController, MutableContentsController {
+class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, LikeableTableViewCellDelegate, TabBarIntaractiveController, StandardTableViewController {
 
     private var shops: [Shop]?
     
@@ -162,6 +162,10 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     func tabBarIconTapped() {
         self.tableView?.setContentOffset(CGPoint(x: 0.0, y: -self.appearOriginY), animated: true)
+    }
+    
+    func reloadData() {
+        self.tableView.reloadData()
     }
     
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, LikeableTableViewCellDelegate, TabBarIntaractiveController, MutableContentsController {
+class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, LikeableTableViewCellDelegate, TabBarIntaractiveController, StandardTableViewController {
 
     private var exhibitions: [Exhibition]?
     
@@ -163,6 +163,10 @@ class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tabBarIconTapped() {
         self.tableView?.setContentOffset(CGPoint(x: 0.0, y: -self.appearOriginY), animated: true)
+    }
+    
+    func reloadData() {
+        self.tableView.reloadData()
     }
     
 }
