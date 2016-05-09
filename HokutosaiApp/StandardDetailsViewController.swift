@@ -44,8 +44,9 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
         super.viewDidLoad()
 
         if let model = self.model {
-            self.generateContents(model)
-            self.updateLike()
+            self.generateContents(model) /* IntroductionViewより上に配置されるViewを作成 (オーバーライドされる) */
+            self.layoutIntroductionView(model) /* IntroductionViewを配置 */
+            self.updateDetails() /* いいねの更新と評価ビューを生成する */
         }
         else {
             self.fetchContents()
@@ -71,13 +72,23 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
             }
             
             self.model = data
-            self.generateContents(data)
+            self.generateContents(data) /* IntroductionViewより上に配置されるViewを作成 (オーバーライドされる) */
+            self.layoutIntroductionView(data) /* IntroductionViewを配置 */
+            self.generateAssessmentsView(data) /* 評価ビューを生成 */
             self.updateContentViews()
             loadingView.removeFromSuperview()
         }
     }
     
     func generateContents(mode: ModelType) {
+        
+    }
+    
+    func layoutIntroductionView(model: ModelType) {
+        
+    }
+    
+    private func generateAssessmentsView(model: ModelType) {
         
     }
     
@@ -128,12 +139,13 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
         }
     }
     
-    func updateLike() {
+    func updateDetails() {
         HokutosaiApi.GET(self.endpointDetails) { response in
             guard response.isSuccess, let data = response.model else {
                 return
             }
             
+            // いいねの更新 --------------------------------------------------------
             // もしself.eventがTopicEventであればTimetableのEventは更新されない。
             // 本来ならばTimetableを更新するべきだがTimetable詳細ビューを開くごとにTimetableを更新するのでは更新が頻繁になるため、ここはでは更新しない。 -> 整合性を犠牲にしている
             self.model?.dataLiked = data.dataLiked
@@ -147,6 +159,13 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
             else {
                 self.likeIcon.image = SharedImage.grayHertIcon
             }
+            // -------------------------------------------------------------------
+            
+            // 評価ビュー生成 ------------------------------------------------------
+            self.generateAssessmentsView(data)
+            // ------------------------------------------------------------------
+            
+            self.updateContentViews()
         }
     }
     
