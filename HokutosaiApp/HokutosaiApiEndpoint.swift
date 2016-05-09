@@ -81,6 +81,7 @@ extension HokutosaiApi {
         
         class Shops: HokutosaiApiEndpoint<ArrayResource<Shop>> {
             init() { super.init(basePath: basePath) }
+            init(shopId: UInt) { super.init(basePath: basePath, path: "/\(shopId)") }
         }
         
         class Details: HokutosaiApiEndpoint<ObjectResource<DetailedShop>> {
@@ -103,6 +104,7 @@ extension HokutosaiApi {
         
         class Exhibitions: HokutosaiApiEndpoint<ArrayResource<Exhibition>> {
             init() { super.init(basePath: basePath) }
+            init(exhibitionId: UInt) { super.init(basePath: basePath, path: "/\(exhibitionId)") }
         }
         
         class Details: HokutosaiApiEndpoint<ObjectResource<DetailedExhibition>> {
