@@ -67,7 +67,7 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         guard !self.updatingContents else { return }
         self.updatingContents = true
         
-        HokutosaiApi.GET(HokutosaiApi.Shops.Shops()) { response in
+        HokutosaiApi.GET(HokutosaiApi.Shops.All()) { response in
             guard response.isSuccess, let data = response.model else {
                 self.updatingContents = false
                 completion?()

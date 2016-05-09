@@ -68,7 +68,7 @@ class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableV
         guard !self.updatingContents else { return }
         self.updatingContents = true
         
-        HokutosaiApi.GET(HokutosaiApi.Exhibitions.Exhibitions()) { response in
+        HokutosaiApi.GET(HokutosaiApi.Exhibitions.All()) { response in
             guard response.isSuccess, let data = response.model else {
                 self.updatingContents = false
                 completion?()
