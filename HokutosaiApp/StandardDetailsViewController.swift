@@ -47,7 +47,7 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
             self.generateContents(model) /* IntroductionViewより上に配置されるViewを作成 (オーバーライドされる) */
             self.layoutIntroductionView(model) /* IntroductionViewを配置 */
             self.updateContentViews() /* 適用 */
-            self.updateLikes() /* いいねの更新 */
+            self.updateMutableContents() /* 可変データの更新 */
             self.updateAssessments() /* 評価ビューの生成 */
         }
         else {
@@ -190,7 +190,8 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
         }
     }
     
-    func updateLikes() {
+    // 可変コンテンツを更新する
+    func updateMutableContents() {
         HokutosaiApi.GET(self.endpointModel) { response in
             guard response.isSuccess, let data = response.model else {
                 return
@@ -209,6 +210,9 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
             else {
                 self.likeIcon.image = SharedImage.grayHertIcon
             }
+            
+            // 評価結果の更新
+            self.model?.dataAssessmentAggregate = data.dataAssessmentAggregate
         }
     }
     
