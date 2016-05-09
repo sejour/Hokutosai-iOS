@@ -25,17 +25,23 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
     
     private var endpointModel: HokutosaiApiEndpoint<ObjectResource<ModelType>>!
     private var endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>!
+    private var endpointAssessmentList: HokutosaiApiEndpoint<ObjectResource<AssessmentList>>!
+    private var endpointAssessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>!
     
-    init(endpointModel: HokutosaiApiEndpoint<ObjectResource<ModelType>>, endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>, title: String?) {
+    init(endpointModel: HokutosaiApiEndpoint<ObjectResource<ModelType>>, endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>, endpointAssessmentList: HokutosaiApiEndpoint<ObjectResource<AssessmentList>>, endpointAssessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>!, title: String?) {
         super.init(title: title)
         self.endpointModel = endpointModel
         self.endpointLikes = endpointLikes
+        self.endpointAssessmentList = endpointAssessmentList
+        self.endpointAssessment = endpointAssessment
     }
     
-    init(endpointModel: HokutosaiApiEndpoint<ObjectResource<ModelType>>, endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>, model: ModelType, tableViewController: TableViewController) {
+    init(endpointModel: HokutosaiApiEndpoint<ObjectResource<ModelType>>, endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>, endpointAssessmentList: HokutosaiApiEndpoint<ObjectResource<AssessmentList>>, endpointAssessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>!, model: ModelType, tableViewController: TableViewController) {
         super.init(title: model.dataTitle)
         self.endpointModel = endpointModel
         self.endpointLikes = endpointLikes
+        self.endpointAssessmentList = endpointAssessmentList
+        self.endpointAssessment = endpointAssessment
         self.model = model
         self.tableViewController = tableViewController
     }
