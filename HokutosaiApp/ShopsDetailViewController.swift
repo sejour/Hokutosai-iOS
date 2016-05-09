@@ -30,4 +30,8 @@ class ShopsDetailViewController: StandardDetailsViewController<Shop, ShopsViewCo
         )
     }
     
+    override func generateContents(model: Shop) {
+        super.generateContents(model)
+    }
+    
 }
