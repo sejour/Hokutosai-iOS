@@ -8,6 +8,7 @@
 
 import Foundation
 
-class ShopsDetailViewController: StandardDetailsViewController<DetailedShop, ShopsViewController> {
-        
+class ShopsDetailViewController: StandardDetailsViewController<Shop, ShopsViewController> {
+    
+    
 }
