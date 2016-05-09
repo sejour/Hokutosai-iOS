@@ -43,7 +43,7 @@ extension HokutosaiApi {
             init(newsId: UInt) { super.init(basePath: basePath, path: "/\(newsId)/details") }
         }
         
-        class Likes: HokutosaiApiEndpoint<ObjectResource<NewsLikeResult>> {
+        class Likes: HokutosaiApiEndpoint<ObjectResource<LikeResult>> {
             init(newsId: UInt) { super.init(basePath: basePath, path: "/\(newsId)/likes") }
         }
         
@@ -69,7 +69,7 @@ extension HokutosaiApi {
             init(eventId: UInt) { super.init(basePath: basePath, path: "/\(eventId)/details") }
         }
         
-        class Likes: HokutosaiApiEndpoint<ObjectResource<EventLikeResult>> {
+        class Likes: HokutosaiApiEndpoint<ObjectResource<LikeResult>> {
             init(eventId: UInt) { super.init(basePath: basePath, path: "/\(eventId)/likes") }
         }
         
@@ -95,11 +95,11 @@ extension HokutosaiApi {
             init(shopId: UInt) { super.init(basePath: basePath, path: "/\(shopId)/assessments") }
         }
         
-        class Assessment: HokutosaiApiEndpoint<ObjectResource<ShopMyAssessment>> {
+        class Assessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>> {
             init(shopId: UInt) { super.init(basePath: basePath, path: "/\(shopId)/assessment") }
         }
         
-        class Likes: HokutosaiApiEndpoint<ObjectResource<ShopLikeResult>> {
+        class Likes: HokutosaiApiEndpoint<ObjectResource<LikeResult>> {
             init(shopId: UInt) { super.init(basePath: basePath, path: "/\(shopId)/likes") }
         }
         
@@ -125,11 +125,11 @@ extension HokutosaiApi {
             init(exhibitionId: UInt) { super.init(basePath: basePath, path: "/\(exhibitionId)/assessments") }
         }
         
-        class Assessment: HokutosaiApiEndpoint<ObjectResource<ExhibitionMyAssessment>> {
+        class Assessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>> {
             init(exhibitionId: UInt) { super.init(basePath: basePath, path: "/\(exhibitionId)/assessment") }
         }
         
-        class Likes: HokutosaiApiEndpoint<ObjectResource<ExhibitionLikeResult>> {
+        class Likes: HokutosaiApiEndpoint<ObjectResource<LikeResult>> {
             init(exhibitionId: UInt) { super.init(basePath: basePath, path: "/\(exhibitionId)/likes") }
         }
         
