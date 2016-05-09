@@ -52,5 +52,9 @@ class Exhibition: StandardContentsData {
     }
     var dataIntroduction: String? { return self.introduction }
     var dataPlace: Place? { return self.place }
+    var dataAssessmentAggregate: AssessedScore? {
+        get { return self.assessmentAggregate }
+        set { self.assessmentAggregate = newValue }
+    }
     
 }

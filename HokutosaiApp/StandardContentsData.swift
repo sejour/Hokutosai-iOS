@@ -20,5 +20,6 @@ protocol StandardContentsData: Mappable {
     var dataLiked: Bool? { get set }
     var dataIntroduction: String? { get }
     var dataPlace: Place? { get }
+    var dataAssessmentAggregate: AssessedScore? { get set }
     
 }
