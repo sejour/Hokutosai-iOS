@@ -23,18 +23,18 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
     
     private weak var tableViewController: TableViewController?
     
-    private var endpointDetails: HokutosaiApiEndpoint<ObjectResource<ModelType>>!
+    private var endpointModel: HokutosaiApiEndpoint<ObjectResource<ModelType>>!
     private var endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>!
     
-    init(endpointDetails: HokutosaiApiEndpoint<ObjectResource<ModelType>>, endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>, modelId: UInt, title: String?) {
+    init(endpointModel: HokutosaiApiEndpoint<ObjectResource<ModelType>>, endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>, title: String?) {
         super.init(title: title)
-        self.endpointDetails = endpointDetails
+        self.endpointModel = endpointModel
         self.endpointLikes = endpointLikes
     }
     
-    init(endpointDetails: HokutosaiApiEndpoint<ObjectResource<ModelType>>, endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>, model: ModelType, tableViewController: TableViewController) {
+    init(endpointModel: HokutosaiApiEndpoint<ObjectResource<ModelType>>, endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>, model: ModelType, tableViewController: TableViewController) {
         super.init(title: model.dataTitle)
-        self.endpointDetails = endpointDetails
+        self.endpointModel = endpointModel
         self.endpointLikes = endpointLikes
         self.model = model
         self.tableViewController = tableViewController
@@ -47,7 +47,8 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
             self.generateContents(model) /* IntroductionViewより上に配置されるViewを作成 (オーバーライドされる) */
             self.layoutIntroductionView(model) /* IntroductionViewを配置 */
             self.updateContentViews() /* 適用 */
-            self.updateDetails() /* いいねの更新と評価ビューを生成する */
+            self.updateLikes() /* いいねの更新 */
+            self.updateAssessments() /* 評価ビューの生成 */
         }
         else {
             self.fetchContents()
@@ -63,7 +64,7 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
         let loadingView = SimpleLoadingView(frame: self.view.frame, backgroundColor: UIColor.whiteColor())
         self.view.addSubview(loadingView)
         
-        HokutosaiApi.GET(self.endpointDetails) { response in
+        HokutosaiApi.GET(self.endpointModel) { response in
             guard response.isSuccess, let data = response.model else {
                 self.presentViewController(ErrorAlert.Server.failureGet { action in
                     loadingView.removeFromSuperview()
@@ -75,8 +76,8 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
             self.model = data
             self.generateContents(data) /* IntroductionViewより上に配置されるViewを作成 (オーバーライドされる) */
             self.layoutIntroductionView(data) /* IntroductionViewを配置 */
-            self.generateAssessmentsView(data) /* 評価ビューを生成 */
-            self.updateContentViews()
+            self.updateContentViews() /* 適用 */
+            self.updateAssessments() /* 評価ビューを生成 */
             loadingView.removeFromSuperview()
         }
     }
@@ -138,7 +139,7 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
         //
     }
     
-    private func generateAssessmentsView(model: ModelType) {
+    private func updateAssessments() {
         
     }
     
@@ -189,13 +190,12 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
         }
     }
     
-    func updateDetails() {
-        HokutosaiApi.GET(self.endpointDetails) { response in
+    func updateLikes() {
+        HokutosaiApi.GET(self.endpointModel) { response in
             guard response.isSuccess, let data = response.model else {
                 return
             }
             
-            // いいねの更新 --------------------------------------------------------
             // もしself.eventがTopicEventであればTimetableのEventは更新されない。
             // 本来ならばTimetableを更新するべきだがTimetable詳細ビューを開くごとにTimetableを更新するのでは更新が頻繁になるため、ここはでは更新しない。 -> 整合性を犠牲にしている
             self.model?.dataLiked = data.dataLiked
@@ -209,13 +209,6 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
             else {
                 self.likeIcon.image = SharedImage.grayHertIcon
             }
-            // -------------------------------------------------------------------
-            
-            // 評価ビュー生成 ------------------------------------------------------
-            self.generateAssessmentsView(data)
-            // ------------------------------------------------------------------
-            
-            self.updateContentViews()
         }
     }
     
