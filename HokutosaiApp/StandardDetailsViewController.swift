@@ -46,6 +46,7 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
         if let model = self.model {
             self.generateContents(model) /* IntroductionViewより上に配置されるViewを作成 (オーバーライドされる) */
             self.layoutIntroductionView(model) /* IntroductionViewを配置 */
+            self.updateContentViews() /* 適用 */
             self.updateDetails() /* いいねの更新と評価ビューを生成する */
         }
         else {
@@ -81,11 +82,26 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
     }
     
     func generateContents(mode: ModelType) {
+        // TitleView
+        let title = mode.dataTitle ?? "未登録"
+        let titleView = TitleView(width: self.view.width, title: title, featured: false)
+        self.addContentView(titleView)
+        
+        //
+        self.insertSpace(15.0)
+        //
+        
+        // InformationView
         
     }
     
     func layoutIntroductionView(model: ModelType) {
+        let introductionLabel = TextLabel(width: self.view.width, text: model.dataIntroduction)
+        self.addContentView(introductionLabel)
         
+        //
+        self.insertSpace(20.0)
+        //
     }
     
     private func generateAssessmentsView(model: ModelType) {
