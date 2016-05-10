@@ -41,6 +41,8 @@ class EventsDetailViewController: ContentsViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.hideNavigationBackButtonText()
+        
         if let event = self.event {
             self.generateContents(event)
             self.updateLike()

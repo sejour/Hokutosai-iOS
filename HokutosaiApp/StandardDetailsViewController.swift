@@ -52,6 +52,8 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.hideNavigationBackButtonText()
 
         if let model = self.model {
             self.generateContents(model) /* IntroductionViewより上に配置されるViewを作成 (オーバーライドされる) */

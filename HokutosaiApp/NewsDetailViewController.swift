@@ -30,6 +30,7 @@ class NewsDetailViewController: ContentsViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.hideNavigationBackButtonText()
         self.generateContents()
     }
     
