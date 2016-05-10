@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, LikeableTableViewCellDelegate, TabBarIntaractiveController, MutableContentsController {
+class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, LikeableTableViewCellDelegate, TabBarIntaractiveController, StandardTableViewController {
 
     private var exhibitions: [Exhibition]?
     
@@ -68,7 +68,7 @@ class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableV
         guard !self.updatingContents else { return }
         self.updatingContents = true
         
-        HokutosaiApi.GET(HokutosaiApi.Exhibitions.Exhibitions()) { response in
+        HokutosaiApi.GET(HokutosaiApi.Exhibitions.All()) { response in
             guard response.isSuccess, let data = response.model else {
                 self.updatingContents = false
                 completion?()
@@ -92,10 +92,11 @@ class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         guard let exhibitions = self.exhibitions else { return }
+        let exhibition = exhibitions[indexPath.row]
+        guard exhibition.exhibitionId != nil else { return }
         
-        let detailsView = StandardDetailsViewController()
-        detailsView.title = exhibitions[indexPath.row].title!
-        self.navigationController?.pushViewController(detailsView, animated: true)
+        let detailView = ExhibitionsDetailViewController(exhibition: exhibition, exhibitionViewController: self)
+        self.navigationController?.pushViewController(detailView, animated: true)
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
@@ -164,6 +165,10 @@ class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tabBarIconTapped() {
         self.tableView?.setContentOffset(CGPoint(x: 0.0, y: -self.appearOriginY), animated: true)
+    }
+    
+    func reloadData() {
+        self.tableView.reloadData()
     }
     
 }

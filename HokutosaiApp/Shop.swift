@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class Shop: Mappable, StandardTableViewCellData {
+class Shop: StandardContentsData {
     
     var shopId: UInt?
     var name: String?
@@ -19,10 +19,16 @@ class Shop: Mappable, StandardTableViewCellData {
     var assessmentAggregate: AssessedScore?
     var liked: Bool?
     var likesCount: UInt?
+    var introduction: String?
+    var place: Place?
+    var menus: [MenuItem]?
     
     required init?(_ map: Map) { }
     
     func mapping(map: Map) {
+        self.introduction <- map["introduction"]
+        self.place <- map["place"]
+        self.menus <- map["menu"]
         self.shopId <- map["shop_id"]
         self.name <- map["name"]
         self.tenant <- map["tenant"]
@@ -38,7 +44,19 @@ class Shop: Mappable, StandardTableViewCellData {
     var dataTitle: String? { return self.name }
     var dataOrganizer: String? { return self.tenant }
     var dataDescription: String? { return self.sales }
-    var dataLikesCount: UInt? { return self.likesCount }
-    var dataLiked: Bool? { return self.liked }
+    var dataLikesCount: UInt? {
+        get { return self.likesCount }
+        set { self.likesCount = newValue }
+    }
+    var dataLiked: Bool? {
+        get { return self.liked }
+        set { self.liked = newValue }
+    }
+    var dataIntroduction: String? { return self.introduction }
+    var dataPlace: Place? { return self.place }
+    var dataAssessmentAggregate: AssessedScore? {
+        get { return self.assessmentAggregate }
+        set { self.assessmentAggregate = newValue }
+    }
     
 }

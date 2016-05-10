@@ -34,7 +34,7 @@ class TitleView: UIView {
         
         let label = UILabel()
         label.textColor = UIColor.blackColor()
-        label.font = UIFont.boldSystemFontOfSize(25)
+        label.font = UIFont.boldSystemFontOfSize(22)
         label.textAlignment = .Left
         label.numberOfLines = 0
         label.text = title

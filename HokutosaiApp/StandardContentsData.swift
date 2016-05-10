@@ -1,5 +1,5 @@
 //
-//  StandardTableViewCellData.swift
+//  StandardContentsData.swift
 //  HokutosaiApp
 //
 //  Created by Shuka Takakuma on 2016/04/25.
@@ -7,15 +7,19 @@
 //
 
 import Foundation
+import ObjectMapper
 
-protocol StandardTableViewCellData {
+protocol StandardContentsData: Mappable {
     
     var dataId: UInt { get }
     var dataImageUrl: String? { get }
     var dataTitle: String? { get }
     var dataOrganizer: String? { get }
     var dataDescription: String? { get }
-    var dataLikesCount: UInt? { get }
-    var dataLiked: Bool? { get }
+    var dataLikesCount: UInt? { get set }
+    var dataLiked: Bool? { get set }
+    var dataIntroduction: String? { get }
+    var dataPlace: Place? { get }
+    var dataAssessmentAggregate: AssessedScore? { get set }
     
 }

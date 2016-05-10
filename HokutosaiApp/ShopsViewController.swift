@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, LikeableTableViewCellDelegate, TabBarIntaractiveController, MutableContentsController {
+class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, LikeableTableViewCellDelegate, TabBarIntaractiveController, StandardTableViewController {
 
     private var shops: [Shop]?
     
@@ -67,7 +67,7 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         guard !self.updatingContents else { return }
         self.updatingContents = true
         
-        HokutosaiApi.GET(HokutosaiApi.Shops.Shops()) { response in
+        HokutosaiApi.GET(HokutosaiApi.Shops.All()) { response in
             guard response.isSuccess, let data = response.model else {
                 self.updatingContents = false
                 completion?()
@@ -91,10 +91,11 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         guard let shops = self.shops else { return }
+        let shop = shops[indexPath.row]
+        guard shop.shopId != nil else { return }
         
-        let detailsView = StandardDetailsViewController()
-        detailsView.title = shops[indexPath.row].name!
-        self.navigationController?.pushViewController(detailsView, animated: true)
+        let detailView = ShopsDetailViewController(shop: shop, shopViewController: self)
+        self.navigationController?.pushViewController(detailView, animated: true)
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
@@ -163,6 +164,10 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     func tabBarIconTapped() {
         self.tableView?.setContentOffset(CGPoint(x: 0.0, y: -self.appearOriginY), animated: true)
+    }
+    
+    func reloadData() {
+        self.tableView.reloadData()
     }
     
 }

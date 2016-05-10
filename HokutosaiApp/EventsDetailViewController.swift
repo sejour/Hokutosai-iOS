@@ -22,10 +22,9 @@ class EventsDetailViewController: ContentsViewController {
     
     private let topicsBordWidthHeightRatio: CGFloat = 2.0 / 5.0
     
-    init (eventId: UInt, title: String?, timetableViewController: EventsTimetableViewController) {
+    init (eventId: UInt, title: String?) {
         super.init(title: title)
         self.eventId = eventId
-        self.timetableViewController = timetableViewController
     }
     
     init (event: Event, timetableViewController: EventsTimetableViewController) {
@@ -87,7 +86,7 @@ class EventsDetailViewController: ContentsViewController {
         self.addContentView(imageView)
         
         //
-        self.insertSpace(10.0)
+        self.insertSpace(5.0)
         //
         
         // TitleView
@@ -176,6 +175,13 @@ class EventsDetailViewController: ContentsViewController {
         self.insertSeparator(20.0)
         self.insertSpace(10.0)
         // ---
+        
+        // 紹介文見出し
+        self.addContentView(InformationLabel(width: self.view.width, icon: SharedImage.introductionIcon, text: "メッセージ"))
+        
+        //
+        self.insertSpace(5.0)
+        //
         
         // Detail
         let detailView = TextLabel(width: self.view.width, text: event.detail)

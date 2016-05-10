@@ -14,7 +14,7 @@ protocol TabBarIntaractiveController {
     
 }
 
-protocol MutableContentsController {
+protocol MutableContentsController: class {
     
     var requiredToUpdateWhenWillEnterForeground: Bool { get }
     var requiredToUpdateWhenDidChengeTab: Bool { get }

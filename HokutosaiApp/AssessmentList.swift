@@ -1,26 +1,22 @@
 //
-//  DetailedShop.swift
+//  AssessmentList.swift
 //  HokutosaiApp
 //
-//  Created by Shuka Takakuma on 2016/04/24.
+//  Created by Shuka Takakuma on 2016/05/09.
 //  Copyright © 2016年 Shuka Takakuma. All rights reserved.
 //
 
 import Foundation
 import ObjectMapper
 
-class DetailedShop: Shop {
+class AssessmentList: Mappable {
     
     var assessments: [Assessment]?
     var myAssessment: Assessment?
     
-    required init?(_ map: Map) {
-        super.init(map)
-    }
+    required init?(_ map: Map) { }
     
-    override func mapping(map: Map) {
-        super.mapping(map)
-        
+    func mapping(map: Map) {
         self.assessments <- map["assessments"]
         self.myAssessment <- map["my_assessment"]
     }
