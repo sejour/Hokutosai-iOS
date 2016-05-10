@@ -138,11 +138,14 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
         // ---
         self.insertSpace(10.0)
         self.insertSeparator(20.0)
-        self.insertSpace(10.0)
         // ---
     }
     
     func layoutIntroductionView(model: ModelType) {
+        //
+        self.insertSpace(10.0)
+        //
+        
         let introductionLabel = TextLabel(width: self.view.width, text: model.dataIntroduction)
         self.addContentView(introductionLabel)
         
