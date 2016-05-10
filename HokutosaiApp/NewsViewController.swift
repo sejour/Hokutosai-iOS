@@ -343,6 +343,10 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         self.scrollPreviousOffsetY = offsetY
     }
     
+    func reloadData() {
+        self.timeline.reloadData()
+    }
+    
     // ----------------------------------------------------------------------------------------------
     
     private var timeLineFrame: CGRect {

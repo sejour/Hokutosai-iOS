@@ -40,7 +40,7 @@ class NewsDetailViewController: ContentsViewController {
     
     private func generateContents() {
         //
-        self.insertSpace(10.0)
+        self.insertSpace(8.0)
         //
         
         // Title View
@@ -49,30 +49,131 @@ class NewsDetailViewController: ContentsViewController {
         self.addContentView(titleView)
         
         //
-        self.insertSpace(8.0)
+        self.insertSpace(5.0)
         //
         
         // Meta Label
         let metaLabel = ArticleMetaLabel(width: self.view.width, relatedTitle: self.article.relatedTitle, target: self, action: #selector(NewsDetailViewController.tappedRelatedLink), datetime: self.article.datetime)
         self.addContentView(metaLabel)
         
-        //
-        self.insertSpace(1.0)
+        // ---
+        self.insertSpace(3.0)
         self.insertSeparator(20.0)
         self.insertSpace(15.0)
-        //
+        // ---
         
         // Text
         let textLabel = TextLabel(width: self.view.width, text: self.article.text)
         self.addContentView(textLabel)
         
-        //
-        self.insertSpace(20.0)
-        //
+        // Likes
+        let likesCount = "いいね \(self.article.likesCount ?? 0)件"
+        self.likesCountLabel = InformationLabel(width: self.view.width, icon: SharedImage.blackHertIcon, text: likesCount)
+        self.addContentView(self.likesCountLabel)
+        
+        // ---
+        self.insertSpace(10.0)
+        self.insertSeparator(20.0)
+        self.insertSpace(10.0)
+        // ---
+        
+        // Like
+        var likeImage = SharedImage.largeGrayHertIcon
+        if let liked = self.article.liked where liked { likeImage = SharedImage.largeRedHertIcon }
+        self.likeIcon = InteractiveIcon(image: likeImage, target: self, action: #selector(NewsDetailViewController.like))
+        
+        // Share
+        let shareIcon = InteractiveIcon(image: SharedImage.shareIcon, target: self, action: #selector(NewsDetailViewController.share))
+        
+        // Interaction Icon
+        let iconBar = HorizontalArrangeView(width: self.view.width, height: 22.0, items: [self.likeIcon, shareIcon])
+        self.addContentView(iconBar)
+        
+        // ---
+        self.insertSpace(10.0)
+        self.insertSeparator(20.0)
+        self.insertSpace(10.0)
+        // ---
     }
     
     func tappedRelatedLink() {
         print("tapped")
+    }
+    
+    func like() {
+        guard let newsId = self.article.newsId else { return }
+        
+        if let liked = self.article.liked where liked {
+            self.likeIcon.image = SharedImage.largeGrayHertIcon
+            HokutosaiApi.DELETE(HokutosaiApi.News.Likes(newsId: newsId)) { response in
+                guard let result = response.model else {
+                    self.presentViewController(ErrorAlert.Server.failureSendRequest(), animated: true, completion: nil)
+                    self.updateLikes(nil)
+                    return
+                }
+                
+                self.updateLikes(result)
+            }
+        }
+        else {
+            self.likeIcon.image = SharedImage.largeRedHertIcon
+            HokutosaiApi.POST(HokutosaiApi.News.Likes(newsId: newsId)) { response in
+                guard let result = response.model else {
+                    self.presentViewController(ErrorAlert.Server.failureSendRequest(), animated: true, completion: nil)
+                    self.updateLikes(nil)
+                    return
+                }
+                
+                self.updateLikes(result)
+            }
+        }
+    }
+    
+    func updateLikes(like: LikeResult?) {
+        if let like = like {
+            self.article.liked = like.liked
+            self.article.likesCount = like.likesCount
+            self.likesCountLabel.text = "いいね \(self.article.likesCount ?? 0)件"
+            self.newsViewController?.reloadData()
+            //self.newsViewController?.updateTimeline()
+        }
+        
+        if let liked = self.article.liked where liked {
+            self.likeIcon.image = SharedImage.largeRedHertIcon
+        }
+        else {
+            self.likeIcon.image = SharedImage.grayHertIcon
+        }
+    }
+    
+    func updateLike() {
+        guard let newsId = self.article.newsId else { return }
+        
+        HokutosaiApi.GET(HokutosaiApi.News.Details(newsId: newsId)) { response in
+            guard response.isSuccess, let data = response.model else {
+                return
+            }
+            
+            self.article.liked = data.liked
+            self.article.likesCount = data.likesCount
+            self.likesCountLabel.text = "いいね \(self.article.likesCount ?? 0)件"
+            self.newsViewController?.reloadData()
+            
+            if let liked = self.article.liked where liked {
+                self.likeIcon.image = SharedImage.largeRedHertIcon
+            }
+            else {
+                self.likeIcon.image = SharedImage.grayHertIcon
+            }
+        }
+    }
+    
+    func share() {
+        guard let article = self.article else { return }
+        
+        let shareText = "#北斗祭 #\(article.title ?? "未登録") "
+        let activityViewController = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
+        self.presentViewController(activityViewController, animated: true, completion: nil)
     }
 
 }
