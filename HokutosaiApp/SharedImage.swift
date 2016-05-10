@@ -33,6 +33,10 @@ final class SharedImage {
     static let shareIcon = UIImage(named: "ShareIcon")
     static let blackHertIcon = UIImage(named: "BlackHertIcon")
     
+    static var hokutosaiTopImage: UIImage? {
+        return UIImage(named: "TopImage")
+    }
+    
     private init () {}
     
 }
