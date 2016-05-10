@@ -101,7 +101,19 @@ class NewsDetailViewController: ContentsViewController {
     }
     
     func tappedRelatedLink() {
-        print("tapped")
+        guard let relation = self.article.relation else { return }
+        
+        switch relation.department {
+        case .Event:
+            let relatedController = EventsDetailViewController(eventId: relation.id, title: self.article.relatedTitle)
+            self.navigationController?.pushViewController(relatedController, animated: true)
+        case .Shop:
+            let relatedController = ShopsDetailViewController(shopId: relation.id, title: self.article.relatedTitle)
+            self.navigationController?.pushViewController(relatedController, animated: true)
+        case .Exhibition:
+            let relatedController = ExhibitionsDetailViewController(exhibitionId: relation.id, title: self.article.relatedTitle)
+            self.navigationController?.pushViewController(relatedController, animated: true)
+        }
     }
     
     func like() {
