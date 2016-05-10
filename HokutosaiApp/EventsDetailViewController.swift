@@ -86,7 +86,7 @@ class EventsDetailViewController: ContentsViewController {
         self.addContentView(imageView)
         
         //
-        self.insertSpace(10.0)
+        self.insertSpace(5.0)
         //
         
         // TitleView
