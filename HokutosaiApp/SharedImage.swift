@@ -18,24 +18,22 @@ final class SharedImage {
     static let featureIcon = UIImage(named: "FeatureIcon")
     static let starRibbonIcon = UIImage(named: "StarRibbonIcon")
     
-    static let organizerIcon = UIImage(named: "OrganizerIcon")
-    static let placeIcon = UIImage(named: "PlaceIcon")
-    static let clockIcon = UIImage(named: "ClockIcon")
-    static let descriptionIcon = UIImage(named: "DescriptionIcon")
-    static let bookIcon = UIImage(named: "BookIcon")
-    static let introductionIcon = UIImage(named: "IntroductionIcon")
-    static let messageIcon = UIImage(named: "MessageIcon")
+    static var organizerIcon: UIImage? { return UIImage(named: "OrganizerIcon") }
+    static var placeIcon: UIImage? { return UIImage(named: "PlaceIcon") }
+    static var clockIcon: UIImage? { return UIImage(named: "ClockIcon") }
+    static var descriptionIcon: UIImage? { return UIImage(named: "DescriptionIcon") }
+    static var bookIcon: UIImage? { return UIImage(named: "BookIcon") }
+    static var introductionIcon: UIImage? { return UIImage(named: "IntroductionIcon") }
+    static var messageIcon: UIImage? { return UIImage(named: "MessageIcon") }
     
-    static let remindOffIcon = UIImage(named: "RemindOffIcon")
-    static let remindOnIcon = UIImage(named: "RemindOnIcon")
-    static let largeGrayHertIcon = UIImage(named: "LargeGrayHertIcon")
-    static let largeRedHertIcon = UIImage(named: "LargeRedHertIcon")
-    static let shareIcon = UIImage(named: "ShareIcon")
-    static let blackHertIcon = UIImage(named: "BlackHertIcon")
+    static var remindOffIcon: UIImage? { return UIImage(named: "RemindOffIcon") }
+    static var remindOnIcon: UIImage? { return UIImage(named: "RemindOnIcon") }
+    static var largeGrayHertIcon: UIImage? { return UIImage(named: "LargeGrayHertIcon") }
+    static var largeRedHertIcon: UIImage? { return UIImage(named: "LargeRedHertIcon") }
+    static var shareIcon: UIImage? { return UIImage(named: "ShareIcon") }
+    static var blackHertIcon: UIImage? { return UIImage(named: "BlackHertIcon") }
     
-    static var hokutosaiTopImage: UIImage? {
-        return UIImage(named: "TopImage")
-    }
+    static var hokutosaiTopImage: UIImage? { return UIImage(named: "TopImage") }
     
     private init () {}
     
