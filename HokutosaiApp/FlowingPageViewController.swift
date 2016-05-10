@@ -36,7 +36,7 @@ class FlowingPageViewController: SlidePageViewController {
     }
     
     func startFlowing() {
-        guard !self.isFlowing else { return }
+        self.stopFlowing()
         self.timer = NSTimer.scheduledTimerWithTimeInterval(self.interval, target: self, selector: #selector(FlowingPageViewController.flow), userInfo: nil, repeats: true)
     }
     
@@ -85,6 +85,14 @@ class FlowingPageViewController: SlidePageViewController {
         let nextIndex = index >= self.pageCount - 1 ? 0 : index + 1
         
         return self.pages[nextIndex]
+    }
+    
+    func pageViewController(pageViewController: UIPageViewController, willTransitionToViewControllers pendingViewControllers: [UIViewController]) {
+        self.stopFlowing()
+    }
+    
+    func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        self.startFlowing()
     }
 
 }
