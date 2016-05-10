@@ -188,7 +188,7 @@ class NewsDetailViewController: ContentsViewController {
     func share() {
         guard let article = self.article else { return }
         
-        let shareText = "#北斗祭 #\(article.title ?? "未登録") "
+        let shareText = "#北斗祭 【\(article.title ?? "タイトル無し")】\n\(article.text ?? "")\n"
         let activityViewController = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
         self.presentViewController(activityViewController, animated: true, completion: nil)
     }
