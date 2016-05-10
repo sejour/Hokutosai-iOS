@@ -185,6 +185,16 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         self.navigationController?.pushViewController(detailView, animated: true)
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.topicsBordController.startFlowing()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.topicsBordController.stopFlowing()
+    }
+    
     func onRefresh(refreshControl: UIRefreshControl) {
         refreshControl.beginRefreshing()
         
