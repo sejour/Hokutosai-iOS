@@ -67,18 +67,7 @@ class NewsTableViewCell: UITableViewCell, LikeableTableViewCell {
         
         self.titleLabel.text = article.title ?? "タイトル無し"
         
-        if let relatedEvent = article.relatedEvent, let organizer = relatedEvent.title {
-            self.titleLabel.text = organizer
-        }
-        else if let relatedShop = article.relatedShop, let organizer = relatedShop.name {
-            self.titleLabel.text = organizer
-        }
-        else if let relatedExhibition = article.relatedExhibition, let organizer = relatedExhibition.title {
-            self.titleLabel.text = organizer
-        }
-        else {
-            self.organizerLabel.text = nil
-        }
+        self.organizerLabel.text = article.relatedTitle
         
         if let datetime = article.datetime {
             self.datetimeLabel.text = datetime.stringElapsedTime()
