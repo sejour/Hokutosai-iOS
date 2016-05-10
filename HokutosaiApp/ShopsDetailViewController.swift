@@ -38,7 +38,7 @@ class ShopsDetailViewController: StandardDetailsViewController<Shop, ShopsViewCo
         //
         
         // 見出し
-        self.addContentView(TextLabel(width: self.view.width, text: "メニュー"))
+        self.addContentView(InformationLabel(width: self.view.width, icon: SharedImage.bookIcon, text: "メニュー"))
         
         //
         self.insertSpace(5.0)
