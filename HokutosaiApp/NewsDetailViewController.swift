@@ -66,13 +66,17 @@ class NewsDetailViewController: ContentsViewController {
         let textLabel = TextLabel(width: self.view.width, text: self.article.text)
         self.addContentView(textLabel)
         
+        //
+        self.insertSpace(15.0)
+        //
+        
         // Likes
         let likesCount = "いいね \(self.article.likesCount ?? 0)件"
         self.likesCountLabel = InformationLabel(width: self.view.width, icon: SharedImage.blackHertIcon, text: likesCount)
         self.addContentView(self.likesCountLabel)
         
         // ---
-        self.insertSpace(10.0)
+        self.insertSpace(5.0)
         self.insertSeparator(20.0)
         self.insertSpace(10.0)
         // ---
