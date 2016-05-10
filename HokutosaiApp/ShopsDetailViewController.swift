@@ -32,6 +32,29 @@ class ShopsDetailViewController: StandardDetailsViewController<Shop, ShopsViewCo
     
     override func generateContents(model: Shop) {
         super.generateContents(model)
+        
+        //
+        self.insertSpace(10.0)
+        //
+        
+        // 見出し
+        self.addContentView(TextLabel(width: self.view.width, text: "メニュー"))
+        
+        //
+        self.insertSpace(5.0)
+        //
+        
+        if let menus = model.menus {
+            for item in menus {
+                self.addContentView(MenuItemLabel(width: self.view.width, item: item))
+                self.insertSpace(5.0)
+            }
+        }
+        
+        // ---
+        self.insertSpace(5.0)
+        self.insertSeparator(20.0)
+        // ---
     }
     
 }
