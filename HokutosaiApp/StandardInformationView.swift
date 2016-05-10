@@ -58,7 +58,7 @@ class StandardInformationView: UIView {
         }
         
         // Description
-        let descriptionLabel = InformationLabel(width: informationViewWidth, icon: nil, text: description)
+        let descriptionLabel = InformationLabel(width: informationViewWidth, icon: SharedImage.descriptionIcon, text: description)
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(descriptionLabel)
         descriptionLabel.snp_makeConstraints { make in
