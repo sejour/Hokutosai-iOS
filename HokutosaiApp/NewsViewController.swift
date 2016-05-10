@@ -198,12 +198,18 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         guard let articles = self.articles else { return }
+        
+        // Reload Cell
         guard indexPath.row < articles.count else {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
             self.loadingCellManager.status = .Loading
             self.updateTimeline(articles.last?.newsId)
             return
         }
+        
+        // Detail View
+        let detailView = NewsDetailViewController(article: articles[indexPath.row], newsViewController: self)
+        self.navigationController?.pushViewController(detailView, animated: true)
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
