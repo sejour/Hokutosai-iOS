@@ -176,6 +176,13 @@ class EventsDetailViewController: ContentsViewController {
         self.insertSpace(10.0)
         // ---
         
+        // 紹介文見出し
+        self.addContentView(InformationLabel(width: self.view.width, icon: SharedImage.introductionIcon, text: "メッセージ"))
+        
+        //
+        self.insertSpace(5.0)
+        //
+        
         // Detail
         let detailView = TextLabel(width: self.view.width, text: event.detail)
         self.addContentView(detailView)
