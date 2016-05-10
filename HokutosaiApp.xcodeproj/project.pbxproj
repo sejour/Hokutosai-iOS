@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		52AA5A9A07ED55E6CE7C6959 /* Pods_HokutosaiApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 906BE70B87479B1542A60B06 /* Pods_HokutosaiApp.framework */; };
 		A71818AE1CD8A53D00E077B2 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71818AD1CD8A53D00E077B2 /* Schedule.swift */; };
+		A730E8831CE2496600D2CD58 /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730E8821CE2496600D2CD58 /* NewsDetailViewController.swift */; };
 		A74504781CD3B166001165E2 /* TopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74504761CD3B166001165E2 /* TopicViewController.swift */; };
 		A74504791CD3B166001165E2 /* TopicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A74504771CD3B166001165E2 /* TopicViewController.xib */; };
 		A745047D1CD3C5A1001165E2 /* TopicNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A745047C1CD3C5A1001165E2 /* TopicNews.swift */; };
@@ -115,6 +116,7 @@
 		906BE70B87479B1542A60B06 /* Pods_HokutosaiApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HokutosaiApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E68EEBAEB8E63EB23447F5 /* Pods-HokutosaiApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HokutosaiApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HokutosaiApp/Pods-HokutosaiApp.debug.xcconfig"; sourceTree = "<group>"; };
 		A71818AD1CD8A53D00E077B2 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		A730E8821CE2496600D2CD58 /* NewsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
 		A74504761CD3B166001165E2 /* TopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicViewController.swift; sourceTree = "<group>"; };
 		A74504771CD3B166001165E2 /* TopicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopicViewController.xib; sourceTree = "<group>"; };
 		A745047C1CD3C5A1001165E2 /* TopicNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicNews.swift; sourceTree = "<group>"; };
@@ -516,6 +518,7 @@
 			isa = PBXGroup;
 			children = (
 				A77F9DE61CC910A400BEE9A7 /* NewsViewController.swift */,
+				A730E8821CE2496600D2CD58 /* NewsDetailViewController.swift */,
 			);
 			name = News;
 			sourceTree = "<group>";
@@ -837,6 +840,7 @@
 				A74504B81CD740AD001165E2 /* EventsTableViewCell.swift in Sources */,
 				A77483221CCCBCB3003AC18F /* Place.swift in Sources */,
 				A774830F1CCBB0E0003AC18F /* HokutosaiApi.swift in Sources */,
+				A730E8831CE2496600D2CD58 /* NewsDetailViewController.swift in Sources */,
 				A7A60FBA1CD2183100AA9543 /* ExhibitionLikeResult.swift in Sources */,
 				A77F9DE91CC910F800BEE9A7 /* ShopsViewController.swift in Sources */,
 				A77483161CCBCC90003AC18F /* Shop.swift in Sources */,
