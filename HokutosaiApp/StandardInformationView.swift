@@ -10,25 +10,28 @@ import UIKit
 
 class StandardInformationView: UIView {
     
-    static let defaultImageWidth: CGFloat = 140.0
-    
+    private static let imageWidthRatio: CGFloat = 0.38
     private static let imageLeftMargin: CGFloat = 20.0
     private static let informationViewVerticalMargin = 5.0
     
-    convenience init(width: CGFloat, data: StandardContentsData, imageWidth: CGFloat = StandardInformationView.defaultImageWidth) {
-        self.init(frame: CGRect(x: 0.0, y: 0.0, width: width, height: 0.0), imageUrl: data.dataImageUrl, organizer: data.dataOrganizer, description: data.dataDescription, place: data.dataPlace, imageWidth: imageWidth)
+    convenience init(width: CGFloat, data: StandardContentsData) {
+        self.init(frame: CGRect(x: 0.0, y: 0.0, width: width, height: 0.0), imageUrl: data.dataImageUrl, organizer: data.dataOrganizer, description: data.dataDescription, place: data.dataPlace)
     }
     
-    convenience init(width: CGFloat, imageUrl: String?, organizer: String?, description: String?, place: Place?, imageWidth: CGFloat = StandardInformationView.defaultImageWidth) {
-        self.init(frame: CGRect(x: 0.0, y: 0.0, width: width, height: 0.0), imageUrl: imageUrl, organizer: organizer, description: description, place: place, imageWidth: imageWidth)
+    convenience init(width: CGFloat, imageUrl: String?, organizer: String?, description: String?, place: Place?) {
+        self.init(frame: CGRect(x: 0.0, y: 0.0, width: width, height: 0.0), imageUrl: imageUrl, organizer: organizer, description: description, place: place)
     }
     
-    init(frame: CGRect, imageUrl: String?, organizer: String?, description: String?, place: Place?, imageWidth: CGFloat = StandardInformationView.defaultImageWidth) {
+    init(frame: CGRect, imageUrl: String?, organizer: String?, description: String?, place: Place?) {
         super.init(frame: frame)
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
+        let imageWidth = self.width * StandardInformationView.imageWidthRatio
         
         // ImageView
         let imageView = UIImageView()
         imageView.contentMode = .ScaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(imageView)
         imageView.snp_makeConstraints { make in
             make.width.height.equalTo(imageWidth)
@@ -47,6 +50,7 @@ class StandardInformationView: UIView {
         
         // Organization
         let organizationLabel = InformationLabel(width: informationViewWidth, icon: SharedImage.organizerIcon, text: organizer)
+        organizationLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(organizationLabel)
         organizationLabel.snp_makeConstraints { make in
             make.top.equalTo(self)
@@ -55,6 +59,7 @@ class StandardInformationView: UIView {
         
         // Description
         let descriptionLabel = InformationLabel(width: informationViewWidth, icon: nil, text: description)
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(descriptionLabel)
         descriptionLabel.snp_makeConstraints { make in
             make.top.equalTo(organizationLabel.snp_bottom).offset(StandardInformationView.informationViewVerticalMargin)
@@ -63,9 +68,10 @@ class StandardInformationView: UIView {
         
         // Place
         let placeLabel = InformationLabel(width: informationViewWidth, icon: SharedImage.placeIcon, text: place?.name)
+        placeLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(placeLabel)
         placeLabel.snp_makeConstraints { make in
-            make.top.equalTo(placeLabel.snp_bottom).offset(StandardInformationView.informationViewVerticalMargin)
+            make.top.equalTo(descriptionLabel.snp_bottom).offset(StandardInformationView.informationViewVerticalMargin)
             make.left.equalTo(informationViewOrigin)
         }
         
