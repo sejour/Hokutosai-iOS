@@ -22,6 +22,9 @@ final class SharedImage {
     static let placeIcon = UIImage(named: "PlaceIcon")
     static let clockIcon = UIImage(named: "ClockIcon")
     static let descriptionIcon = UIImage(named: "DescriptionIcon")
+    static let bookIcon = UIImage(named: "BookIcon")
+    static let introductionIcon = UIImage(named: "IntroductionIcon")
+    static let messageIcon = UIImage(named: "MessageIcon")
     
     static let remindOffIcon = UIImage(named: "RemindOffIcon")
     static let remindOnIcon = UIImage(named: "RemindOnIcon")
