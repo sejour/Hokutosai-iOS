@@ -63,7 +63,7 @@ class MenuItemLabel: UIView {
         
         self.snp_makeConstraints { make in
             make.width.equalTo(self.width)
-            make.height.equalTo(titleLabel)
+            make.height.equalTo(titleLabel.height >= priceLabel.height ? titleLabel.height : priceLabel.height)
         }
     }
     
