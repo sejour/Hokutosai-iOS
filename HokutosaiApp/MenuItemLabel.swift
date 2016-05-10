@@ -10,7 +10,7 @@ import UIKit
 
 class MenuItemLabel: UIView {
     
-    private static let titleWidthRatio: CGFloat = 0.7
+    private static let titleWidthRatio: CGFloat = 0.77
     private static let leftMargin: CGFloat = 20.0
     private static let betweenTitleAndPriceMargin: CGFloat = 8.0
     private static let rightMargin: CGFloat = 20.0
