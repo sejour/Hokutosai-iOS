@@ -12,7 +12,7 @@ class TextLabel: UIView {
     
     class Property {
         var color: UIColor = UIColor.blackColor()
-        var font: UIFont = UIFont.systemFontOfSize(18.0)
+        var font: UIFont = UIFont.systemFontOfSize(17.0)
         var alignment: NSTextAlignment = .Left
     }
     
