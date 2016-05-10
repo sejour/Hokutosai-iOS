@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SlidePageViewController: UIPageViewController, UIPageViewControllerDataSource, UIScrollViewDelegate {
+class SlidePageViewController: UIPageViewController, UIPageViewControllerDataSource, UIScrollViewDelegate, UIPageViewControllerDelegate {
     
     private var _pages: [UIViewController]!
     
@@ -41,7 +41,6 @@ class SlidePageViewController: UIPageViewController, UIPageViewControllerDataSou
 
     init (navigationOrientation: UIPageViewControllerNavigationOrientation = .Horizontal) {
         super.init(transitionStyle: .Scroll, navigationOrientation: navigationOrientation, options: nil)
-        self.dataSource = self
     }
     
     required init?(coder: NSCoder) {
@@ -50,6 +49,9 @@ class SlidePageViewController: UIPageViewController, UIPageViewControllerDataSou
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.delegate = self
+        self.dataSource = self
         
         for subview in self.view.subviews {
             if let scrollView = subview as? UIScrollView {
