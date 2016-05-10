@@ -15,7 +15,8 @@ class ExhibitionsDetailViewController: StandardDetailsViewController<Exhibition,
                    endpointLikes: HokutosaiApi.Exhibitions.Likes(exhibitionId: exhibitionId),
                    endpointAssessmentList: HokutosaiApi.Exhibitions.Assessments(exhibitionId: exhibitionId),
                    endpointAssessment: HokutosaiApi.Exhibitions.Assessment(exhibitionId: exhibitionId),
-                   title: title
+                   title: title,
+                   introductionLabelTitle: "出展者から"
         )
     }
     
@@ -26,7 +27,8 @@ class ExhibitionsDetailViewController: StandardDetailsViewController<Exhibition,
                    endpointAssessmentList: HokutosaiApi.Exhibitions.Assessments(exhibitionId: exhibitionId),
                    endpointAssessment: HokutosaiApi.Exhibitions.Assessment(exhibitionId: exhibitionId),
                    model: exhibition,
-                   tableViewController: exhibitionViewController
+                   tableViewController: exhibitionViewController,
+                   introductionLabelTitle: "出展者から"
         )
     }
     

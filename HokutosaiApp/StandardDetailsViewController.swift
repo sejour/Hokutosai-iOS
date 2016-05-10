@@ -21,6 +21,8 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
     private var likesCountLabel: InformationLabel!
     private var likeIcon: InteractiveIcon!
     
+    var introductionLabelTitle: String!
+    
     private weak var tableViewController: TableViewController?
     
     private var endpointModel: HokutosaiApiEndpoint<ObjectResource<ModelType>>!
@@ -28,15 +30,16 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
     private var endpointAssessmentList: HokutosaiApiEndpoint<ObjectResource<AssessmentList>>!
     private var endpointAssessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>!
     
-    init(endpointModel: HokutosaiApiEndpoint<ObjectResource<ModelType>>, endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>, endpointAssessmentList: HokutosaiApiEndpoint<ObjectResource<AssessmentList>>, endpointAssessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>!, title: String?) {
+    init(endpointModel: HokutosaiApiEndpoint<ObjectResource<ModelType>>, endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>, endpointAssessmentList: HokutosaiApiEndpoint<ObjectResource<AssessmentList>>, endpointAssessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>!, title: String?, introductionLabelTitle: String!) {
         super.init(title: title)
         self.endpointModel = endpointModel
         self.endpointLikes = endpointLikes
         self.endpointAssessmentList = endpointAssessmentList
         self.endpointAssessment = endpointAssessment
+        self.introductionLabelTitle = introductionLabelTitle
     }
     
-    init(endpointModel: HokutosaiApiEndpoint<ObjectResource<ModelType>>, endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>, endpointAssessmentList: HokutosaiApiEndpoint<ObjectResource<AssessmentList>>, endpointAssessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>!, model: ModelType, tableViewController: TableViewController) {
+    init(endpointModel: HokutosaiApiEndpoint<ObjectResource<ModelType>>, endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>, endpointAssessmentList: HokutosaiApiEndpoint<ObjectResource<AssessmentList>>, endpointAssessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>!, model: ModelType, tableViewController: TableViewController, introductionLabelTitle: String!) {
         super.init(title: model.dataTitle)
         self.endpointModel = endpointModel
         self.endpointLikes = endpointLikes
@@ -44,6 +47,7 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
         self.endpointAssessment = endpointAssessment
         self.model = model
         self.tableViewController = tableViewController
+        self.introductionLabelTitle = introductionLabelTitle
     }
     
     override func viewDidLoad() {
@@ -144,6 +148,13 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
     func layoutIntroductionView(model: ModelType) {
         //
         self.insertSpace(10.0)
+        //
+        
+        // 見出し
+        self.addContentView(InformationLabel(width: self.view.width, icon: SharedImage.introductionIcon, text: self.introductionLabelTitle))
+        
+        //
+        self.insertSpace(5.0)
         //
         
         let introductionLabel = TextLabel(width: self.view.width, text: model.dataIntroduction)

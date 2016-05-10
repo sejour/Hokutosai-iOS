@@ -15,7 +15,8 @@ class ShopsDetailViewController: StandardDetailsViewController<Shop, ShopsViewCo
                    endpointLikes: HokutosaiApi.Shops.Likes(shopId: shopId),
                    endpointAssessmentList: HokutosaiApi.Shops.Assessments(shopId: shopId),
                    endpointAssessment: HokutosaiApi.Shops.Assessment(shopId: shopId),
-                   title: title
+                   title: title,
+                   introductionLabelTitle: "出店者から"
         )
     }
     
@@ -26,7 +27,8 @@ class ShopsDetailViewController: StandardDetailsViewController<Shop, ShopsViewCo
                    endpointAssessmentList: HokutosaiApi.Shops.Assessments(shopId: shopId),
                    endpointAssessment: HokutosaiApi.Shops.Assessment(shopId: shopId),
                    model: shop,
-                   tableViewController: shopViewController
+                   tableViewController: shopViewController,
+                   introductionLabelTitle: "出店者から"
         )
     }
     
