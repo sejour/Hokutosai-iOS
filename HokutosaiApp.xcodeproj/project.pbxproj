@@ -11,6 +11,7 @@
 		A71818AE1CD8A53D00E077B2 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71818AD1CD8A53D00E077B2 /* Schedule.swift */; };
 		A730E8831CE2496600D2CD58 /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730E8821CE2496600D2CD58 /* NewsDetailViewController.swift */; };
 		A730E8851CE257BB00D2CD58 /* ArticleMetaLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730E8841CE257BB00D2CD58 /* ArticleMetaLabel.swift */; };
+		A730E8871CE2A19000D2CD58 /* SlideImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730E8861CE2A19000D2CD58 /* SlideImageView.swift */; };
 		A74504781CD3B166001165E2 /* TopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74504761CD3B166001165E2 /* TopicViewController.swift */; };
 		A74504791CD3B166001165E2 /* TopicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A74504771CD3B166001165E2 /* TopicViewController.xib */; };
 		A745047D1CD3C5A1001165E2 /* TopicNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A745047C1CD3C5A1001165E2 /* TopicNews.swift */; };
@@ -119,6 +120,7 @@
 		A71818AD1CD8A53D00E077B2 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		A730E8821CE2496600D2CD58 /* NewsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
 		A730E8841CE257BB00D2CD58 /* ArticleMetaLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleMetaLabel.swift; sourceTree = "<group>"; };
+		A730E8861CE2A19000D2CD58 /* SlideImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideImageView.swift; sourceTree = "<group>"; };
 		A74504761CD3B166001165E2 /* TopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicViewController.swift; sourceTree = "<group>"; };
 		A74504771CD3B166001165E2 /* TopicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopicViewController.xib; sourceTree = "<group>"; };
 		A745047C1CD3C5A1001165E2 /* TopicNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicNews.swift; sourceTree = "<group>"; };
@@ -625,6 +627,7 @@
 				A79412331CE04B610040913D /* StandardInformationView.swift */,
 				A78A36BC1CE1C7E200806FC4 /* MenuItemLabel.swift */,
 				A730E8841CE257BB00D2CD58 /* ArticleMetaLabel.swift */,
+				A730E8861CE2A19000D2CD58 /* SlideImageView.swift */,
 			);
 			name = Material;
 			sourceTree = "<group>";
@@ -867,6 +870,7 @@
 				A74504AC1CD61BDD001165E2 /* LoadingCellManager.swift in Sources */,
 				A774830B1CCBAA28003AC18F /* HokutosaiApiEndpoint.swift in Sources */,
 				A77483291CCCC427003AC18F /* User.swift in Sources */,
+				A730E8871CE2A19000D2CD58 /* SlideImageView.swift in Sources */,
 				A7A5D2931CDA971A00F8F297 /* TitleView.swift in Sources */,
 				A7A60FB41CD210C900AA9543 /* Exhibition.swift in Sources */,
 				A7A60FB81CD2179700AA9543 /* ExhibitionMyAssessment.swift in Sources */,
