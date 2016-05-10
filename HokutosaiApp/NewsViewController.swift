@@ -179,7 +179,10 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
     var requiredToUpdateWhenWillEnterForeground: Bool { return true }
     
     func tappedView(sender: TappableViewController, gesture: UITapGestureRecognizer, tag: Int) {
-        print(tag)
+        guard let topics = self.topics where topics[tag].newsId != nil else { return }
+        
+        let detailView = NewsDetailViewController(article: topics[tag], newsViewController: self)
+        self.navigationController?.pushViewController(detailView, animated: true)
     }
     
     func onRefresh(refreshControl: UIRefreshControl) {
@@ -288,6 +291,10 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         }
     }
     
+    func reloadData() {
+        self.timeline.reloadData()
+    }
+    
     // scrolling ------------------------------------------------------------------------------------
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -341,10 +348,6 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         }
         
         self.scrollPreviousOffsetY = offsetY
-    }
-    
-    func reloadData() {
-        self.timeline.reloadData()
     }
     
     // ----------------------------------------------------------------------------------------------
