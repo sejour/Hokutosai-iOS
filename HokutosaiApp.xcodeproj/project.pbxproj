@@ -74,6 +74,7 @@
 		A787A1B91CCF6D380045F1DD /* StandardDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A787A1B81CCF6D380045F1DD /* StandardDetailsViewController.swift */; };
 		A78A36B71CDE625D00806FC4 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A36B61CDE625D00806FC4 /* SeparatorView.swift */; };
 		A78A36BB1CE0F3E400806FC4 /* ExhibitionsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A36BA1CE0F3E400806FC4 /* ExhibitionsDetailViewController.swift */; };
+		A78A36BD1CE1C7E200806FC4 /* MenuItemLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A36BC1CE1C7E200806FC4 /* MenuItemLabel.swift */; };
 		A79412341CE04B610040913D /* StandardInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79412331CE04B610040913D /* StandardInformationView.swift */; };
 		A79412361CE05B3A0040913D /* ShopsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79412351CE05B3A0040913D /* ShopsDetailViewController.swift */; };
 		A79412381CE071680040913D /* AssessmentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79412371CE071680040913D /* AssessmentList.swift */; };
@@ -185,6 +186,7 @@
 		A787A1B81CCF6D380045F1DD /* StandardDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardDetailsViewController.swift; sourceTree = "<group>"; };
 		A78A36B61CDE625D00806FC4 /* SeparatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		A78A36BA1CE0F3E400806FC4 /* ExhibitionsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExhibitionsDetailViewController.swift; sourceTree = "<group>"; };
+		A78A36BC1CE1C7E200806FC4 /* MenuItemLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemLabel.swift; sourceTree = "<group>"; };
 		A79412331CE04B610040913D /* StandardInformationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardInformationView.swift; sourceTree = "<group>"; };
 		A79412351CE05B3A0040913D /* ShopsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopsDetailViewController.swift; sourceTree = "<group>"; };
 		A79412371CE071680040913D /* AssessmentList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssessmentList.swift; sourceTree = "<group>"; };
@@ -616,6 +618,7 @@
 				A7A5D2A31CDD651700F8F297 /* InteractiveIcon.swift */,
 				A78A36B61CDE625D00806FC4 /* SeparatorView.swift */,
 				A79412331CE04B610040913D /* StandardInformationView.swift */,
+				A78A36BC1CE1C7E200806FC4 /* MenuItemLabel.swift */,
 			);
 			name = Material;
 			sourceTree = "<group>";
@@ -882,6 +885,7 @@
 				A74504781CD3B166001165E2 /* TopicViewController.swift in Sources */,
 				A74504811CD3D6EC001165E2 /* UIViewControllerExtension.swift in Sources */,
 				A74504AE1CD6675F001165E2 /* TopicEvent.swift in Sources */,
+				A78A36BD1CE1C7E200806FC4 /* MenuItemLabel.swift in Sources */,
 				A77483331CCCD380003AC18F /* LikeResult.swift in Sources */,
 				A77483431CCE6086003AC18F /* StandardTableViewCell.swift in Sources */,
 				A774834B1CD20769003AC18F /* SharedColor.swift in Sources */,
