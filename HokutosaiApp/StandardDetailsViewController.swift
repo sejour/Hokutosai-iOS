@@ -89,12 +89,18 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
     }
     
     func generateContents(model: ModelType) {
+        //
+        self.insertSpace(5.0)
+        //
+        
         // TitleView
         let title = model.dataTitle ?? "未登録"
         let titleView = TitleView(width: self.view.width, title: title, featured: false)
         self.addContentView(titleView)
         
         //
+        self.insertSpace(1.0)
+        self.insertSeparator(20.0)
         self.insertSpace(15.0)
         //
         
