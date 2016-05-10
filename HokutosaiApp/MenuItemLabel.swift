@@ -13,7 +13,7 @@ class MenuItemLabel: UIView {
     private static let titleWidthRatio: CGFloat = 0.7
     private static let leftMargin: CGFloat = 20.0
     private static let betweenTitleAndPriceMargin: CGFloat = 8.0
-    private static let rightMargin: CGFloat = 15.0
+    private static let rightMargin: CGFloat = 20.0
     
     convenience init(width: CGFloat, item: MenuItem) {
         self.init(frame: CGRect(x: 0.0, y: 0.0, width: width, height: 0.0), title: item.name, price: item.price)
