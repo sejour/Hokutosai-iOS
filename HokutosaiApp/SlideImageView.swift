@@ -11,6 +11,7 @@ import UIKit
 class SlideImageView: UIView {
     
     var slidePageViewController: SlidePageViewController!
+    var pageControl: UIPageControl!
 
     convenience init(height: CGFloat, targetViewController: UIViewController, medias: [Media]) {
         self.init(frame: CGRect(x: 0.0, y: 0.0, width: targetViewController.view.width, height: height), targetViewController: targetViewController, medias: medias)
@@ -45,6 +46,16 @@ class SlideImageView: UIView {
             items.append(item)
         }
         self.slidePageViewController.pages = items
+        
+        self.pageControl = UIPageControl()
+        self.pageControl.numberOfPages = items.count
+        self.pageControl.currentPage = 0
+        self.addSubview(self.pageControl)
+        self.pageControl.snp_makeConstraints { make in
+            make.centerX.equalTo(self)
+            make.bottom.equalTo(self).offset(-8.0)
+            make.height.equalTo(8.0)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
