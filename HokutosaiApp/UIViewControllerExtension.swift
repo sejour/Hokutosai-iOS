@@ -29,4 +29,16 @@ extension UIViewController {
         self.navigationItem.backBarButtonItem = backButtonItem
     }
     
+    func hiddenTopBar(hidden: Bool, animated: Bool) {
+        if self.navigationController?.navigationBarHidden != hidden {
+            if hidden {
+                self.navigationController?.setNavigationBarHidden(hidden, animated: animated)
+                UIApplication.sharedApplication().setStatusBarHidden(hidden, withAnimation: animated ? .Slide : .None)
+            } else {
+                UIApplication.sharedApplication().setStatusBarHidden(hidden, withAnimation: animated ? .Slide : .None)
+                self.navigationController?.setNavigationBarHidden(hidden, animated: animated)
+            }
+        }
+    }
+    
 }
