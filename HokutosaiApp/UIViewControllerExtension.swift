@@ -30,14 +30,29 @@ extension UIViewController {
     }
     
     func hiddenTopBar(hidden: Bool, animated: Bool) {
-        if self.navigationController?.navigationBarHidden != hidden {
+        guard let navigationController = self.navigationController else { return }
+        
+        if navigationController.navigationBarHidden != hidden {
             if hidden {
-                self.navigationController?.setNavigationBarHidden(hidden, animated: animated)
+                navigationController.setNavigationBarHidden(hidden, animated: animated)
                 UIApplication.sharedApplication().setStatusBarHidden(hidden, withAnimation: animated ? .Slide : .None)
             } else {
                 UIApplication.sharedApplication().setStatusBarHidden(hidden, withAnimation: animated ? .Slide : .None)
-                self.navigationController?.setNavigationBarHidden(hidden, animated: animated)
+                navigationController.setNavigationBarHidden(hidden, animated: animated)
             }
+        }
+    }
+    
+    func switchTopBarVisible(animated: Bool) {
+        guard let navigationController = self.navigationController else { return }
+        
+        if navigationController.navigationBarHidden {
+            UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: animated ? .Slide : .None)
+            navigationController.setNavigationBarHidden(false, animated: animated)
+        }
+        else {
+            navigationController.setNavigationBarHidden(true, animated: animated)
+            UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: animated ? .Slide : .None)
         }
     }
     
