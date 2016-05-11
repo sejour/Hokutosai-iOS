@@ -117,6 +117,14 @@ class ImageViewController: SlidePageViewController {
             self.imageView.af_setImageWithURL(imageUrl, placeholderImage: SharedImage.placeholderImage)
         }
         
+        func setImage(image: UIImage?) {
+            guard image != nil else {
+                self.imageView.image = SharedImage.placeholderImage
+            }
+            
+            self.imageView.image = image
+        }
+        
         func longPress(gesture: UILongPressGestureRecognizer) {
             guard let image = self.imageView.image where gesture.state == .Began else { return }
             
