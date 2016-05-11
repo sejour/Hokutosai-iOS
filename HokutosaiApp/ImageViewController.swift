@@ -18,6 +18,7 @@ class ImageViewController: SlidePageViewController {
         self.title = title
         self.medias = medias
         self.initialPage = initialPage
+        self.hidesBottomBarWhenPushed = true
     }
     
     required init?(coder: NSCoder) {
