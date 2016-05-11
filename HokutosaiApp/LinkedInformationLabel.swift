@@ -20,10 +20,12 @@ class LinkedInformationLabel: UIView {
     init(frame: CGRect, icon: UIImage?, text: String?, target: AnyObject?, action: Selector, iconSize: CGFloat = 22.0) {
         super.init(frame: frame)
         
+        self.userInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: target, action: action)
+        self.addGestureRecognizer(tapGesture)
+        
         self.iconView = UIImageView(image: icon)
         self.iconView.contentMode = .ScaleAspectFit
-        self.iconView.userInteractionEnabled = true
-        self.iconView.addGestureRecognizer(UITapGestureRecognizer(target: target, action: action))
         self.addSubview(iconView)
         self.iconView.snp_makeConstraints { make in
             make.width.height.equalTo(iconSize)
@@ -32,13 +34,11 @@ class LinkedInformationLabel: UIView {
         }
         
         self.label = UILabel()
-        self.label.textColor = UIColor.trueColor(95, green: 145, blue: 237)
+        self.label.textColor = UIColor.blueColor()
         self.label.font = UIFont.systemFontOfSize(16)
         self.label.textAlignment = .Left
         self.label.numberOfLines = 0
         self.label.text = text
-        self.label.userInteractionEnabled = true
-        self.label.addGestureRecognizer(UITapGestureRecognizer(target: target, action: action))
         self.addSubview(label)
         self.label.snp_makeConstraints { make in
             make.top.equalTo(self)

@@ -111,7 +111,7 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
         //
         
         // InformationView
-        let informationView = StandardInformationView(width: self.view.width, data: model)
+        let informationView = StandardInformationView(width: self.view.width, data: model, placeLinkTarget: self, placeLinkAction: #selector(StandardDetailsViewController.showMap))
         self.addContentView(informationView)
         
         //
@@ -250,6 +250,11 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
         let shareText = "#北斗祭 #\(model.dataTitle ?? "未登録") "
         let activityViewController = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
         self.presentViewController(activityViewController, animated: true, completion: nil)
+    }
+    
+    func showMap() {
+        let vc = ImageViewController(title: "校内マップ", images: [SharedImage.layoutMap])
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
 }

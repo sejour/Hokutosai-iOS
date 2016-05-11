@@ -14,15 +14,15 @@ class StandardInformationView: UIView {
     private static let imageLeftMargin: CGFloat = 20.0
     private static let informationViewVerticalMargin = 5.0
     
-    convenience init(width: CGFloat, data: StandardContentsData) {
-        self.init(frame: CGRect(x: 0.0, y: 0.0, width: width, height: 0.0), imageUrl: data.dataImageUrl, organizer: data.dataOrganizer, description: data.dataDescription, place: data.dataPlace)
+    convenience init(width: CGFloat, data: StandardContentsData, placeLinkTarget: AnyObject?, placeLinkAction: Selector) {
+        self.init(frame: CGRect(x: 0.0, y: 0.0, width: width, height: 0.0), imageUrl: data.dataImageUrl, organizer: data.dataOrganizer, description: data.dataDescription, place: data.dataPlace, placeLinkTarget: placeLinkTarget, placeLinkAction: placeLinkAction)
     }
     
-    convenience init(width: CGFloat, imageUrl: String?, organizer: String?, description: String?, place: Place?) {
-        self.init(frame: CGRect(x: 0.0, y: 0.0, width: width, height: 0.0), imageUrl: imageUrl, organizer: organizer, description: description, place: place)
+    convenience init(width: CGFloat, imageUrl: String?, organizer: String?, description: String?, place: Place?, placeLinkTarget: AnyObject?, placeLinkAction: Selector) {
+        self.init(frame: CGRect(x: 0.0, y: 0.0, width: width, height: 0.0), imageUrl: imageUrl, organizer: organizer, description: description, place: place, placeLinkTarget: placeLinkTarget, placeLinkAction: placeLinkAction)
     }
     
-    init(frame: CGRect, imageUrl: String?, organizer: String?, description: String?, place: Place?) {
+    init(frame: CGRect, imageUrl: String?, organizer: String?, description: String?, place: Place?, placeLinkTarget: AnyObject?, placeLinkAction: Selector) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
         
@@ -67,7 +67,7 @@ class StandardInformationView: UIView {
         }
         
         // Place
-        let placeLabel = InformationLabel(width: informationViewWidth, icon: SharedImage.placeIcon, text: place?.name)
+        let placeLabel = LinkedInformationLabel(width: informationViewWidth, icon: SharedImage.placeIcon, text: place?.name, target: placeLinkTarget, action: placeLinkAction)
         placeLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(placeLabel)
         placeLabel.snp_makeConstraints { make in
