@@ -16,7 +16,8 @@ protocol SlideImageViewDelegate: class {
 
 class SlideImageView: UIView, TappableViewControllerDelegate {
     
-    var slidePageViewController: SlidePageViewController!
+    private var slidePageViewController: SlidePageViewController!
+    private var items: [Item]!
     
     weak var delegate: SlideImageViewDelegate?
 
@@ -44,7 +45,7 @@ class SlideImageView: UIView, TappableViewControllerDelegate {
             make.bottom.equalTo(self)
         }
         
-        var items = [Item]()
+        self.items = [Item]()
         for i in 0 ..< medias.count {
             guard let url = medias[i].url else { continue }
             let item = Item()
@@ -52,13 +53,13 @@ class SlideImageView: UIView, TappableViewControllerDelegate {
             item.delegate = self
             item.view.frame = CGRect(x: 0.0, y: 0.0, width: self.width, height: self.height)
             item.setImageUrl(url)
-            items.append(item)
+            self.items.append(item)
         }
-        self.slidePageViewController.pages = items
+        self.slidePageViewController.pages = self.items
         
         if items.count > 1 {
             let pageControl = UIPageControl()
-            pageControl.numberOfPages = items.count
+            pageControl.numberOfPages = self.items.count
             pageControl.currentPage = 0
             self.slidePageViewController.pageControl = pageControl
             self.addSubview(pageControl)
@@ -77,10 +78,19 @@ class SlideImageView: UIView, TappableViewControllerDelegate {
     func tappedView(sender: TappableViewController, gesture: UITapGestureRecognizer, tag: Int) {
         self.delegate?.tappedImage(gesture, index: tag)
     }
+    
+    var currentPageImage: UIImage? {
+        guard let currentPage = self.slidePageViewController.currentPageNumber else { return nil }
+        return self.items[currentPage].image
+    }
 
     class Item: TappableViewController {
         
         private var imageView: UIImageView!
+        
+        var image: UIImage? {
+            return self.imageView.image
+        }
         
         override func viewDidLoad() {
             super.viewDidLoad()
