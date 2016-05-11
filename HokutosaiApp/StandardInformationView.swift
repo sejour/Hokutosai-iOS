@@ -24,7 +24,6 @@ class StandardInformationView: UIView {
     
     init(frame: CGRect, imageUrl: String?, organizer: String?, description: String?, place: Place?, placeLinkTarget: AnyObject?, placeLinkAction: Selector) {
         super.init(frame: frame)
-        self.translatesAutoresizingMaskIntoConstraints = false
         
         let imageWidth = self.width * StandardInformationView.imageWidthRatio
         
