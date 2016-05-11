@@ -47,14 +47,16 @@ class SlideImageView: UIView {
         }
         self.slidePageViewController.pages = items
         
-        self.pageControl = UIPageControl()
-        self.pageControl.numberOfPages = items.count
-        self.pageControl.currentPage = 0
-        self.addSubview(self.pageControl)
-        self.pageControl.snp_makeConstraints { make in
-            make.centerX.equalTo(self)
-            make.bottom.equalTo(self).offset(-8.0)
-            make.height.equalTo(8.0)
+        if items.count > 1 {
+            self.pageControl = UIPageControl()
+            self.pageControl.numberOfPages = items.count
+            self.pageControl.currentPage = 0
+            self.addSubview(self.pageControl)
+            self.pageControl.snp_makeConstraints { make in
+                make.centerX.equalTo(self)
+                make.bottom.equalTo(self).offset(-8.0)
+                make.height.equalTo(8.0)
+            }
         }
     }
     
