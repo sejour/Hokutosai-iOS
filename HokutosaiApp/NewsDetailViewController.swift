@@ -63,6 +63,16 @@ class NewsDetailViewController: ContentsViewController {
         self.insertSpace(15.0)
         // ---
         
+        // SlideImageView
+        if let medias = self.article.medias {
+            let imageView = SlideImageView(height: 200, targetViewController: self, medias: medias)
+            self.addContentView(imageView)
+        }
+        
+        //
+        self.insertSpace(15.0)
+        //
+        
         // Text
         let textLabel = TextLabel(width: self.view.width, text: self.article.text)
         self.addContentView(textLabel)
