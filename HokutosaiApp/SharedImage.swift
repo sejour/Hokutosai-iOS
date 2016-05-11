@@ -35,6 +35,8 @@ final class SharedImage {
     
     static var hokutosaiTopImage: UIImage? { return UIImage(named: "TopImage") }
     
+    static var placeholderImage: UIImage? { return UIImage(named: "PlaceholderImage") }
+    
     private init () {}
     
 }
