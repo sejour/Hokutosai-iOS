@@ -38,6 +38,8 @@ class SlidePageViewController: UIPageViewController, UIPageViewControllerDataSou
         get { return self.view.frame.size }
         set { self.view.frame.size = newValue }
     }
+    
+    var pageControl: UIPageControl?
 
     init () {
         super.init(transitionStyle: .Scroll, navigationOrientation: .Horizontal, options: nil)
@@ -110,6 +112,16 @@ class SlidePageViewController: UIPageViewController, UIPageViewControllerDataSou
     // コンテンツが垂直方向にずれることが時々あるので対処
     func scrollViewDidScroll(scrollView: UIScrollView) {
         scrollView.contentOffset.y = 0.0
+    }
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        guard let currentPage = self.currentPageNumber else { return }
+        self.pageControl?.currentPage = currentPage
+    }
+    
+    func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView) {
+        guard let currentPage = self.currentPageNumber else { return }
+        self.pageControl?.currentPage = currentPage
     }
 
 }
