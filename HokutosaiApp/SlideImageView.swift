@@ -19,19 +19,72 @@ class SlideImageView: UIView {
     private init(frame: CGRect, targetViewController: UIViewController, medias: [Media]) {
         super.init(frame: frame)
         
+        self.snp_makeConstraints { make in
+            make.width.equalTo(self.width)
+            make.height.equalTo(self.height)
+        }
+        
         self.slidePageViewController = SlidePageViewController(navigationOrientation: .Horizontal)
         targetViewController.addChildViewController(self.slidePageViewController)
         self.addSubview(self.slidePageViewController.view)
         targetViewController.didMoveToParentViewController(targetViewController)
         
-        targetViewController.view.origin = CGPointZero
-        targetViewController.view.size = self.size
+        self.slidePageViewController.view.snp_makeConstraints { make in
+            make.left.equalTo(self)
+            make.top.equalTo(self)
+            make.right.equalTo(self)
+            make.bottom.equalTo(self)
+        }
         
-        
+        var items = [Item]()
+        for media in medias {
+            guard let url = media.url else { continue }
+            let item = Item()
+            item.view.frame = CGRect(x: 0.0, y: 0.0, width: self.width, height: self.height)
+            item.setImageUrl(url)
+            items.append(item)
+        }
+        self.slidePageViewController.pages = items
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+    class Item: TappableViewController {
+        
+        private var imageView: UIImageView!
+        
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            
+            self.view.backgroundColor = UIColor.whiteColor()
+            
+            self.imageView = UIImageView()
+            self.imageView.image = SharedImage.placeholderImage
+            self.view.addSubview(self.imageView)
+            self.imageView.snp_makeConstraints { make in
+                make.left.equalTo(self.view)
+                make.top.equalTo(self.view)
+                make.right.equalTo(self.view)
+                make.bottom.equalTo(self.view)
+            }
+            
+            self.imageView.contentMode = .ScaleAspectFit
+            self.imageView.clipsToBounds = true
+        }
+        
+        override func didReceiveMemoryWarning() {
+            super.didReceiveMemoryWarning()
+            // Dispose of any resources that can be recreated.
+        }
+        
+        func setImageUrl(url: String) {
+            guard let imageUrl = NSURL(string: url) else { return }
+            
+            self.imageView.af_setImageWithURL(imageUrl, placeholderImage: SharedImage.placeholderImage)
+        }
+        
+    }
+    
 }
