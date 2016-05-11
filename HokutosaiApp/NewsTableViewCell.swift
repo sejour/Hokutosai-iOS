@@ -92,12 +92,12 @@ class NewsTableViewCell: UITableViewCell, LikeableTableViewCell {
             self.likesCountLabel.textColor = SharedColor.likesCountGray
         }
         
-        self.firstImageView.image = nil
+        self.firstImageView.image = SharedImage.placeholderImageMini
         var contentViewLeft = self.contentView.snp_left
         if let imageUrl = article.medias?.first?.url, let url = NSURL(string: imageUrl) {
             contentViewLeft = self.firstImageView.snp_right
             self.firstImageView.hidden = false
-            self.firstImageView.af_setImageWithURL(url)
+            self.firstImageView.af_setImageWithURL(url, placeholderImage: SharedImage.placeholderImageMini)
             self.firstImageView.snp_makeConstraints { make in
                 make.left.equalTo(self.contentView)
                 make.top.equalTo(self.contentView)
