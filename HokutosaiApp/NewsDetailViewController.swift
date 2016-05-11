@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewsDetailViewController: ContentsViewController {
+class NewsDetailViewController: ContentsViewController, SlideImageViewDelegate {
     
     private var article: Article!
     
@@ -66,6 +66,7 @@ class NewsDetailViewController: ContentsViewController {
         // SlideImageView
         if let medias = self.article.medias where medias.count > 0 {
             let imageView = SlideImageView(height: 200, targetViewController: self, medias: medias)
+            imageView.delegate = self
             self.addContentView(imageView)
             self.insertSpace(15.0)
         }
@@ -198,6 +199,12 @@ class NewsDetailViewController: ContentsViewController {
         let shareText = "#北斗祭 【\(article.title ?? "タイトル無し")】\n\(article.text ?? "")\n"
         let activityViewController = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
         self.presentViewController(activityViewController, animated: true, completion: nil)
+    }
+    
+    func tappedImage(gesture: UIGestureRecognizer, index: Int) {
+        guard let medias = self.article.medias else { return }
+        let imageViewController = ImageViewController(medias: medias, initialPage: index)
+        self.navigationController?.pushViewController(imageViewController, animated: true)
     }
 
 }
