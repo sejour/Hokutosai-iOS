@@ -16,6 +16,7 @@ final class SharedImage {
     static let grayHertIcon = UIImage(named: "GrayHertIcon")
     static let redHertIcon = UIImage(named: "RedHertIcon")
     static let featureIcon = UIImage(named: "FeatureIcon")
+    static let topicIcon = UIImage(named: "TopicIcon")
     static let starRibbonIcon = UIImage(named: "StarRibbonIcon")
     
     static var organizerIcon: UIImage? { return UIImage(named: "OrganizerIcon") }
