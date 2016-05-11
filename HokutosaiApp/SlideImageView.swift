@@ -8,9 +8,17 @@
 
 import UIKit
 
-class SlideImageView: UIView {
+protocol SlideImageViewDelegate: class {
+    
+    func tappedImage(gesture: UIGestureRecognizer, index: Int)
+    
+}
+
+class SlideImageView: UIView, TappableViewControllerDelegate {
     
     var slidePageViewController: SlidePageViewController!
+    
+    weak var delegate: SlideImageViewDelegate?
 
     convenience init(height: CGFloat, targetViewController: UIViewController, medias: [Media]) {
         self.init(frame: CGRect(x: 0.0, y: 0.0, width: targetViewController.view.width, height: height), targetViewController: targetViewController, medias: medias)
@@ -37,9 +45,11 @@ class SlideImageView: UIView {
         }
         
         var items = [Item]()
-        for media in medias {
-            guard let url = media.url else { continue }
+        for i in 0 ..< medias.count {
+            guard let url = medias[i].url else { continue }
             let item = Item()
+            item.tag = i
+            item.delegate = self
             item.view.frame = CGRect(x: 0.0, y: 0.0, width: self.width, height: self.height)
             item.setImageUrl(url)
             items.append(item)
@@ -62,6 +72,10 @@ class SlideImageView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func tappedView(sender: TappableViewController, gesture: UITapGestureRecognizer, tag: Int) {
+        self.delegate?.tappedImage(gesture, index: tag)
     }
 
     class Item: TappableViewController {
