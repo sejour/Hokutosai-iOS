@@ -31,6 +31,9 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         super.viewDidLoad()
 
         self.title = "お知らせ"
+        
+        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(title: "MAP", style: .Plain, target: self, action: #selector(NewsViewController.showMap))]
+        
         self.view.backgroundColor = UIColor.whiteColor()
         
         self.generateTopics()
@@ -373,6 +376,11 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
     private var timeLineFrame: CGRect {
         let originY = self.topicsBordController.view.bottom
         return CGRect(x: 0.0, y: originY, width: self.view.width, height: self.view.bottom - originY)
+    }
+    
+    func showMap() {
+        let vc = ImageViewController(title: "校内マップ", images: [SharedImage.layoutMap])
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
 }

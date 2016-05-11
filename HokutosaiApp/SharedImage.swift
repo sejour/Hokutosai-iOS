@@ -40,6 +40,8 @@ final class SharedImage {
     static var placeholderImage: UIImage? { return UIImage(named: "PlaceholderImage") }
     static let placeholderImageMini = UIImage(named: "PlaceholderImageMini")
     
+    static var layoutMap: UIImage? { return UIImage(named: "LayoutMap") }
+    
     private init () {}
     
 }

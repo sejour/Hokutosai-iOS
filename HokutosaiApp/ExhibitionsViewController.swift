@@ -22,6 +22,8 @@ class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableV
         
         self.title = "展示"
         
+        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(title: "MAP", style: .Plain, target: self, action: #selector(ExhibitionsViewController.showMap))]
+        
         self.generateTableView()
         
         let loadingView = SimpleLoadingView(frame: self.view.frame)
@@ -169,6 +171,11 @@ class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableV
     
     func reloadData() {
         self.tableView.reloadData()
+    }
+    
+    func showMap() {
+        let vc = ImageViewController(title: "校内マップ", images: [SharedImage.layoutMap])
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }
