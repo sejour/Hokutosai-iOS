@@ -25,7 +25,7 @@ class SlideImageView: UIView {
             make.height.equalTo(self.height)
         }
         
-        self.slidePageViewController = SlidePageViewController(navigationOrientation: .Horizontal)
+        self.slidePageViewController = SlidePageViewController()
         targetViewController.addChildViewController(self.slidePageViewController)
         self.addSubview(self.slidePageViewController.view)
         targetViewController.didMoveToParentViewController(targetViewController)

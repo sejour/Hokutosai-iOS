@@ -39,8 +39,8 @@ class SlidePageViewController: UIPageViewController, UIPageViewControllerDataSou
         set { self.view.frame.size = newValue }
     }
 
-    init (navigationOrientation: UIPageViewControllerNavigationOrientation = .Horizontal) {
-        super.init(transitionStyle: .Scroll, navigationOrientation: navigationOrientation, options: nil)
+    init () {
+        super.init(transitionStyle: .Scroll, navigationOrientation: .Horizontal, options: nil)
     }
     
     required init?(coder: NSCoder) {

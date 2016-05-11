@@ -26,9 +26,9 @@ class FlowingPageViewController: SlidePageViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    init(interval: NSTimeInterval = 5.0, navigationOrientation: UIPageViewControllerNavigationOrientation = .Horizontal) {
+    init(interval: NSTimeInterval = 5.0) {
         self.interval = interval
-        super.init(navigationOrientation: navigationOrientation)
+        super.init()
     }
     
     required init?(coder: NSCoder) {
