@@ -102,6 +102,9 @@ class ImageViewController: SlidePageViewController {
             
             // ダブルタップによる拡大を優先する
             tapGesture.requireGestureRecognizerToFail(doubleTapGesture)
+            
+            let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(Item.longPress(_:)))
+            self.imageView.addGestureRecognizer(longPressGesture)
         }
         
         override func didReceiveMemoryWarning() {
@@ -112,6 +115,13 @@ class ImageViewController: SlidePageViewController {
         func setImageUrl(url: String) {
             guard let imageUrl = NSURL(string: url) else { return }
             self.imageView.af_setImageWithURL(imageUrl, placeholderImage: SharedImage.placeholderImage)
+        }
+        
+        func longPress(gesture: UILongPressGestureRecognizer) {
+            guard let image = self.imageView.image where gesture.state == .Began else { return }
+            
+            let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+            self.presentViewController(activityViewController, animated: true, completion: nil)
         }
         
         func tapped(sender: UITapGestureRecognizer) {
