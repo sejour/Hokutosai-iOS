@@ -212,7 +212,7 @@ class NewsDetailViewController: ContentsViewController, SlideImageViewDelegate {
     
     func tappedImage(gesture: UIGestureRecognizer, index: Int) {
         guard let medias = self.article.medias else { return }
-        let imageViewController = ImageViewController(title: self.title, medias: medias, initialPage: index)
+        let imageViewController = MediaImageViewController(title: self.title, medias: medias, initialPage: index)
         self.navigationController?.pushViewController(imageViewController, animated: true)
     }
 

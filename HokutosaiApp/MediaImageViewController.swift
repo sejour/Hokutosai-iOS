@@ -1,5 +1,5 @@
 //
-//  ImageViewController.swift
+//  MediaImageViewController.swift
 //  HokutosaiApp
 //
 //  Created by Shuka Takakuma on 2016/05/11.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageViewController: SlidePageViewController {
+class MediaImageViewController: SlidePageViewController {
     
     private var medias: [Media]!
     private var initialPage: Int = 0
@@ -120,6 +120,7 @@ class ImageViewController: SlidePageViewController {
         func setImage(image: UIImage?) {
             guard image != nil else {
                 self.imageView.image = SharedImage.placeholderImage
+                return
             }
             
             self.imageView.image = image
