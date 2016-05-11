@@ -14,6 +14,8 @@ class NewsDetailViewController: ContentsViewController, SlideImageViewDelegate {
     
     private var likesCountLabel: InformationLabel!
     private var likeIcon: InteractiveIcon!
+    
+    private var slideImageView: SlideImageView?
 
     private weak var newsViewController: NewsViewController?
     
@@ -65,9 +67,9 @@ class NewsDetailViewController: ContentsViewController, SlideImageViewDelegate {
         
         // SlideImageView
         if let medias = self.article.medias where medias.count > 0 {
-            let imageView = SlideImageView(height: 200, targetViewController: self, medias: medias)
-            imageView.delegate = self
-            self.addContentView(imageView)
+            self.slideImageView = SlideImageView(height: 200, targetViewController: self, medias: medias)
+            self.slideImageView!.delegate = self
+            self.addContentView(self.slideImageView!)
             self.insertSpace(15.0)
         }
         
@@ -196,8 +198,15 @@ class NewsDetailViewController: ContentsViewController, SlideImageViewDelegate {
     func share() {
         guard let article = self.article else { return }
         
+        var items = [AnyObject]()
         let shareText = "#北斗祭 【\(article.title ?? "タイトル無し")】\n\(article.text ?? "")\n"
-        let activityViewController = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
+        items.append(shareText)
+        
+        if let imageView = self.slideImageView, let image = imageView.currentPageImage {
+            items.append(image)
+        }
+        
+        let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
         self.presentViewController(activityViewController, animated: true, completion: nil)
     }
     
