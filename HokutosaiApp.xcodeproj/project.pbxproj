@@ -98,6 +98,7 @@
 		A7A60FC31CD36C3600AA9543 /* SlidePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A60FC21CD36C3600AA9543 /* SlidePageViewController.swift */; };
 		A7A60FC51CD3763800AA9543 /* FlowingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A60FC41CD3763800AA9543 /* FlowingPageViewController.swift */; };
 		A7A60FC71CD39E5D00AA9543 /* TappableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A60FC61CD39E5D00AA9543 /* TappableViewController.swift */; };
+		A7D415231CE3D34500B163B8 /* LinkedInformationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D415221CE3D34500B163B8 /* LinkedInformationLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -216,6 +217,7 @@
 		A7A60FC21CD36C3600AA9543 /* SlidePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidePageViewController.swift; sourceTree = "<group>"; };
 		A7A60FC41CD3763800AA9543 /* FlowingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowingPageViewController.swift; sourceTree = "<group>"; };
 		A7A60FC61CD39E5D00AA9543 /* TappableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TappableViewController.swift; sourceTree = "<group>"; };
+		A7D415221CE3D34500B163B8 /* LinkedInformationLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedInformationLabel.swift; sourceTree = "<group>"; };
 		C4F766DA8D757B41B41297FB /* Pods-HokutosaiApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HokutosaiApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HokutosaiApp/Pods-HokutosaiApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -645,6 +647,7 @@
 				A78A36BC1CE1C7E200806FC4 /* MenuItemLabel.swift */,
 				A730E8841CE257BB00D2CD58 /* ArticleMetaLabel.swift */,
 				A730E8861CE2A19000D2CD58 /* SlideImageView.swift */,
+				A7D415221CE3D34500B163B8 /* LinkedInformationLabel.swift */,
 			);
 			name = Material;
 			sourceTree = "<group>";
@@ -929,6 +932,7 @@
 				A7A5D2A41CDD651700F8F297 /* InteractiveIcon.swift in Sources */,
 				A745047D1CD3C5A1001165E2 /* TopicNews.swift in Sources */,
 				A730E8851CE257BB00D2CD58 /* ArticleMetaLabel.swift in Sources */,
+				A7D415231CE3D34500B163B8 /* LinkedInformationLabel.swift in Sources */,
 				A7A5D2901CDA684F00F8F297 /* ContentsViewController.swift in Sources */,
 				A745047F1CD3C6DB001165E2 /* TopicContentData.swift in Sources */,
 				A730E88E1CE3BFEA00D2CD58 /* ImageViewControllerItem.swift in Sources */,
