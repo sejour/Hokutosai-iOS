@@ -34,6 +34,7 @@ class NewsDetailViewController: ContentsViewController, SlideImageViewDelegate {
 
         self.hideNavigationBackButtonText()
         self.generateContents()
+        self.updateLike()
     }
     
     override func didReceiveMemoryWarning() {
