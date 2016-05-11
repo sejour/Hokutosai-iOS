@@ -179,7 +179,15 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
     var requiredToUpdateWhenWillEnterForeground: Bool { return true }
     
     func tappedView(sender: TappableViewController, gesture: UITapGestureRecognizer, tag: Int) {
-        guard let topics = self.topics where topics[tag].newsId != nil else { return }
+        guard let topics = self.topics else { return }
+        
+        guard topics[tag].mediaUrl != "hokutosai:2016/top" else {
+            let detailView = ImageViewController(title: "2016北斗祭「SOLE!」", images: [SharedImage.hokutosaiThemaImage, SharedImage.hokutosaiTopImage], initialPage: 0)
+            self.navigationController?.pushViewController(detailView, animated: true)
+            return
+        }
+        
+        guard topics[tag].newsId != nil else { return }
         
         let detailView = NewsDetailViewController(article: topics[tag], newsViewController: self)
         self.navigationController?.pushViewController(detailView, animated: true)

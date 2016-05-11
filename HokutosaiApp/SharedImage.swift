@@ -35,6 +35,7 @@ final class SharedImage {
     static var blackHertIcon: UIImage? { return UIImage(named: "BlackHertIcon") }
     
     static var hokutosaiTopImage: UIImage? { return UIImage(named: "TopImage") }
+    static var hokutosaiThemaImage: UIImage? { return UIImage(named: "ThemaImage") }
     
     static var placeholderImage: UIImage? { return UIImage(named: "PlaceholderImage") }
     static let placeholderImageMini = UIImage(named: "PlaceholderImageMini")
