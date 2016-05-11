@@ -25,8 +25,8 @@ class NewsTableViewCell: UITableViewCell, LikeableTableViewCell {
     
     weak var delegate: LikeableTableViewCellDelegate?
     
-    private static let contentHeight: CGFloat = 80.0
-    static let rowHeight: CGFloat = 81.0
+    private static let contentHeight: CGFloat = 76.0
+    static let rowHeight: CGFloat = 77.0
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
