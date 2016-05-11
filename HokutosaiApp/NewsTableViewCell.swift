@@ -19,6 +19,7 @@ class NewsTableViewCell: UITableViewCell, LikeableTableViewCell {
     @IBOutlet weak var datetimeLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var likesCountLabel: UILabel!
+    @IBOutlet weak var topicIcon: UIImageView!
     
     var index: Int!
     var data: Article!
@@ -90,6 +91,13 @@ class NewsTableViewCell: UITableViewCell, LikeableTableViewCell {
         else {
             self.likeButton.imageView?.image = SharedImage.grayHertIcon
             self.likesCountLabel.textColor = SharedColor.likesCountGray
+        }
+        
+        if let topic = article.isTopic where topic {
+            self.topicIcon.hidden = false
+        }
+        else {
+            self.topicIcon.hidden = true
         }
         
         self.firstImageView.image = SharedImage.placeholderImageMini
