@@ -13,8 +13,9 @@ class ImageViewController: SlidePageViewController {
     private var medias: [Media]!
     private var initialPage: Int = 0
     
-    init(medias: [Media], initialPage: Int) {
+    init(title: String?, medias: [Media], initialPage: Int) {
         super.init()
+        self.title = title
         self.medias = medias
         self.initialPage = initialPage
     }
@@ -43,7 +44,7 @@ class ImageViewController: SlidePageViewController {
             self.setViewControllers([self.pages[self.initialPage]], direction: .Forward, animated: false, completion: nil)
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
