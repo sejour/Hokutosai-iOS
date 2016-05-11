@@ -72,6 +72,11 @@ class ImageViewController: SlidePageViewController {
             
             self.imageView.contentMode = .ScaleAspectFit
             self.imageView.clipsToBounds = true
+            
+            self.imageView.userInteractionEnabled = true
+            
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(Item.tapped(_:)))
+            self.imageView.addGestureRecognizer(tapGesture)
         }
         
         override func didReceiveMemoryWarning() {
@@ -82,6 +87,10 @@ class ImageViewController: SlidePageViewController {
         func setImageUrl(url: String) {
             guard let imageUrl = NSURL(string: url) else { return }
             self.imageView.af_setImageWithURL(imageUrl, placeholderImage: SharedImage.placeholderImage)
+        }
+        
+        func tapped(sender: UITapGestureRecognizer) {
+            self.switchTopBarVisible(true)
         }
         
     }
