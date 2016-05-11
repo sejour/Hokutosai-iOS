@@ -14,6 +14,7 @@
 		A730E8871CE2A19000D2CD58 /* SlideImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730E8861CE2A19000D2CD58 /* SlideImageView.swift */; };
 		A730E88B1CE34E4C00D2CD58 /* MediaImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730E88A1CE34E4C00D2CD58 /* MediaImageViewController.swift */; };
 		A730E88E1CE3BFEA00D2CD58 /* ImageViewControllerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730E88D1CE3BFEA00D2CD58 /* ImageViewControllerItem.swift */; };
+		A730E8921CE3C17200D2CD58 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730E8911CE3C17200D2CD58 /* ImageViewController.swift */; };
 		A74504781CD3B166001165E2 /* TopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74504761CD3B166001165E2 /* TopicViewController.swift */; };
 		A74504791CD3B166001165E2 /* TopicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A74504771CD3B166001165E2 /* TopicViewController.xib */; };
 		A745047D1CD3C5A1001165E2 /* TopicNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A745047C1CD3C5A1001165E2 /* TopicNews.swift */; };
@@ -125,6 +126,7 @@
 		A730E8861CE2A19000D2CD58 /* SlideImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideImageView.swift; sourceTree = "<group>"; };
 		A730E88A1CE34E4C00D2CD58 /* MediaImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaImageViewController.swift; sourceTree = "<group>"; };
 		A730E88D1CE3BFEA00D2CD58 /* ImageViewControllerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewControllerItem.swift; sourceTree = "<group>"; };
+		A730E8911CE3C17200D2CD58 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		A74504761CD3B166001165E2 /* TopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicViewController.swift; sourceTree = "<group>"; };
 		A74504771CD3B166001165E2 /* TopicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopicViewController.xib; sourceTree = "<group>"; };
 		A745047C1CD3C5A1001165E2 /* TopicNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicNews.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 			children = (
 				A730E88A1CE34E4C00D2CD58 /* MediaImageViewController.swift */,
 				A730E88D1CE3BFEA00D2CD58 /* ImageViewControllerItem.swift */,
+				A730E8911CE3C17200D2CD58 /* ImageViewController.swift */,
 			);
 			name = ImageViewController;
 			sourceTree = "<group>";
@@ -906,6 +909,7 @@
 				A74504881CD3DE32001165E2 /* ShopItem.swift in Sources */,
 				A79412341CE04B610040913D /* StandardInformationView.swift in Sources */,
 				A74504A11CD5234F001165E2 /* UIViewExtension.swift in Sources */,
+				A730E8921CE3C17200D2CD58 /* ImageViewController.swift in Sources */,
 				A787A1B91CCF6D380045F1DD /* StandardDetailsViewController.swift in Sources */,
 				A745049F1CD507FC001165E2 /* LikeableTableViewCell.swift in Sources */,
 				A74504781CD3B166001165E2 /* TopicViewController.swift in Sources */,
