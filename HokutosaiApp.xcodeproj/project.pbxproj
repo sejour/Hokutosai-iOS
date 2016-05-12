@@ -104,6 +104,7 @@
 		A7CFD7DB1CE5068600D9E569 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CFD7DA1CE5068600D9E569 /* ButtonView.swift */; };
 		A7CFD7DE1CE5370C00D9E569 /* AssessmentsReportSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CFD7DD1CE5370C00D9E569 /* AssessmentsReportSelectViewController.swift */; };
 		A7CFD7E01CE53A6800D9E569 /* AssessmentReportCause.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CFD7DF1CE53A6800D9E569 /* AssessmentReportCause.swift */; };
+		A7CFD7E41CE53B2100D9E569 /* HokutosaiApiStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CFD7E31CE53B2100D9E569 /* HokutosaiApiStatus.swift */; };
 		A7D415231CE3D34500B163B8 /* LinkedInformationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D415221CE3D34500B163B8 /* LinkedInformationLabel.swift */; };
 		A7D415251CE49B0200B163B8 /* AssessmentAggregateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D415241CE49B0200B163B8 /* AssessmentAggregateView.swift */; };
 /* End PBXBuildFile section */
@@ -230,6 +231,7 @@
 		A7CFD7DA1CE5068600D9E569 /* ButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		A7CFD7DD1CE5370C00D9E569 /* AssessmentsReportSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssessmentsReportSelectViewController.swift; sourceTree = "<group>"; };
 		A7CFD7DF1CE53A6800D9E569 /* AssessmentReportCause.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssessmentReportCause.swift; sourceTree = "<group>"; };
+		A7CFD7E31CE53B2100D9E569 /* HokutosaiApiStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HokutosaiApiStatus.swift; sourceTree = "<group>"; };
 		A7D415221CE3D34500B163B8 /* LinkedInformationLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedInformationLabel.swift; sourceTree = "<group>"; };
 		A7D415241CE49B0200B163B8 /* AssessmentAggregateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssessmentAggregateView.swift; sourceTree = "<group>"; };
 		C4F766DA8D757B41B41297FB /* Pods-HokutosaiApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HokutosaiApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HokutosaiApp/Pods-HokutosaiApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -393,6 +395,7 @@
 			isa = PBXGroup;
 			children = (
 				A774830C1CCBAA9F003AC18F /* HokutosaiApiError.swift */,
+				A7CFD7E31CE53B2100D9E569 /* HokutosaiApiStatus.swift */,
 			);
 			name = HokutosaiApi;
 			sourceTree = "<group>";
@@ -966,6 +969,7 @@
 				A774834B1CD20769003AC18F /* SharedColor.swift in Sources */,
 				A77483351CCCD413003AC18F /* ShopLikeResult.swift in Sources */,
 				A7A5D29A1CDB4E6200F8F297 /* InformationLabel.swift in Sources */,
+				A7CFD7E41CE53B2100D9E569 /* HokutosaiApiStatus.swift in Sources */,
 				A7A60FC31CD36C3600AA9543 /* SlidePageViewController.swift in Sources */,
 				A77B38FB1CC8C22C00012A0E /* AppDelegate.swift in Sources */,
 				A774832E1CCCD1AA003AC18F /* MyAssessment.swift in Sources */,
