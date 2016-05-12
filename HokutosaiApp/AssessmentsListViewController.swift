@@ -143,6 +143,8 @@ class AssessmentsListViewController: UIViewController, UITableViewDelegate, UITa
     func tappedOthersButton(assessmentId: UInt) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         let firstAction = UIAlertAction(title: "コメントを報告する", style: .Default) { action in
+            let reportViewController = AssessmentsReportSelectViewController()
+            self.presentViewController(reportViewController, animated: true, completion: nil)
         }
         let cancelAction = UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil)
         
