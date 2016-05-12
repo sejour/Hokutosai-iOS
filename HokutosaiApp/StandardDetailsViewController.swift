@@ -177,6 +177,16 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
         let label = InformationLabel(width: self.view.width, icon: SharedImage.messageIcon, text: "みんなの評価")
         self.addContentView(label)
         
+        // 集計結果
+        if let aggreagete = self.model?.dataAssessmentAggregate {
+            //
+            self.insertSpace(8.0)
+            //
+            
+            let aggregateView = AssessmentAggregateView(width: self.view.width, scoreData: aggreagete)
+            self.addContentView(aggregateView)
+        }
+        
         //
         self.insertSpace(20.0)
         //
