@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AssessmentsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MutableContentsController {
+class AssessmentsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MutableContentsController, AssessmentTableViewCellDelegate {
 
     private var myAssessment: Assessment?
     private var assessments: [Assessment]?
@@ -135,8 +135,21 @@ class AssessmentsListViewController: UIViewController, UITableViewDelegate, UITa
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! AssessmentTableViewCell
         
         cell.changeData(self.assessments![indexPath.row])
+        cell.delegate = self
         
         return cell
+    }
+    
+    func tappedOthersButton(assessmentId: UInt) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        let firstAction = UIAlertAction(title: "コメントを報告する", style: .Default) { action in
+        }
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil)
+        
+        alertController.addAction(firstAction)
+        alertController.addAction(cancelAction)
+        
+        presentViewController(alertController, animated: true, completion: nil)
     }
     
 }
