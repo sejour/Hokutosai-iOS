@@ -60,5 +60,9 @@ class Shop: StandardContentsData {
         get { return self.assessmentAggregate }
         set { self.assessmentAggregate = newValue }
     }
+    var dataMyAssessment: Assessment? {
+        get { return self.myAssessment }
+        set { self.myAssessment = newValue }
+    }
     
 }

@@ -21,5 +21,6 @@ protocol StandardContentsData: Mappable {
     var dataIntroduction: String? { get }
     var dataPlace: Place? { get }
     var dataAssessmentAggregate: AssessedScore? { get set }
+    var dataMyAssessment: Assessment? { get set }
     
 }
