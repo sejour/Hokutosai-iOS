@@ -31,6 +31,9 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         super.viewDidLoad()
 
         self.title = "お知らせ"
+        
+        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(title: "MAP", style: .Plain, target: self, action: #selector(NewsViewController.showMap))]
+        
         self.view.backgroundColor = UIColor.whiteColor()
         
         self.generateTopics()
@@ -179,7 +182,28 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
     var requiredToUpdateWhenWillEnterForeground: Bool { return true }
     
     func tappedView(sender: TappableViewController, gesture: UITapGestureRecognizer, tag: Int) {
-        print(tag)
+        guard let topics = self.topics else { return }
+        
+        guard topics[tag].mediaUrl != "hokutosai:2016/top" else {
+            let detailView = ImageViewController(title: "2016北斗祭「SOLE!」", images: [SharedImage.hokutosaiThemaImage, SharedImage.hokutosaiTopImage], initialPage: 0)
+            self.navigationController?.pushViewController(detailView, animated: true)
+            return
+        }
+        
+        guard topics[tag].newsId != nil else { return }
+        
+        let detailView = NewsDetailViewController(article: topics[tag], newsViewController: self)
+        self.navigationController?.pushViewController(detailView, animated: true)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.topicsBordController.startFlowing()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.topicsBordController.stopFlowing()
     }
     
     func onRefresh(refreshControl: UIRefreshControl) {
@@ -198,12 +222,18 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         guard let articles = self.articles else { return }
+        
+        // Reload Cell
         guard indexPath.row < articles.count else {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
             self.loadingCellManager.status = .Loading
             self.updateTimeline(articles.last?.newsId)
             return
         }
+        
+        // Detail View
+        let detailView = NewsDetailViewController(article: articles[indexPath.row], newsViewController: self)
+        self.navigationController?.pushViewController(detailView, animated: true)
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
@@ -282,6 +312,23 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         }
     }
     
+    func reloadData() {
+        self.timeline.reloadData()
+    }
+    
+    func updateLikes(newsId: UInt, like: LikeResult) {
+        guard let articles = self.articles else { return }
+        
+        for article in articles {
+            if article.newsId == newsId {
+                article.liked = like.liked
+                article.likesCount = like.likesCount
+            }
+        }
+        
+        self.timeline.reloadData()
+    }
+    
     // scrolling ------------------------------------------------------------------------------------
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -342,6 +389,11 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
     private var timeLineFrame: CGRect {
         let originY = self.topicsBordController.view.bottom
         return CGRect(x: 0.0, y: originY, width: self.view.width, height: self.view.bottom - originY)
+    }
+    
+    func showMap() {
+        let vc = ImageViewController(title: "校内マップ", images: [SharedImage.layoutMap])
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
 }

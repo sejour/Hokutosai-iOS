@@ -22,6 +22,8 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
         self.title = "模擬店"
         
+        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(title: "MAP", style: .Plain, target: self, action: #selector(ShopsViewController.showMap))]
+        
         self.generateTableView()
         
         let loadingView = SimpleLoadingView(frame: self.view.frame)
@@ -168,6 +170,11 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func reloadData() {
         self.tableView.reloadData()
+    }
+    
+    func showMap() {
+        let vc = ImageViewController(title: "校内マップ", images: [SharedImage.layoutMap])
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

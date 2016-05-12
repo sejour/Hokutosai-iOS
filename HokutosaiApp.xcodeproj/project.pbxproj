@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		52AA5A9A07ED55E6CE7C6959 /* Pods_HokutosaiApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 906BE70B87479B1542A60B06 /* Pods_HokutosaiApp.framework */; };
 		A71818AE1CD8A53D00E077B2 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71818AD1CD8A53D00E077B2 /* Schedule.swift */; };
+		A730E8831CE2496600D2CD58 /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730E8821CE2496600D2CD58 /* NewsDetailViewController.swift */; };
+		A730E8851CE257BB00D2CD58 /* ArticleMetaLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730E8841CE257BB00D2CD58 /* ArticleMetaLabel.swift */; };
+		A730E8871CE2A19000D2CD58 /* SlideImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730E8861CE2A19000D2CD58 /* SlideImageView.swift */; };
+		A730E88B1CE34E4C00D2CD58 /* MediaImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730E88A1CE34E4C00D2CD58 /* MediaImageViewController.swift */; };
+		A730E88E1CE3BFEA00D2CD58 /* ImageViewControllerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730E88D1CE3BFEA00D2CD58 /* ImageViewControllerItem.swift */; };
+		A730E8921CE3C17200D2CD58 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730E8911CE3C17200D2CD58 /* ImageViewController.swift */; };
 		A74504781CD3B166001165E2 /* TopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74504761CD3B166001165E2 /* TopicViewController.swift */; };
 		A74504791CD3B166001165E2 /* TopicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A74504771CD3B166001165E2 /* TopicViewController.xib */; };
 		A745047D1CD3C5A1001165E2 /* TopicNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A745047C1CD3C5A1001165E2 /* TopicNews.swift */; };
@@ -92,6 +98,7 @@
 		A7A60FC31CD36C3600AA9543 /* SlidePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A60FC21CD36C3600AA9543 /* SlidePageViewController.swift */; };
 		A7A60FC51CD3763800AA9543 /* FlowingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A60FC41CD3763800AA9543 /* FlowingPageViewController.swift */; };
 		A7A60FC71CD39E5D00AA9543 /* TappableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A60FC61CD39E5D00AA9543 /* TappableViewController.swift */; };
+		A7D415231CE3D34500B163B8 /* LinkedInformationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D415221CE3D34500B163B8 /* LinkedInformationLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +122,12 @@
 		906BE70B87479B1542A60B06 /* Pods_HokutosaiApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HokutosaiApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E68EEBAEB8E63EB23447F5 /* Pods-HokutosaiApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HokutosaiApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HokutosaiApp/Pods-HokutosaiApp.debug.xcconfig"; sourceTree = "<group>"; };
 		A71818AD1CD8A53D00E077B2 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		A730E8821CE2496600D2CD58 /* NewsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
+		A730E8841CE257BB00D2CD58 /* ArticleMetaLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleMetaLabel.swift; sourceTree = "<group>"; };
+		A730E8861CE2A19000D2CD58 /* SlideImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideImageView.swift; sourceTree = "<group>"; };
+		A730E88A1CE34E4C00D2CD58 /* MediaImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaImageViewController.swift; sourceTree = "<group>"; };
+		A730E88D1CE3BFEA00D2CD58 /* ImageViewControllerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewControllerItem.swift; sourceTree = "<group>"; };
+		A730E8911CE3C17200D2CD58 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		A74504761CD3B166001165E2 /* TopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicViewController.swift; sourceTree = "<group>"; };
 		A74504771CD3B166001165E2 /* TopicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopicViewController.xib; sourceTree = "<group>"; };
 		A745047C1CD3C5A1001165E2 /* TopicNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicNews.swift; sourceTree = "<group>"; };
@@ -204,6 +217,7 @@
 		A7A60FC21CD36C3600AA9543 /* SlidePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidePageViewController.swift; sourceTree = "<group>"; };
 		A7A60FC41CD3763800AA9543 /* FlowingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowingPageViewController.swift; sourceTree = "<group>"; };
 		A7A60FC61CD39E5D00AA9543 /* TappableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TappableViewController.swift; sourceTree = "<group>"; };
+		A7D415221CE3D34500B163B8 /* LinkedInformationLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedInformationLabel.swift; sourceTree = "<group>"; };
 		C4F766DA8D757B41B41297FB /* Pods-HokutosaiApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HokutosaiApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HokutosaiApp/Pods-HokutosaiApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -239,6 +253,16 @@
 				906BE70B87479B1542A60B06 /* Pods_HokutosaiApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A730E88C1CE34E5700D2CD58 /* ImageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A730E88A1CE34E4C00D2CD58 /* MediaImageViewController.swift */,
+				A730E88D1CE3BFEA00D2CD58 /* ImageViewControllerItem.swift */,
+				A730E8911CE3C17200D2CD58 /* ImageViewController.swift */,
+			);
+			name = ImageViewController;
 			sourceTree = "<group>";
 		};
 		A745047A1CD3C438001165E2 /* PageViewController */ = {
@@ -516,6 +540,7 @@
 			isa = PBXGroup;
 			children = (
 				A77F9DE61CC910A400BEE9A7 /* NewsViewController.swift */,
+				A730E8821CE2496600D2CD58 /* NewsDetailViewController.swift */,
 			);
 			name = News;
 			sourceTree = "<group>";
@@ -600,6 +625,7 @@
 		A787A1B71CCF6CCF0045F1DD /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				A730E88C1CE34E5700D2CD58 /* ImageViewController */,
 				A745047A1CD3C438001165E2 /* PageViewController */,
 				A787A1B81CCF6D380045F1DD /* StandardDetailsViewController.swift */,
 				A74504801CD3D6EC001165E2 /* UIViewControllerExtension.swift */,
@@ -619,6 +645,9 @@
 				A78A36B61CDE625D00806FC4 /* SeparatorView.swift */,
 				A79412331CE04B610040913D /* StandardInformationView.swift */,
 				A78A36BC1CE1C7E200806FC4 /* MenuItemLabel.swift */,
+				A730E8841CE257BB00D2CD58 /* ArticleMetaLabel.swift */,
+				A730E8861CE2A19000D2CD58 /* SlideImageView.swift */,
+				A7D415221CE3D34500B163B8 /* LinkedInformationLabel.swift */,
 			);
 			name = Material;
 			sourceTree = "<group>";
@@ -837,6 +866,7 @@
 				A74504B81CD740AD001165E2 /* EventsTableViewCell.swift in Sources */,
 				A77483221CCCBCB3003AC18F /* Place.swift in Sources */,
 				A774830F1CCBB0E0003AC18F /* HokutosaiApi.swift in Sources */,
+				A730E8831CE2496600D2CD58 /* NewsDetailViewController.swift in Sources */,
 				A7A60FBA1CD2183100AA9543 /* ExhibitionLikeResult.swift in Sources */,
 				A77F9DE91CC910F800BEE9A7 /* ShopsViewController.swift in Sources */,
 				A77483161CCBCC90003AC18F /* Shop.swift in Sources */,
@@ -860,12 +890,14 @@
 				A74504AC1CD61BDD001165E2 /* LoadingCellManager.swift in Sources */,
 				A774830B1CCBAA28003AC18F /* HokutosaiApiEndpoint.swift in Sources */,
 				A77483291CCCC427003AC18F /* User.swift in Sources */,
+				A730E8871CE2A19000D2CD58 /* SlideImageView.swift in Sources */,
 				A7A5D2931CDA971A00F8F297 /* TitleView.swift in Sources */,
 				A7A60FB41CD210C900AA9543 /* Exhibition.swift in Sources */,
 				A7A60FB81CD2179700AA9543 /* ExhibitionMyAssessment.swift in Sources */,
 				A77483301CCCD2AB003AC18F /* ShopMyAssessment.swift in Sources */,
 				A77483241CCCBF13003AC18F /* MenuItem.swift in Sources */,
 				A77F9DEB1CC9111000BEE9A7 /* ExhibitionsViewController.swift in Sources */,
+				A730E88B1CE34E4C00D2CD58 /* MediaImageViewController.swift in Sources */,
 				A74504BB1CD79B0E001165E2 /* EventsTimetableViewController.swift in Sources */,
 				A74504A51CD52D6F001165E2 /* UIScrollViewExtension.swift in Sources */,
 				A77483371CCD2924003AC18F /* AlertController.swift in Sources */,
@@ -880,6 +912,7 @@
 				A74504881CD3DE32001165E2 /* ShopItem.swift in Sources */,
 				A79412341CE04B610040913D /* StandardInformationView.swift in Sources */,
 				A74504A11CD5234F001165E2 /* UIViewExtension.swift in Sources */,
+				A730E8921CE3C17200D2CD58 /* ImageViewController.swift in Sources */,
 				A787A1B91CCF6D380045F1DD /* StandardDetailsViewController.swift in Sources */,
 				A745049F1CD507FC001165E2 /* LikeableTableViewCell.swift in Sources */,
 				A74504781CD3B166001165E2 /* TopicViewController.swift in Sources */,
@@ -898,8 +931,11 @@
 				A74504B21CD668B5001165E2 /* Event.swift in Sources */,
 				A7A5D2A41CDD651700F8F297 /* InteractiveIcon.swift in Sources */,
 				A745047D1CD3C5A1001165E2 /* TopicNews.swift in Sources */,
+				A730E8851CE257BB00D2CD58 /* ArticleMetaLabel.swift in Sources */,
+				A7D415231CE3D34500B163B8 /* LinkedInformationLabel.swift in Sources */,
 				A7A5D2901CDA684F00F8F297 /* ContentsViewController.swift in Sources */,
 				A745047F1CD3C6DB001165E2 /* TopicContentData.swift in Sources */,
+				A730E88E1CE3BFEA00D2CD58 /* ImageViewControllerItem.swift in Sources */,
 				A7A5D2541CDA25EC00F8F297 /* EventsDetailViewController.swift in Sources */,
 				A77F9DE51CC9008600BEE9A7 /* MainTabViewController.swift in Sources */,
 				A774830D1CCBAA9F003AC18F /* HokutosaiApiError.swift in Sources */,

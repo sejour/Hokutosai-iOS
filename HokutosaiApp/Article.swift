@@ -41,4 +41,40 @@ class Article: Mappable {
         self.medias <- map["medias"]
     }
     
+    var relatedTitle: String? {
+        if let relatedEvent = self.relatedEvent, let title = relatedEvent.title {
+            return title
+        }
+        else if let relatedShop = self.relatedShop, let title = relatedShop.name {
+            return title
+        }
+        else if let relatedExhibition = self.relatedExhibition, let title = relatedExhibition.title {
+            return title
+        }
+        
+        return nil
+    }
+    
+    enum RelatedDepartment {
+        case Event
+        case Shop
+        case Exhibition
+    }
+    
+    typealias Relation = (department: RelatedDepartment, id: UInt)
+    
+    var relation: Relation? {
+        if let relatedEvent = self.relatedEvent, let id = relatedEvent.eventId {
+            return (.Event, id)
+        }
+        else if let relatedShop = self.relatedShop, let id = relatedShop.shopId {
+            return (.Shop, id)
+        }
+        else if let relatedExhibition = self.relatedExhibition, let id = relatedExhibition.exhibitionId {
+            return (.Exhibition, id)
+        }
+        
+        return nil
+    }
+    
 }

@@ -41,6 +41,8 @@ class EventsDetailViewController: ContentsViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.hideNavigationBackButtonText()
+        
         if let event = self.event {
             self.generateContents(event)
             self.updateLike()
@@ -128,7 +130,7 @@ class EventsDetailViewController: ContentsViewController {
         
         // Place
         let place = event.place?.name ?? "未登録"
-        let placeLabel = InformationLabel(width: self.view.width, icon: SharedImage.placeIcon, text: place)
+        let placeLabel = LinkedInformationLabel(width: self.view.width, icon: SharedImage.placeIcon, text: place, target: self, action: #selector(EventsDetailViewController.showMap))
         self.addContentView(placeLabel)
         
         //
@@ -274,5 +276,10 @@ class EventsDetailViewController: ContentsViewController {
         
     }
     */
+    
+    func showMap() {
+        let vc = ImageViewController(title: "校内マップ", images: [SharedImage.layoutMap])
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
 }

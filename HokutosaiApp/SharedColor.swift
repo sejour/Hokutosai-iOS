@@ -16,6 +16,8 @@ final class SharedColor {
     static let likesCountGray = UIColor.grayscale(127)
     static let likesCountRed = UIColor.trueColor(220, green: 20, blue: 60)
     
+    static let linkColor = UIColor.trueColor(50, green: 130, blue: 250)
+    
     class EventState {
         
         static let blue = UIColor.trueColor(125, green: 208, blue: 250)

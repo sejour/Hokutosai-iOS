@@ -9,18 +9,17 @@
 import Foundation
 import ObjectMapper
 
-class TopicNews: Mappable, TopicContentData {
+class TopicNews: Article, TopicContentData {
 
-    var title: String?
     var mediaUrl: String?
-    var newsId: UInt?
     
-    required init?(_ map: Map) { }
+    required init?(_ map: Map) {
+        super.init(map)
+    }
     
-    func mapping(map: Map) {
-        self.title <- map["title"]
+    override func mapping(map: Map) {
+        super.mapping(map)
         self.mediaUrl <- map["media_url"]
-        self.newsId <- map["news_id"]
     }
     
     var dataTitle: String? { return self.title }

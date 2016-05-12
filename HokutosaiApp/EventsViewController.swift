@@ -52,6 +52,9 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate, Ta
         super.viewDidLoad()
         
         self.title = "企画"
+        
+        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(title: "MAP", style: .Plain, target: self, action: #selector(EventsViewController.showMap))]
+
         self.view.backgroundColor = UIColor.whiteColor()
         
         self.generateTopics()
@@ -240,6 +243,11 @@ class EventsViewController: UIViewController, TappableViewControllerDelegate, Ta
         let currentTimetableView = timetableViewControllers[pagingTimetablesController.currentPage]
         let detailView = EventsDetailViewController(event: topics[tag], timetableViewController: currentTimetableView)
         self.navigationController?.pushViewController(detailView, animated: true)
+    }
+    
+    func showMap() {
+        let vc = ImageViewController(title: "校内マップ", images: [SharedImage.layoutMap])
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

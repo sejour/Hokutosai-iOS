@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SlidePageViewController: UIPageViewController, UIPageViewControllerDataSource, UIScrollViewDelegate {
+class SlidePageViewController: UIPageViewController, UIPageViewControllerDataSource, UIScrollViewDelegate, UIPageViewControllerDelegate {
     
     private var _pages: [UIViewController]!
     
@@ -38,10 +38,11 @@ class SlidePageViewController: UIPageViewController, UIPageViewControllerDataSou
         get { return self.view.frame.size }
         set { self.view.frame.size = newValue }
     }
+    
+    var pageControl: UIPageControl?
 
-    init (navigationOrientation: UIPageViewControllerNavigationOrientation = .Horizontal) {
-        super.init(transitionStyle: .Scroll, navigationOrientation: navigationOrientation, options: nil)
-        self.dataSource = self
+    init () {
+        super.init(transitionStyle: .Scroll, navigationOrientation: .Horizontal, options: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -50,6 +51,9 @@ class SlidePageViewController: UIPageViewController, UIPageViewControllerDataSou
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.delegate = self
+        self.dataSource = self
         
         for subview in self.view.subviews {
             if let scrollView = subview as? UIScrollView {
@@ -108,6 +112,16 @@ class SlidePageViewController: UIPageViewController, UIPageViewControllerDataSou
     // コンテンツが垂直方向にずれることが時々あるので対処
     func scrollViewDidScroll(scrollView: UIScrollView) {
         scrollView.contentOffset.y = 0.0
+    }
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        guard let currentPage = self.currentPageNumber else { return }
+        self.pageControl?.currentPage = currentPage
+    }
+    
+    func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView) {
+        guard let currentPage = self.currentPageNumber else { return }
+        self.pageControl?.currentPage = currentPage
     }
 
 }

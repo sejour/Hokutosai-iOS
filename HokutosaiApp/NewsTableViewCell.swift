@@ -19,14 +19,15 @@ class NewsTableViewCell: UITableViewCell, LikeableTableViewCell {
     @IBOutlet weak var datetimeLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var likesCountLabel: UILabel!
+    @IBOutlet weak var topicIcon: UIImageView!
     
     var index: Int!
     var data: Article!
     
     weak var delegate: LikeableTableViewCellDelegate?
     
-    private static let contentHeight: CGFloat = 80.0
-    static let rowHeight: CGFloat = 81.0
+    private static let contentHeight: CGFloat = 76.0
+    static let rowHeight: CGFloat = 77.0
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -67,18 +68,7 @@ class NewsTableViewCell: UITableViewCell, LikeableTableViewCell {
         
         self.titleLabel.text = article.title ?? "タイトル無し"
         
-        if let relatedEvent = article.relatedEvent, let organizer = relatedEvent.title {
-            self.titleLabel.text = organizer
-        }
-        else if let relatedShop = article.relatedShop, let organizer = relatedShop.name {
-            self.titleLabel.text = organizer
-        }
-        else if let relatedExhibition = article.relatedExhibition, let organizer = relatedExhibition.title {
-            self.titleLabel.text = organizer
-        }
-        else {
-            self.organizerLabel.text = nil
-        }
+        self.organizerLabel.text = article.relatedTitle
         
         if let datetime = article.datetime {
             self.datetimeLabel.text = datetime.stringElapsedTime()
@@ -103,12 +93,19 @@ class NewsTableViewCell: UITableViewCell, LikeableTableViewCell {
             self.likesCountLabel.textColor = SharedColor.likesCountGray
         }
         
-        self.firstImageView.image = nil
+        if let topic = article.isTopic where topic {
+            self.topicIcon.hidden = false
+        }
+        else {
+            self.topicIcon.hidden = true
+        }
+        
+        self.firstImageView.image = SharedImage.placeholderImageMini
         var contentViewLeft = self.contentView.snp_left
         if let imageUrl = article.medias?.first?.url, let url = NSURL(string: imageUrl) {
             contentViewLeft = self.firstImageView.snp_right
             self.firstImageView.hidden = false
-            self.firstImageView.af_setImageWithURL(url)
+            self.firstImageView.af_setImageWithURL(url, placeholderImage: SharedImage.placeholderImageMini)
             self.firstImageView.snp_makeConstraints { make in
                 make.left.equalTo(self.contentView)
                 make.top.equalTo(self.contentView)
