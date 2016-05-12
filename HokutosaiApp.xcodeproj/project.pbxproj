@@ -98,6 +98,8 @@
 		A7A60FC31CD36C3600AA9543 /* SlidePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A60FC21CD36C3600AA9543 /* SlidePageViewController.swift */; };
 		A7A60FC51CD3763800AA9543 /* FlowingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A60FC41CD3763800AA9543 /* FlowingPageViewController.swift */; };
 		A7A60FC71CD39E5D00AA9543 /* TappableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A60FC61CD39E5D00AA9543 /* TappableViewController.swift */; };
+		A7CFD7D51CE4DACD00D9E569 /* AssessmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CFD7D31CE4DACD00D9E569 /* AssessmentTableViewCell.swift */; };
+		A7CFD7D61CE4DACD00D9E569 /* AssessmentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7CFD7D41CE4DACD00D9E569 /* AssessmentTableViewCell.xib */; };
 		A7D415231CE3D34500B163B8 /* LinkedInformationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D415221CE3D34500B163B8 /* LinkedInformationLabel.swift */; };
 		A7D415251CE49B0200B163B8 /* AssessmentAggregateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D415241CE49B0200B163B8 /* AssessmentAggregateView.swift */; };
 /* End PBXBuildFile section */
@@ -218,6 +220,8 @@
 		A7A60FC21CD36C3600AA9543 /* SlidePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidePageViewController.swift; sourceTree = "<group>"; };
 		A7A60FC41CD3763800AA9543 /* FlowingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowingPageViewController.swift; sourceTree = "<group>"; };
 		A7A60FC61CD39E5D00AA9543 /* TappableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TappableViewController.swift; sourceTree = "<group>"; };
+		A7CFD7D31CE4DACD00D9E569 /* AssessmentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssessmentTableViewCell.swift; sourceTree = "<group>"; };
+		A7CFD7D41CE4DACD00D9E569 /* AssessmentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AssessmentTableViewCell.xib; sourceTree = "<group>"; };
 		A7D415221CE3D34500B163B8 /* LinkedInformationLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedInformationLabel.swift; sourceTree = "<group>"; };
 		A7D415241CE49B0200B163B8 /* AssessmentAggregateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssessmentAggregateView.swift; sourceTree = "<group>"; };
 		C4F766DA8D757B41B41297FB /* Pods-HokutosaiApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HokutosaiApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HokutosaiApp/Pods-HokutosaiApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -454,6 +458,7 @@
 		A77483401CCE6066003AC18F /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				A7CFD7D01CE4D9DC00D9E569 /* Assessments */,
 				A74504B51CD74077001165E2 /* Events */,
 				A787A1AE1CCDD9BA0045F1DD /* Commons */,
 				A74504901CD47DDB001165E2 /* News */,
@@ -667,6 +672,15 @@
 			name = Exhibitions;
 			sourceTree = "<group>";
 		};
+		A7CFD7D01CE4D9DC00D9E569 /* Assessments */ = {
+			isa = PBXGroup;
+			children = (
+				A7CFD7D31CE4DACD00D9E569 /* AssessmentTableViewCell.swift */,
+				A7CFD7D41CE4DACD00D9E569 /* AssessmentTableViewCell.xib */,
+			);
+			name = Assessments;
+			sourceTree = "<group>";
+		};
 		C3415C3CFED4FAA3CCA79F2E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -791,6 +805,7 @@
 				A77483441CCE6086003AC18F /* StandardTableViewCell.xib in Resources */,
 				A77B39021CC8C22C00012A0E /* Assets.xcassets in Resources */,
 				A74504791CD3B166001165E2 /* TopicViewController.xib in Resources */,
+				A7CFD7D61CE4DACD00D9E569 /* AssessmentTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -884,6 +899,7 @@
 				A74504861CD3DDA7001165E2 /* EventItem.swift in Sources */,
 				A77483191CCBCE98003AC18F /* AssessedScore.swift in Sources */,
 				A745048D1CD3E010001165E2 /* Media.swift in Sources */,
+				A7CFD7D51CE4DACD00D9E569 /* AssessmentTableViewCell.swift in Sources */,
 				A78A36B71CDE625D00806FC4 /* SeparatorView.swift in Sources */,
 				A79412381CE071680040913D /* AssessmentList.swift in Sources */,
 				A745049B1CD4AF8F001165E2 /* NewsTableViewCell.swift in Sources */,
