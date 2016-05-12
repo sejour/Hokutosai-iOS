@@ -8,6 +8,12 @@
 
 import UIKit
 
+protocol AssessmentTableViewCellDelegate : class {
+    
+    func tappedOthersButton(assessmentId: UInt)
+    
+}
+
 class AssessmentTableViewCell: UITableViewCell {
 
     @IBOutlet weak var userNameLabel: UILabel!
@@ -16,6 +22,7 @@ class AssessmentTableViewCell: UITableViewCell {
     @IBOutlet weak var datetimeLabel: UILabel!
     
     var assessmentId: UInt!
+    weak var delegate: AssessmentTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,7 +38,7 @@ class AssessmentTableViewCell: UITableViewCell {
     }
     
     @IBAction func tappedReportButton(sender: AnyObject) {
-        
+        self.delegate?.tappedOthersButton(self.assessmentId)
     }
     
     func changeData(assessment: Assessment) {
