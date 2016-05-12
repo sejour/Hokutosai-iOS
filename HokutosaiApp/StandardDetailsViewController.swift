@@ -91,6 +91,7 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
             self.layoutIntroductionView(data) /* IntroductionViewを配置 */
             self.updateContentViews() /* 適用 */
             self.updateAssessments() /* 評価ビューを生成 */
+            self.updateContentViews() /* 適用 */
             loadingView.removeFromSuperview()
         }
     }
