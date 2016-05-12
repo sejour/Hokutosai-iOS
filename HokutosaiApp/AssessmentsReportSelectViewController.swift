@@ -9,13 +9,35 @@
 import UIKit
 
 class AssessmentsReportSelectViewController: UITableViewController {
+    
+    private var reportCauses: [AssessmentReportCause]?
 
     private let cellIdentifier = "AssessmentReport"
+    
+    init() {
+        super.init(nibName: nil, bundle: NSBundle.mainBundle())
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
+        
+        HokutosaiApi.GET(HokutosaiApi.Assessments.ReportCauses()) { response in
+            guard response.isSuccess, let data = response.model else {
+                self.presentViewController(ErrorAlert.Server.failureGet("報告理由の一覧が取得できなかったため報告できません。") { action in
+                    self.navigationController?.popViewControllerAnimated(true)
+                    }, animated: true, completion: nil)
+                return
+            }
+            
+            self.reportCauses = data
+            self.tableView.reloadData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,21 +48,24 @@ class AssessmentsReportSelectViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        guard let reportCauses = self.reportCauses else { return 0 }
+        return reportCauses.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(self.cellIdentifier, forIndexPath: indexPath)
 
-        // Configure the cell...
+        cell.textLabel?.text = self.reportCauses![indexPath.row].text
 
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 
 }
