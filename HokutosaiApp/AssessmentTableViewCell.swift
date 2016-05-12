@@ -13,6 +13,7 @@ class AssessmentTableViewCell: UITableViewCell {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var scoreImageView: UIImageView!
     @IBOutlet weak var commentLabel: UILabel!
+    @IBOutlet weak var datetimeLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,6 +27,10 @@ class AssessmentTableViewCell: UITableViewCell {
     }
     
     @IBAction func tappedReportButton(sender: AnyObject) {
+        
+    }
+    
+    func changeData(assessment: Assessment) {
         
     }
     
