@@ -91,7 +91,6 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
             self.layoutIntroductionView(data) /* IntroductionViewを配置 */
             self.updateContentViews() /* 適用 */
             self.updateAssessments() /* 評価ビューを生成 */
-            self.updateContentViews() /* 適用 */
             loadingView.removeFromSuperview()
         }
     }
@@ -164,20 +163,14 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
         let introductionLabel = TextLabel(width: self.view.width, text: model.dataIntroduction)
         self.addContentView(introductionLabel)
         
-        //
-        self.insertSpace(10.0)
-        //
-    }
-    
-    private func updateAssessments() {
         // ---
+        self.insertSpace(10.0)
         self.insertSeparator(20.0)
         self.insertSpace(10.0)
         // ---
         
         // 見出し
-        let label = InformationLabel(width: self.view.width, icon: SharedImage.messageIcon, text: "みんなの評価")
-        self.addContentView(label)
+        self.addContentView(InformationLabel(width: self.view.width, icon: SharedImage.messageIcon, text: "みんなの評価"))
         
         // 集計結果
         if let aggreagete = self.model?.dataAssessmentAggregate {
@@ -192,6 +185,10 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
         //
         self.insertSpace(20.0)
         //
+    }
+    
+    private func updateAssessments() {
+        
     }
     
     func like() {
