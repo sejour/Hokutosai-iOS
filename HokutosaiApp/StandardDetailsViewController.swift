@@ -20,6 +20,7 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
     
     private var likesCountLabel: InformationLabel!
     private var likeIcon: InteractiveIcon!
+    private var aggregateView: AssessmentAggregateView?
     
     var introductionLabelTitle: String!
     
@@ -183,8 +184,8 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
             self.insertSpace(8.0)
             //
             
-            let aggregateView = AssessmentAggregateView(width: self.view.width, scoreData: aggreagete)
-            self.addContentView(aggregateView)
+            self.aggregateView = AssessmentAggregateView(width: self.view.width, scoreData: aggreagete)
+            self.addContentView(self.aggregateView!)
         }
         
         //
@@ -261,7 +262,10 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
             }
             
             // 評価結果の更新
-            self.model?.dataAssessmentAggregate = data.dataAssessmentAggregate
+            if let scoreData = data.dataAssessmentAggregate {
+                self.model?.dataAssessmentAggregate = scoreData
+                self.aggregateView?.updateData(scoreData)
+            }
         }
     }
     
