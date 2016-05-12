@@ -78,4 +78,18 @@ class AssessmentAggregateView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func updateData(scoreData: AssessedScore) {
+        let count = scoreData.assessedCount ?? 0
+        let totalScore = scoreData.totalScore ?? 0
+        
+        var score: Double?
+        if count != 0 {
+            score = Double(totalScore) / Double(count)
+        }
+
+        self.scoreImageView.image = SharedImage.scoreImage[Int(round(score ?? 0.0))]
+        self.scoreLabel.text = score != nil ? String(format: "(%.02f)", score!) : ""
+        self.countLabel.text = "評価件数: \(count)"
+    }
+    
 }
