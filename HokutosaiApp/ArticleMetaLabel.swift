@@ -42,7 +42,7 @@ class ArticleMetaLabel: UIView {
             datetimeLabel.layoutIfNeeded()
         
             let relatedLabel = UILabel()
-            relatedLabel.textColor = UIColor.blueColor()
+            relatedLabel.textColor = SharedColor.linkColor
             relatedLabel.font = UIFont.systemFontOfSize(16)
             relatedLabel.textAlignment = .Left
             relatedLabel.numberOfLines = 1

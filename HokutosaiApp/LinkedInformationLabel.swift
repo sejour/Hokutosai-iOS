@@ -34,7 +34,7 @@ class LinkedInformationLabel: UIView {
         }
         
         self.label = UILabel()
-        self.label.textColor = UIColor.blueColor()
+        self.label.textColor = SharedColor.linkColor
         self.label.font = UIFont.systemFontOfSize(16)
         self.label.textAlignment = .Left
         self.label.numberOfLines = 0
