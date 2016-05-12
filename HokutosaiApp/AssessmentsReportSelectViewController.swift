@@ -30,7 +30,7 @@ class AssessmentsReportSelectViewController: UITableViewController {
         HokutosaiApi.GET(HokutosaiApi.Assessments.ReportCauses()) { response in
             guard response.isSuccess, let data = response.model else {
                 self.presentViewController(ErrorAlert.Server.failureGet("報告理由の一覧が取得できなかったため報告できません。") { action in
-                    self.navigationController?.popViewControllerAnimated(true)
+                    self.dismissViewControllerAnimated(true, completion: nil)
                     }, animated: true, completion: nil)
                 return
             }
