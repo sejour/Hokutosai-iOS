@@ -103,6 +103,7 @@
 		A7CFD7D91CE4E58100D9E569 /* AssessmentsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CFD7D81CE4E58100D9E569 /* AssessmentsListViewController.swift */; };
 		A7CFD7DB1CE5068600D9E569 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CFD7DA1CE5068600D9E569 /* ButtonView.swift */; };
 		A7CFD7DE1CE5370C00D9E569 /* AssessmentsReportSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CFD7DD1CE5370C00D9E569 /* AssessmentsReportSelectViewController.swift */; };
+		A7CFD7E01CE53A6800D9E569 /* AssessmentReportCause.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CFD7DF1CE53A6800D9E569 /* AssessmentReportCause.swift */; };
 		A7D415231CE3D34500B163B8 /* LinkedInformationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D415221CE3D34500B163B8 /* LinkedInformationLabel.swift */; };
 		A7D415251CE49B0200B163B8 /* AssessmentAggregateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D415241CE49B0200B163B8 /* AssessmentAggregateView.swift */; };
 /* End PBXBuildFile section */
@@ -228,6 +229,7 @@
 		A7CFD7D81CE4E58100D9E569 /* AssessmentsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssessmentsListViewController.swift; sourceTree = "<group>"; };
 		A7CFD7DA1CE5068600D9E569 /* ButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		A7CFD7DD1CE5370C00D9E569 /* AssessmentsReportSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssessmentsReportSelectViewController.swift; sourceTree = "<group>"; };
+		A7CFD7DF1CE53A6800D9E569 /* AssessmentReportCause.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssessmentReportCause.swift; sourceTree = "<group>"; };
 		A7D415221CE3D34500B163B8 /* LinkedInformationLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedInformationLabel.swift; sourceTree = "<group>"; };
 		A7D415241CE49B0200B163B8 /* AssessmentAggregateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssessmentAggregateView.swift; sourceTree = "<group>"; };
 		C4F766DA8D757B41B41297FB /* Pods-HokutosaiApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HokutosaiApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HokutosaiApp/Pods-HokutosaiApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -415,6 +417,7 @@
 				A77483251CCCC08A003AC18F /* Assessment.swift */,
 				A774832D1CCCD1AA003AC18F /* MyAssessment.swift */,
 				A79412371CE071680040913D /* AssessmentList.swift */,
+				A7CFD7DF1CE53A6800D9E569 /* AssessmentReportCause.swift */,
 			);
 			name = Assessments;
 			sourceTree = "<group>";
@@ -912,6 +915,7 @@
 				A7A5D29E1CDB9AEF00F8F297 /* HorizontalArrangeView.swift in Sources */,
 				A7A60FC51CD3763800AA9543 /* FlowingPageViewController.swift in Sources */,
 				A745048F1CD3E3B7001165E2 /* NewsLikeResult.swift in Sources */,
+				A7CFD7E01CE53A6800D9E569 /* AssessmentReportCause.swift in Sources */,
 				A79412361CE05B3A0040913D /* ShopsDetailViewController.swift in Sources */,
 				A74504861CD3DDA7001165E2 /* EventItem.swift in Sources */,
 				A77483191CCBCE98003AC18F /* AssessedScore.swift in Sources */,
