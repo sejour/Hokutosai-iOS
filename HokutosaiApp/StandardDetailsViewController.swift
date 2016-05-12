@@ -96,6 +96,10 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
     }
     
     func generateContents(model: ModelType) {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(StandardDetailsViewController.onRefresh(_:)), forControlEvents: .ValueChanged)
+        self.tableView.addSubview(refreshControl)
+        
         //
         self.insertSpace(5.0)
         //
@@ -191,6 +195,12 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
         
     }
     
+    func onRefresh(refreshControl: UIRefreshControl) {
+        self.updateMutableContents {
+            refreshControl.endRefreshing()
+        }
+    }
+    
     func like() {
         guard let model = self.model else { return }
         
@@ -239,9 +249,10 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
     }
     
     // 可変コンテンツを更新する
-    func updateMutableContents() {
+    func updateMutableContents(completion: (() -> Void)? = nil) {
         HokutosaiApi.GET(self.endpointModel) { response in
             guard response.isSuccess, let data = response.model else {
+                completion?()
                 return
             }
             
@@ -264,6 +275,8 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
                 self.model?.dataAssessmentAggregate = scoreData
                 self.aggregateView?.updateData(scoreData)
             }
+            
+            completion?()
         }
     }
     
