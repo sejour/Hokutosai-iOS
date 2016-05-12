@@ -31,7 +31,7 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
     private var endpointAssessmentList: HokutosaiApiEndpoint<ObjectResource<AssessmentList>>!
     private var endpointAssessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>!
     
-    init(endpointModel: HokutosaiApiEndpoint<ObjectResource<ModelType>>, endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>, endpointAssessmentList: HokutosaiApiEndpoint<ObjectResource<AssessmentList>>, endpointAssessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>!, title: String?, introductionLabelTitle: String!) {
+    init(endpointModel: HokutosaiApiEndpoint<ObjectResource<ModelType>>, endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>, endpointAssessmentList: HokutosaiApiEndpoint<ObjectResource<AssessmentList>>, endpointAssessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>, title: String?, introductionLabelTitle: String!) {
         super.init(title: title)
         self.endpointModel = endpointModel
         self.endpointLikes = endpointLikes
@@ -40,7 +40,7 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
         self.introductionLabelTitle = introductionLabelTitle
     }
     
-    init(endpointModel: HokutosaiApiEndpoint<ObjectResource<ModelType>>, endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>, endpointAssessmentList: HokutosaiApiEndpoint<ObjectResource<AssessmentList>>, endpointAssessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>!, model: ModelType, tableViewController: TableViewController, introductionLabelTitle: String!) {
+    init(endpointModel: HokutosaiApiEndpoint<ObjectResource<ModelType>>, endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>, endpointAssessmentList: HokutosaiApiEndpoint<ObjectResource<AssessmentList>>, endpointAssessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>, model: ModelType, tableViewController: TableViewController, introductionLabelTitle: String!) {
         super.init(title: model.dataTitle)
         self.endpointModel = endpointModel
         self.endpointLikes = endpointLikes
@@ -218,7 +218,10 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
     }
     
     func showAssessmentList() {
+        guard let model = self.model else { return }
         
+        let assessmentsListViewController = AssessmentsListViewController(myAssessment: model.dataMyAssessment, endpointAssessmentList: self.endpointAssessmentList, endpointAssessment: self.endpointAssessment)
+        self.navigationController?.pushViewController(assessmentsListViewController, animated: true)
     }
     
     func writeAssessment() {
