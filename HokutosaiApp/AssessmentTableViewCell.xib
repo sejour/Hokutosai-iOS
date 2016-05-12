@@ -15,7 +15,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EoA-zo-q6M">
-                        <rect key="frame" x="16" y="8" width="259" height="20"/>
+                        <rect key="frame" x="16" y="8" width="248" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="zzF-93-z32"/>
                         </constraints>
@@ -31,13 +31,13 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAD-Vl-Sd8">
-                        <rect key="frame" x="16" y="53" width="294" height="19"/>
+                        <rect key="frame" x="16" y="54" width="294" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="yyyy/MM/dd HH:mm" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUE-cv-kWv">
-                        <rect key="frame" x="116" y="26" width="194" height="21"/>
+                        <rect key="frame" x="116" y="27" width="194" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="sMX-cJ-OjX"/>
                         </constraints>
@@ -46,10 +46,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p2Z-EG-NTp">
-                        <rect key="frame" x="283" y="12" width="27" height="6"/>
+                        <rect key="frame" x="272" y="5" width="44" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="27" id="5e6-X5-JHa"/>
-                            <constraint firstAttribute="height" constant="6" id="fIH-TW-OSh"/>
+                            <constraint firstAttribute="width" constant="44" id="5e6-X5-JHa"/>
+                            <constraint firstAttribute="height" constant="20" id="fIH-TW-OSh"/>
                         </constraints>
                         <state key="normal" image="OthersMiniIcon"/>
                         <connections>
@@ -61,12 +61,12 @@
                     <constraint firstItem="nyU-FQ-2z6" firstAttribute="top" secondItem="EoA-zo-q6M" secondAttribute="bottom" constant="2" id="05G-he-Dts"/>
                     <constraint firstAttribute="trailing" secondItem="iAD-Vl-Sd8" secondAttribute="trailing" constant="10" id="3PC-k2-I0t"/>
                     <constraint firstItem="iAD-Vl-Sd8" firstAttribute="top" secondItem="DUE-cv-kWv" secondAttribute="bottom" constant="6" id="44q-IW-Qa6"/>
-                    <constraint firstItem="DUE-cv-kWv" firstAttribute="top" secondItem="p2Z-EG-NTp" secondAttribute="bottom" constant="8" id="5lT-CP-dlG"/>
+                    <constraint firstItem="DUE-cv-kWv" firstAttribute="top" secondItem="p2Z-EG-NTp" secondAttribute="bottom" constant="2" id="5lT-CP-dlG"/>
                     <constraint firstAttribute="bottom" secondItem="iAD-Vl-Sd8" secondAttribute="bottom" constant="8" id="7D6-ny-Jgv"/>
                     <constraint firstItem="EoA-zo-q6M" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="EDf-0f-qxD"/>
                     <constraint firstItem="nyU-FQ-2z6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Gbb-nL-7Oo"/>
-                    <constraint firstItem="p2Z-EG-NTp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="L1d-Nk-pgv"/>
-                    <constraint firstAttribute="trailing" secondItem="p2Z-EG-NTp" secondAttribute="trailing" constant="10" id="SXT-MW-Uuu"/>
+                    <constraint firstItem="p2Z-EG-NTp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="L1d-Nk-pgv"/>
+                    <constraint firstAttribute="trailing" secondItem="p2Z-EG-NTp" secondAttribute="trailing" constant="4" id="SXT-MW-Uuu"/>
                     <constraint firstItem="p2Z-EG-NTp" firstAttribute="leading" secondItem="EoA-zo-q6M" secondAttribute="trailing" constant="8" id="WFi-8h-JXz"/>
                     <constraint firstItem="EoA-zo-q6M" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="evu-AQ-gn0"/>
                     <constraint firstAttribute="trailing" secondItem="DUE-cv-kWv" secondAttribute="trailing" constant="10" id="pdB-Oq-QnB"/>
@@ -84,7 +84,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="OthersMiniIcon" width="46" height="10"/>
+        <image name="OthersMiniIcon" width="69" height="30"/>
         <image name="score0" width="172" height="30"/>
     </resources>
 </document>
