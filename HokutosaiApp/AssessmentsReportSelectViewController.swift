@@ -53,14 +53,21 @@ class AssessmentsReportSelectViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let reportCauses = self.reportCauses else { return 0 }
-        return reportCauses.count
+        return reportCauses.count + 1
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(self.cellIdentifier, forIndexPath: indexPath)
 
-        cell.textLabel?.text = self.reportCauses![indexPath.row].text
-
+        if indexPath.row == 0 {
+            cell.textLabel?.text = "報告理由を選んでください。"
+            cell.selectionStyle = .None
+        }
+        else {
+            cell.textLabel?.text = self.reportCauses![indexPath.row - 1].text
+            cell.selectionStyle = .Default
+        }
+        
         return cell
     }
     
