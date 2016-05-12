@@ -98,7 +98,9 @@ class AssessmentsListViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func onRefresh(sender: UIRefreshControl) {
-        sender.endRefreshing()
+        self.updateContents {
+            sender.endRefreshing()
+        }
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
