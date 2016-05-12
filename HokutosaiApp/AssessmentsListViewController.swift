@@ -8,10 +8,12 @@
 
 import UIKit
 
-class AssessmentsListViewController: UITableViewController {
+class AssessmentsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     private var myAssessment: Assessment?
     private var assessments: [Assessment]?
+    
+    private var tableView: UITableView!
     
     private let cellIdentifier = "Assessments"
     
@@ -51,9 +53,14 @@ class AssessmentsListViewController: UITableViewController {
     }
 
     private func generateTableView() {
+        self.tableView = UITableView(frame: self.view.frame)
+        self.view.addSubview(self.tableView)
+        
         let nib = UINib(nibName: "AssessmentTableViewCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: cellIdentifier)
         
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
         let refreshControl = UIRefreshControl()
@@ -72,8 +79,18 @@ class AssessmentsListViewController: UITableViewController {
                 return
             }
             
+            guard let assessments = data.assessments where assessments.count > 0 else {
+                self.updatingContents = false
+                completion?()
+                self.presentViewController(UIAlertController.notificationAlertController("評価がありません", message: nil, closeButtonTitle: "OK") { action in
+                        self.navigationController?.popViewControllerAnimated(true)
+                    }, animated: true, completion: nil
+                )
+                return
+            }
+            
             self.myAssessment = data.myAssessment
-            self.assessments = data.assessments
+            self.assessments = assessments
             self.tableView.reloadData()
             self.updatingContents = false
             completion?()
@@ -84,28 +101,28 @@ class AssessmentsListViewController: UITableViewController {
         sender.endRefreshing()
     }
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let assessments = self.assessments else { return 0 }
         return assessments.count
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
     
-    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! AssessmentTableViewCell
         
         cell.changeData(self.assessments![indexPath.row])
