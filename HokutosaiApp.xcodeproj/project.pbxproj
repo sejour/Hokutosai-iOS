@@ -536,6 +536,7 @@
 		A77F9DDF1CC8FE8C00BEE9A7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A7CFD7DC1CE5367200D9E569 /* Assessments */,
 				A787A1B71CCF6CCF0045F1DD /* Commons */,
 				A77483381CCD2932003AC18F /* Alert */,
 				A77F9DE31CC8FF2900BEE9A7 /* Events */,
@@ -636,7 +637,6 @@
 		A787A1B71CCF6CCF0045F1DD /* Commons */ = {
 			isa = PBXGroup;
 			children = (
-				A7CFD7D71CE4E53700D9E569 /* AssessmentsListViewController */,
 				A730E88C1CE34E5700D2CD58 /* ImageViewController */,
 				A745047A1CD3C438001165E2 /* PageViewController */,
 				A787A1B81CCF6D380045F1DD /* StandardDetailsViewController.swift */,
@@ -687,12 +687,12 @@
 			name = Assessments;
 			sourceTree = "<group>";
 		};
-		A7CFD7D71CE4E53700D9E569 /* AssessmentsListViewController */ = {
+		A7CFD7DC1CE5367200D9E569 /* Assessments */ = {
 			isa = PBXGroup;
 			children = (
 				A7CFD7D81CE4E58100D9E569 /* AssessmentsListViewController.swift */,
 			);
-			name = AssessmentsListViewController;
+			name = Assessments;
 			sourceTree = "<group>";
 		};
 		C3415C3CFED4FAA3CCA79F2E /* Pods */ = {
