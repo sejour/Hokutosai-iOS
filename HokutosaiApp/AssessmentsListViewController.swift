@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AssessmentsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AssessmentsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MutableContentsController {
 
     private var myAssessment: Assessment?
     private var assessments: [Assessment]?
@@ -96,6 +96,13 @@ class AssessmentsListViewController: UIViewController, UITableViewDelegate, UITa
             completion?()
         }
     }
+    
+    func updateContents() {
+        self.updateContents(nil)
+    }
+    
+    var requiredToUpdateWhenDidChengeTab: Bool { return false }
+    var requiredToUpdateWhenWillEnterForeground: Bool { return true }
     
     func onRefresh(sender: UIRefreshControl) {
         self.updateContents {
