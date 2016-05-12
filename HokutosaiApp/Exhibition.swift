@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class Exhibition: Mappable, StandardTableViewCellData {
+class Exhibition: StandardContentsData {
     
     var exhibitionId: UInt?
     var title: String?
@@ -19,6 +19,8 @@ class Exhibition: Mappable, StandardTableViewCellData {
     var assessmentAggregate: AssessedScore?
     var liked: Bool?
     var likesCount: UInt?
+    var introduction: String?
+    var place: Place?
     
     required init?(_ map: Map) { }
     
@@ -31,6 +33,8 @@ class Exhibition: Mappable, StandardTableViewCellData {
         self.assessmentAggregate <- map["assessment_aggregate"]
         self.liked <- map["liked"]
         self.likesCount <- map["likes_count"]
+        self.introduction <- map["introduction"]
+        self.place <- map["place"]
     }
     
     var dataId: UInt { return self.exhibitionId! }
@@ -38,7 +42,19 @@ class Exhibition: Mappable, StandardTableViewCellData {
     var dataTitle: String? { return self.title }
     var dataOrganizer: String? { return self.exhibitor }
     var dataDescription: String? { return self.displays }
-    var dataLikesCount: UInt? { return self.likesCount }
-    var dataLiked: Bool? { return self.liked }
+    var dataLikesCount: UInt? {
+        get { return self.likesCount }
+        set { self.likesCount = newValue }
+    }
+    var dataLiked: Bool? {
+        get { return self.liked }
+        set { self.liked = newValue }
+    }
+    var dataIntroduction: String? { return self.introduction }
+    var dataPlace: Place? { return self.place }
+    var dataAssessmentAggregate: AssessedScore? {
+        get { return self.assessmentAggregate }
+        set { self.assessmentAggregate = newValue }
+    }
     
 }

@@ -8,29 +8,28 @@
 
 import UIKit
 
-class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, StandardTableViewCellDelegate {
+class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, LikeableTableViewCellDelegate, TabBarIntaractiveController, StandardTableViewController {
 
-    private var exhibitions: [Exhibition]!
+    private var exhibitions: [Exhibition]?
     
     private var tableView: UITableView!
     private let cellIdentifier = "Exhibitions"
+    
+    private var updatingContents: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "展示"
         
+        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(title: "MAP", style: .Plain, target: self, action: #selector(ExhibitionsViewController.showMap))]
+        
         self.generateTableView()
         
-        HokutosaiApi.GET(HokutosaiApi.Exhibitions.Exhibitions()) { response in
-            guard response.isSuccess else {
-                print(response.statusCode)
-                self.presentViewController(ErrorAlert.Server.failureGet(), animated: true, completion: nil)
-                return
-            }
-            
-            self.exhibitions = response.model
-            self.tableView.reloadData()
+        let loadingView = SimpleLoadingView(frame: self.view.frame)
+        self.view.addSubview(loadingView)
+        self.updateContents {
+            loadingView.removeFromSuperview()
         }
     }
 
@@ -51,13 +50,55 @@ class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableV
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(ExhibitionsViewController.onRefresh(_:)), forControlEvents: .ValueChanged)
+        self.tableView.addSubview(refreshControl)
+
+        
         self.view.addSubview(self.tableView)
     }
     
+    func onRefresh(refreshControl: UIRefreshControl) {
+        refreshControl.beginRefreshing()
+        
+        self.updateContents() {
+            refreshControl.endRefreshing()
+        }
+    }
+    
+    private func updateContents(completion: (() -> Void)?) {
+        guard !self.updatingContents else { return }
+        self.updatingContents = true
+        
+        HokutosaiApi.GET(HokutosaiApi.Exhibitions.All()) { response in
+            guard response.isSuccess, let data = response.model else {
+                self.updatingContents = false
+                completion?()
+                return
+            }
+            
+            self.exhibitions = data
+            self.tableView.reloadData()
+            self.updatingContents = false
+            completion?()
+        }
+    }
+    
+    func updateContents() {
+        guard self.tableView != nil else { return }
+        self.updateContents(nil)
+    }
+    
+    var requiredToUpdateWhenDidChengeTab: Bool { return true }
+    var requiredToUpdateWhenWillEnterForeground: Bool { return true }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let detailsView = StandardDetailsViewController()
-        detailsView.title = self.exhibitions[indexPath.row].title!
-        self.navigationController?.pushViewController(detailsView, animated: true)
+        guard let exhibitions = self.exhibitions else { return }
+        let exhibition = exhibitions[indexPath.row]
+        guard exhibition.exhibitionId != nil else { return }
+        
+        let detailView = ExhibitionsDetailViewController(exhibition: exhibition, exhibitionViewController: self)
+        self.navigationController?.pushViewController(detailView, animated: true)
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
@@ -84,14 +125,16 @@ class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! StandardTableViewCell
         
-        cell.changeData(indexPath.row, data: self.exhibitions[indexPath.row])
+        cell.changeData(indexPath.row, data: self.exhibitions![indexPath.row])
         cell.delegate = self
         
         return cell
     }
     
-    func like(index: Int, cell: StandardTableViewCell) {
-        let exhibitionId = self.exhibitions[index].exhibitionId!
+    func like(index: Int, cell: LikeableTableViewCell) {
+        guard self.exhibitions != nil else { return }
+        
+        let exhibitionId = self.exhibitions![index].exhibitionId!
         HokutosaiApi.POST(HokutosaiApi.Exhibitions.Likes(exhibitionId: exhibitionId)) { response in
             guard let result = response.model else {
                 self.presentViewController(ErrorAlert.Server.failureSendRequest(), animated: true, completion: nil)
@@ -99,14 +142,16 @@ class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableV
                 return
             }
             
-            self.exhibitions[index].liked = result.liked
-            self.exhibitions[index].likesCount = result.likesCount
+            self.exhibitions![index].liked = result.liked
+            self.exhibitions![index].likesCount = result.likesCount
             cell.updateLikes(exhibitionId)
         }
     }
     
-    func dislike(index: Int, cell: StandardTableViewCell) {
-        let exhibitionId = self.exhibitions[index].exhibitionId!
+    func dislike(index: Int, cell: LikeableTableViewCell) {
+        guard self.exhibitions != nil else { return }
+        
+        let exhibitionId = self.exhibitions![index].exhibitionId!
         HokutosaiApi.DELETE(HokutosaiApi.Exhibitions.Likes(exhibitionId: exhibitionId)) { response in
             guard let result = response.model else {
                 self.presentViewController(ErrorAlert.Server.failureSendRequest(), animated: true, completion: nil)
@@ -114,10 +159,23 @@ class ExhibitionsViewController: UIViewController, UITableViewDelegate, UITableV
                 return
             }
             
-            self.exhibitions[index].liked = result.liked
-            self.exhibitions[index].likesCount = result.likesCount
+            self.exhibitions![index].liked = result.liked
+            self.exhibitions![index].likesCount = result.likesCount
             cell.updateLikes(exhibitionId)
         }
+    }
+    
+    func tabBarIconTapped() {
+        self.tableView?.setContentOffset(CGPoint(x: 0.0, y: -self.appearOriginY), animated: true)
+    }
+    
+    func reloadData() {
+        self.tableView.reloadData()
+    }
+    
+    func showMap() {
+        let vc = ImageViewController(title: "校内マップ", images: [SharedImage.layoutMap])
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

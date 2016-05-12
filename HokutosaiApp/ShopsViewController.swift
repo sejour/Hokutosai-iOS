@@ -8,28 +8,28 @@
 
 import UIKit
 
-class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, StandardTableViewCellDelegate {
+class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, LikeableTableViewCellDelegate, TabBarIntaractiveController, StandardTableViewController {
 
-    private var shops: [Shop]!
+    private var shops: [Shop]?
     
     private var tableView: UITableView!
     private let cellIdentifier = "Shops"
+    
+    private var updatingContents: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.title = "模擬店"
         
+        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(title: "MAP", style: .Plain, target: self, action: #selector(ShopsViewController.showMap))]
+        
         self.generateTableView()
         
-        HokutosaiApi.GET(HokutosaiApi.Shops.Shops()) { response in
-            guard response.isSuccess else {
-                self.presentViewController(ErrorAlert.Server.failureGet(), animated: true, completion: nil)
-                return
-            }
-            
-            self.shops = response.model
-            self.tableView.reloadData()
+        let loadingView = SimpleLoadingView(frame: self.view.frame)
+        self.view.addSubview(loadingView)
+        self.updateContents {
+            loadingView.removeFromSuperview()
         }
     }
 
@@ -50,13 +50,54 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(ShopsViewController.onRefresh(_:)), forControlEvents: .ValueChanged)
+        self.tableView.addSubview(refreshControl)
+        
         self.view.addSubview(self.tableView)
     }
     
+    func onRefresh(refreshControl: UIRefreshControl) {
+        refreshControl.beginRefreshing()
+        
+        self.updateContents() {
+            refreshControl.endRefreshing()
+        }
+    }
+    
+    private func updateContents(completion: (() -> Void)?) {
+        guard !self.updatingContents else { return }
+        self.updatingContents = true
+        
+        HokutosaiApi.GET(HokutosaiApi.Shops.All()) { response in
+            guard response.isSuccess, let data = response.model else {
+                self.updatingContents = false
+                completion?()
+                return
+            }
+            
+            self.shops = data
+            self.tableView.reloadData()
+            self.updatingContents = false
+            completion?()
+        }
+    }
+    
+    func updateContents() {
+        guard self.tableView != nil else { return }
+        self.updateContents(nil)
+    }
+    
+    var requiredToUpdateWhenDidChengeTab: Bool { return true }
+    var requiredToUpdateWhenWillEnterForeground: Bool { return true }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let detailsView = StandardDetailsViewController()
-        detailsView.title = self.shops[indexPath.row].name!
-        self.navigationController?.pushViewController(detailsView, animated: true)
+        guard let shops = self.shops else { return }
+        let shop = shops[indexPath.row]
+        guard shop.shopId != nil else { return }
+        
+        let detailView = ShopsDetailViewController(shop: shop, shopViewController: self)
+        self.navigationController?.pushViewController(detailView, animated: true)
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
@@ -83,14 +124,16 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! StandardTableViewCell
         
-        cell.changeData(indexPath.row, data: self.shops[indexPath.row])
+        cell.changeData(indexPath.row, data: self.shops![indexPath.row])
         cell.delegate = self
         
         return cell
     }
     
-    func like(index: Int, cell: StandardTableViewCell) {
-        let shopId = self.shops[index].shopId!
+    func like(index: Int, cell: LikeableTableViewCell) {
+        guard self.shops != nil else { return }
+        
+        let shopId = self.shops![index].shopId!
         HokutosaiApi.POST(HokutosaiApi.Shops.Likes(shopId: shopId)) { response in
             guard let result = response.model else {
                 self.presentViewController(ErrorAlert.Server.failureSendRequest(), animated: true, completion: nil)
@@ -98,14 +141,16 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 return
             }
 
-            self.shops[index].liked = result.liked
-            self.shops[index].likesCount = result.likesCount
+            self.shops![index].liked = result.liked
+            self.shops![index].likesCount = result.likesCount
             cell.updateLikes(shopId)
         }
     }
     
-    func dislike(index: Int, cell: StandardTableViewCell) {
-        let shopId = self.shops[index].shopId!
+    func dislike(index: Int, cell: LikeableTableViewCell) {
+        guard self.shops != nil else { return }
+        
+        let shopId = self.shops![index].shopId!
         HokutosaiApi.DELETE(HokutosaiApi.Shops.Likes(shopId: shopId)) { response in
             guard let result = response.model else {
                 self.presentViewController(ErrorAlert.Server.failureSendRequest(), animated: true, completion: nil)
@@ -113,10 +158,23 @@ class ShopsViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 return
             }
 
-            self.shops[index].liked = result.liked
-            self.shops[index].likesCount = result.likesCount
+            self.shops![index].liked = result.liked
+            self.shops![index].likesCount = result.likesCount
             cell.updateLikes(shopId)
         }
     }
 
+    func tabBarIconTapped() {
+        self.tableView?.setContentOffset(CGPoint(x: 0.0, y: -self.appearOriginY), animated: true)
+    }
+    
+    func reloadData() {
+        self.tableView.reloadData()
+    }
+    
+    func showMap() {
+        let vc = ImageViewController(title: "校内マップ", images: [SharedImage.layoutMap])
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }

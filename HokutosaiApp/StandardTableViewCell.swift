@@ -9,7 +9,7 @@
 import UIKit
 import AlamofireImage
 
-class StandardTableViewCell: UITableViewCell {
+class StandardTableViewCell: UITableViewCell, LikeableTableViewCell {
 
     @IBOutlet weak var displayedImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -19,8 +19,8 @@ class StandardTableViewCell: UITableViewCell {
     @IBOutlet weak var likesCountLabel: UILabel!
     
     var index: Int!
-    var data: StandardTableViewCellData!
-    weak var delegate: StandardTableViewCellDelegate?
+    var data: StandardContentsData!
+    weak var delegate: LikeableTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,7 +37,7 @@ class StandardTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func changeData(index: Int, data: StandardTableViewCellData) {
+    func changeData(index: Int, data: StandardContentsData) {
         self.index = index
         self.data = data
         

@@ -8,12 +8,63 @@
 
 import UIKit
 
-class StandardDetailsViewController: UIViewController {
+protocol StandardTableViewController: MutableContentsController {
+    
+    func reloadData()
 
+}
+
+class StandardDetailsViewController<ModelType: StandardContentsData, TableViewController: StandardTableViewController>: ContentsViewController {
+
+    private var model: ModelType?
+    
+    private var likesCountLabel: InformationLabel!
+    private var likeIcon: InteractiveIcon!
+    
+    var introductionLabelTitle: String!
+    
+    private weak var tableViewController: TableViewController?
+    
+    private var endpointModel: HokutosaiApiEndpoint<ObjectResource<ModelType>>!
+    private var endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>!
+    private var endpointAssessmentList: HokutosaiApiEndpoint<ObjectResource<AssessmentList>>!
+    private var endpointAssessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>!
+    
+    init(endpointModel: HokutosaiApiEndpoint<ObjectResource<ModelType>>, endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>, endpointAssessmentList: HokutosaiApiEndpoint<ObjectResource<AssessmentList>>, endpointAssessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>!, title: String?, introductionLabelTitle: String!) {
+        super.init(title: title)
+        self.endpointModel = endpointModel
+        self.endpointLikes = endpointLikes
+        self.endpointAssessmentList = endpointAssessmentList
+        self.endpointAssessment = endpointAssessment
+        self.introductionLabelTitle = introductionLabelTitle
+    }
+    
+    init(endpointModel: HokutosaiApiEndpoint<ObjectResource<ModelType>>, endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>, endpointAssessmentList: HokutosaiApiEndpoint<ObjectResource<AssessmentList>>, endpointAssessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>!, model: ModelType, tableViewController: TableViewController, introductionLabelTitle: String!) {
+        super.init(title: model.dataTitle)
+        self.endpointModel = endpointModel
+        self.endpointLikes = endpointLikes
+        self.endpointAssessmentList = endpointAssessmentList
+        self.endpointAssessment = endpointAssessment
+        self.model = model
+        self.tableViewController = tableViewController
+        self.introductionLabelTitle = introductionLabelTitle
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.hideNavigationBackButtonText()
 
-        self.view.backgroundColor = UIColor.whiteColor()
+        if let model = self.model {
+            self.generateContents(model) /* IntroductionViewより上に配置されるViewを作成 (オーバーライドされる) */
+            self.layoutIntroductionView(model) /* IntroductionViewを配置 */
+            self.updateContentViews() /* 適用 */
+            self.updateMutableContents() /* 可変データの更新 */
+            self.updateAssessments() /* 評価ビューの生成 */
+        }
+        else {
+            self.fetchContents()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +72,189 @@ class StandardDetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func fetchContents() {
+        let loadingView = SimpleLoadingView(frame: self.view.frame, backgroundColor: UIColor.whiteColor())
+        self.view.addSubview(loadingView)
+        
+        HokutosaiApi.GET(self.endpointModel) { response in
+            guard response.isSuccess, let data = response.model else {
+                self.presentViewController(ErrorAlert.Server.failureGet { action in
+                    loadingView.removeFromSuperview()
+                    self.navigationController?.popViewControllerAnimated(true)
+                    }, animated: true, completion: nil)
+                return
+            }
+            
+            self.model = data
+            self.generateContents(data) /* IntroductionViewより上に配置されるViewを作成 (オーバーライドされる) */
+            self.layoutIntroductionView(data) /* IntroductionViewを配置 */
+            self.updateContentViews() /* 適用 */
+            self.updateAssessments() /* 評価ビューを生成 */
+            loadingView.removeFromSuperview()
+        }
     }
-    */
+    
+    func generateContents(model: ModelType) {
+        //
+        self.insertSpace(5.0)
+        //
+        
+        // TitleView
+        let title = model.dataTitle ?? "未登録"
+        let titleView = TitleView(width: self.view.width, title: title, featured: false)
+        self.addContentView(titleView)
+        
+        //
+        self.insertSpace(1.0)
+        self.insertSeparator(20.0)
+        self.insertSpace(15.0)
+        //
+        
+        // InformationView
+        let informationView = StandardInformationView(width: self.view.width, data: model, placeLinkTarget: self, placeLinkAction: #selector(StandardDetailsViewController.showMap))
+        self.addContentView(informationView)
+        
+        //
+        self.insertSpace(15.0)
+        //
+        
+        // Likes
+        let likesCount = "いいね \(model.dataLikesCount ?? 0)件"
+        self.likesCountLabel = InformationLabel(width: self.view.width, icon: SharedImage.blackHertIcon, text: likesCount)
+        self.addContentView(self.likesCountLabel)
+        
+        // ---
+        self.insertSpace(10.0)
+        self.insertSeparator(20.0)
+        self.insertSpace(10.0)
+        // ---
+        
+        // Like
+        var likeImage = SharedImage.largeGrayHertIcon
+        if let liked = model.dataLiked where liked { likeImage = SharedImage.largeRedHertIcon }
+        self.likeIcon = InteractiveIcon(image: likeImage, target: self, action: #selector(EventsDetailViewController.like))
+        
+        // Share
+        let shareIcon = InteractiveIcon(image: SharedImage.shareIcon, target: self, action: #selector(EventsDetailViewController.share))
+        
+        // Interaction Icon
+        let iconBar = HorizontalArrangeView(width: self.view.width, height: 22.0, items: [self.likeIcon, shareIcon])
+        self.addContentView(iconBar)
+        
+        // ---
+        self.insertSpace(10.0)
+        self.insertSeparator(20.0)
+        // ---
+    }
+    
+    func layoutIntroductionView(model: ModelType) {
+        //
+        self.insertSpace(10.0)
+        //
+        
+        // 見出し
+        self.addContentView(InformationLabel(width: self.view.width, icon: SharedImage.introductionIcon, text: self.introductionLabelTitle))
+        
+        //
+        self.insertSpace(5.0)
+        //
+        
+        let introductionLabel = TextLabel(width: self.view.width, text: model.dataIntroduction)
+        self.addContentView(introductionLabel)
+        
+        //
+        self.insertSpace(20.0)
+        //
+    }
+    
+    private func updateAssessments() {
+        
+    }
+    
+    func like() {
+        guard let model = self.model else { return }
+        
+        if let liked = model.dataLiked where liked {
+            self.likeIcon.image = SharedImage.largeGrayHertIcon
+            HokutosaiApi.DELETE(self.endpointLikes) { response in
+                guard let result = response.model else {
+                    self.presentViewController(ErrorAlert.Server.failureSendRequest(), animated: true, completion: nil)
+                    self.updateLikes(nil)
+                    return
+                }
+                
+                self.updateLikes(result)
+            }
+        }
+        else {
+            self.likeIcon.image = SharedImage.largeRedHertIcon
+            HokutosaiApi.POST(self.endpointLikes) { response in
+                guard let result = response.model else {
+                    self.presentViewController(ErrorAlert.Server.failureSendRequest(), animated: true, completion: nil)
+                    self.updateLikes(nil)
+                    return
+                }
+                
+                self.updateLikes(result)
+            }
+        }
+    }
+    
+    func updateLikes(like: LikeResult?) {
+        if let like = like {
+            self.model?.dataLiked = like.liked
+            self.model?.dataLikesCount = like.likesCount
+            self.likesCountLabel.text = "いいね \(self.model?.dataLikesCount ?? 0)件"
+            self.tableViewController?.reloadData()
+            // もしself.eventがTopicEventであればTimetableのEventは更新されない -> Timetableを更新
+            self.tableViewController?.reloadData()
+        }
+        
+        if let liked = self.model?.dataLiked where liked {
+            self.likeIcon.image = SharedImage.largeRedHertIcon
+        }
+        else {
+            self.likeIcon.image = SharedImage.grayHertIcon
+        }
+    }
+    
+    // 可変コンテンツを更新する
+    func updateMutableContents() {
+        HokutosaiApi.GET(self.endpointModel) { response in
+            guard response.isSuccess, let data = response.model else {
+                return
+            }
+            
+            // もしself.eventがTopicEventであればTimetableのEventは更新されない。
+            // 本来ならばTimetableを更新するべきだがTimetable詳細ビューを開くごとにTimetableを更新するのでは更新が頻繁になるため、ここはでは更新しない。 -> 整合性を犠牲にしている
+            self.model?.dataLiked = data.dataLiked
+            self.model?.dataLikesCount = data.dataLikesCount
+            self.likesCountLabel.text = "いいね \(self.model?.dataLikesCount ?? 0)件"
+            self.tableViewController?.reloadData()
+            
+            if let liked = self.model?.dataLiked where liked {
+                self.likeIcon.image = SharedImage.largeRedHertIcon
+            }
+            else {
+                self.likeIcon.image = SharedImage.grayHertIcon
+            }
+            
+            // 評価結果の更新
+            self.model?.dataAssessmentAggregate = data.dataAssessmentAggregate
+        }
+    }
+    
+    func share() {
+        guard let model = self.model else { return }
+        
+        let shareText = "#北斗祭 #\(model.dataTitle ?? "未登録") "
+        let activityViewController = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
+        self.presentViewController(activityViewController, animated: true, completion: nil)
+    }
+    
+    func showMap() {
+        let vc = ImageViewController(title: "校内マップ", images: [SharedImage.layoutMap])
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 
 }
