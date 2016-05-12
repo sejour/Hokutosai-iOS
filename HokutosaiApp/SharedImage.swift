@@ -42,6 +42,15 @@ final class SharedImage {
     
     static var layoutMap: UIImage? { return UIImage(named: "LayoutMap") }
     
+    static let scoreImage = [
+        UIImage(named: "score0"),
+        UIImage(named: "score1"),
+        UIImage(named: "score2"),
+        UIImage(named: "score3"),
+        UIImage(named: "score4"),
+        UIImage(named: "score5")
+    ]
+    
     private init () {}
     
 }
