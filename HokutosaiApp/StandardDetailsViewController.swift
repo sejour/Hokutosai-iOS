@@ -163,12 +163,23 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
         self.addContentView(introductionLabel)
         
         //
-        self.insertSpace(20.0)
+        self.insertSpace(10.0)
         //
     }
     
     private func updateAssessments() {
+        // ---
+        self.insertSeparator(20.0)
+        self.insertSpace(10.0)
+        // ---
         
+        // 見出し
+        let label = InformationLabel(width: self.view.width, icon: SharedImage.messageIcon, text: "みんなの評価")
+        self.addContentView(label)
+        
+        //
+        self.insertSpace(20.0)
+        //
     }
     
     func like() {
