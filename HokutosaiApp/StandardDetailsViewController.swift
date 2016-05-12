@@ -61,7 +61,6 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
             self.layoutIntroductionView(model) /* IntroductionViewを配置 */
             self.updateContentViews() /* 適用 */
             self.updateMutableContents() /* 可変データの更新 */
-            self.updateAssessments() /* 評価ビューの生成 */
         }
         else {
             self.fetchContents()
@@ -90,7 +89,6 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
             self.generateContents(data) /* IntroductionViewより上に配置されるViewを作成 (オーバーライドされる) */
             self.layoutIntroductionView(data) /* IntroductionViewを配置 */
             self.updateContentViews() /* 適用 */
-            self.updateAssessments() /* 評価ビューを生成 */
             loadingView.removeFromSuperview()
         }
     }
@@ -186,19 +184,45 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
             self.addContentView(self.aggregateView!)
         }
         
-        //
-        self.insertSpace(20.0)
-        //
-    }
-    
-    private func updateAssessments() {
+        // ---
+        self.insertSpace(15.0)
+        self.insertSeparator(20.0)
+        self.insertSpace(10.0)
+        // ---
         
+        // 評価を見る
+        let showAssessmentListButton = ButtonView(width: self.view.width, text: "評価を見る", target: self, action: #selector(StandardDetailsViewController.showAssessmentList))
+        self.addContentView(showAssessmentListButton)
+        
+        // ---
+        self.insertSpace(10.0)
+        self.insertSeparator(20.0)
+        self.insertSpace(10.0)
+        // ---
+        
+        // 評価を書く
+        let writeAssessmentButton = ButtonView(width: self.view.width, text: "評価を書く", target: self, action: #selector(StandardDetailsViewController.writeAssessment))
+        self.addContentView(writeAssessmentButton)
+        
+        // ---
+        self.insertSpace(10.0)
+        self.insertSeparator(20.0)
+        self.insertSpace(20.0)
+        // ---
     }
     
     func onRefresh(refreshControl: UIRefreshControl) {
         self.updateMutableContents {
             refreshControl.endRefreshing()
         }
+    }
+    
+    func showAssessmentList() {
+        
+    }
+    
+    func writeAssessment() {
+        
     }
     
     func like() {
