@@ -316,6 +316,19 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         self.timeline.reloadData()
     }
     
+    func updateLikes(newsId: UInt, like: LikeResult) {
+        guard let articles = self.articles else { return }
+        
+        for article in articles {
+            if article.newsId == newsId {
+                article.liked = like.liked
+                article.likesCount = like.likesCount
+            }
+        }
+        
+        self.timeline.reloadData()
+    }
+    
     // scrolling ------------------------------------------------------------------------------------
     
     func scrollViewDidScroll(scrollView: UIScrollView) {

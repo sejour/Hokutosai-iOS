@@ -136,11 +136,11 @@ class NewsDetailViewController: ContentsViewController, SlideImageViewDelegate {
             HokutosaiApi.DELETE(HokutosaiApi.News.Likes(newsId: newsId)) { response in
                 guard let result = response.model else {
                     self.presentViewController(ErrorAlert.Server.failureSendRequest(), animated: true, completion: nil)
-                    self.updateLikes(nil)
+                    self.updateLikes(newsId, like: nil)
                     return
                 }
                 
-                self.updateLikes(result)
+                self.updateLikes(newsId, like: result)
             }
         }
         else {
@@ -148,22 +148,21 @@ class NewsDetailViewController: ContentsViewController, SlideImageViewDelegate {
             HokutosaiApi.POST(HokutosaiApi.News.Likes(newsId: newsId)) { response in
                 guard let result = response.model else {
                     self.presentViewController(ErrorAlert.Server.failureSendRequest(), animated: true, completion: nil)
-                    self.updateLikes(nil)
+                    self.updateLikes(newsId, like: nil)
                     return
                 }
                 
-                self.updateLikes(result)
+                self.updateLikes(newsId, like: result)
             }
         }
     }
     
-    func updateLikes(like: LikeResult?) {
+    func updateLikes(newsId: UInt, like: LikeResult?) {
         if let like = like {
             self.article.liked = like.liked
             self.article.likesCount = like.likesCount
             self.likesCountLabel.text = "いいね \(self.article.likesCount ?? 0)件"
-            self.newsViewController?.reloadData()
-            //self.newsViewController?.updateTimeline()
+            self.newsViewController?.updateLikes(newsId, like: like)
         }
         
         if let liked = self.article.liked where liked {
