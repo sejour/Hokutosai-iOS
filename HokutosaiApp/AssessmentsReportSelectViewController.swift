@@ -14,8 +14,11 @@ class AssessmentsReportSelectViewController: UITableViewController {
 
     private let cellIdentifier = "AssessmentReport"
     
-    init() {
+    private var reportingEndpoint: HokutosaiApiEndpoint<ObjectResource<HokutosaiApiStatus>>!
+    
+    init(reportingEndpoint: HokutosaiApiEndpoint<ObjectResource<HokutosaiApiStatus>>) {
         super.init(nibName: nil, bundle: NSBundle.mainBundle())
+        self.reportingEndpoint = reportingEndpoint
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -84,7 +87,15 @@ class AssessmentsReportSelectViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if let causeId = self.reportCauses![indexPath.row - 1].causeId {
+            self.report(causeId)
+        }
+        
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    private func report(causeId: String) {
+        
     }
 
 }

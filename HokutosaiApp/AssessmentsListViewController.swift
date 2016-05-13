@@ -22,7 +22,10 @@ class AssessmentsListViewController: UIViewController, UITableViewDelegate, UITa
     private var endpointAssessmentList: HokutosaiApiEndpoint<ObjectResource<AssessmentList>>!
     private var endpointAssessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>!
     
-    init(myAssessment: Assessment?, endpointAssessmentList: HokutosaiApiEndpoint<ObjectResource<AssessmentList>>, endpointAssessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>) {
+    private var contentsType: StandardContentsType
+    
+    init(contentsType: StandardContentsType, myAssessment: Assessment?, endpointAssessmentList: HokutosaiApiEndpoint<ObjectResource<AssessmentList>>, endpointAssessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>) {
+        self.contentsType = contentsType
         super.init(nibName: nil, bundle: NSBundle.mainBundle())
         self.myAssessment = myAssessment
         self.endpointAssessmentList = endpointAssessmentList
@@ -142,9 +145,9 @@ class AssessmentsListViewController: UIViewController, UITableViewDelegate, UITa
     
     func tappedOthersButton(assessmentId: UInt) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        
         let firstAction = UIAlertAction(title: "コメントを報告する", style: .Default) { action in
-            let reportViewController = AssessmentsReportSelectViewController()
-            self.presentViewController(UINavigationController(rootViewController: reportViewController), animated: true, completion: nil)
+            self.report(assessmentId)
         }
         let cancelAction = UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil)
         
@@ -152,6 +155,21 @@ class AssessmentsListViewController: UIViewController, UITableViewDelegate, UITa
         alertController.addAction(cancelAction)
         
         self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func report(assessmentId: UInt) {
+        var endpoint: HokutosaiApiEndpoint<ObjectResource<HokutosaiApiStatus>>?
+        switch self.contentsType {
+        case .Shop:
+            endpoint = HokutosaiApi.Shops.AssessmentReport(assessmentId: assessmentId)
+        case .Exhibition:
+            endpoint = HokutosaiApi.Exhibitions.AssessmentReport(assessmentId: assessmentId)
+        }
+        
+        guard endpoint != nil else { return }
+        
+        let reportViewController = AssessmentsReportSelectViewController(reportingEndpoint: endpoint!)
+        self.presentViewController(UINavigationController(rootViewController: reportViewController), animated: true, completion: nil)
     }
     
 }

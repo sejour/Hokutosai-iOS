@@ -229,7 +229,7 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
     func showAssessmentList() {
         guard let model = self.model else { return }
         
-        let assessmentsListViewController = AssessmentsListViewController(myAssessment: model.dataMyAssessment, endpointAssessmentList: self.endpointAssessmentList, endpointAssessment: self.endpointAssessment)
+        let assessmentsListViewController = AssessmentsListViewController(contentsType: self.contentsType, myAssessment: model.dataMyAssessment, endpointAssessmentList: self.endpointAssessmentList, endpointAssessment: self.endpointAssessment)
         self.navigationController?.pushViewController(assessmentsListViewController, animated: true)
     }
     
