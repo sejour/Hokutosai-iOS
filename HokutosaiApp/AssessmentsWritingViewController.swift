@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AssessmentsWritingViewController: ContentsViewController {
+class AssessmentsWritingViewController: ContentsViewController, StarScoreFieldDelegate {
     
     var myAssessment: Assessment?
     var assessmentEndpoint: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>!
@@ -55,6 +55,16 @@ class AssessmentsWritingViewController: ContentsViewController {
         // ---
         self.insertSpace(5.0)
         self.insertSeparator(20.0)
+        self.insertSpace(8.0)
+        // ---
+        
+        // Score
+        let scoreField = StarScoreField(width: self.view.width, defaultScore: 0, delegate: self)
+        self.addContentView(scoreField)
+        
+        // ---
+        self.insertSpace(8.0)
+        self.insertSeparator(20.0)
         self.insertSpace(5.0)
         // ---
     }
@@ -65,6 +75,10 @@ class AssessmentsWritingViewController: ContentsViewController {
     
     func send() {
         
+    }
+    
+    func changeScore(score: UInt?) {
+        print("\(score)")
     }
     
 }
