@@ -25,6 +25,10 @@ class AssessmentsReportSelectViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "報告する"
+        
+        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(title: "キャンセル", style: .Plain, target: self, action: #selector(AssessmentsReportSelectViewController.cancelReporting))]
+        
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
         
         HokutosaiApi.GET(HokutosaiApi.Assessments.ReportCauses()) { response in
@@ -43,6 +47,10 @@ class AssessmentsReportSelectViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func cancelReporting() {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 
     // MARK: - Table view data source
