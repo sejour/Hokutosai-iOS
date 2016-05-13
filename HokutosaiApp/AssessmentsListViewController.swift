@@ -40,6 +40,7 @@ class AssessmentsListViewController: UIViewController, UITableViewDelegate, UITa
         super.viewDidLoad()
 
         self.title = "評価"
+        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: SharedImage.writeIcon, style: .Plain, target: self, action: #selector(AssessmentsListViewController.writeAssessment))]
         
         self.generateTableView()
         
@@ -170,6 +171,11 @@ class AssessmentsListViewController: UIViewController, UITableViewDelegate, UITa
         
         let reportViewController = AssessmentsReportSelectViewController(reportingEndpoint: endpoint!)
         self.presentViewController(UINavigationController(rootViewController: reportViewController), animated: true, completion: nil)
+    }
+    
+    func writeAssessment() {
+        let vc = AssessmentsWritingViewController(assessmentEndpoint: self.endpointAssessment, myAssessment: self.myAssessment)
+        self.presentViewController(UINavigationController(rootViewController: vc), animated: true, completion: nil)
     }
     
 }
