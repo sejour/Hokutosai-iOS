@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum StandardContentsType {
+    case Shop
+    case Exhibition
+}
+
 protocol StandardTableViewController: MutableContentsController {
     
     func reloadData()
@@ -31,8 +36,11 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
     private var endpointAssessmentList: HokutosaiApiEndpoint<ObjectResource<AssessmentList>>!
     private var endpointAssessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>!
     
-    init(endpointModel: HokutosaiApiEndpoint<ObjectResource<ModelType>>, endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>, endpointAssessmentList: HokutosaiApiEndpoint<ObjectResource<AssessmentList>>, endpointAssessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>, title: String?, introductionLabelTitle: String!) {
+    private var contentsType: StandardContentsType!
+    
+    init(contentsType: StandardContentsType, endpointModel: HokutosaiApiEndpoint<ObjectResource<ModelType>>, endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>, endpointAssessmentList: HokutosaiApiEndpoint<ObjectResource<AssessmentList>>, endpointAssessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>, title: String?, introductionLabelTitle: String!) {
         super.init(title: title)
+        self.contentsType = contentsType
         self.endpointModel = endpointModel
         self.endpointLikes = endpointLikes
         self.endpointAssessmentList = endpointAssessmentList
@@ -40,8 +48,9 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
         self.introductionLabelTitle = introductionLabelTitle
     }
     
-    init(endpointModel: HokutosaiApiEndpoint<ObjectResource<ModelType>>, endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>, endpointAssessmentList: HokutosaiApiEndpoint<ObjectResource<AssessmentList>>, endpointAssessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>, model: ModelType, tableViewController: TableViewController, introductionLabelTitle: String!) {
+    init(contentsType: StandardContentsType, endpointModel: HokutosaiApiEndpoint<ObjectResource<ModelType>>, endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>, endpointAssessmentList: HokutosaiApiEndpoint<ObjectResource<AssessmentList>>, endpointAssessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>, model: ModelType, tableViewController: TableViewController, introductionLabelTitle: String!) {
         super.init(title: model.dataTitle)
+        self.contentsType = contentsType
         self.endpointModel = endpointModel
         self.endpointLikes = endpointLikes
         self.endpointAssessmentList = endpointAssessmentList

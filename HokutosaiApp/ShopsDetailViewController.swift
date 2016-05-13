@@ -11,7 +11,7 @@ import Foundation
 class ShopsDetailViewController: StandardDetailsViewController<Shop, ShopsViewController> {
     
     init(shopId: UInt, title: String?) {
-        super.init(endpointModel: HokutosaiApi.Shops.One(shopId: shopId),
+        super.init(contentsType: .Shop, endpointModel: HokutosaiApi.Shops.One(shopId: shopId),
                    endpointLikes: HokutosaiApi.Shops.Likes(shopId: shopId),
                    endpointAssessmentList: HokutosaiApi.Shops.Assessments(shopId: shopId),
                    endpointAssessment: HokutosaiApi.Shops.Assessment(shopId: shopId),
@@ -22,7 +22,7 @@ class ShopsDetailViewController: StandardDetailsViewController<Shop, ShopsViewCo
     
     init(shop: Shop, shopViewController: ShopsViewController) {
         let shopId = shop.shopId!
-        super.init(endpointModel: HokutosaiApi.Shops.One(shopId: shopId),
+        super.init(contentsType: .Shop, endpointModel: HokutosaiApi.Shops.One(shopId: shopId),
                    endpointLikes: HokutosaiApi.Shops.Likes(shopId: shopId),
                    endpointAssessmentList: HokutosaiApi.Shops.Assessments(shopId: shopId),
                    endpointAssessment: HokutosaiApi.Shops.Assessment(shopId: shopId),
