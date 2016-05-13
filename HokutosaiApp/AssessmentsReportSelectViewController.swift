@@ -30,7 +30,7 @@ class AssessmentsReportSelectViewController: UITableViewController {
         
         self.title = "報告する"
         
-        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(title: "キャンセル", style: .Plain, target: self, action: #selector(AssessmentsReportSelectViewController.cancelReporting))]
+        self.navigationItem.leftBarButtonItems = [UIBarButtonItem(title: "キャンセル", style: .Plain, target: self, action: #selector(AssessmentsReportSelectViewController.cancelReporting))]
         
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
         
