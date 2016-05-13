@@ -87,15 +87,38 @@ class AssessmentsReportSelectViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if let causeId = self.reportCauses![indexPath.row - 1].causeId {
-            self.report(causeId)
+        if indexPath.row > 0 {
+            let reportCause = self.reportCauses![indexPath.row - 1]
+            if let causeId = reportCause.causeId {
+                self.confirmReporting(causeId, text: reportCause.text ?? "")
+            }
         }
         
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
+    private func confirmReporting(causeId: String, text: String) {
+        let confirmAlert = UIAlertController(title: "報告してよろしいですか？", message: "報告理由: \(text)", preferredStyle: .Alert)
+        confirmAlert.addAction(UIAlertAction(title: "OK", style: .Default) { action in
+            self.report(causeId)
+        })
+        confirmAlert.addAction(UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil))
+        self.presentViewController(confirmAlert, animated: true, completion: nil)
+    }
+    
     private func report(causeId: String) {
-        
+        HokutosaiApi.POST(self.reportingEndpoint, parameters: ["cause": causeId]) { response in
+            guard response.isSuccess, let data = response.model where data.statusCode < 400 else {
+                self.presentViewController(ErrorAlert.Server.failureSendRequest("報告できませんでした", handler: { action in
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                }), animated: true, completion: nil)
+                return
+            }
+            
+            self.presentViewController(UIAlertController.notificationAlertController("報告しました", message: nil, closeButtonTitle: "OK", handler: { action in
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }), animated: true, completion: nil)
+        }
     }
 
 }
