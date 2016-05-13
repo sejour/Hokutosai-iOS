@@ -144,14 +144,14 @@ class AssessmentsListViewController: UIViewController, UITableViewDelegate, UITa
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         let firstAction = UIAlertAction(title: "コメントを報告する", style: .Default) { action in
             let reportViewController = AssessmentsReportSelectViewController()
-            self.presentViewController(reportViewController, animated: true, completion: nil)
+            self.presentViewController(UINavigationController(rootViewController: reportViewController), animated: true, completion: nil)
         }
         let cancelAction = UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil)
         
         alertController.addAction(firstAction)
         alertController.addAction(cancelAction)
         
-        presentViewController(alertController, animated: true, completion: nil)
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
 }
