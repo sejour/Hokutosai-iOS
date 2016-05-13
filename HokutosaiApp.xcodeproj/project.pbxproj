@@ -105,6 +105,7 @@
 		A7CFD7DE1CE5370C00D9E569 /* AssessmentsReportSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CFD7DD1CE5370C00D9E569 /* AssessmentsReportSelectViewController.swift */; };
 		A7CFD7E01CE53A6800D9E569 /* AssessmentReportCause.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CFD7DF1CE53A6800D9E569 /* AssessmentReportCause.swift */; };
 		A7CFD7E41CE53B2100D9E569 /* HokutosaiApiStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CFD7E31CE53B2100D9E569 /* HokutosaiApiStatus.swift */; };
+		A7CFD7E61CE6540100D9E569 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CFD7E51CE6540100D9E569 /* TextField.swift */; };
 		A7D415231CE3D34500B163B8 /* LinkedInformationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D415221CE3D34500B163B8 /* LinkedInformationLabel.swift */; };
 		A7D415251CE49B0200B163B8 /* AssessmentAggregateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D415241CE49B0200B163B8 /* AssessmentAggregateView.swift */; };
 		A7EDFC391CE5C11B001DC401 /* AssessmentsWritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EDFC381CE5C11B001DC401 /* AssessmentsWritingViewController.swift */; };
@@ -233,6 +234,7 @@
 		A7CFD7DD1CE5370C00D9E569 /* AssessmentsReportSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssessmentsReportSelectViewController.swift; sourceTree = "<group>"; };
 		A7CFD7DF1CE53A6800D9E569 /* AssessmentReportCause.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssessmentReportCause.swift; sourceTree = "<group>"; };
 		A7CFD7E31CE53B2100D9E569 /* HokutosaiApiStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HokutosaiApiStatus.swift; sourceTree = "<group>"; };
+		A7CFD7E51CE6540100D9E569 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		A7D415221CE3D34500B163B8 /* LinkedInformationLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedInformationLabel.swift; sourceTree = "<group>"; };
 		A7D415241CE49B0200B163B8 /* AssessmentAggregateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssessmentAggregateView.swift; sourceTree = "<group>"; };
 		A7EDFC381CE5C11B001DC401 /* AssessmentsWritingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssessmentsWritingViewController.swift; sourceTree = "<group>"; };
@@ -672,6 +674,7 @@
 				A7D415221CE3D34500B163B8 /* LinkedInformationLabel.swift */,
 				A7D415241CE49B0200B163B8 /* AssessmentAggregateView.swift */,
 				A7CFD7DA1CE5068600D9E569 /* ButtonView.swift */,
+				A7CFD7E51CE6540100D9E569 /* TextField.swift */,
 			);
 			name = Material;
 			sourceTree = "<group>";
@@ -925,6 +928,7 @@
 				A79412361CE05B3A0040913D /* ShopsDetailViewController.swift in Sources */,
 				A74504861CD3DDA7001165E2 /* EventItem.swift in Sources */,
 				A77483191CCBCE98003AC18F /* AssessedScore.swift in Sources */,
+				A7CFD7E61CE6540100D9E569 /* TextField.swift in Sources */,
 				A745048D1CD3E010001165E2 /* Media.swift in Sources */,
 				A7CFD7D51CE4DACD00D9E569 /* AssessmentTableViewCell.swift in Sources */,
 				A78A36B71CDE625D00806FC4 /* SeparatorView.swift in Sources */,
