@@ -34,6 +34,8 @@ final class SharedImage {
     static var shareIcon: UIImage? { return UIImage(named: "ShareIcon") }
     static var blackHertIcon: UIImage? { return UIImage(named: "BlackHertIcon") }
     
+    static var writeIcon: UIImage? { return UIImage(named: "WriteIcon") }
+    
     static var hokutosaiTopImage: UIImage? { return UIImage(named: "TopImage") }
     static var hokutosaiThemaImage: UIImage? { return UIImage(named: "ThemaImage") }
     
