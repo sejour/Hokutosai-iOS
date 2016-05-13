@@ -234,7 +234,8 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
     }
     
     func writeAssessment() {
-        
+        let vc = AssessmentsWritingViewController(assessmentEndpoint: self.endpointAssessment, myAssessment: model?.dataMyAssessment)
+        self.presentViewController(UINavigationController(rootViewController: vc), animated: true, completion: nil)
     }
     
     func like() {
