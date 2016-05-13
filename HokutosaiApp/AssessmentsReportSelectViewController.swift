@@ -68,11 +68,15 @@ class AssessmentsReportSelectViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(self.cellIdentifier, forIndexPath: indexPath)
 
         if indexPath.row == 0 {
-            cell.textLabel?.text = "報告理由を選んでください。"
+            cell.textLabel?.text = "報告理由を選んでください"
+            cell.textLabel?.font = UIFont.systemFontOfSize(17.0)
+            cell.textLabel?.textColor = UIColor.grayColor()
             cell.selectionStyle = .None
         }
         else {
             cell.textLabel?.text = self.reportCauses![indexPath.row - 1].text
+            cell.textLabel?.font = UIFont.boldSystemFontOfSize(17.0)
+            cell.textLabel?.textColor = UIColor.blackColor()
             cell.selectionStyle = .Default
         }
         
