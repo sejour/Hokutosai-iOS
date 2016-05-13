@@ -48,6 +48,7 @@ class AssessmentsWritingViewController: ContentsViewController {
         // User Name
         let userNameTextProperty = TextField.Property()
         userNameTextProperty.placeholder = "ユーザ名 (任意)"
+        userNameTextProperty.characterLimit = 255
         let userNameTextField = TextField(width: self.view.width, property: userNameTextProperty)
         self.addContentView(userNameTextField)
         
