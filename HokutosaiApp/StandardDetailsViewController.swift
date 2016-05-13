@@ -63,6 +63,8 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: SharedImage.writeIcon, style: .Plain, target: self, action: #selector(StandardDetailsViewController.writeAssessment))]
+        
         self.hideNavigationBackButtonText()
 
         if let model = self.model {
