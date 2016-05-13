@@ -28,10 +28,34 @@ class AssessmentsWritingViewController: ContentsViewController {
         
         self.navigationItem.leftBarButtonItems = [UIBarButtonItem(title: "キャンセル", style: .Plain, target: self, action: #selector(AssessmentsWritingViewController.cancel))]
         self.navigationItem.rightBarButtonItems = [UIBarButtonItem(title: "送信", style: .Plain, target: self, action: #selector(AssessmentsWritingViewController.send))]
+        
+        self.generateContents()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.view.endEditing(animated)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func generateContents() {
+        //
+        self.insertSpace(15.0)
+        //
+        
+        // User Name
+        let userNameTextProperty = TextField.Property()
+        userNameTextProperty.placeholder = "ユーザ名 (任意)"
+        let userNameTextField = TextField(width: self.view.width, property: userNameTextProperty)
+        self.addContentView(userNameTextField)
+        
+        // ---
+        self.insertSpace(5.0)
+        self.insertSeparator(20.0)
+        self.insertSpace(5.0)
+        // ---
     }
     
     func cancel() {
