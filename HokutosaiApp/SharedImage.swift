@@ -19,6 +19,9 @@ final class SharedImage {
     static let topicIcon = UIImage(named: "TopicIcon")
     static let starRibbonIcon = UIImage(named: "StarRibbonIcon")
     
+    static let grayStarIcon = UIImage(named: "GrayStarIcon")
+    static let brightStarIcon = UIImage(named: "BrightStarIcon")
+    
     static var organizerIcon: UIImage? { return UIImage(named: "OrganizerIcon") }
     static var placeIcon: UIImage? { return UIImage(named: "PlaceIcon") }
     static var clockIcon: UIImage? { return UIImage(named: "ClockIcon") }
