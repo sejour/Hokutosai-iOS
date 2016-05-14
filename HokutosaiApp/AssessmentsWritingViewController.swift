@@ -73,7 +73,7 @@ class AssessmentsWritingViewController: ContentsViewController, StarScoreFieldDe
         // Text
         let textViewProperty = TextView.Property()
         textViewProperty.placeholder = "感想を入力してください"
-        self.textView = TextView(width: self.view.width, property: textViewProperty)
+        self.textView = TextView(width: self.view.width, height: 200, property: textViewProperty)
         self.addContentView(self.textView)
         
         //

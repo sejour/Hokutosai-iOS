@@ -21,13 +21,11 @@ class TextView: UIView, UITextViewDelegate {
         var characterLimit: UInt?
     }
     
-    private static let minHeight: CGFloat = 30.0
-    
     private var _textView: UITextView!
     private var characterLimit: UInt?
     
-    convenience init(width: CGFloat, property: Property = Property()) {
-        self.init(frame: CGRect(x: 0.0, y: 0.0, width: width, height: 0.0), property: property)
+    convenience init(width: CGFloat, height: CGFloat, property: Property = Property()) {
+        self.init(frame: CGRect(x: 0.0, y: 0.0, width: width, height: height), property: property)
     }
     
     init(frame: CGRect, property: Property = Property()) {
@@ -54,7 +52,7 @@ class TextView: UIView, UITextViewDelegate {
         
         self.snp_makeConstraints { make in
             make.width.equalTo(self.width)
-            make.height.greaterThanOrEqualTo(TextView.minHeight)
+            make.height.equalTo(self.height)
         }
     }
     
