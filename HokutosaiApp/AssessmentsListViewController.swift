@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AssessmentsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MutableContentsController, AssessmentTableViewCellDelegate, AssessmentsWritingViewControllerDelegate {
+class AssessmentsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MutableContentsController, AssessmentTableViewCellDelegate, AssessmentsWritingViewControllerDelegate, UIGestureRecognizerDelegate {
 
     private var assessments: [Assessment]?
     
@@ -48,6 +48,10 @@ class AssessmentsListViewController: UIViewController, UITableViewDelegate, UITa
         self.navigationItem.rightBarButtonItems = [self.writeAssessmentIcon]
         
         self.generateTableView()
+        
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(AssessmentsListViewController.cellLongPressed(_:)))
+        longPressRecognizer.delegate = self
+        self.tableView.addGestureRecognizer(longPressRecognizer)
         
         let loadingView = SimpleLoadingView(frame: self.view.frame)
         self.view.addSubview(loadingView)
@@ -218,6 +222,17 @@ class AssessmentsListViewController: UIViewController, UITableViewDelegate, UITa
     
     var myAssessment: Assessment? {
         return self.writingViewControllerDelegate?.myAssessment
+    }
+    
+    func cellLongPressed(recognizer: UILongPressGestureRecognizer) {
+        let point = recognizer.locationInView(self.tableView)
+        guard recognizer.state == UIGestureRecognizerState.Began,
+            let indexPath = self.tableView.indexPathForRowAtPoint(point),
+            let data = self.assessments,
+            let assessmentId = data[indexPath.row].assessmentId
+        else { return }
+ 
+        self.tappedOthersButton(assessmentId)
     }
     
 }
