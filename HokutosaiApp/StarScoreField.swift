@@ -46,6 +46,11 @@ class StarScoreField: UIView {
             self.addSubview(starIcon)
             self.starIcons.append(starIcon)
         }
+        
+        self.snp_makeConstraints { make in
+            make.width.equalTo(self.width)
+            make.height.equalTo(self.height)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
