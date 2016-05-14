@@ -147,15 +147,36 @@ class AssessmentsListViewController: UIViewController, UITableViewDelegate, UITa
     func tappedOthersButton(assessmentId: UInt) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         
-        let firstAction = UIAlertAction(title: "コメントを報告する", style: .Default) { action in
-            self.report(assessmentId)
-        }
+        let firstAction = (assessmentId == self.writingViewControllerDelegate?.myAssessment?.assessmentId) ?
+            UIAlertAction(title: "評価を削除する", style: .Default) { action in
+                let confirmAlert = UIAlertController(title: "評価を削除", message: "本当に評価を削除してもよろしいですか？", preferredStyle: .Alert)
+                confirmAlert.addAction(UIAlertAction(title: "削除", style: .Default) { action in
+                    self.deleteMyAssessment()
+                })
+                confirmAlert.addAction(UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil))
+                self.presentViewController(confirmAlert, animated: true, completion: nil)
+            } :
+            UIAlertAction(title: "このコメントを報告する", style: .Default) { action in
+                self.report(assessmentId)
+            }
+        
         let cancelAction = UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil)
         
         alertController.addAction(firstAction)
         alertController.addAction(cancelAction)
         
         self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func deleteMyAssessment() {
+        HokutosaiApi.DELETE(self.endpointAssessment) { response in
+            guard response.isSuccess, let data = response.model else {
+                self.presentViewController(ErrorAlert.Server.failureSendRequest(), animated: true, completion: nil)
+                return
+            }
+            
+            self.updateMyAssessment(data)
+        }
     }
     
     func report(assessmentId: UInt) {
