@@ -16,6 +16,10 @@ class AssessmentsWritingViewController: ContentsStackViewController, StarScoreFi
     private var topOfTextView: CGFloat!
     private var textView: TextView!
     
+    private var sendButton: UIBarButtonItem!
+    
+    private var currentScore: UInt?
+    
     init (assessmentEndpoint: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>, myAssessment: Assessment?) {
         super.init(title: "評価の投稿")
         self.assessmentEndpoint = assessmentEndpoint
@@ -30,7 +34,9 @@ class AssessmentsWritingViewController: ContentsStackViewController, StarScoreFi
         super.viewDidLoad()
         
         self.navigationItem.leftBarButtonItems = [UIBarButtonItem(title: "キャンセル", style: .Plain, target: self, action: #selector(AssessmentsWritingViewController.cancel))]
-        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(title: "送信", style: .Plain, target: self, action: #selector(AssessmentsWritingViewController.send))]
+        self.sendButton = UIBarButtonItem(title: "送信", style: .Done, target: self, action: #selector(AssessmentsWritingViewController.send))
+        self.sendButton.enabled = false
+        self.navigationItem.rightBarButtonItems = [sendButton]
         
         let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserver(self, selector: #selector(AssessmentsWritingViewController.didShowKeyboard(_:)), name: UIKeyboardDidShowNotification, object: nil)
@@ -96,7 +102,8 @@ class AssessmentsWritingViewController: ContentsStackViewController, StarScoreFi
     }
     
     func changeScore(score: UInt?) {
-        print("\(score)")
+        self.currentScore = score
+        self.sendButton.enabled = self.currentScore != nil
     }
     
     func didShowKeyboard(notification:NSNotification){
