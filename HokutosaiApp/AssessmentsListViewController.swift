@@ -148,7 +148,7 @@ class AssessmentsListViewController: UIViewController, UITableViewDelegate, UITa
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         
         let firstAction = (assessmentId == self.writingViewControllerDelegate?.myAssessment?.assessmentId) ?
-            UIAlertAction(title: "評価を削除する", style: .Default) { action in
+            UIAlertAction(title: "評価を削除する", style: .Destructive) { action in
                 let confirmAlert = UIAlertController(title: "評価を削除", message: "本当に評価を削除してもよろしいですか？", preferredStyle: .Alert)
                 confirmAlert.addAction(UIAlertAction(title: "削除", style: .Default) { action in
                     self.deleteMyAssessment()
