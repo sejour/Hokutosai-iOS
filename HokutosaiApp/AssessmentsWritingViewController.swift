@@ -68,7 +68,7 @@ class AssessmentsWritingViewController: ContentsStackViewController, StarScoreFi
         
         // User Name
         let userNameTextProperty = TextField.Property()
-        userNameTextProperty.placeholder = "名前 (任意)"
+        userNameTextProperty.placeholder = "ニックネーム (任意)"
         userNameTextProperty.defaultText = AccountManager.sharedManager.account?.userName
         userNameTextProperty.characterLimit = 255
         userNameTextProperty.font = UIFont.systemFontOfSize(18.0)
