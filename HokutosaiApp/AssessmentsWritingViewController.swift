@@ -21,6 +21,7 @@ class AssessmentsWritingViewController: ContentsStackViewController, StarScoreFi
     
     private var topOfTextView: CGFloat!
     private var textView: TextView!
+    private var userNameTextField: TextField!
     
     private var sendButton: UIBarButtonItem!
     
@@ -68,10 +69,11 @@ class AssessmentsWritingViewController: ContentsStackViewController, StarScoreFi
         // User Name
         let userNameTextProperty = TextField.Property()
         userNameTextProperty.placeholder = "名前 (任意)"
+        userNameTextProperty.defaultText = AccountManager.sharedManager.account?.userName
         userNameTextProperty.characterLimit = 255
         userNameTextProperty.font = UIFont.systemFontOfSize(18.0)
-        let userNameTextField = TextField(width: self.view.width, property: userNameTextProperty)
-        self.addContentView(userNameTextField)
+        self.userNameTextField = TextField(width: self.view.width, property: userNameTextProperty)
+        self.addContentView(self.userNameTextField)
         
         // ---
         self.insertSpace(8.0)
@@ -108,9 +110,18 @@ class AssessmentsWritingViewController: ContentsStackViewController, StarScoreFi
     }
     
     func send() {
-        guard let score = self.currentScore, let text = self.textView.text else { return }
+        guard self.isSendable, let score = self.currentScore, let text = self.textView.text else {
+            self.presentViewController(ErrorAlert.Server.failureSendRequest("評価を送信できませんでした。"), animated: true, completion: nil)
+            return
+        }
         
-        let parameters: [String: AnyObject] = ["score": score, "comment": text]
+        var userName = self.userNameTextField.text
+        if let name = userName where name.isBlank {
+            userName = nil
+        }
+        AccountManager.sharedManager.setUserName(userName)
+        
+        let parameters: [String: AnyObject] = ["score": score, "comment": text, "username": userName ?? ""]
         HokutosaiApi.POST(self.assessmentEndpoint, parameters: parameters) { response in
             guard response.isSuccess, let data = response.model else {
                 self.presentViewController(ErrorAlert.Server.failureSendRequest("評価を送信できませんでした。"), animated: true, completion: nil)
