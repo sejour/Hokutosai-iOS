@@ -140,7 +140,7 @@ class AssessmentsWritingViewController: ContentsStackViewController, StarScoreFi
         self.sendButton.enabled = self.isSendable
     }
     
-    func textDidChange(text: String, lenght: Int) {
+    func textDidChange(text: String?, lenght: Int?) {
         self.sendButton.enabled = self.isSendable
     }
     

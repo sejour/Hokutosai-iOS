@@ -9,10 +9,7 @@
 import UIKit
 import UITextView_Placeholder
 
-protocol TextViewDelegate: class {
-    
-    func textDidChange(text: String, lenght: Int)
-    
+protocol TextViewDelegate: TextFieldDelegate {
 }
 
 class TextView: UIView, UITextViewDelegate {
