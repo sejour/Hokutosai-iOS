@@ -8,11 +8,12 @@
 
 import UIKit
 
-class AssessmentsReportSelectViewController: UITableViewController {
+class AssessmentsReportSelectViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private var reportCauses: [AssessmentReportCause]?
 
     private let cellIdentifier = "AssessmentReport"
+    private var tableView: UITableView!
     
     private var reportingEndpoint: HokutosaiApiEndpoint<ObjectResource<HokutosaiApiStatus>>!
     
@@ -32,10 +33,17 @@ class AssessmentsReportSelectViewController: UITableViewController {
         
         self.navigationItem.leftBarButtonItems = [UIBarButtonItem(title: "キャンセル", style: .Plain, target: self, action: #selector(AssessmentsReportSelectViewController.cancelReporting))]
         
+        self.tableView = UITableView(frame: self.view.frame)
+        self.view.addSubview(self.tableView)
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
-        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+
+        let loadingView = SimpleLoadingView(frame: self.view.frame)
+        self.view.addSubview(loadingView)
         HokutosaiApi.GET(HokutosaiApi.Assessments.ReportCauses()) { response in
             guard response.isSuccess, let data = response.model else {
+                loadingView.removeFromSuperview()
                 self.presentViewController(ErrorAlert.Server.failureGet("報告理由の一覧が取得できなかったため報告できません。") { action in
                     self.dismissViewControllerAnimated(true, completion: nil)
                     }, animated: true, completion: nil)
@@ -44,6 +52,7 @@ class AssessmentsReportSelectViewController: UITableViewController {
             
             self.reportCauses = data
             self.tableView.reloadData()
+            loadingView.removeFromSuperview()
         }
     }
 
@@ -58,16 +67,16 @@ class AssessmentsReportSelectViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let reportCauses = self.reportCauses else { return 0 }
         return reportCauses.count + 1
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(self.cellIdentifier, forIndexPath: indexPath)
 
         if indexPath.row == 0 {
@@ -86,7 +95,7 @@ class AssessmentsReportSelectViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row > 0 {
             let reportCause = self.reportCauses![indexPath.row - 1]
             if let causeId = reportCause.causeId {
