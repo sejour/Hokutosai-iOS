@@ -73,6 +73,7 @@ class AssessmentsWritingViewController: ContentsStackViewController, StarScoreFi
         userNameTextProperty.characterLimit = 255
         userNameTextProperty.font = UIFont.systemFontOfSize(18.0)
         self.userNameTextField = TextField(width: self.view.width, property: userNameTextProperty)
+        self.userNameTextField.delegate = self
         self.addContentView(self.userNameTextField)
         
         // ---
