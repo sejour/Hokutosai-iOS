@@ -22,6 +22,8 @@ class MyAssessmentView: UIView {
     
     private static let cellHeight: CGFloat = 81.0
     
+    private var asessmentId: UInt?
+    
     init(width: CGFloat, delegate: MyAssessmentViewDelegate) {
         super.init(frame: CGRect(x: 0.0, y: 0.0, width: width, height: MyAssessmentView.cellHeight))
         
@@ -43,12 +45,15 @@ class MyAssessmentView: UIView {
             self.contentView = nil
         }
         
+        self.asessmentId = myAssessment?.assessmentId
+        
         if let assessment = myAssessment {
             let myAssessmentCell = UINib(nibName: "AssessmentTableViewCell", bundle: nil).instantiateWithOwner(nil, options: nil).first as! AssessmentTableViewCell
             myAssessmentCell.changeData(assessment)
             myAssessmentCell.delegate = self.delegate
             myAssessmentCell.origin = CGPoint(x: 8.0, y: 0.0)
             myAssessmentCell.size = CGSize(width: self.width - 18.0, height: MyAssessmentView.cellHeight)
+            myAssessmentCell.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(MyAssessmentView.othersAction(_:))))
             self.addSubview(myAssessmentCell)
             self.height = MyAssessmentView.cellHeight
             self.contentView = myAssessmentCell
@@ -65,6 +70,11 @@ class MyAssessmentView: UIView {
     
     func tappedWrite() {
         self.delegate?.tappedWrite()
+    }
+    
+    func othersAction(gesture: UITapGestureRecognizer) {
+        guard gesture.state == .Began, let id = self.asessmentId else { return }
+        self.delegate?.tappedOthersButton(id)
     }
     
 }
