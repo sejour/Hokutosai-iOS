@@ -10,8 +10,10 @@ import UIKit
 
 class AssessmentsWritingViewController: ContentsViewController, StarScoreFieldDelegate {
     
-    var myAssessment: Assessment?
-    var assessmentEndpoint: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>!
+    private var myAssessment: Assessment?
+    private var assessmentEndpoint: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>!
+    
+    private var textView: TextView!
     
     init (assessmentEndpoint: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>, myAssessment: Assessment?) {
         super.init(title: "評価の投稿")
@@ -53,7 +55,7 @@ class AssessmentsWritingViewController: ContentsViewController, StarScoreFieldDe
         self.addContentView(userNameTextField)
         
         // ---
-        self.insertSpace(5.0)
+        self.insertSpace(8.0)
         self.insertSeparator(20.0)
         self.insertSpace(8.0)
         // ---
@@ -65,8 +67,18 @@ class AssessmentsWritingViewController: ContentsViewController, StarScoreFieldDe
         // ---
         self.insertSpace(8.0)
         self.insertSeparator(20.0)
-        self.insertSpace(5.0)
+        self.insertSpace(8.0)
         // ---
+        
+        // Text
+        let textViewProperty = TextView.Property()
+        textViewProperty.placeholder = "感想を入力してください"
+        self.textView = TextView(width: self.view.width, property: textViewProperty)
+        self.addContentView(self.textView)
+        
+        //
+        self.insertSpace(8.0)
+        //
     }
     
     func cancel() {
