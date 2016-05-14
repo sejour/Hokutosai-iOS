@@ -203,7 +203,7 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
         // ---
         
         // 評価を見る
-        let showAssessmentListButton = ButtonView(width: self.view.width, text: "評価を見る", target: self, action: #selector(StandardDetailsViewController.showAssessmentList))
+        let showAssessmentListButton = ButtonView(width: self.view.width, text: "評価一覧を見る", target: self, action: #selector(StandardDetailsViewController.showAssessmentList))
         self.addContentView(showAssessmentListButton)
         
         // ---
