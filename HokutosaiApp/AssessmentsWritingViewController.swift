@@ -55,12 +55,13 @@ class AssessmentsWritingViewController: ContentsStackViewController, StarScoreFi
         let userNameTextProperty = TextField.Property()
         userNameTextProperty.placeholder = "ユーザ名 (任意)"
         userNameTextProperty.characterLimit = 255
+        userNameTextProperty.font = UIFont.systemFontOfSize(18.0)
         let userNameTextField = TextField(width: self.view.width, property: userNameTextProperty)
         self.addContentView(userNameTextField)
         
         // ---
         self.insertSpace(8.0)
-        self.insertSeparator(20.0)
+        self.insertSeparator(18.0, rightInset: 0.0)
         self.insertSpace(8.0)
         // ---
         
@@ -70,7 +71,7 @@ class AssessmentsWritingViewController: ContentsStackViewController, StarScoreFi
         
         // ---
         self.insertSpace(8.0)
-        self.insertSeparator(20.0)
+        self.insertSeparator(18.0, rightInset: 0.0)
         self.insertSpace(8.0)
         // ---
         
