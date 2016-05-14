@@ -109,16 +109,12 @@ class AssessmentsReportSelectViewController: UITableViewController {
     private func report(causeId: String) {
         HokutosaiApi.POST(self.reportingEndpoint, parameters: ["cause": causeId]) { response in
             guard response.isSuccess, let data = response.model where data.statusCode < 400 else {
-                self.presentViewController(ErrorAlert.Server.failureSendRequest("報告できませんでした", handler: { action in
-                    self.dismissViewControllerAnimated(true, completion: nil)
-                }), animated: true, completion: nil)
+                self.presentViewController(ErrorAlert.Server.failureSendRequest(), animated: true, completion: nil)
                 return
             }
-            
-            self.presentViewController(UIAlertController.notificationAlertController("報告しました", message: nil, closeButtonTitle: "OK", handler: { action in
-                self.dismissViewControllerAnimated(true, completion: nil)
-            }), animated: true, completion: nil)
         }
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 
 }
