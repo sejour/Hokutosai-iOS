@@ -355,11 +355,67 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
     }
     
     func tappedWrite() {
-        print("write")
+        self.writeAssessment()
     }
     
     func tappedOthersButton(assessmentId: UInt) {
-        print("others")
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        
+        if assessmentId == self.model?.dataMyAssessment?.assessmentId {
+            let editAction = UIAlertAction(title: "評価を編集する", style: .Default) { action in
+                self.writeAssessment()
+            }
+            let deleteAction = UIAlertAction(title: "評価を削除する", style: .Destructive) { action in
+                let confirmAlert = UIAlertController(title: "評価を削除", message: "本当に評価を削除してもよろしいですか？", preferredStyle: .Alert)
+                confirmAlert.addAction(UIAlertAction(title: "削除", style: .Default) { action in
+                    self.deleteMyAssessment()
+                    })
+                confirmAlert.addAction(UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil))
+                self.presentViewController(confirmAlert, animated: true, completion: nil)
+            }
+            
+            alertController.addAction(editAction)
+            alertController.addAction(deleteAction)
+        }
+        else {
+            let reportAction = UIAlertAction(title: "このコメントを報告する", style: .Default) { action in
+                self.report(assessmentId)
+            }
+            alertController.addAction(reportAction)
+        }
+        
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+
+    func deleteMyAssessment() {
+        HokutosaiApi.DELETE(self.endpointAssessment) { response in
+            guard response.isSuccess, let data = response.model else {
+                self.presentViewController(ErrorAlert.Server.failureSendRequest(), animated: true, completion: nil)
+                return
+            }
+            
+            self.updateMyAssessment(data)
+        }
+    }
+    
+    func report(assessmentId: UInt) {
+        guard let contentsType = self.contentsType else { return }
+        
+        var endpoint: HokutosaiApiEndpoint<ObjectResource<HokutosaiApiStatus>>?
+        switch contentsType {
+        case .Shop:
+            endpoint = HokutosaiApi.Shops.AssessmentReport(assessmentId: assessmentId)
+        case .Exhibition:
+            endpoint = HokutosaiApi.Exhibitions.AssessmentReport(assessmentId: assessmentId)
+        }
+        
+        guard endpoint != nil else { return }
+        
+        let reportViewController = AssessmentsReportSelectViewController(reportingEndpoint: endpoint!)
+        self.presentViewController(UINavigationController(rootViewController: reportViewController), animated: true, completion: nil)
     }
 
 }
