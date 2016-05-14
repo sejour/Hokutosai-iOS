@@ -8,9 +8,8 @@
 
 import UIKit
 
-class AssessmentsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MutableContentsController, AssessmentTableViewCellDelegate {
+class AssessmentsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MutableContentsController, AssessmentTableViewCellDelegate, AssessmentsWritingViewControllerDelegate {
 
-    private var myAssessment: Assessment?
     private var assessments: [Assessment]?
     
     private var tableView: UITableView!
@@ -24,12 +23,14 @@ class AssessmentsListViewController: UIViewController, UITableViewDelegate, UITa
     
     private var contentsType: StandardContentsType
     
-    init(contentsType: StandardContentsType, myAssessment: Assessment?, endpointAssessmentList: HokutosaiApiEndpoint<ObjectResource<AssessmentList>>, endpointAssessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>) {
+    private weak var writingViewControllerDelegate: AssessmentsWritingViewControllerDelegate?
+    
+    init(contentsType: StandardContentsType, endpointAssessmentList: HokutosaiApiEndpoint<ObjectResource<AssessmentList>>, endpointAssessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>, writingViewControllerDelegate: AssessmentsWritingViewControllerDelegate) {
         self.contentsType = contentsType
         super.init(nibName: nil, bundle: NSBundle.mainBundle())
-        self.myAssessment = myAssessment
         self.endpointAssessmentList = endpointAssessmentList
         self.endpointAssessment = endpointAssessment
+        self.writingViewControllerDelegate = writingViewControllerDelegate
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -93,7 +94,6 @@ class AssessmentsListViewController: UIViewController, UITableViewDelegate, UITa
                 return
             }
             
-            self.myAssessment = data.myAssessment
             self.assessments = assessments
             self.tableView.reloadData()
             self.updatingContents = false
@@ -174,8 +174,17 @@ class AssessmentsListViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func writeAssessment() {
-        let vc = AssessmentsWritingViewController(assessmentEndpoint: self.endpointAssessment, myAssessment: self.myAssessment)
+        let vc = AssessmentsWritingViewController(assessmentEndpoint: self.endpointAssessment, delegate: self)
         self.presentViewController(UINavigationController(rootViewController: vc), animated: true, completion: nil)
+    }
+    
+    func updateMyAssessment(newMyAssessment: MyAssessment) {
+        self.updateContents(nil)
+        self.writingViewControllerDelegate?.updateMyAssessment(newMyAssessment)
+    }
+    
+    var myAssessment: Assessment? {
+        return self.writingViewControllerDelegate?.myAssessment
     }
     
 }

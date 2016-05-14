@@ -19,7 +19,7 @@ protocol StandardTableViewController: MutableContentsController {
 
 }
 
-class StandardDetailsViewController<ModelType: StandardContentsData, TableViewController: StandardTableViewController>: ContentsViewController {
+class StandardDetailsViewController<ModelType: StandardContentsData, TableViewController: StandardTableViewController>: ContentsViewController, AssessmentsWritingViewControllerDelegate {
 
     private var model: ModelType?
     
@@ -229,15 +229,26 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
     }
     
     func showAssessmentList() {
-        guard let model = self.model else { return }
-        
-        let assessmentsListViewController = AssessmentsListViewController(contentsType: self.contentsType, myAssessment: model.dataMyAssessment, endpointAssessmentList: self.endpointAssessmentList, endpointAssessment: self.endpointAssessment)
+        let assessmentsListViewController = AssessmentsListViewController(contentsType: self.contentsType, endpointAssessmentList: self.endpointAssessmentList, endpointAssessment: self.endpointAssessment, writingViewControllerDelegate: self)
         self.navigationController?.pushViewController(assessmentsListViewController, animated: true)
     }
     
     func writeAssessment() {
-        let vc = AssessmentsWritingViewController(assessmentEndpoint: self.endpointAssessment, myAssessment: model?.dataMyAssessment)
+        let vc = AssessmentsWritingViewController(assessmentEndpoint: self.endpointAssessment, delegate: self)
         self.presentViewController(UINavigationController(rootViewController: vc), animated: true, completion: nil)
+    }
+    
+    var myAssessment: Assessment? {
+        return self.model?.dataMyAssessment
+    }
+    
+    func updateMyAssessment(newMyAssessment: MyAssessment) {
+        self.model?.dataMyAssessment = newMyAssessment.myAssessment
+        
+        if let scoreData = newMyAssessment.assessmentAggregate {
+            self.model?.dataAssessmentAggregate = scoreData
+            self.aggregateView?.updateData(scoreData)
+        }
     }
     
     func like() {
