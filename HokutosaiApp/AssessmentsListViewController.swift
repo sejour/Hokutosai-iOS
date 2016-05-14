@@ -23,6 +23,8 @@ class AssessmentsListViewController: UIViewController, UITableViewDelegate, UITa
     
     private var contentsType: StandardContentsType
     
+    var writeAssessmentIcon: UIBarButtonItem!
+    
     private weak var writingViewControllerDelegate: AssessmentsWritingViewControllerDelegate?
     
     init(contentsType: StandardContentsType, endpointAssessmentList: HokutosaiApiEndpoint<ObjectResource<AssessmentList>>, endpointAssessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>, writingViewControllerDelegate: AssessmentsWritingViewControllerDelegate) {
@@ -31,6 +33,8 @@ class AssessmentsListViewController: UIViewController, UITableViewDelegate, UITa
         self.endpointAssessmentList = endpointAssessmentList
         self.endpointAssessment = endpointAssessment
         self.writingViewControllerDelegate = writingViewControllerDelegate
+        
+        self.writeAssessmentIcon = UIBarButtonItem(image: SharedImage.writeIcon, style: .Plain, target: self, action: #selector(AssessmentsListViewController.writeAssessment))
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -41,7 +45,7 @@ class AssessmentsListViewController: UIViewController, UITableViewDelegate, UITa
         super.viewDidLoad()
 
         self.title = "評価"
-        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: SharedImage.writeIcon, style: .Plain, target: self, action: #selector(AssessmentsListViewController.writeAssessment))]
+        self.navigationItem.rightBarButtonItems = [self.writeAssessmentIcon]
         
         self.generateTableView()
         

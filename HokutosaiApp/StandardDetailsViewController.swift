@@ -32,6 +32,7 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
     var introductionLabelTitle: String!
     
     private weak var tableViewController: TableViewController?
+    private weak var assessmentsListViewController: AssessmentsListViewController?
     
     private var endpointModel: HokutosaiApiEndpoint<ObjectResource<ModelType>>!
     private var endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>!
@@ -234,6 +235,8 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
     
     func showAssessmentList() {
         let assessmentsListViewController = AssessmentsListViewController(contentsType: self.contentsType, endpointAssessmentList: self.endpointAssessmentList, endpointAssessment: self.endpointAssessment, writingViewControllerDelegate: self)
+        self.assessmentsListViewController = assessmentsListViewController
+        assessmentsListViewController.writeAssessmentIcon.enabled = self.writeAssessmentIcon.enabled
         self.navigationController?.pushViewController(assessmentsListViewController, animated: true)
     }
     
@@ -340,6 +343,7 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
             // ビュー更新
             self.updateContentViews()
             self.writeAssessmentIcon.enabled = true
+            self.assessmentsListViewController?.writeAssessmentIcon.enabled = true
             
             completion?()
         }
