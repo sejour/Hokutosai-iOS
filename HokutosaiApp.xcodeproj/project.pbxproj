@@ -653,11 +653,11 @@
 		A787A1B71CCF6CCF0045F1DD /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				A7CFD7EF1CE725D100D9E569 /* ContentsViewController */,
 				A730E88C1CE34E5700D2CD58 /* ImageViewController */,
 				A745047A1CD3C438001165E2 /* PageViewController */,
 				A787A1B81CCF6D380045F1DD /* StandardDetailsViewController.swift */,
 				A74504801CD3D6EC001165E2 /* UIViewControllerExtension.swift */,
-				A7A5D28F1CDA684F00F8F297 /* ContentsViewController.swift */,
 			);
 			name = Commons;
 			sourceTree = "<group>";
@@ -714,6 +714,14 @@
 				A7EDFC381CE5C11B001DC401 /* AssessmentsWritingViewController.swift */,
 			);
 			name = Assessments;
+			sourceTree = "<group>";
+		};
+		A7CFD7EF1CE725D100D9E569 /* ContentsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A7A5D28F1CDA684F00F8F297 /* ContentsViewController.swift */,
+			);
+			name = ContentsViewController;
 			sourceTree = "<group>";
 		};
 		C3415C3CFED4FAA3CCA79F2E /* Pods */ = {
