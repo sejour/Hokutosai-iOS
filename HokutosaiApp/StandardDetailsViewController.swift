@@ -27,6 +27,7 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
     private var likeIcon: InteractiveIcon!
     private var aggregateView: AssessmentAggregateView?
     private var myAssessmentView: MyAssessmentView!
+    private var writeAssessmentIcon: UIBarButtonItem!
     
     var introductionLabelTitle: String!
     
@@ -64,7 +65,9 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: SharedImage.writeIcon, style: .Plain, target: self, action: #selector(StandardDetailsViewController.writeAssessment))]
+        self.writeAssessmentIcon = UIBarButtonItem(image: SharedImage.writeIcon, style: .Plain, target: self, action: #selector(StandardDetailsViewController.writeAssessment))
+        self.writeAssessmentIcon.enabled = false
+        self.navigationItem.rightBarButtonItems = [writeAssessmentIcon]
         
         self.hideNavigationBackButtonText()
 
@@ -336,6 +339,7 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
             
             // ビュー更新
             self.updateContentViews()
+            self.writeAssessmentIcon.enabled = true
             
             completion?()
         }
