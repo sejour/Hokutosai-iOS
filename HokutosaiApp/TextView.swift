@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UITextView_Placeholder
 
 class TextView: UIView, UITextViewDelegate {
 
@@ -15,6 +16,7 @@ class TextView: UIView, UITextViewDelegate {
         var placeholder: String?
         var font: UIFont = UIFont.systemFontOfSize(20.0)
         var textColor: UIColor = UIColor.blackColor()
+        var placeholderColor: UIColor = UIColor.grayscale(200)
         var alignment: NSTextAlignment = .Left
         var characterLimit: UInt?
     }
@@ -38,7 +40,8 @@ class TextView: UIView, UITextViewDelegate {
         self._textView.textColor = property.textColor
         self._textView.textAlignment = property.alignment
         self._textView.text = property.defaultText
-        //self._textView.placeholder = property.placeholder
+        self._textView.placeholder = property.placeholder
+        self._textView.placeholderColor = property.placeholderColor
         self._textView.delegate = self
         
         self.addSubview(self._textView)
