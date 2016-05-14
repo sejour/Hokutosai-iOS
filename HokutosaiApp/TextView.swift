@@ -9,6 +9,12 @@
 import UIKit
 import UITextView_Placeholder
 
+protocol TextViewDelegate: class {
+    
+    func textDidChange(text: String, lenght: Int)
+    
+}
+
 class TextView: UIView, UITextViewDelegate {
 
     class Property {
@@ -23,6 +29,8 @@ class TextView: UIView, UITextViewDelegate {
     
     private var _textView: UITextView!
     private var characterLimit: UInt?
+    
+    weak var delegate: TextViewDelegate?
     
     convenience init(width: CGFloat, height: CGFloat, property: Property = Property()) {
         self.init(frame: CGRect(x: 0.0, y: 0.0, width: width, height: height), property: property)
@@ -79,6 +87,7 @@ class TextView: UIView, UITextViewDelegate {
     
     func textViewDidChange(textView: UITextView) {
         guard let characterLimit = self.characterLimit where textView.markedTextRange == nil else {
+            self.delegate?.textDidChange(textView.text, lenght: textView.text.characters.count)
             return
         }
         
@@ -94,6 +103,8 @@ class TextView: UIView, UITextViewDelegate {
             textView.text = text
             textView.selectedTextRange = selectedTextRange
         }
+        
+        self.delegate?.textDidChange(textView.text, lenght: textView.text.characters.count)
         
         return
     }
