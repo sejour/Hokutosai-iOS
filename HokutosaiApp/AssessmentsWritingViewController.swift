@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AssessmentsWritingViewController: ContentsStackViewController, StarScoreFieldDelegate {
+class AssessmentsWritingViewController: ContentsStackViewController, StarScoreFieldDelegate, TextViewDelegate {
     
     private var myAssessment: Assessment?
     private var assessmentEndpoint: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>!
@@ -59,7 +59,7 @@ class AssessmentsWritingViewController: ContentsStackViewController, StarScoreFi
         
         // User Name
         let userNameTextProperty = TextField.Property()
-        userNameTextProperty.placeholder = "ユーザ名 (任意)"
+        userNameTextProperty.placeholder = "名前 (任意)"
         userNameTextProperty.characterLimit = 255
         userNameTextProperty.font = UIFont.systemFontOfSize(18.0)
         let userNameTextField = TextField(width: self.view.width, property: userNameTextProperty)
@@ -83,9 +83,10 @@ class AssessmentsWritingViewController: ContentsStackViewController, StarScoreFi
         
         // Text
         let textViewProperty = TextView.Property()
-        textViewProperty.placeholder = "感想を入力してください"
+        textViewProperty.placeholder = "感想を入力してください (必須)"
         self.topOfTextView = self.bottomOfLastView
         self.textView = TextView(width: self.view.width, height: self.view.height - self.bottomOfLastView, property: textViewProperty)
+        self.textView.delegate = self
         self.addContentView(self.textView)
         
         //
@@ -103,7 +104,16 @@ class AssessmentsWritingViewController: ContentsStackViewController, StarScoreFi
     
     func changeScore(score: UInt?) {
         self.currentScore = score
-        self.sendButton.enabled = self.currentScore != nil
+        self.sendButton.enabled = self.isSendable
+    }
+    
+    func textDidChange(text: String, lenght: Int) {
+        self.sendButton.enabled = self.isSendable
+    }
+    
+    private var isSendable: Bool {
+        guard let text = self.textView.text else { return false }
+        return self.currentScore != nil && !text.isEmpty && !text.isBlank
     }
     
     func didShowKeyboard(notification:NSNotification){
