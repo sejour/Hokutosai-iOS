@@ -8,6 +8,12 @@
 
 import UIKit
 
+protocol TextFieldDelegate: class {
+    
+    func textDidChange(text: String?, lenght: Int?)
+    
+}
+
 class TextField: UIView, UITextFieldDelegate {
     
     class Property {
@@ -24,6 +30,8 @@ class TextField: UIView, UITextFieldDelegate {
     private var _textField: UITextField!
     private var characterLimit: UInt?
 
+    weak var delegate: TextFieldDelegate?
+    
     convenience init(width: CGFloat, property: Property = Property()) {
         self.init(frame: CGRect(x: 0.0, y: 0.0, width: width, height: 0.0), property: property)
     }
@@ -79,7 +87,10 @@ class TextField: UIView, UITextFieldDelegate {
     }
     
     func textFieldDidChange(notification: NSNotification) {
-        guard let characterLimit = self.characterLimit, let textField = notification.object as? UITextField where textField.markedTextRange == nil else {
+        guard let textField = notification.object as? UITextField else { return }
+        
+        guard let characterLimit = self.characterLimit where textField.markedTextRange == nil else {
+            self.delegate?.textDidChange(textField.text, lenght: textField.text?.characters.count)
             return
         }
         
@@ -95,6 +106,8 @@ class TextField: UIView, UITextFieldDelegate {
             textField.text = text
             textField.selectedTextRange = selectedTextRange
         }
+        
+        self.delegate?.textDidChange(textField.text, lenght: textField.text?.characters.count)
         
         return
     }
