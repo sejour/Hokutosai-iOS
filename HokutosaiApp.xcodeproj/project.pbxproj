@@ -98,7 +98,22 @@
 		A7A60FC31CD36C3600AA9543 /* SlidePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A60FC21CD36C3600AA9543 /* SlidePageViewController.swift */; };
 		A7A60FC51CD3763800AA9543 /* FlowingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A60FC41CD3763800AA9543 /* FlowingPageViewController.swift */; };
 		A7A60FC71CD39E5D00AA9543 /* TappableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A60FC61CD39E5D00AA9543 /* TappableViewController.swift */; };
+		A7CFD7D51CE4DACD00D9E569 /* AssessmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CFD7D31CE4DACD00D9E569 /* AssessmentTableViewCell.swift */; };
+		A7CFD7D61CE4DACD00D9E569 /* AssessmentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7CFD7D41CE4DACD00D9E569 /* AssessmentTableViewCell.xib */; };
+		A7CFD7D91CE4E58100D9E569 /* AssessmentsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CFD7D81CE4E58100D9E569 /* AssessmentsListViewController.swift */; };
+		A7CFD7DB1CE5068600D9E569 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CFD7DA1CE5068600D9E569 /* ButtonView.swift */; };
+		A7CFD7DE1CE5370C00D9E569 /* AssessmentsReportSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CFD7DD1CE5370C00D9E569 /* AssessmentsReportSelectViewController.swift */; };
+		A7CFD7E01CE53A6800D9E569 /* AssessmentReportCause.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CFD7DF1CE53A6800D9E569 /* AssessmentReportCause.swift */; };
+		A7CFD7E41CE53B2100D9E569 /* HokutosaiApiStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CFD7E31CE53B2100D9E569 /* HokutosaiApiStatus.swift */; };
+		A7CFD7E61CE6540100D9E569 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CFD7E51CE6540100D9E569 /* TextField.swift */; };
+		A7CFD7E81CE6714300D9E569 /* StarScoreField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CFD7E71CE6714300D9E569 /* StarScoreField.swift */; };
+		A7CFD7EA1CE6937600D9E569 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CFD7E91CE6937600D9E569 /* TextView.swift */; };
+		A7CFD7F11CE7263100D9E569 /* ContentsStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CFD7F01CE7263100D9E569 /* ContentsStackViewController.swift */; };
+		A7CFD7F51CE755F600D9E569 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CFD7F41CE755F600D9E569 /* String.swift */; };
+		A7CFD7F71CE7A37900D9E569 /* MyAssessmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CFD7F61CE7A37900D9E569 /* MyAssessmentView.swift */; };
 		A7D415231CE3D34500B163B8 /* LinkedInformationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D415221CE3D34500B163B8 /* LinkedInformationLabel.swift */; };
+		A7D415251CE49B0200B163B8 /* AssessmentAggregateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D415241CE49B0200B163B8 /* AssessmentAggregateView.swift */; };
+		A7EDFC391CE5C11B001DC401 /* AssessmentsWritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EDFC381CE5C11B001DC401 /* AssessmentsWritingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -217,7 +232,22 @@
 		A7A60FC21CD36C3600AA9543 /* SlidePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidePageViewController.swift; sourceTree = "<group>"; };
 		A7A60FC41CD3763800AA9543 /* FlowingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowingPageViewController.swift; sourceTree = "<group>"; };
 		A7A60FC61CD39E5D00AA9543 /* TappableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TappableViewController.swift; sourceTree = "<group>"; };
+		A7CFD7D31CE4DACD00D9E569 /* AssessmentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssessmentTableViewCell.swift; sourceTree = "<group>"; };
+		A7CFD7D41CE4DACD00D9E569 /* AssessmentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AssessmentTableViewCell.xib; sourceTree = "<group>"; };
+		A7CFD7D81CE4E58100D9E569 /* AssessmentsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssessmentsListViewController.swift; sourceTree = "<group>"; };
+		A7CFD7DA1CE5068600D9E569 /* ButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		A7CFD7DD1CE5370C00D9E569 /* AssessmentsReportSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssessmentsReportSelectViewController.swift; sourceTree = "<group>"; };
+		A7CFD7DF1CE53A6800D9E569 /* AssessmentReportCause.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssessmentReportCause.swift; sourceTree = "<group>"; };
+		A7CFD7E31CE53B2100D9E569 /* HokutosaiApiStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HokutosaiApiStatus.swift; sourceTree = "<group>"; };
+		A7CFD7E51CE6540100D9E569 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		A7CFD7E71CE6714300D9E569 /* StarScoreField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarScoreField.swift; sourceTree = "<group>"; };
+		A7CFD7E91CE6937600D9E569 /* TextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		A7CFD7F01CE7263100D9E569 /* ContentsStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentsStackViewController.swift; sourceTree = "<group>"; };
+		A7CFD7F41CE755F600D9E569 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		A7CFD7F61CE7A37900D9E569 /* MyAssessmentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAssessmentView.swift; sourceTree = "<group>"; };
 		A7D415221CE3D34500B163B8 /* LinkedInformationLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedInformationLabel.swift; sourceTree = "<group>"; };
+		A7D415241CE49B0200B163B8 /* AssessmentAggregateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssessmentAggregateView.swift; sourceTree = "<group>"; };
+		A7EDFC381CE5C11B001DC401 /* AssessmentsWritingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssessmentsWritingViewController.swift; sourceTree = "<group>"; };
 		C4F766DA8D757B41B41297FB /* Pods-HokutosaiApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HokutosaiApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HokutosaiApp/Pods-HokutosaiApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -379,6 +409,7 @@
 			isa = PBXGroup;
 			children = (
 				A774830C1CCBAA9F003AC18F /* HokutosaiApiError.swift */,
+				A7CFD7E31CE53B2100D9E569 /* HokutosaiApiStatus.swift */,
 			);
 			name = HokutosaiApi;
 			sourceTree = "<group>";
@@ -403,6 +434,7 @@
 				A77483251CCCC08A003AC18F /* Assessment.swift */,
 				A774832D1CCCD1AA003AC18F /* MyAssessment.swift */,
 				A79412371CE071680040913D /* AssessmentList.swift */,
+				A7CFD7DF1CE53A6800D9E569 /* AssessmentReportCause.swift */,
 			);
 			name = Assessments;
 			sourceTree = "<group>";
@@ -429,6 +461,7 @@
 			children = (
 				A774832B1CCCC84B003AC18F /* HokutosaiDateTransform.swift */,
 				A77483471CD20152003AC18F /* Color.swift */,
+				A7CFD7F41CE755F600D9E569 /* String.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -452,6 +485,7 @@
 		A77483401CCE6066003AC18F /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				A7CFD7D01CE4D9DC00D9E569 /* Assessments */,
 				A74504B51CD74077001165E2 /* Events */,
 				A787A1AE1CCDD9BA0045F1DD /* Commons */,
 				A74504901CD47DDB001165E2 /* News */,
@@ -525,6 +559,7 @@
 		A77F9DDF1CC8FE8C00BEE9A7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A7CFD7DC1CE5367200D9E569 /* Assessments */,
 				A787A1B71CCF6CCF0045F1DD /* Commons */,
 				A77483381CCD2932003AC18F /* Alert */,
 				A77F9DE31CC8FF2900BEE9A7 /* Events */,
@@ -576,7 +611,7 @@
 		A787A1AC1CCDD9690045F1DD /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A7A5D2911CDA96DC00F8F297 /* Material */,
+				A7A5D2911CDA96DC00F8F297 /* ContentView */,
 				A74504A61CD5DC09001165E2 /* Commons */,
 				A77483401CCE6066003AC18F /* TableViewCell */,
 				A77483491CD2073D003AC18F /* Color */,
@@ -625,16 +660,16 @@
 		A787A1B71CCF6CCF0045F1DD /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				A7CFD7EF1CE725D100D9E569 /* ContentsViewController */,
 				A730E88C1CE34E5700D2CD58 /* ImageViewController */,
 				A745047A1CD3C438001165E2 /* PageViewController */,
 				A787A1B81CCF6D380045F1DD /* StandardDetailsViewController.swift */,
 				A74504801CD3D6EC001165E2 /* UIViewControllerExtension.swift */,
-				A7A5D28F1CDA684F00F8F297 /* ContentsViewController.swift */,
 			);
 			name = Commons;
 			sourceTree = "<group>";
 		};
-		A7A5D2911CDA96DC00F8F297 /* Material */ = {
+		A7A5D2911CDA96DC00F8F297 /* ContentView */ = {
 			isa = PBXGroup;
 			children = (
 				A7A5D2921CDA971A00F8F297 /* TitleView.swift */,
@@ -648,8 +683,14 @@
 				A730E8841CE257BB00D2CD58 /* ArticleMetaLabel.swift */,
 				A730E8861CE2A19000D2CD58 /* SlideImageView.swift */,
 				A7D415221CE3D34500B163B8 /* LinkedInformationLabel.swift */,
+				A7D415241CE49B0200B163B8 /* AssessmentAggregateView.swift */,
+				A7CFD7DA1CE5068600D9E569 /* ButtonView.swift */,
+				A7CFD7E51CE6540100D9E569 /* TextField.swift */,
+				A7CFD7E71CE6714300D9E569 /* StarScoreField.swift */,
+				A7CFD7E91CE6937600D9E569 /* TextView.swift */,
+				A7CFD7F61CE7A37900D9E569 /* MyAssessmentView.swift */,
 			);
-			name = Material;
+			name = ContentView;
 			sourceTree = "<group>";
 		};
 		A7A60FB21CD2109F00AA9543 /* Exhibitions */ = {
@@ -662,6 +703,34 @@
 				A74504891CD3DEA1001165E2 /* ExhibitionItem.swift */,
 			);
 			name = Exhibitions;
+			sourceTree = "<group>";
+		};
+		A7CFD7D01CE4D9DC00D9E569 /* Assessments */ = {
+			isa = PBXGroup;
+			children = (
+				A7CFD7D31CE4DACD00D9E569 /* AssessmentTableViewCell.swift */,
+				A7CFD7D41CE4DACD00D9E569 /* AssessmentTableViewCell.xib */,
+			);
+			name = Assessments;
+			sourceTree = "<group>";
+		};
+		A7CFD7DC1CE5367200D9E569 /* Assessments */ = {
+			isa = PBXGroup;
+			children = (
+				A7CFD7D81CE4E58100D9E569 /* AssessmentsListViewController.swift */,
+				A7CFD7DD1CE5370C00D9E569 /* AssessmentsReportSelectViewController.swift */,
+				A7EDFC381CE5C11B001DC401 /* AssessmentsWritingViewController.swift */,
+			);
+			name = Assessments;
+			sourceTree = "<group>";
+		};
+		A7CFD7EF1CE725D100D9E569 /* ContentsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A7A5D28F1CDA684F00F8F297 /* ContentsViewController.swift */,
+				A7CFD7F01CE7263100D9E569 /* ContentsStackViewController.swift */,
+			);
+			name = ContentsViewController;
 			sourceTree = "<group>";
 		};
 		C3415C3CFED4FAA3CCA79F2E /* Pods */ = {
@@ -788,6 +857,7 @@
 				A77483441CCE6086003AC18F /* StandardTableViewCell.xib in Resources */,
 				A77B39021CC8C22C00012A0E /* Assets.xcassets in Resources */,
 				A74504791CD3B166001165E2 /* TopicViewController.xib in Resources */,
+				A7CFD7D61CE4DACD00D9E569 /* AssessmentTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -877,14 +947,18 @@
 				A7A5D29E1CDB9AEF00F8F297 /* HorizontalArrangeView.swift in Sources */,
 				A7A60FC51CD3763800AA9543 /* FlowingPageViewController.swift in Sources */,
 				A745048F1CD3E3B7001165E2 /* NewsLikeResult.swift in Sources */,
+				A7CFD7E01CE53A6800D9E569 /* AssessmentReportCause.swift in Sources */,
 				A79412361CE05B3A0040913D /* ShopsDetailViewController.swift in Sources */,
 				A74504861CD3DDA7001165E2 /* EventItem.swift in Sources */,
 				A77483191CCBCE98003AC18F /* AssessedScore.swift in Sources */,
+				A7CFD7E61CE6540100D9E569 /* TextField.swift in Sources */,
 				A745048D1CD3E010001165E2 /* Media.swift in Sources */,
+				A7CFD7D51CE4DACD00D9E569 /* AssessmentTableViewCell.swift in Sources */,
 				A78A36B71CDE625D00806FC4 /* SeparatorView.swift in Sources */,
 				A79412381CE071680040913D /* AssessmentList.swift in Sources */,
 				A745049B1CD4AF8F001165E2 /* NewsTableViewCell.swift in Sources */,
 				A77483041CCB79FC003AC18F /* Endpoint.swift in Sources */,
+				A7CFD7F71CE7A37900D9E569 /* MyAssessmentView.swift in Sources */,
 				A787A1B61CCF5B170045F1DD /* SharedImage.swift in Sources */,
 				A7A60FB61CD2140700AA9543 /* DetailedExhibition.swift in Sources */,
 				A74504AC1CD61BDD001165E2 /* LoadingCellManager.swift in Sources */,
@@ -909,9 +983,12 @@
 				A7A60FC71CD39E5D00AA9543 /* TappableViewController.swift in Sources */,
 				A74504A81CD5DC86001165E2 /* SimpleLoadingView.swift in Sources */,
 				A77483481CD20152003AC18F /* Color.swift in Sources */,
+				A7CFD7DB1CE5068600D9E569 /* ButtonView.swift in Sources */,
 				A74504881CD3DE32001165E2 /* ShopItem.swift in Sources */,
 				A79412341CE04B610040913D /* StandardInformationView.swift in Sources */,
+				A7CFD7DE1CE5370C00D9E569 /* AssessmentsReportSelectViewController.swift in Sources */,
 				A74504A11CD5234F001165E2 /* UIViewExtension.swift in Sources */,
+				A7CFD7E81CE6714300D9E569 /* StarScoreField.swift in Sources */,
 				A730E8921CE3C17200D2CD58 /* ImageViewController.swift in Sources */,
 				A787A1B91CCF6D380045F1DD /* StandardDetailsViewController.swift in Sources */,
 				A745049F1CD507FC001165E2 /* LikeableTableViewCell.swift in Sources */,
@@ -919,14 +996,17 @@
 				A74504811CD3D6EC001165E2 /* UIViewControllerExtension.swift in Sources */,
 				A74504AE1CD6675F001165E2 /* TopicEvent.swift in Sources */,
 				A78A36BD1CE1C7E200806FC4 /* MenuItemLabel.swift in Sources */,
+				A7CFD7F51CE755F600D9E569 /* String.swift in Sources */,
 				A77483331CCCD380003AC18F /* LikeResult.swift in Sources */,
 				A77483431CCE6086003AC18F /* StandardTableViewCell.swift in Sources */,
 				A774834B1CD20769003AC18F /* SharedColor.swift in Sources */,
 				A77483351CCCD413003AC18F /* ShopLikeResult.swift in Sources */,
 				A7A5D29A1CDB4E6200F8F297 /* InformationLabel.swift in Sources */,
+				A7CFD7E41CE53B2100D9E569 /* HokutosaiApiStatus.swift in Sources */,
 				A7A60FC31CD36C3600AA9543 /* SlidePageViewController.swift in Sources */,
 				A77B38FB1CC8C22C00012A0E /* AppDelegate.swift in Sources */,
 				A774832E1CCCD1AA003AC18F /* MyAssessment.swift in Sources */,
+				A7CFD7EA1CE6937600D9E569 /* TextView.swift in Sources */,
 				A77483131CCBBC1E003AC18F /* HokutosaiAccount.swift in Sources */,
 				A74504B21CD668B5001165E2 /* Event.swift in Sources */,
 				A7A5D2A41CDD651700F8F297 /* InteractiveIcon.swift in Sources */,
@@ -934,6 +1014,9 @@
 				A730E8851CE257BB00D2CD58 /* ArticleMetaLabel.swift in Sources */,
 				A7D415231CE3D34500B163B8 /* LinkedInformationLabel.swift in Sources */,
 				A7A5D2901CDA684F00F8F297 /* ContentsViewController.swift in Sources */,
+				A7CFD7D91CE4E58100D9E569 /* AssessmentsListViewController.swift in Sources */,
+				A7D415251CE49B0200B163B8 /* AssessmentAggregateView.swift in Sources */,
+				A7EDFC391CE5C11B001DC401 /* AssessmentsWritingViewController.swift in Sources */,
 				A745047F1CD3C6DB001165E2 /* TopicContentData.swift in Sources */,
 				A730E88E1CE3BFEA00D2CD58 /* ImageViewControllerItem.swift in Sources */,
 				A7A5D2541CDA25EC00F8F297 /* EventsDetailViewController.swift in Sources */,
@@ -942,6 +1025,7 @@
 				A774831B1CCBE285003AC18F /* AccountManager.swift in Sources */,
 				A77F9DED1CC9112700BEE9A7 /* EventsViewController.swift in Sources */,
 				A74504B01CD6681B001165E2 /* EventLikeResult.swift in Sources */,
+				A7CFD7F11CE7263100D9E569 /* ContentsStackViewController.swift in Sources */,
 				A71818AE1CD8A53D00E077B2 /* Schedule.swift in Sources */,
 				A77483021CCB7695003AC18F /* NetworkResource.swift in Sources */,
 			);

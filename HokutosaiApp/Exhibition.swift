@@ -21,6 +21,7 @@ class Exhibition: StandardContentsData {
     var likesCount: UInt?
     var introduction: String?
     var place: Place?
+    var myAssessment: Assessment?
     
     required init?(_ map: Map) { }
     
@@ -35,6 +36,7 @@ class Exhibition: StandardContentsData {
         self.likesCount <- map["likes_count"]
         self.introduction <- map["introduction"]
         self.place <- map["place"]
+        self.myAssessment <- map["my_assessment"]
     }
     
     var dataId: UInt { return self.exhibitionId! }
@@ -55,6 +57,10 @@ class Exhibition: StandardContentsData {
     var dataAssessmentAggregate: AssessedScore? {
         get { return self.assessmentAggregate }
         set { self.assessmentAggregate = newValue }
+    }
+    var dataMyAssessment: Assessment? {
+        get { return self.myAssessment }
+        set { self.myAssessment = newValue }
     }
     
 }

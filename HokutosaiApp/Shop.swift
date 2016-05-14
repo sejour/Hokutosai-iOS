@@ -22,6 +22,7 @@ class Shop: StandardContentsData {
     var introduction: String?
     var place: Place?
     var menus: [MenuItem]?
+    var myAssessment: Assessment?
     
     required init?(_ map: Map) { }
     
@@ -37,6 +38,7 @@ class Shop: StandardContentsData {
         self.assessmentAggregate <- map["assessment_aggregate"]
         self.liked <- map["liked"]
         self.likesCount <- map["likes_count"]
+        self.myAssessment <- map["my_assessment"]
     }
     
     var dataId: UInt { return self.shopId! }
@@ -57,6 +59,10 @@ class Shop: StandardContentsData {
     var dataAssessmentAggregate: AssessedScore? {
         get { return self.assessmentAggregate }
         set { self.assessmentAggregate = newValue }
+    }
+    var dataMyAssessment: Assessment? {
+        get { return self.myAssessment }
+        set { self.myAssessment = newValue }
     }
     
 }

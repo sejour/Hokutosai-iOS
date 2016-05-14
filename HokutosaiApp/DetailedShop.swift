@@ -12,7 +12,6 @@ import ObjectMapper
 class DetailedShop: Shop {
     
     var assessments: [Assessment]?
-    var myAssessment: Assessment?
     
     required init?(_ map: Map) {
         super.init(map)
@@ -22,7 +21,6 @@ class DetailedShop: Shop {
         super.mapping(map)
         
         self.assessments <- map["assessments"]
-        self.myAssessment <- map["my_assessment"]
     }
     
 }

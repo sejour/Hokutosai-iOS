@@ -11,7 +11,7 @@ import Foundation
 class ExhibitionsDetailViewController: StandardDetailsViewController<Exhibition, ExhibitionsViewController> {
     
     init(exhibitionId: UInt, title: String?) {
-        super.init(endpointModel: HokutosaiApi.Exhibitions.One(exhibitionId: exhibitionId),
+        super.init(contentsType: .Exhibition, endpointModel: HokutosaiApi.Exhibitions.One(exhibitionId: exhibitionId),
                    endpointLikes: HokutosaiApi.Exhibitions.Likes(exhibitionId: exhibitionId),
                    endpointAssessmentList: HokutosaiApi.Exhibitions.Assessments(exhibitionId: exhibitionId),
                    endpointAssessment: HokutosaiApi.Exhibitions.Assessment(exhibitionId: exhibitionId),
@@ -22,7 +22,7 @@ class ExhibitionsDetailViewController: StandardDetailsViewController<Exhibition,
     
     init(exhibition: Exhibition, exhibitionViewController: ExhibitionsViewController) {
         let exhibitionId = exhibition.exhibitionId!
-        super.init(endpointModel: HokutosaiApi.Exhibitions.One(exhibitionId: exhibitionId),
+        super.init(contentsType: .Exhibition, endpointModel: HokutosaiApi.Exhibitions.One(exhibitionId: exhibitionId),
                    endpointLikes: HokutosaiApi.Exhibitions.Likes(exhibitionId: exhibitionId),
                    endpointAssessmentList: HokutosaiApi.Exhibitions.Assessments(exhibitionId: exhibitionId),
                    endpointAssessment: HokutosaiApi.Exhibitions.Assessment(exhibitionId: exhibitionId),
