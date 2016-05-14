@@ -106,7 +106,9 @@ class AssessmentsWritingViewController: ContentsStackViewController, StarScoreFi
                 
                 // キーボードが表示されたらTextViewの高さを調整
                 self.textView.snp_updateConstraints { make in
-                    make.height.equalTo(self.view.height - self.topOfTextView - keyBoardRect.height)
+                    let textViewHeight = self.view.height - self.topOfTextView - keyBoardRect.height
+                    make.height.equalTo(textViewHeight)
+                    self.bottomOfLastView = self.topOfTextView + self.bottomOfLastView
                 }
             }
         }

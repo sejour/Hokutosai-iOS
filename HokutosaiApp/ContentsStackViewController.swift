@@ -13,8 +13,7 @@ class ContentsStackViewController: UIViewController {
     var defaultSeparatorColor = UIColor.lightGrayColor()
     var defaultSeparatorWidth: CGFloat = 0.5
     
-    private var _bottomOfLastView: CGFloat!
-    var bottomOfLastView: CGFloat { return self._bottomOfLastView }
+    var bottomOfLastView: CGFloat!
     
     init (title: String? = nil) {
         super.init(nibName: nil, bundle: NSBundle.mainBundle())
@@ -27,7 +26,7 @@ class ContentsStackViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self._bottomOfLastView = self.appearOriginY
+        self.bottomOfLastView = self.appearOriginY
         self.view.backgroundColor = UIColor.whiteColor()
     }
     
@@ -42,10 +41,10 @@ class ContentsStackViewController: UIViewController {
         self.view.addSubview(contentView)
         contentView.snp_makeConstraints { make in
             make.left.equalTo(self.view)
-            make.top.equalTo(self._bottomOfLastView)
+            make.top.equalTo(self.bottomOfLastView)
         }
         
-        self._bottomOfLastView = self._bottomOfLastView + contentView.height
+        self.bottomOfLastView = self.bottomOfLastView + contentView.height
     }
     
     func insertSpace(height: CGFloat) {
@@ -53,12 +52,12 @@ class ContentsStackViewController: UIViewController {
         self.view.addSubview(spaceView)
         spaceView.snp_makeConstraints { make in
             make.left.equalTo(self.view)
-            make.top.equalTo(self._bottomOfLastView)
+            make.top.equalTo(self.bottomOfLastView)
             make.right.equalTo(self.view)
             make.height.equalTo(height)
         }
         
-        self._bottomOfLastView = self.bottomOfLastView + height
+        self.bottomOfLastView = self.bottomOfLastView + height
     }
     
     func insertSeparator(color: UIColor? = nil, width: CGFloat? = nil) {
@@ -77,12 +76,12 @@ class ContentsStackViewController: UIViewController {
         self.view.addSubview(separator)
         separator.snp_makeConstraints { make in
             make.left.equalTo(self.view).offset(leftInset)
-            make.top.equalTo(self._bottomOfLastView)
+            make.top.equalTo(self.bottomOfLastView)
             make.right.equalTo(self.view).offset(-rightInset)
             make.height.equalTo(height)
         }
         
-        self._bottomOfLastView = self._bottomOfLastView + height
+        self.bottomOfLastView = self.bottomOfLastView + height
     }
 
 }
