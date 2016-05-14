@@ -8,9 +8,15 @@
 
 import UIKit
 
+protocol AssessmentsWritingViewControllerDelegate: class {
+    
+    var myAssessment: Assessment? { get }
+    func updateMyAssessment(newMyAssessment: MyAssessment)
+    
+}
+
 class AssessmentsWritingViewController: ContentsStackViewController, StarScoreFieldDelegate, TextViewDelegate {
     
-    private var myAssessment: Assessment?
     private var assessmentEndpoint: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>!
     
     private var topOfTextView: CGFloat!
@@ -20,10 +26,12 @@ class AssessmentsWritingViewController: ContentsStackViewController, StarScoreFi
     
     private var currentScore: UInt?
     
-    init (assessmentEndpoint: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>, myAssessment: Assessment?) {
+    private weak var delegate: AssessmentsWritingViewControllerDelegate?
+    
+    init (assessmentEndpoint: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>, delegate: AssessmentsWritingViewControllerDelegate?) {
         super.init(title: "評価の投稿")
         self.assessmentEndpoint = assessmentEndpoint
-        self.myAssessment = myAssessment
+        self.delegate = delegate
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -72,7 +80,7 @@ class AssessmentsWritingViewController: ContentsStackViewController, StarScoreFi
         // ---
         
         // Score
-        let scoreField = StarScoreField(width: self.view.width, defaultScore: 0, delegate: self)
+        let scoreField = StarScoreField(width: self.view.width, defaultScore: self.delegate?.myAssessment?.score, delegate: self)
         self.addContentView(scoreField)
         
         // ---
@@ -84,6 +92,7 @@ class AssessmentsWritingViewController: ContentsStackViewController, StarScoreFi
         // Text
         let textViewProperty = TextView.Property()
         textViewProperty.placeholder = "感想を入力してください (必須)"
+        textViewProperty.defaultText = self.delegate?.myAssessment?.comment
         self.topOfTextView = self.bottomOfLastView
         self.textView = TextView(width: self.view.width, height: self.view.height - self.bottomOfLastView, property: textViewProperty)
         self.textView.delegate = self
@@ -99,7 +108,19 @@ class AssessmentsWritingViewController: ContentsStackViewController, StarScoreFi
     }
     
     func send() {
+        guard let score = self.currentScore, let text = self.textView.text else { return }
         
+        let parameters: [String: AnyObject] = ["score": score, "comment": text]
+        HokutosaiApi.POST(self.assessmentEndpoint, parameters: parameters) { response in
+            guard response.isSuccess, let data = response.model else {
+                self.presentViewController(ErrorAlert.Server.failureSendRequest("評価を送信できませんでした。"), animated: true, completion: nil)
+                return
+            }
+            
+            self.delegate?.updateMyAssessment(data)
+        }
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func changeScore(score: UInt?) {
