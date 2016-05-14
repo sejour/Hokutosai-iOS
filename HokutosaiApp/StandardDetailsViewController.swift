@@ -19,13 +19,14 @@ protocol StandardTableViewController: MutableContentsController {
 
 }
 
-class StandardDetailsViewController<ModelType: StandardContentsData, TableViewController: StandardTableViewController>: ContentsViewController, AssessmentsWritingViewControllerDelegate {
+class StandardDetailsViewController<ModelType: StandardContentsData, TableViewController: StandardTableViewController>: ContentsViewController, AssessmentsWritingViewControllerDelegate, MyAssessmentViewDelegate {
 
     private var model: ModelType?
     
     private var likesCountLabel: InformationLabel!
     private var likeIcon: InteractiveIcon!
     private var aggregateView: AssessmentAggregateView?
+    private var myAssessmentView: MyAssessmentView!
     
     var introductionLabelTitle: String!
     
@@ -198,7 +199,7 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
         // ---
         self.insertSpace(15.0)
         self.insertSeparator(20.0)
-        self.insertSpace(10.0)
+        self.insertSpace(8.0)
         // ---
         
         // 評価を見る
@@ -206,17 +207,17 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
         self.addContentView(showAssessmentListButton)
         
         // ---
-        self.insertSpace(10.0)
+        self.insertSpace(8.0)
         self.insertSeparator(20.0)
-        self.insertSpace(10.0)
+        self.insertSpace(8.0)
         // ---
         
-        // 評価を書く
-        let writeAssessmentButton = ButtonView(width: self.view.width, text: "評価を書く", target: self, action: #selector(StandardDetailsViewController.writeAssessment))
-        self.addContentView(writeAssessmentButton)
+        // 評価 Write/Edit
+        self.myAssessmentView = MyAssessmentView(width: self.view.width, delegate: self)
+        self.addContentView(self.myAssessmentView)
         
         // ---
-        self.insertSpace(10.0)
+        self.insertSpace(8.0)
         self.insertSeparator(20.0)
         self.insertSpace(20.0)
         // ---
@@ -249,6 +250,9 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
             self.model?.dataAssessmentAggregate = scoreData
             self.aggregateView?.updateData(scoreData)
         }
+        
+        self.myAssessmentView.updateData(newMyAssessment.myAssessment)
+        self.updateContentViews()
     }
     
     func like() {
@@ -328,6 +332,10 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
             
             // 自分の評価の更新
             self.model?.dataMyAssessment = data.dataMyAssessment
+            self.myAssessmentView.updateData(data.dataMyAssessment)
+            
+            // ビュー更新
+            self.updateContentViews()
             
             completion?()
         }
@@ -344,6 +352,14 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
     func showMap() {
         let vc = ImageViewController(title: "校内マップ", images: [SharedImage.layoutMap])
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func tappedWrite() {
+        print("write")
+    }
+    
+    func tappedOthersButton(assessmentId: UInt) {
+        print("others")
     }
 
 }
