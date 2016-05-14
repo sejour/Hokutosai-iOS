@@ -82,7 +82,8 @@ class AssessmentsWritingViewController: ContentsStackViewController, StarScoreFi
         // ---
         
         // Score
-        let scoreField = StarScoreField(width: self.view.width, defaultScore: self.delegate?.myAssessment?.score, delegate: self)
+        self.currentScore = self.delegate?.myAssessment?.score
+        let scoreField = StarScoreField(width: self.view.width, defaultScore: self.currentScore, delegate: self)
         self.addContentView(scoreField)
         
         // ---
