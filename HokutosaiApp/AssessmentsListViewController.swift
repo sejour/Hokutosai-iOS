@@ -147,22 +147,30 @@ class AssessmentsListViewController: UIViewController, UITableViewDelegate, UITa
     func tappedOthersButton(assessmentId: UInt) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         
-        let firstAction = (assessmentId == self.writingViewControllerDelegate?.myAssessment?.assessmentId) ?
-            UIAlertAction(title: "評価を削除する", style: .Destructive) { action in
+        if assessmentId == self.writingViewControllerDelegate?.myAssessment?.assessmentId {
+            let editAction = UIAlertAction(title: "評価を編集する", style: .Default) { action in
+                self.writeAssessment()
+            }
+            let deleteAction = UIAlertAction(title: "評価を削除する", style: .Destructive) { action in
                 let confirmAlert = UIAlertController(title: "評価を削除", message: "本当に評価を削除してもよろしいですか？", preferredStyle: .Alert)
                 confirmAlert.addAction(UIAlertAction(title: "削除", style: .Default) { action in
                     self.deleteMyAssessment()
-                })
+                    })
                 confirmAlert.addAction(UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil))
                 self.presentViewController(confirmAlert, animated: true, completion: nil)
-            } :
-            UIAlertAction(title: "このコメントを報告する", style: .Default) { action in
+            }
+            
+            alertController.addAction(editAction)
+            alertController.addAction(deleteAction)
+        }
+        else {
+            let reportAction = UIAlertAction(title: "このコメントを報告する", style: .Default) { action in
                 self.report(assessmentId)
             }
+            alertController.addAction(reportAction)
+        }
         
         let cancelAction = UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil)
-        
-        alertController.addAction(firstAction)
         alertController.addAction(cancelAction)
         
         self.presentViewController(alertController, animated: true, completion: nil)
