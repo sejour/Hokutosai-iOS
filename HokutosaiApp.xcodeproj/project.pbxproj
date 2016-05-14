@@ -604,7 +604,7 @@
 		A787A1AC1CCDD9690045F1DD /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A7A5D2911CDA96DC00F8F297 /* Material */,
+				A7A5D2911CDA96DC00F8F297 /* ContentView */,
 				A74504A61CD5DC09001165E2 /* Commons */,
 				A77483401CCE6066003AC18F /* TableViewCell */,
 				A77483491CD2073D003AC18F /* Color */,
@@ -662,7 +662,7 @@
 			name = Commons;
 			sourceTree = "<group>";
 		};
-		A7A5D2911CDA96DC00F8F297 /* Material */ = {
+		A7A5D2911CDA96DC00F8F297 /* ContentView */ = {
 			isa = PBXGroup;
 			children = (
 				A7A5D2921CDA971A00F8F297 /* TitleView.swift */,
@@ -682,7 +682,7 @@
 				A7CFD7E71CE6714300D9E569 /* StarScoreField.swift */,
 				A7CFD7E91CE6937600D9E569 /* TextView.swift */,
 			);
-			name = Material;
+			name = ContentView;
 			sourceTree = "<group>";
 		};
 		A7A60FB21CD2109F00AA9543 /* Exhibitions */ = {
