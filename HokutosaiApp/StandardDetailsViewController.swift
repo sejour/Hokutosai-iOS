@@ -326,6 +326,9 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
                 self.aggregateView?.updateData(scoreData)
             }
             
+            // 自分の評価の更新
+            self.model?.dataMyAssessment = data.dataMyAssessment
+            
             completion?()
         }
     }
