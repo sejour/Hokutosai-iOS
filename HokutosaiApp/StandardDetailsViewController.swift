@@ -68,7 +68,10 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
         
         self.writeAssessmentIcon = UIBarButtonItem(image: SharedImage.writeIcon, style: .Plain, target: self, action: #selector(StandardDetailsViewController.writeAssessment))
         self.writeAssessmentIcon.enabled = false
-        self.navigationItem.rightBarButtonItems = [writeAssessmentIcon]
+        
+        let assessmentListViewIcon = UIBarButtonItem(image: UIImage(named: "AssessmentListIcon"), style: .Plain, target: self, action: #selector(StandardDetailsViewController.showAssessmentList))
+        
+        self.navigationItem.rightBarButtonItems = [writeAssessmentIcon, assessmentListViewIcon]
         
         self.hideNavigationBackButtonText()
 
