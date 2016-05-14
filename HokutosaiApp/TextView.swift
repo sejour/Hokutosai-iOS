@@ -44,8 +44,8 @@ class TextView: UIView, UITextViewDelegate {
         
         self.addSubview(self._textView)
         self._textView.snp_makeConstraints { make in
-            make.left.equalTo(self).offset(20.0)
-            make.right.equalTo(self).offset(-20.0)
+            make.left.equalTo(self).offset(15.0)
+            make.right.equalTo(self).offset(-15.0)
             make.top.equalTo(self)
             make.bottom.equalTo(self)
         }
