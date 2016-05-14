@@ -8,11 +8,12 @@
 
 import UIKit
 
-class AssessmentsWritingViewController: ContentsViewController, StarScoreFieldDelegate {
+class AssessmentsWritingViewController: ContentsStackViewController, StarScoreFieldDelegate {
     
     private var myAssessment: Assessment?
     private var assessmentEndpoint: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>!
     
+    private var topOfTextView: CGFloat!
     private var textView: TextView!
     
     init (assessmentEndpoint: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>, myAssessment: Assessment?) {
@@ -30,6 +31,9 @@ class AssessmentsWritingViewController: ContentsViewController, StarScoreFieldDe
         
         self.navigationItem.leftBarButtonItems = [UIBarButtonItem(title: "キャンセル", style: .Plain, target: self, action: #selector(AssessmentsWritingViewController.cancel))]
         self.navigationItem.rightBarButtonItems = [UIBarButtonItem(title: "送信", style: .Plain, target: self, action: #selector(AssessmentsWritingViewController.send))]
+        
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.addObserver(self, selector: #selector(AssessmentsWritingViewController.didShowKeyboard(_:)), name: UIKeyboardDidShowNotification, object: nil)
         
         self.generateContents()
     }
@@ -73,7 +77,8 @@ class AssessmentsWritingViewController: ContentsViewController, StarScoreFieldDe
         // Text
         let textViewProperty = TextView.Property()
         textViewProperty.placeholder = "感想を入力してください"
-        self.textView = TextView(width: self.view.width, height: 200, property: textViewProperty)
+        self.topOfTextView = self.bottomOfLastView
+        self.textView = TextView(width: self.view.width, height: self.view.height - self.bottomOfLastView, property: textViewProperty)
         self.addContentView(self.textView)
         
         //
@@ -91,6 +96,19 @@ class AssessmentsWritingViewController: ContentsViewController, StarScoreFieldDe
     
     func changeScore(score: UInt?) {
         print("\(score)")
+    }
+    
+    func didShowKeyboard(notification:NSNotification){
+        if let userInfo = notification.userInfo{
+            if let keyboard = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue{
+                let keyBoardRect = keyboard.CGRectValue()
+                
+                // キーボードが表示されたらTextViewの高さを調整
+                self.textView.snp_updateConstraints { make in
+                    make.height.equalTo(self.view.height - self.topOfTextView - keyBoardRect.height)
+                }
+            }
+        }
     }
     
 }
