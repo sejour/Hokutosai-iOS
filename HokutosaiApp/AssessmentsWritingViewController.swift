@@ -122,7 +122,7 @@ class AssessmentsWritingViewController: ContentsStackViewController, StarScoreFi
         }
         AccountManager.sharedManager.setUserName(userName)
         
-        let parameters: [String: AnyObject] = ["score": score, "comment": text, "username": userName ?? ""]
+        let parameters: [String: AnyObject] = ["score": score, "comment": text, "user_name": userName ?? ""]
         HokutosaiApi.POST(self.assessmentEndpoint, parameters: parameters) { response in
             guard response.isSuccess, let data = response.model else {
                 self.presentViewController(ErrorAlert.Server.failureSendRequest("評価を送信できませんでした。"), animated: true, completion: nil)
