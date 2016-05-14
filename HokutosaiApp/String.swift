@@ -11,7 +11,7 @@ import UIKit
 extension String {
     
     var isBlank: Bool {
-        return stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).isEmpty
+        return self.stringByTrimmingCharactersInSet(.whitespaceAndNewlineCharacterSet()).isEmpty
     }
     
 }
