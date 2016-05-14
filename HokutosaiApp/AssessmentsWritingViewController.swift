@@ -30,9 +30,11 @@ class AssessmentsWritingViewController: ContentsStackViewController, StarScoreFi
     private weak var delegate: AssessmentsWritingViewControllerDelegate?
     
     init (assessmentEndpoint: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>, delegate: AssessmentsWritingViewControllerDelegate?) {
-        super.init(title: "評価の投稿")
+        super.init()
         self.assessmentEndpoint = assessmentEndpoint
         self.delegate = delegate
+        
+        self.title = self.delegate?.myAssessment?.assessmentId == nil ? "評価の投稿" : "評価の編集"
     }
     
     required init?(coder aDecoder: NSCoder) {
