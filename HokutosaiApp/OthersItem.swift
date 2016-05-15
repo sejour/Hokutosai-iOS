@@ -19,3 +19,15 @@ class OthersItem {
     }
     
 }
+
+class OthersSection {
+    
+    let title: String?
+    let items: [OthersItem]
+    
+    init(title: String?, items: [OthersItem]) {
+        self.title = title
+        self.items = items
+    }
+    
+}
