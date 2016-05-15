@@ -53,6 +53,17 @@ class OthersViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let item = self.others[indexPath.section].items[indexPath.row]
+        guard let urlString = item.url, let url = NSURL(string: urlString) else { return }
+        
+        if url.scheme == "hokutosai" {
+            
+        }
+        else {
+            let webView = WebViewController(url: url)
+            self.navigationController?.pushViewController(webView, animated: true)
+        }
+        
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 
