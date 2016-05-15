@@ -35,9 +35,7 @@ extension UIViewController {
         if navigationController.navigationBarHidden != hidden {
             if hidden {
                 navigationController.setNavigationBarHidden(hidden, animated: animated)
-                UIApplication.sharedApplication().setStatusBarHidden(hidden, withAnimation: animated ? .Slide : .None)
             } else {
-                UIApplication.sharedApplication().setStatusBarHidden(hidden, withAnimation: animated ? .Slide : .None)
                 navigationController.setNavigationBarHidden(hidden, animated: animated)
             }
         }
@@ -47,12 +45,10 @@ extension UIViewController {
         guard let navigationController = self.navigationController else { return }
         
         if navigationController.navigationBarHidden {
-            UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: animated ? .Slide : .None)
             navigationController.setNavigationBarHidden(false, animated: animated)
         }
         else {
             navigationController.setNavigationBarHidden(true, animated: animated)
-            UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: animated ? .Slide : .None)
         }
     }
     
