@@ -24,6 +24,10 @@ class WebViewController: UIViewController, UIWebViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: #selector(WebViewController.open))
+        ]
 
         self.webView = UIWebView(frame: self.view.frame)
         self.webView.delegate = self
@@ -40,6 +44,17 @@ class WebViewController: UIViewController, UIWebViewDelegate {
     
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         return true
+    }
+    
+    func open() {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        
+        alertController.addAction(UIAlertAction(title: "Safariで開く", style: .Default) { action in
+            UIApplication.sharedApplication().openURL(self.url)
+        })
+        alertController.addAction(UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
 
 }
