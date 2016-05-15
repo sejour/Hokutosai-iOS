@@ -13,7 +13,7 @@ class OthersViewController: UITableViewController {
     private let cellIdentifier = "Others"
     
     private static let hokutosaiVersionUrl = "hokutosai:2016/ios-app/version"
-    private static let hokutosaiCopyrightUrl = "hokutosai:2016/ios-app/copyright"
+    private static let hokutosaiCopyrightUrl = "hokutosai:2016/ios-app/copyrights"
     
     private var others: [OthersSection] = [
         OthersSection(title: nil, items: [
@@ -57,7 +57,12 @@ class OthersViewController: UITableViewController {
         guard let urlString = item.url, let url = NSURL(string: urlString) else { return }
         
         if url.scheme == "hokutosai" {
-            
+            if url.absoluteString == OthersViewController.hokutosaiCopyrightUrl {
+                let textView = TextFileViewController()
+                textView.title = "著作権情報"
+                textView.fileName = "copyrights"
+                self.navigationController?.pushViewController(textView, animated: true)
+            }
         }
         else {
             let webView = WebViewController(url: url)
