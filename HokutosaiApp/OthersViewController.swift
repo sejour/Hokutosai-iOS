@@ -55,11 +55,15 @@ class OthersViewController: UITableViewController {
         return self.others[section].items.count
     }
 
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.others[section].title
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(self.cellIdentifier, forIndexPath: indexPath)
 
-        // Configure the cell...
-
+        cell.textLabel?.text = self.others[indexPath.section].items[indexPath.row].title
+        
         return cell
     }
     
