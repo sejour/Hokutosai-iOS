@@ -16,6 +16,8 @@ class TextFileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.textView.editable = false
 
         if let name = self.fileName {
             let path = NSBundle.mainBundle().pathForResource(name, ofType: "txt")!
