@@ -19,7 +19,7 @@ protocol StandardTableViewController: MutableContentsController {
 
 }
 
-class StandardDetailsViewController<ModelType: StandardContentsData, TableViewController: StandardTableViewController>: ContentsViewController, AssessmentsWritingViewControllerDelegate, MyAssessmentViewDelegate {
+class StandardDetailsViewController<ModelType: StandardContentsData, TableViewController: StandardTableViewController>: ContentsViewController, AssessmentsWritingViewControllerDelegate, MyAssessmentViewDelegate, StandardInformationViewDelegate {
 
     private var model: ModelType?
     
@@ -134,6 +134,7 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
         
         // InformationView
         let informationView = StandardInformationView(width: self.view.width, data: model, placeLinkTarget: self, placeLinkAction: #selector(StandardDetailsViewController.showMap))
+        informationView.delegate = self
         self.addContentView(informationView)
         
         //
@@ -427,6 +428,11 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
         
         let reportViewController = AssessmentsReportSelectViewController(reportingEndpoint: endpoint!)
         self.presentViewController(UINavigationController(rootViewController: reportViewController), animated: true, completion: nil)
+    }
+    
+    func tappedImage(image: UIImage?) {
+        let imageVC = ImageViewController(title: self.title, images: [image])
+        self.navigationController?.pushViewController(imageVC, animated: true)
     }
 
 }
