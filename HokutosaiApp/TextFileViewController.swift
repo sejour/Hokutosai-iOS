@@ -25,6 +25,8 @@ class TextFileViewController: UIViewController {
                 self.textView.text = String(NSString(data: data, encoding: NSUTF8StringEncoding)!)
             }
         }
+        
+        self.textView.contentOffset = CGPoint(x: 0.0, y: self.appearOriginY)
     }
 
     override func didReceiveMemoryWarning() {
