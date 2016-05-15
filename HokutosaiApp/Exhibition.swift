@@ -28,7 +28,7 @@ class Exhibition: StandardContentsData {
     func mapping(map: Map) {
         self.exhibitionId <- map["exhibition_id"]
         self.title <- map["title"]
-        self.exhibitor <- map["exhibitor"]
+        self.exhibitor <- map["exhibitors"]
         self.displays <- map["displays"]
         self.imageUrl <- map["image_url"]
         self.assessmentAggregate <- map["assessment_aggregate"]
