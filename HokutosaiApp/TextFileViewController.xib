@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NW6-D1-5Db">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NW6-D1-5Db">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -24,6 +24,12 @@
                 </textView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="NW6-D1-5Db" secondAttribute="trailing" id="Goh-W3-md1"/>
+                <constraint firstAttribute="bottom" secondItem="NW6-D1-5Db" secondAttribute="bottom" id="J6t-b8-e2S"/>
+                <constraint firstItem="NW6-D1-5Db" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="KcO-9T-sxJ"/>
+                <constraint firstItem="NW6-D1-5Db" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vGE-Dr-3JA"/>
+            </constraints>
         </view>
     </objects>
 </document>
