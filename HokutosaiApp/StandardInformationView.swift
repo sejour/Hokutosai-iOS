@@ -8,11 +8,20 @@
 
 import UIKit
 
+protocol StandardInformationViewDelegate: class {
+    
+    func tappedImage(image: UIImage?)
+    
+}
+
 class StandardInformationView: UIView {
     
     private static let imageWidthRatio: CGFloat = 0.38
     private static let imageLeftMargin: CGFloat = 20.0
     private static let informationViewVerticalMargin = 5.0
+    
+    weak var delegate: StandardInformationViewDelegate?
+    private var imageView: UIImageView!
     
     convenience init(width: CGFloat, data: StandardContentsData, placeLinkTarget: AnyObject?, placeLinkAction: Selector) {
         self.init(frame: CGRect(x: 0.0, y: 0.0, width: width, height: 0.0), imageUrl: data.dataImageUrl, organizer: data.dataOrganizer, description: data.dataDescription, place: data.dataPlace, placeLinkTarget: placeLinkTarget, placeLinkAction: placeLinkAction)
@@ -28,24 +37,26 @@ class StandardInformationView: UIView {
         let imageWidth = self.width * StandardInformationView.imageWidthRatio
         
         // ImageView
-        let imageView = UIImageView()
-        imageView.contentMode = .ScaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(imageView)
-        imageView.snp_makeConstraints { make in
+        self.imageView = UIImageView()
+        self.imageView.contentMode = .ScaleAspectFit
+        self.imageView.userInteractionEnabled = true
+        self.imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(StandardInformationView.tappedImage(_:))))
+        self.imageView.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(self.imageView)
+        self.imageView.snp_makeConstraints { make in
             make.width.height.equalTo(imageWidth)
             make.top.equalTo(self)
             make.left.equalTo(self).offset(StandardInformationView.imageLeftMargin)
         }
         if let imageUrl = imageUrl, let url = NSURL(string: imageUrl) {
-            imageView.af_setImageWithURL(url, placeholderImage: SharedImage.noImage)
+            self.imageView.af_setImageWithURL(url, placeholderImage: SharedImage.noImage)
         }
         else {
-            imageView.image = SharedImage.noImage
+            self.imageView.image = SharedImage.noImage
         }
         
         let informationViewWidth = self.width - imageWidth - StandardInformationView.imageLeftMargin
-        let informationViewOrigin = imageView.snp_right
+        let informationViewOrigin = self.imageView.snp_right
         
         // Organization
         let organizationLabel = InformationLabel(width: informationViewWidth, icon: SharedImage.organizerIcon, text: organizer)
@@ -86,6 +97,10 @@ class StandardInformationView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func tappedImage(gesture: UITapGestureRecognizer) {
+        self.delegate?.tappedImage(self.imageView.image)
     }
     
 }

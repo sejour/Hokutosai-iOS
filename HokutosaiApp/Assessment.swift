@@ -11,6 +11,7 @@ import ObjectMapper
 
 class Assessment: Mappable {
     
+    var assessmentId: UInt?
     var user: User?
     var datetime: NSDate?
     var score: UInt?
@@ -19,6 +20,7 @@ class Assessment: Mappable {
     required init?(_ map: Map) { }
     
     func mapping(map: Map) {
+        self.assessmentId <- map["assessment_id"]
         self.user <- map["user"]
         self.datetime <- (map["datetime"], HokutosaiDateTransform())
         self.score <- map["score"]

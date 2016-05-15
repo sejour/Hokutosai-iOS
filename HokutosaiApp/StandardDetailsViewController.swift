@@ -8,30 +8,42 @@
 
 import UIKit
 
+enum StandardContentsType {
+    case Shop
+    case Exhibition
+}
+
 protocol StandardTableViewController: MutableContentsController {
     
     func reloadData()
 
 }
 
-class StandardDetailsViewController<ModelType: StandardContentsData, TableViewController: StandardTableViewController>: ContentsViewController {
+class StandardDetailsViewController<ModelType: StandardContentsData, TableViewController: StandardTableViewController>: ContentsViewController, AssessmentsWritingViewControllerDelegate, MyAssessmentViewDelegate, StandardInformationViewDelegate {
 
     private var model: ModelType?
     
     private var likesCountLabel: InformationLabel!
     private var likeIcon: InteractiveIcon!
+    private var aggregateView: AssessmentAggregateView?
+    private var myAssessmentView: MyAssessmentView!
+    private var writeAssessmentIcon: UIBarButtonItem!
     
     var introductionLabelTitle: String!
     
     private weak var tableViewController: TableViewController?
+    private weak var assessmentsListViewController: AssessmentsListViewController?
     
     private var endpointModel: HokutosaiApiEndpoint<ObjectResource<ModelType>>!
     private var endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>!
     private var endpointAssessmentList: HokutosaiApiEndpoint<ObjectResource<AssessmentList>>!
     private var endpointAssessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>!
     
-    init(endpointModel: HokutosaiApiEndpoint<ObjectResource<ModelType>>, endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>, endpointAssessmentList: HokutosaiApiEndpoint<ObjectResource<AssessmentList>>, endpointAssessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>!, title: String?, introductionLabelTitle: String!) {
+    private var contentsType: StandardContentsType!
+    
+    init(contentsType: StandardContentsType, endpointModel: HokutosaiApiEndpoint<ObjectResource<ModelType>>, endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>, endpointAssessmentList: HokutosaiApiEndpoint<ObjectResource<AssessmentList>>, endpointAssessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>, title: String?, introductionLabelTitle: String!) {
         super.init(title: title)
+        self.contentsType = contentsType
         self.endpointModel = endpointModel
         self.endpointLikes = endpointLikes
         self.endpointAssessmentList = endpointAssessmentList
@@ -39,8 +51,9 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
         self.introductionLabelTitle = introductionLabelTitle
     }
     
-    init(endpointModel: HokutosaiApiEndpoint<ObjectResource<ModelType>>, endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>, endpointAssessmentList: HokutosaiApiEndpoint<ObjectResource<AssessmentList>>, endpointAssessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>!, model: ModelType, tableViewController: TableViewController, introductionLabelTitle: String!) {
+    init(contentsType: StandardContentsType, endpointModel: HokutosaiApiEndpoint<ObjectResource<ModelType>>, endpointLikes: HokutosaiApiEndpoint<ObjectResource<LikeResult>>, endpointAssessmentList: HokutosaiApiEndpoint<ObjectResource<AssessmentList>>, endpointAssessment: HokutosaiApiEndpoint<ObjectResource<MyAssessment>>, model: ModelType, tableViewController: TableViewController, introductionLabelTitle: String!) {
         super.init(title: model.dataTitle)
+        self.contentsType = contentsType
         self.endpointModel = endpointModel
         self.endpointLikes = endpointLikes
         self.endpointAssessmentList = endpointAssessmentList
@@ -53,6 +66,13 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.writeAssessmentIcon = UIBarButtonItem(image: SharedImage.writeIcon, style: .Plain, target: self, action: #selector(StandardDetailsViewController.writeAssessment))
+        self.writeAssessmentIcon.enabled = false
+        
+        let assessmentListViewIcon = UIBarButtonItem(image: UIImage(named: "AssessmentListIcon"), style: .Plain, target: self, action: #selector(StandardDetailsViewController.showAssessmentList))
+        
+        self.navigationItem.rightBarButtonItems = [writeAssessmentIcon, assessmentListViewIcon]
+        
         self.hideNavigationBackButtonText()
 
         if let model = self.model {
@@ -60,7 +80,6 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
             self.layoutIntroductionView(model) /* IntroductionViewを配置 */
             self.updateContentViews() /* 適用 */
             self.updateMutableContents() /* 可変データの更新 */
-            self.updateAssessments() /* 評価ビューの生成 */
         }
         else {
             self.fetchContents()
@@ -89,12 +108,15 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
             self.generateContents(data) /* IntroductionViewより上に配置されるViewを作成 (オーバーライドされる) */
             self.layoutIntroductionView(data) /* IntroductionViewを配置 */
             self.updateContentViews() /* 適用 */
-            self.updateAssessments() /* 評価ビューを生成 */
             loadingView.removeFromSuperview()
         }
     }
     
     func generateContents(model: ModelType) {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(StandardDetailsViewController.onRefresh(_:)), forControlEvents: .ValueChanged)
+        self.tableView.addSubview(refreshControl)
+        
         //
         self.insertSpace(5.0)
         //
@@ -112,6 +134,7 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
         
         // InformationView
         let informationView = StandardInformationView(width: self.view.width, data: model, placeLinkTarget: self, placeLinkAction: #selector(StandardDetailsViewController.showMap))
+        informationView.delegate = self
         self.addContentView(informationView)
         
         //
@@ -162,13 +185,84 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
         let introductionLabel = TextLabel(width: self.view.width, text: model.dataIntroduction)
         self.addContentView(introductionLabel)
         
-        //
+        // ---
+        self.insertSpace(10.0)
+        self.insertSeparator(20.0)
+        self.insertSpace(10.0)
+        // ---
+        
+        // 見出し
+        self.addContentView(InformationLabel(width: self.view.width, icon: SharedImage.messageIcon, text: "みんなの評価"))
+        
+        // 集計結果
+        if let aggreagete = self.model?.dataAssessmentAggregate {
+            //
+            self.insertSpace(8.0)
+            //
+            
+            self.aggregateView = AssessmentAggregateView(width: self.view.width, scoreData: aggreagete)
+            self.addContentView(self.aggregateView!)
+        }
+        
+        // ---
+        self.insertSpace(15.0)
+        self.insertSeparator(20.0)
+        self.insertSpace(8.0)
+        // ---
+        
+        // 評価を見る
+        let showAssessmentListButton = ButtonView(width: self.view.width, text: "評価一覧を見る", target: self, action: #selector(StandardDetailsViewController.showAssessmentList))
+        self.addContentView(showAssessmentListButton)
+        
+        // ---
+        self.insertSpace(8.0)
+        self.insertSeparator(20.0)
+        self.insertSpace(8.0)
+        // ---
+        
+        // 評価 Write/Edit
+        self.myAssessmentView = MyAssessmentView(width: self.view.width, delegate: self)
+        self.addContentView(self.myAssessmentView)
+        
+        // ---
+        self.insertSpace(8.0)
+        self.insertSeparator(20.0)
         self.insertSpace(20.0)
-        //
+        // ---
     }
     
-    private func updateAssessments() {
+    func onRefresh(refreshControl: UIRefreshControl) {
+        self.updateMutableContents {
+            refreshControl.endRefreshing()
+        }
+    }
+    
+    func showAssessmentList() {
+        let assessmentsListViewController = AssessmentsListViewController(contentsType: self.contentsType, endpointAssessmentList: self.endpointAssessmentList, endpointAssessment: self.endpointAssessment, writingViewControllerDelegate: self)
+        self.assessmentsListViewController = assessmentsListViewController
+        assessmentsListViewController.writeAssessmentIcon.enabled = self.writeAssessmentIcon.enabled
+        self.navigationController?.pushViewController(assessmentsListViewController, animated: true)
+    }
+    
+    func writeAssessment() {
+        let vc = AssessmentsWritingViewController(assessmentEndpoint: self.endpointAssessment, delegate: self)
+        self.presentViewController(UINavigationController(rootViewController: vc), animated: true, completion: nil)
+    }
+    
+    var myAssessment: Assessment? {
+        return self.model?.dataMyAssessment
+    }
+    
+    func updateMyAssessment(newMyAssessment: MyAssessment) {
+        self.model?.dataMyAssessment = newMyAssessment.myAssessment
         
+        if let scoreData = newMyAssessment.assessmentAggregate {
+            self.model?.dataAssessmentAggregate = scoreData
+            self.aggregateView?.updateData(scoreData)
+        }
+        
+        self.myAssessmentView.updateData(newMyAssessment.myAssessment)
+        self.updateContentViews()
     }
     
     func like() {
@@ -219,9 +313,10 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
     }
     
     // 可変コンテンツを更新する
-    func updateMutableContents() {
+    func updateMutableContents(completion: (() -> Void)? = nil) {
         HokutosaiApi.GET(self.endpointModel) { response in
             guard response.isSuccess, let data = response.model else {
+                completion?()
                 return
             }
             
@@ -240,7 +335,21 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
             }
             
             // 評価結果の更新
-            self.model?.dataAssessmentAggregate = data.dataAssessmentAggregate
+            if let scoreData = data.dataAssessmentAggregate {
+                self.model?.dataAssessmentAggregate = scoreData
+                self.aggregateView?.updateData(scoreData)
+            }
+            
+            // 自分の評価の更新
+            self.model?.dataMyAssessment = data.dataMyAssessment
+            self.myAssessmentView.updateData(data.dataMyAssessment)
+            
+            // ビュー更新
+            self.updateContentViews()
+            self.writeAssessmentIcon.enabled = true
+            self.assessmentsListViewController?.writeAssessmentIcon.enabled = true
+            
+            completion?()
         }
     }
     
@@ -255,6 +364,75 @@ class StandardDetailsViewController<ModelType: StandardContentsData, TableViewCo
     func showMap() {
         let vc = ImageViewController(title: "校内マップ", images: [SharedImage.layoutMap])
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func tappedWrite() {
+        self.writeAssessment()
+    }
+    
+    func tappedOthersButton(assessmentId: UInt) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        
+        if assessmentId == self.model?.dataMyAssessment?.assessmentId {
+            let editAction = UIAlertAction(title: "評価を編集する", style: .Default) { action in
+                self.writeAssessment()
+            }
+            let deleteAction = UIAlertAction(title: "評価を削除する", style: .Destructive) { action in
+                let confirmAlert = UIAlertController(title: "評価を削除", message: "本当に評価を削除してもよろしいですか？", preferredStyle: .Alert)
+                confirmAlert.addAction(UIAlertAction(title: "削除", style: .Default) { action in
+                    self.deleteMyAssessment()
+                    })
+                confirmAlert.addAction(UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil))
+                self.presentViewController(confirmAlert, animated: true, completion: nil)
+            }
+            
+            alertController.addAction(editAction)
+            alertController.addAction(deleteAction)
+        }
+        else {
+            let reportAction = UIAlertAction(title: "このコメントを報告する", style: .Default) { action in
+                self.report(assessmentId)
+            }
+            alertController.addAction(reportAction)
+        }
+        
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+
+    func deleteMyAssessment() {
+        HokutosaiApi.DELETE(self.endpointAssessment) { response in
+            guard response.isSuccess, let data = response.model else {
+                self.presentViewController(ErrorAlert.Server.failureSendRequest(), animated: true, completion: nil)
+                return
+            }
+            
+            self.updateMyAssessment(data)
+        }
+    }
+    
+    func report(assessmentId: UInt) {
+        guard let contentsType = self.contentsType else { return }
+        
+        var endpoint: HokutosaiApiEndpoint<ObjectResource<HokutosaiApiStatus>>?
+        switch contentsType {
+        case .Shop:
+            endpoint = HokutosaiApi.Shops.AssessmentReport(assessmentId: assessmentId)
+        case .Exhibition:
+            endpoint = HokutosaiApi.Exhibitions.AssessmentReport(assessmentId: assessmentId)
+        }
+        
+        guard endpoint != nil else { return }
+        
+        let reportViewController = AssessmentsReportSelectViewController(reportingEndpoint: endpoint!)
+        self.presentViewController(UINavigationController(rootViewController: reportViewController), animated: true, completion: nil)
+    }
+    
+    func tappedImage(image: UIImage?) {
+        let imageVC = ImageViewController(title: self.title, images: [image])
+        self.navigationController?.pushViewController(imageVC, animated: true)
     }
 
 }

@@ -19,6 +19,9 @@ final class SharedImage {
     static let topicIcon = UIImage(named: "TopicIcon")
     static let starRibbonIcon = UIImage(named: "StarRibbonIcon")
     
+    static let grayStarIcon = UIImage(named: "GrayStarIcon")
+    static let brightStarIcon = UIImage(named: "BrightStarIcon")
+    
     static var organizerIcon: UIImage? { return UIImage(named: "OrganizerIcon") }
     static var placeIcon: UIImage? { return UIImage(named: "PlaceIcon") }
     static var clockIcon: UIImage? { return UIImage(named: "ClockIcon") }
@@ -34,6 +37,8 @@ final class SharedImage {
     static var shareIcon: UIImage? { return UIImage(named: "ShareIcon") }
     static var blackHertIcon: UIImage? { return UIImage(named: "BlackHertIcon") }
     
+    static var writeIcon: UIImage? { return UIImage(named: "WriteIcon") }
+    
     static var hokutosaiTopImage: UIImage? { return UIImage(named: "TopImage") }
     static var hokutosaiThemaImage: UIImage? { return UIImage(named: "ThemaImage") }
     
@@ -41,6 +46,15 @@ final class SharedImage {
     static let placeholderImageMini = UIImage(named: "PlaceholderImageMini")
     
     static var layoutMap: UIImage? { return UIImage(named: "LayoutMap") }
+    
+    static let scoreImage = [
+        UIImage(named: "score0"),
+        UIImage(named: "score1"),
+        UIImage(named: "score2"),
+        UIImage(named: "score3"),
+        UIImage(named: "score4"),
+        UIImage(named: "score5")
+    ]
     
     private init () {}
     

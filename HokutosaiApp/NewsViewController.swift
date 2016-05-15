@@ -32,6 +32,7 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
 
         self.title = "お知らせ"
         
+        self.navigationItem.leftBarButtonItems = [UIBarButtonItem(image: UIImage(named: "OthersIcon"), style: .Plain, target: self, action: #selector(NewsViewController.showOthers))]
         self.navigationItem.rightBarButtonItems = [UIBarButtonItem(title: "MAP", style: .Plain, target: self, action: #selector(NewsViewController.showMap))]
         
         self.view.backgroundColor = UIColor.whiteColor()
@@ -327,6 +328,11 @@ class NewsViewController: UIViewController, TappableViewControllerDelegate, UITa
         }
         
         self.timeline.reloadData()
+    }
+    
+    func showOthers() {
+        let vc = OthersViewController()
+        self.presentViewController(UINavigationController(rootViewController: vc), animated: true, completion: nil)
     }
     
     // scrolling ------------------------------------------------------------------------------------

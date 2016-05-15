@@ -91,4 +91,11 @@ final class AccountManager {
         keychain[AccountManager.mediaUrlKey] = account.mediaUrl
     }
     
+    func setUserName(userName: String?) {
+        self._account?.userName = userName
+        
+        let keychain = Keychain(service: AccountManager.serviceNameKey)
+        keychain[AccountManager.userNameKey] = userName
+    }
+    
 }

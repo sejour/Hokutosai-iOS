@@ -103,6 +103,10 @@ extension HokutosaiApi {
             init(shopId: UInt) { super.init(basePath: basePath, path: "/\(shopId)/likes") }
         }
         
+        class AssessmentReport: HokutosaiApiEndpoint<ObjectResource<HokutosaiApiStatus>> {
+            init(assessmentId: UInt) { super.init(basePath: basePath, path: "/assessment/\(assessmentId)/report") }
+        }
+        
     }
     
     class Exhibitions {
@@ -133,6 +137,10 @@ extension HokutosaiApi {
             init(exhibitionId: UInt) { super.init(basePath: basePath, path: "/\(exhibitionId)/likes") }
         }
         
+        class AssessmentReport: HokutosaiApiEndpoint<ObjectResource<HokutosaiApiStatus>> {
+            init(assessmentId: UInt) { super.init(basePath: basePath, path: "/assessment/\(assessmentId)/report") }
+        }
+        
     }
     
     class Accounts {
@@ -141,6 +149,16 @@ extension HokutosaiApi {
         
         class New: HokutosaiApiEndpoint<ObjectResource<HokutosaiAccount>> {
             init() { super.init(basePath: basePath, path: "/new", requiredAccount: false) }
+        }
+        
+    }
+    
+    class Assessments {
+        
+        static let basePath = "/assessments"
+        
+        class ReportCauses: HokutosaiApiEndpoint<ArrayResource<AssessmentReportCause>> {
+            init() { super.init(basePath: basePath, path: "/reports/causes") }
         }
         
     }

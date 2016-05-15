@@ -9,7 +9,7 @@ target 'HokutosaiApp' do
   pod 'AlamofireImage'
   pod 'SnapKit', '~> 0.15.0'
   pod 'PagingMenuController'
-  pod 'SVProgressHUD'
+  pod 'UITextView+Placeholder', '~> 1.2'
 end
 
 target 'HokutosaiAppTests' do

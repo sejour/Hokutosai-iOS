@@ -15,6 +15,14 @@ class TopicViewController: TappableViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLable: UILabel!
     
+    init() {
+        super.init(nibName: "TopicViewController", bundle: NSBundle.mainBundle())
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
