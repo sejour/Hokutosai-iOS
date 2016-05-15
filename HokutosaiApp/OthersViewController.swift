@@ -22,7 +22,7 @@ class OthersViewController: UITableViewController {
         OthersSection(title: "北斗祭に関する情報", items: [
             OthersItem(title: "北斗祭公式ホームページ", url: "http://www.nc-toyama.ac.jp/c5/index.php/mcon/ca_life/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%91%E3%82%B9%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88/%E9%AB%98%E5%B0%82%E7%A5%AD/kousensaih008/"),
             OthersItem(title: "北斗祭公式Twitter", url: "https://mobile.twitter.com/hokutosai2016"),
-            OthersItem(title: "スクールバス時刻表", url: "https://www.hokutosai.tech/schoolbus")
+            OthersItem(title: "スクールバス時刻表", url: "https://www.hokutosai.tech/schoolbus/")
         ]),
         OthersSection(title: "アプリに関する情報", items: [
             OthersItem(title: "アプリについて", url: "https://www.hokutosai.tech/"),
