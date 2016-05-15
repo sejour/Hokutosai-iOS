@@ -17,6 +17,7 @@ class EventsDetailViewController: ContentsViewController {
     private var likesCountLabel: InformationLabel!
     private var likeIcon: InteractiveIcon!
     //private var remindIcon: InteractiveIcon!
+    private var imageView: UIImageView!
     
     private weak var timetableViewController: EventsTimetableViewController?
     
@@ -78,14 +79,16 @@ class EventsDetailViewController: ContentsViewController {
     
     func generateContents(event: Event) {
         // ImageView
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.width, height: self.topicsBordWidthHeightRatio * self.view.width))
+        self.imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.width, height: self.topicsBordWidthHeightRatio * self.view.width))
         if let imageUrl = event.imageUrl, let url = NSURL(string: imageUrl) {
-            imageView.af_setImageWithURL(url, placeholderImage: SharedImage.noImageWide)
+            self.imageView.af_setImageWithURL(url, placeholderImage: SharedImage.noImageWide)
         }
         else {
-            imageView.image = SharedImage.noImageWide
+            self.imageView.image = SharedImage.noImageWide
         }
-        self.addContentView(imageView)
+        self.imageView.userInteractionEnabled = true
+        self.imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(EventsDetailViewController.tappedImage(_:))))
+        self.addContentView(self.imageView)
         
         //
         self.insertSpace(5.0)
@@ -280,6 +283,11 @@ class EventsDetailViewController: ContentsViewController {
     func showMap() {
         let vc = ImageViewController(title: "校内マップ", images: [SharedImage.layoutMap])
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func tappedImage(gesture: UITapGestureRecognizer) {
+        let imageVC = ImageViewController(title: self.title, images: [self.imageView.image])
+        self.navigationController?.pushViewController(imageVC, animated: true)
     }
     
 }
