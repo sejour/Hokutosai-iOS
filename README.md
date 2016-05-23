@@ -1,4 +1,6 @@
 # Hokutosai App 2016 for iOS
+<img src="https://github.com/sejour/Hokutosai-iOS/blob/master/img/HokutosaiAppIcon.png?raw=true" width="250px">
+
 ![platform](https://img.shields.io/badge/platform-ios-lightgray.svg)
 ![language](https://img.shields.io/badge/language-swift%202.2-orange.svg)
 ![deployment Target](https://img.shields.io/badge/deployment%20target-9.0-brightgreen.svg)
