@@ -11,30 +11,38 @@
 アプリのダウンロードは[こちら](https://itunes.apple.com/jp/app/bei-dou-ji-sole!/id1114411252?mt=8)から。
 
 ## 機能紹介
-- お知らせ  
-本部、企画、模擬店、展示からのお知らせを見ることができます。上部のボードにトピックニュースが表示されます。  
-![お知らせ]()
+### お知らせ閲覧
+本部、企画、模擬店、展示からのお知らせを見ることができます。上部のボードにトピックニュースが表示されます。
 
-- タイムスケジュール  
+<img src="https://github.com/sejour/Hokutosai-iOS/blob/master/img/news.png?raw=true" width="280px">
+
+### タイムスケジュール閲覧
 企画のタイムスケジュールと詳細を見ることができます。  
 時間が近づくにつれカラーラインのカラーが変わります。  
-![タイムスケジュール]()
-![企画詳細画面]()  
 
-- 模擬店・展示  
+<img src="https://github.com/sejour/Hokutosai-iOS/blob/master/img/events.PNG?raw=true" width="280px">
+<img src="https://github.com/sejour/Hokutosai-iOS/blob/master/img/events_detail.PNG?raw=true" width="280px">
+
+### 模擬店・展示閲覧
 模擬店・展示の一覧や出店者・出展者からのメッセージを見ることができます。  
-![模擬店一覧]()
-![展示一覧]()
-![模擬店詳細画面]()
 
-- 評価と感想の共有  
+<img src="https://github.com/sejour/Hokutosai-iOS/blob/master/img/shops.png?raw=true" width="280px">
+<img src="https://github.com/sejour/Hokutosai-iOS/blob/master/img/exhibitions.png?raw=true" width="280px">
+<img src="https://github.com/sejour/Hokutosai-iOS/blob/master/img/shops_detail.PNG?raw=true" width="280px">
+
+### 評価と感想の共有
 模擬店と展示をコメント付きで5段階評価することができます。  
-![評価の投稿]()
-![評価一覧]()
 
-- いいね  
+<img src="https://github.com/sejour/Hokutosai-iOS/blob/master/img/assessments.png?raw=true" width="280px">
+<img src="https://github.com/sejour/Hokutosai-iOS/blob/master/img/write_assessment.png?raw=true" width="280px">
+
+### いいね機能
 気に入ったお知らせや企画、模擬店、展示に「いいね」をつけることができます。  
-![お知らせ詳細画面]()
+
+<img src="https://github.com/sejour/Hokutosai-iOS/blob/master/img/like.png?raw=true" width="280px">
+
+## Author
+Shuka Takakuma
 
 ## 関連リンク
 - [北斗祭 SOLE! for iOS](https://itunes.apple.com/jp/app/bei-dou-ji-sole!/id1114411252?mt=8)
